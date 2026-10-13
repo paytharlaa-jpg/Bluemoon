@@ -19,70 +19,70 @@ const CloudTransition = ({ scrollProgress }) => {
     restDelta: 0.0001,
   });
 
-  // ── Rising Clouds Trajectory: Sweeps up from lower horizon to completely engulf the Hero section ──
-  // At progress 0: Clouds rest gracefully in the lower horizon (bottom 15-20%, y ~ 80vh - 88vh),
-  // leaving the video, "REDEFINING LUXURY" headline, and "Explore Portfolio" button completely visible.
-  // As user scrolls: Clouds dynamically billow upwards across the screen, blanketing the hero in pure white clouds.
-  // At progress 1.0: Whole hero is engulfed in a sea of pure white clouds, seamlessly merging into Section 2!
+  // ── Rising Clouds Trajectory: Coming from Section 2 upwards into Hero Section ──
+  // At progress 0: Clouds rest down at Section 2 boundary (peeking only slightly along bottom horizon).
+  // As user scrolls: Clouds dynamically surge upwards from Section 2 into the Hero section,
+  // blanketing the video, headline, and button in a sea of pure white clouds.
+  // At progress 1.0: Whole hero is engulfed, seamlessly revealing Section 2.
 
   // Layer 1: Leading High Background Cloud
-  const backCloudY = useTransform(smoothProgress, [0, 0.45, 0.8, 1.0], ['80vh', '30vh', '-22vh', '-48vh']);
+  const backCloudY = useTransform(smoothProgress, [0, 0.45, 0.8, 1.0], ['0vh', '-32vh', '-68vh', '-86vh']);
   const backCloudScale = useTransform(smoothProgress, [0, 0.5, 1.0], [1.0, 1.15, 1.3]);
-  const backCloudOpacity = useTransform(smoothProgress, [0, 0.12, 0.7, 1.0], [0.7, 1.0, 1.0, 0.95]);
+  const backCloudOpacity = useTransform(smoothProgress, [0, 0.15, 0.75, 0.95, 1.05], [0.85, 1.0, 1.0, 0.4, 0]);
 
   // Layer 2: Left Wing Flanking Cloud (inward rolling drift)
-  const leftCloudY = useTransform(smoothProgress, [0, 0.45, 0.8, 1.0], ['84vh', '34vh', '-18vh', '-42vh']);
+  const leftCloudY = useTransform(smoothProgress, [0, 0.45, 0.8, 1.0], ['0vh', '-28vh', '-64vh', '-80vh']);
   const leftCloudX = useTransform(smoothProgress, [0, 0.5, 1.0], ['-4vw', '0vw', '4vw']);
   const leftCloudScale = useTransform(smoothProgress, [0, 0.5, 1.0], [1.0, 1.18, 1.32]);
-  const leftCloudOpacity = useTransform(smoothProgress, [0, 0.12, 0.7, 1.0], [0.75, 1.0, 1.0, 0.95]);
+  const leftCloudOpacity = useTransform(smoothProgress, [0, 0.15, 0.75, 0.95, 1.05], [0.85, 1.0, 1.0, 0.4, 0]);
 
   // Layer 3: Right Wing Flanking Cloud (inward rolling drift, flipped)
-  const rightCloudY = useTransform(smoothProgress, [0, 0.45, 0.8, 1.0], ['84vh', '34vh', '-18vh', '-42vh']);
+  const rightCloudY = useTransform(smoothProgress, [0, 0.45, 0.8, 1.0], ['0vh', '-28vh', '-64vh', '-80vh']);
   const rightCloudX = useTransform(smoothProgress, [0, 0.5, 1.0], ['4vw', '0vw', '-4vw']);
   const rightCloudScale = useTransform(smoothProgress, [0, 0.5, 1.0], [1.0, 1.18, 1.32]);
-  const rightCloudOpacity = useTransform(smoothProgress, [0, 0.12, 0.7, 1.0], [0.75, 1.0, 1.0, 0.95]);
+  const rightCloudOpacity = useTransform(smoothProgress, [0, 0.15, 0.75, 0.95, 1.05], [0.85, 1.0, 1.0, 0.4, 0]);
 
   // Layer 4: Grand Foreground Billowing Cloud (Center Apex)
-  const frontCloudY = useTransform(smoothProgress, [0, 0.45, 0.8, 1.0], ['82vh', '28vh', '-22vh', '-46vh']);
+  const frontCloudY = useTransform(smoothProgress, [0, 0.45, 0.8, 1.0], ['0vh', '-36vh', '-74vh', '-90vh']);
   const frontCloudScale = useTransform(smoothProgress, [0, 0.5, 1.0], [1.02, 1.2, 1.36]);
-  const frontCloudOpacity = useTransform(smoothProgress, [0, 0.1, 0.7, 1.0], [0.8, 1.0, 1.0, 0.98]);
+  const frontCloudOpacity = useTransform(smoothProgress, [0, 0.15, 0.75, 0.95, 1.05], [0.9, 1.0, 1.0, 0.4, 0]);
 
   // Layer 5: Base Overlap Cloud (Seals lower boundary)
-  const baseCloudY = useTransform(smoothProgress, [0, 0.45, 0.8, 1.0], ['88vh', '38vh', '-12vh', '-34vh']);
+  const baseCloudY = useTransform(smoothProgress, [0, 0.45, 0.8, 1.0], ['0vh', '-24vh', '-54vh', '-70vh']);
   const baseCloudScale = useTransform(smoothProgress, [0, 0.5, 1.0], [1.0, 1.14, 1.25]);
-  const baseCloudOpacity = useTransform(smoothProgress, [0, 0.12, 0.7, 1.0], [0.85, 1.0, 1.0, 1.0]);
+  const baseCloudOpacity = useTransform(smoothProgress, [0, 0.15, 0.75, 0.95, 1.05], [0.9, 1.0, 1.0, 0.4, 0]);
 
   // Layer 6: Solid White Rising Cloud Deck (Ensures 100% opaque white coverage beneath clouds)
-  const fogDeckY = useTransform(smoothProgress, [0, 0.45, 0.8, 1.0], ['92vh', '42vh', '-10vh', '-30vh']);
-  const fogDeckOpacity = useTransform(smoothProgress, [0, 0.12, 0.65, 1.0], [0.25, 0.85, 1.0, 1.0]);
+  const fogDeckY = useTransform(smoothProgress, [0, 0.45, 0.8, 1.0], ['0vh', '-28vh', '-62vh', '-78vh']);
+  const fogDeckOpacity = useTransform(smoothProgress, [0, 0.15, 0.75, 0.95, 1.05], [0.25, 0.9, 1.0, 0.4, 0]);
 
   // Layer 7: Radiant Sunlight Atmospheric Bloom
-  const glowY = useTransform(smoothProgress, [0, 0.45, 0.8, 1.0], ['84vh', '30vh', '-18vh', '-38vh']);
+  const glowY = useTransform(smoothProgress, [0, 0.45, 0.8, 1.0], ['0vh', '-30vh', '-66vh', '-82vh']);
   const glowScale = useTransform(smoothProgress, [0, 0.5, 1.0], [1.0, 1.25, 1.45]);
-  const glowOpacity = useTransform(smoothProgress, [0, 0.12, 0.65, 1.0], [0.15, 0.9, 0.95, 0.8]);
+  const glowOpacity = useTransform(smoothProgress, [0, 0.15, 0.75, 0.95, 1.05], [0.15, 0.9, 0.95, 0.3, 0]);
 
   return (
     <div
       aria-hidden="true"
       style={{
         position: 'absolute',
-        inset: 0,
+        top: 0,
+        left: 0,
         width: '100%',
-        height: '100%',
         pointerEvents: 'none',
-        zIndex: 15,
+        zIndex: 25,
         overflow: 'visible',
       }}
     >
-      {/* ── 1. Pure White Rising Fog Deck (guarantees 100% white coverage over hero video) ── */}
+      {/* ── 1. Pure White Rising Fog Deck (bridges Section 2 upwards into Hero video) ── */}
       <motion.div
         style={{
           position: 'absolute',
-          top: 0,
+          top: '-30vh',
           left: 0,
           width: '100%',
-          height: '160vh',
-          background: 'linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.8) 15%, #FFFFFF 32%, #FFFFFF 100%)',
+          height: '120vh',
+          background: 'linear-gradient(to top, #FFFFFF 0%, #FFFFFF 50%, rgba(255, 255, 255, 0.92) 75%, transparent 100%)',
           y: fogDeckY,
           opacity: fogDeckOpacity,
           zIndex: 1,
@@ -97,7 +97,7 @@ const CloudTransition = ({ scrollProgress }) => {
       <motion.div
         style={{
           position: 'absolute',
-          top: 0,
+          top: '-180px',
           left: '50%',
           width: '100vw',
           maxWidth: '1700px',
@@ -117,7 +117,7 @@ const CloudTransition = ({ scrollProgress }) => {
       <motion.div
         style={{
           position: 'absolute',
-          top: 0,
+          top: '-160px',
           left: '50%',
           width: '90vw',
           minWidth: '900px',
@@ -154,7 +154,7 @@ const CloudTransition = ({ scrollProgress }) => {
       <motion.div
         style={{
           position: 'absolute',
-          top: 0,
+          top: '-140px',
           left: '-10%',
           width: '75vw',
           minWidth: '750px',
@@ -191,7 +191,7 @@ const CloudTransition = ({ scrollProgress }) => {
       <motion.div
         style={{
           position: 'absolute',
-          top: 0,
+          top: '-140px',
           right: '-10%',
           width: '75vw',
           minWidth: '750px',
@@ -229,7 +229,7 @@ const CloudTransition = ({ scrollProgress }) => {
       <motion.div
         style={{
           position: 'absolute',
-          top: 0,
+          top: '-180px',
           left: '50%',
           width: '100vw',
           minWidth: '950px',
@@ -266,7 +266,7 @@ const CloudTransition = ({ scrollProgress }) => {
       <motion.div
         style={{
           position: 'absolute',
-          top: 0,
+          top: '-100px',
           left: '50%',
           width: '110vw',
           maxWidth: '1800px',
@@ -458,9 +458,6 @@ export default function Home() {
             </Link>
           </motion.div>
         </motion.div>
-
-        {/* ── Volumetric Cloud Blanket: Rises up and completely covers the hero section while scrolling ── */}
-        <CloudTransition scrollProgress={heroScroll} />
       </section>
 
       {/* 2. Architectural Design Section — 2 Organic Shaped Images, Editorial Layout, 3D Button & Slider */}
@@ -474,20 +471,8 @@ export default function Home() {
           backgroundColor: '#FFFFFF',
         }}
       >
-        {/* Soft atmospheric cloud mist seamlessly bridging from Hero transition */}
-        <div
-          aria-hidden="true"
-          style={{
-            position: 'absolute',
-            top: '-60px',
-            left: 0,
-            width: '100%',
-            height: '220px',
-            pointerEvents: 'none',
-            zIndex: 2,
-            background: 'linear-gradient(to bottom, #FFFFFF 0%, rgba(255,255,255,0.85) 45%, transparent 100%)',
-          }}
-        />
+        {/* ── Volumetric Cloud Transition: Arises from Section 2 upwards into Hero Section during scroll ── */}
+        <CloudTransition scrollProgress={heroScroll} />
         <ArchitecturalDesign />
       </section>
 
