@@ -287,14 +287,17 @@ function CinematicScrollCard({
       <div
         className="cinematic-card-box"
         style={{
-          width: '95%',
-          maxWidth: '1360px',
+          width: 'min(94%, 1240px)',
+          height: 'min(70vh, 510px)',
+          maxHeight: 'min(70vh, 510px)',
           backgroundColor: BRAND.white,
           border: '1px solid rgba(38, 54, 111, 0.16)',
-          borderRadius: '24px',
-          boxShadow: '0 30px 100px rgba(38, 54, 111, 0.12), 0 10px 30px rgba(18, 164, 220, 0.06)',
+          borderRadius: '20px',
+          boxShadow: '0 25px 80px rgba(38, 54, 111, 0.12), 0 8px 25px rgba(18, 164, 220, 0.06)',
           overflow: 'hidden',
           position: 'relative',
+          display: 'flex',
+          flexDirection: 'column',
         }}
       >
         {/* macOS Window Controls Bar */}
@@ -303,20 +306,21 @@ function CinematicScrollCard({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            padding: '1rem 1.8rem',
+            padding: '0.45rem 1.4rem',
             backgroundColor: '#F8FAFD',
             borderBottom: '1px solid rgba(38, 54, 111, 0.12)',
+            flexShrink: 0,
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <span style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: BRAND.premiumRed, display: 'inline-block' }} />
-            <span style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: BRAND.skyBlue, display: 'inline-block' }} />
-            <span style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: BRAND.primaryBlue, display: 'inline-block' }} />
+            <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: BRAND.premiumRed, display: 'inline-block' }} />
+            <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: BRAND.skyBlue, display: 'inline-block' }} />
+            <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: BRAND.primaryBlue, display: 'inline-block' }} />
             <span
               style={{
-                marginLeft: '14px',
+                marginLeft: '12px',
                 fontFamily: 'monospace',
-                fontSize: '0.74rem',
+                fontSize: '0.7rem',
                 letterSpacing: '1px',
                 color: 'rgba(38, 54, 111, 0.6)',
               }}
@@ -325,11 +329,11 @@ function CinematicScrollCard({
             </span>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
             <span
               style={{
                 fontFamily: 'monospace',
-                fontSize: '0.74rem',
+                fontSize: '0.7rem',
                 color: BRAND.skyBlue,
                 fontWeight: 700,
               }}
@@ -339,12 +343,12 @@ function CinematicScrollCard({
             <span
               style={{
                 display: 'inline-block',
-                padding: '3px 10px',
+                padding: '2px 8px',
                 backgroundColor: 'rgba(38, 54, 111, 0.06)',
                 borderRadius: '4px',
                 fontFamily: 'var(--font-heading)',
-                fontSize: '0.7rem',
-                letterSpacing: '1.5px',
+                fontSize: '0.66rem',
+                letterSpacing: '1.2px',
                 color: BRAND.primaryBlue,
                 fontWeight: 700,
               }}
@@ -358,9 +362,11 @@ function CinematicScrollCard({
         <div
           className="cinematic-split-stage"
           style={{
+            flex: 1,
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 460px), 1fr))',
-            minHeight: '540px',
+            gridTemplateColumns: 'minmax(300px, 1fr) minmax(340px, 1.25fr)',
+            height: 'calc(100% - 34px)',
+            overflow: 'hidden',
           }}
         >
           {/* Left Column: Visual */}
@@ -368,7 +374,7 @@ function CinematicScrollCard({
             className="cinematic-left-visual"
             style={{
               position: 'relative',
-              minHeight: '400px',
+              height: '100%',
               backgroundColor: '#0F172A',
               overflow: 'hidden',
             }}
@@ -397,25 +403,25 @@ function CinematicScrollCard({
                 style={{
                   position: 'absolute',
                   inset: 0,
-                  background: 'linear-gradient(to top, rgba(15, 23, 42, 0.88) 0%, rgba(38, 54, 111, 0.25) 50%, transparent 100%)',
+                  background: 'linear-gradient(to top, rgba(15, 23, 42, 0.92) 0%, rgba(38, 54, 111, 0.25) 50%, transparent 100%)',
                   pointerEvents: 'none',
                 }}
               />
 
-              <div style={{ position: 'absolute', top: '20px', left: '20px', color: BRAND.white, fontFamily: 'monospace', fontSize: '13px', opacity: 0.7 }}>+</div>
-              <div style={{ position: 'absolute', top: '20px', right: '20px', color: BRAND.white, fontFamily: 'monospace', fontSize: '13px', opacity: 0.7 }}>+</div>
-              <div style={{ position: 'absolute', bottom: '20px', left: '20px', color: BRAND.white, fontFamily: 'monospace', fontSize: '13px', opacity: 0.7 }}>+</div>
-              <div style={{ position: 'absolute', bottom: '20px', right: '20px', color: BRAND.white, fontFamily: 'monospace', fontSize: '13px', opacity: 0.7 }}>+</div>
+              <div style={{ position: 'absolute', top: '14px', left: '16px', color: BRAND.white, fontFamily: 'monospace', fontSize: '12px', opacity: 0.7 }}>+</div>
+              <div style={{ position: 'absolute', top: '14px', right: '16px', color: BRAND.white, fontFamily: 'monospace', fontSize: '12px', opacity: 0.7 }}>+</div>
+              <div style={{ position: 'absolute', bottom: '14px', left: '16px', color: BRAND.white, fontFamily: 'monospace', fontSize: '12px', opacity: 0.7 }}>+</div>
+              <div style={{ position: 'absolute', bottom: '14px', right: '16px', color: BRAND.white, fontFamily: 'monospace', fontSize: '12px', opacity: 0.7 }}>+</div>
 
               <div
                 style={{
                   position: 'absolute',
-                  top: '10px',
-                  right: '25px',
+                  top: '6px',
+                  right: '18px',
                   fontFamily: 'var(--font-heading)',
-                  fontSize: '9rem',
+                  fontSize: 'clamp(4rem, 7vw, 6.5rem)',
                   fontWeight: 900,
-                  color: 'rgba(255, 255, 255, 0.12)',
+                  color: 'rgba(255, 255, 255, 0.1)',
                   lineHeight: 1,
                   userSelect: 'none',
                   pointerEvents: 'none',
@@ -427,9 +433,9 @@ function CinematicScrollCard({
               <div
                 style={{
                   position: 'absolute',
-                  bottom: '24px',
-                  left: '24px',
-                  right: '24px',
+                  bottom: '16px',
+                  left: '18px',
+                  right: '18px',
                   color: BRAND.white,
                   display: 'flex',
                   justifyContent: 'space-between',
@@ -443,13 +449,13 @@ function CinematicScrollCard({
                       display: 'inline-block',
                       backgroundColor: BRAND.premiumRed,
                       color: BRAND.white,
-                      padding: '3px 10px',
+                      padding: '2px 8px',
                       borderRadius: '3px',
                       fontFamily: 'var(--font-heading)',
-                      fontSize: '0.68rem',
-                      letterSpacing: '2px',
+                      fontSize: '0.62rem',
+                      letterSpacing: '1.5px',
                       fontWeight: 700,
-                      marginBottom: '6px',
+                      marginBottom: '4px',
                     }}
                   >
                     STAGE {collection.num} OF 05
@@ -457,9 +463,9 @@ function CinematicScrollCard({
                   <h4
                     style={{
                       fontFamily: 'var(--font-heading)',
-                      fontSize: '1.8rem',
+                      fontSize: 'clamp(1.15rem, 1.6vw, 1.45rem)',
                       color: BRAND.white,
-                      letterSpacing: '1px',
+                      letterSpacing: '0.5px',
                       margin: 0,
                     }}
                   >
@@ -468,10 +474,10 @@ function CinematicScrollCard({
                 </div>
 
                 <div style={{ textAlign: 'right' }}>
-                  <span style={{ fontSize: '0.72rem', color: BRAND.skyBlue, letterSpacing: '1px', display: 'block' }}>
+                  <span style={{ fontSize: '0.64rem', color: BRAND.skyBlue, letterSpacing: '1px', display: 'block' }}>
                     ENTRY ALLOCATION
                   </span>
-                  <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', fontWeight: 900, color: BRAND.white }}>
+                  <span style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1rem, 1.4vw, 1.25rem)', fontWeight: 900, color: BRAND.white }}>
                     FROM ₹{collection.minInvestment} CR
                   </span>
                 </div>
@@ -483,29 +489,30 @@ function CinematicScrollCard({
           <div
             className="cinematic-right-dossier"
             style={{
-              padding: '2.4rem 2.2rem',
+              padding: '1.1rem 1.5rem',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
               backgroundColor: BRAND.white,
+              overflow: 'hidden',
             }}
           >
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '1.2rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '0.6rem' }}>
                 <div
                   style={{
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    width: '44px',
-                    height: '44px',
+                    width: '36px',
+                    height: '36px',
                     backgroundColor: BRAND.primaryBlue,
                     color: BRAND.white,
-                    borderRadius: '8px',
+                    borderRadius: '6px',
                     fontFamily: 'var(--font-heading)',
                     fontWeight: 900,
-                    fontSize: '1.15rem',
-                    boxShadow: '0 6px 18px rgba(38, 54, 111, 0.22)',
+                    fontSize: '1rem',
+                    boxShadow: '0 4px 12px rgba(38, 54, 111, 0.2)',
                   }}
                 >
                   {collection.roman}
@@ -515,8 +522,8 @@ function CinematicScrollCard({
                     style={{
                       display: 'block',
                       fontFamily: 'var(--font-heading)',
-                      fontSize: '0.76rem',
-                      letterSpacing: '3px',
+                      fontSize: '0.68rem',
+                      letterSpacing: '2.5px',
                       color: BRAND.skyBlue,
                       fontWeight: 700,
                     }}
@@ -526,7 +533,7 @@ function CinematicScrollCard({
                   <h3
                     style={{
                       fontFamily: 'var(--font-heading)',
-                      fontSize: '1.7rem',
+                      fontSize: '1.35rem',
                       color: BRAND.primaryBlue,
                       margin: 0,
                       letterSpacing: '0.5px',
@@ -540,12 +547,12 @@ function CinematicScrollCard({
               <p
                 style={{
                   fontFamily: 'var(--font-body)',
-                  fontSize: '1.14rem',
+                  fontSize: '0.92rem',
                   fontStyle: 'italic',
                   color: BRAND.primaryBlue,
                   fontWeight: 700,
-                  marginBottom: '1rem',
-                  lineHeight: 1.4,
+                  marginBottom: '0.4rem',
+                  lineHeight: 1.35,
                 }}
               >
                 &ldquo;{collection.subtitle}&rdquo;
@@ -554,22 +561,26 @@ function CinematicScrollCard({
               <p
                 style={{
                   fontFamily: 'var(--font-body)',
-                  fontSize: '1.05rem',
-                  lineHeight: 1.75,
-                  color: 'rgba(38, 54, 111, 0.8)',
-                  marginBottom: '1.8rem',
+                  fontSize: '0.82rem',
+                  lineHeight: 1.5,
+                  color: 'rgba(38, 54, 111, 0.82)',
+                  marginBottom: '0.65rem',
+                  display: '-webkit-box',
+                  WebkitLineClamp: 2,
+                  WebkitBoxOrient: 'vertical',
+                  overflow: 'hidden',
                 }}
               >
                 {collection.desc}
               </p>
 
-              {/* Specs */}
+              {/* Specs Grid */}
               <motion.div
                 style={{
                   display: 'grid',
                   gridTemplateColumns: 'repeat(2, 1fr)',
-                  gap: '12px',
-                  marginBottom: '1.8rem',
+                  gap: '6px',
+                  marginBottom: '0.65rem',
                   x: specsX,
                 }}
               >
@@ -577,29 +588,29 @@ function CinematicScrollCard({
                   <div
                     key={sIdx}
                     style={{
-                      padding: '12px 16px',
+                      padding: '6px 10px',
                       backgroundColor: '#F8FAFD',
-                      border: '1px solid rgba(38, 54, 111, 0.12)',
-                      borderRadius: '8px',
+                      border: '1px solid rgba(38, 54, 111, 0.1)',
+                      borderRadius: '6px',
                     }}
                   >
                     <span
                       style={{
                         display: 'block',
-                        fontSize: '0.65rem',
+                        fontSize: '0.58rem',
                         fontFamily: 'var(--font-heading)',
-                        letterSpacing: '1.8px',
+                        letterSpacing: '1.2px',
                         color: 'rgba(38, 54, 111, 0.65)',
-                        marginBottom: '4px',
+                        marginBottom: '2px',
                       }}
                     >
                       {spec.label}
                     </span>
-                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px' }}>
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '5px' }}>
                       <span
                         style={{
                           fontFamily: 'var(--font-heading)',
-                          fontSize: '1.3rem',
+                          fontSize: '1.05rem',
                           fontWeight: 900,
                           color: BRAND.primaryBlue,
                         }}
@@ -608,7 +619,7 @@ function CinematicScrollCard({
                       </span>
                       <span
                         style={{
-                          fontSize: '0.72rem',
+                          fontSize: '0.65rem',
                           fontFamily: 'monospace',
                           fontWeight: 700,
                           color: BRAND.skyBlue,
@@ -621,20 +632,20 @@ function CinematicScrollCard({
                 ))}
               </motion.div>
 
-              {/* Feature pills */}
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '2rem' }}>
+              {/* Feature Pills */}
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', marginBottom: '0.7rem' }}>
                 {collection.features.map((feat, fIdx) => (
                   <span
                     key={fIdx}
                     style={{
                       display: 'inline-flex',
                       alignItems: 'center',
-                      gap: '6px',
-                      padding: '4px 12px',
+                      gap: '5px',
+                      padding: '2px 8px',
                       backgroundColor: 'rgba(38, 54, 111, 0.04)',
                       border: '1px solid rgba(38, 54, 111, 0.1)',
-                      borderRadius: '20px',
-                      fontSize: '0.78rem',
+                      borderRadius: '16px',
+                      fontSize: '0.7rem',
                       fontFamily: 'var(--font-body)',
                       color: BRAND.primaryBlue,
                     }}
@@ -647,38 +658,38 @@ function CinematicScrollCard({
             </div>
 
             {/* CTAs */}
-            <div className="cinematic-cta-group" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+            <div className="cinematic-cta-group" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
               <a
                 href="/contact"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  gap: '10px',
+                  gap: '8px',
                   backgroundColor: BRAND.primaryBlue,
                   color: BRAND.white,
-                  padding: '1rem 2rem',
+                  padding: '0.6rem 1.4rem',
                   borderRadius: '50px',
                   fontFamily: 'var(--font-heading)',
-                  fontSize: '0.84rem',
-                  letterSpacing: '2px',
+                  fontSize: '0.74rem',
+                  letterSpacing: '1.5px',
                   fontWeight: 700,
                   textTransform: 'uppercase',
                   transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
-                  boxShadow: '0 8px 24px rgba(38, 54, 111, 0.25)',
+                  boxShadow: '0 6px 18px rgba(38, 54, 111, 0.22)',
                 }}
                 className="hover:scale-105"
                 onMouseOver={(e) => {
                   e.currentTarget.style.backgroundColor = BRAND.premiumRed;
-                  e.currentTarget.style.boxShadow = '0 12px 30px rgba(210, 20, 58, 0.35)';
+                  e.currentTarget.style.boxShadow = '0 10px 24px rgba(210, 20, 58, 0.3)';
                 }}
                 onMouseOut={(e) => {
                   e.currentTarget.style.backgroundColor = BRAND.primaryBlue;
-                  e.currentTarget.style.boxShadow = '0 8px 24px rgba(38, 54, 111, 0.25)';
+                  e.currentTarget.style.boxShadow = '0 6px 18px rgba(38, 54, 111, 0.22)';
                 }}
               >
                 <span>ENQUIRE ARCHITECTURAL ALLOCATION</span>
-                <ArrowUpRight size={16} />
+                <ArrowUpRight size={14} />
               </a>
 
               <a
@@ -688,15 +699,15 @@ function CinematicScrollCard({
                   display: 'inline-flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  gap: '8px',
+                  gap: '6px',
                   backgroundColor: BRAND.white,
                   color: BRAND.primaryBlue,
                   border: `1px solid ${BRAND.primaryBlue}`,
-                  padding: '1rem 1.6rem',
+                  padding: '0.6rem 1.1rem',
                   borderRadius: '50px',
                   fontFamily: 'var(--font-heading)',
-                  fontSize: '0.82rem',
-                  letterSpacing: '1.5px',
+                  fontSize: '0.72rem',
+                  letterSpacing: '1.2px',
                   fontWeight: 700,
                   textTransform: 'uppercase',
                   transition: 'all 0.3s ease',
@@ -711,7 +722,7 @@ function CinematicScrollCard({
                   e.currentTarget.style.borderColor = BRAND.primaryBlue;
                 }}
               >
-                <FileText size={16} color={BRAND.primaryBlue} />
+                <FileText size={14} color={BRAND.primaryBlue} />
                 <span>DOSSIER PDF</span>
               </a>
             </div>
@@ -826,9 +837,10 @@ export default function PropertyShowcase() {
   });
 
   const smoothCatalogScroll = useSpring(catalogScrollProgress, {
-    stiffness: 85,
-    damping: 22,
-    mass: 0.5,
+    stiffness: 140,
+    damping: 28,
+    mass: 0.2,
+    restDelta: 0.0005,
   });
 
   // Track scroll velocity: both catalog-specific and window-wide scroll velocity
@@ -836,45 +848,64 @@ export default function PropertyShowcase() {
   const windowScrollVelocity = useVelocity(scrollY);
   const catalogScrollVelocity = useVelocity(catalogScrollProgress);
 
-  // Background Motion Graphics continuous rotation: moves auto, accelerates with scroll!
-  const bgCompassRotate = useMotionValue(0);
-  const bgInnerRingRotate = useMotionValue(0);
-  const bgOrbitRotate = useMotionValue(0);
-  const bgRadarRotate = useMotionValue(0);
-  const currentSpeedRef = useRef(20);
-  const [liveScrollSpeed, setLiveScrollSpeed] = useState('IDLE 20°/S');
+  // ── BRAND NEW: Luxury Architectural Orbital & Golden Ratio Matrix Motion ──
+  const bgArchMatrixRotate = useMotionValue(0);
+  const bgGoldenRatioRingRotate = useMotionValue(0);
+  const bgGyroscopicPrecession = useMotionValue(0);
+  const currentSpeedRef = useRef(1.4);
 
   useAnimationFrame((time, delta) => {
     const dt = Math.min(delta / 1000, 0.05);
     const vWin = Math.abs(windowScrollVelocity.get() || 0); // Window scroll in px/sec
     const vCat = Math.abs(catalogScrollVelocity.get() || 0); // Catalog progress rate
-    
-    // Calm, majestic architectural motion (much slower as requested!):
-    // Idle auto speed: 2.6 deg/s (slow, tranquil, graceful drift)
-    // When scrolling: gently increases up to 9.5 deg/s (smooth acceleration, never frantic!)
-    const scrollBoost = Math.min(vWin * 0.005 + vCat * 4, 7);
-    const targetSpeed = 2.6 + scrollBoost;
 
-    // Smooth inertia interpolation:
-    currentSpeedRef.current += (targetSpeed - currentSpeedRef.current) * 0.06;
+    // Stately, ultra-calm architectural orbital motion:
+    // Base idle speed: 1.2 deg/s (graceful, tranquil, editorial drift)
+    // Scroll responsive boost: gently rises up to 3.6 deg/s (never rapid or frantic!)
+    const scrollBoost = Math.min(vWin * 0.002 + vCat * 2.5, 2.4);
+    const targetSpeed = 1.2 + scrollBoost;
 
-    bgCompassRotate.set((bgCompassRotate.get() + currentSpeedRef.current * dt) % 360);
-    bgInnerRingRotate.set((bgInnerRingRotate.get() - currentSpeedRef.current * 0.6 * dt) % 360);
-    bgOrbitRotate.set((bgOrbitRotate.get() - currentSpeedRef.current * 0.4 * dt) % 360);
-    bgRadarRotate.set((bgRadarRotate.get() + currentSpeedRef.current * 1.0 * dt) % 360);
+    currentSpeedRef.current += (targetSpeed - currentSpeedRef.current) * 0.05;
+
+    bgArchMatrixRotate.set((bgArchMatrixRotate.get() + currentSpeedRef.current * dt) % 360);
+    bgGoldenRatioRingRotate.set((bgGoldenRatioRingRotate.get() - currentSpeedRef.current * 0.65 * dt) % 360);
+    bgGyroscopicPrecession.set((bgGyroscopicPrecession.get() + currentSpeedRef.current * 0.45 * dt) % 360);
   });
 
-  // Continuous wheel rotation driven by catalog scroll (rotates through all 5 cards)
+  // Continuous wheel rotation driven by catalog scroll with READING DWELL PLATEAUS
   const [scrollWheelAngle, setScrollWheelAngle] = useState(0);
   const [dragOffsetAngle, setDragOffsetAngle] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [dragStartX, setDragStartX] = useState(0);
   const [dragStartAngle, setDragStartAngle] = useState(0);
 
-  // 5 cards means 72 degrees per card. Full 360 degrees rotation over the scroll track!
+  // 5 cards means 72 degrees per card. Full 360 degrees rotation over the scroll track.
+  // ── READING PLATEAU SYSTEM ──
+  // For each of the 5 cards, user gets a solid 58% dwelling plateau where the card stays
+  // centered at the apex so the user can easily read the titles, specs, ROI, and features!
+  // Only the remaining 42% transitions smoothly with cubic easing to the next card.
+  const getCatalogPlateauAngle = (progress) => {
+    const val = typeof progress === 'number' && !isNaN(progress) ? progress : 0;
+    const clamped = Math.max(0, Math.min(val, 0.9999));
+    const totalTransitions = 4; // 5 cards (0, 1, 2, 3, 4)
+    const scaled = clamped * totalTransitions; // 0 to 4
+    const cardIdx = Math.floor(scaled); // 0, 1, 2, 3
+    const frac = scaled - cardIdx; // 0 to 1
+
+    const dwell = 0.58; // 58% of scroll distance is stationary reading time!
+    let transitionFrac = 0;
+    if (frac > dwell) {
+      const t = (frac - dwell) / (1 - dwell);
+      // Smooth cubic ease (Hermite smoothstep)
+      transitionFrac = t * t * (3 - 2 * t);
+    }
+    const totalSteps = cardIdx + transitionFrac;
+    return totalSteps * -72; // -72 degrees per step
+  };
+
   useEffect(() => {
     const unsubscribe = smoothCatalogScroll.on('change', (latest) => {
-      setScrollWheelAngle(latest * -360);
+      setScrollWheelAngle(getCatalogPlateauAngle(latest));
     });
     return () => unsubscribe();
   }, [smoothCatalogScroll]);
@@ -1037,7 +1068,7 @@ export default function PropertyShowcase() {
             style={{
               position: 'relative',
               zIndex: 10,
-              padding: '1.4rem 4vw 0.8rem 4vw',
+              padding: '0.5rem 4vw',
               borderBottom: '1px solid rgba(38, 54, 111, 0.1)',
               backgroundColor: 'rgba(255, 255, 255, 0.92)',
               backdropFilter: 'blur(12px)',
@@ -1049,18 +1080,18 @@ export default function PropertyShowcase() {
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 flexWrap: 'wrap',
-                gap: '12px',
+                gap: '8px',
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <span
                   style={{
                     position: 'relative',
                     display: 'inline-flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    width: '10px',
-                    height: '10px',
+                    width: '8px',
+                    height: '8px',
                   }}
                 >
                   <span
@@ -1077,8 +1108,8 @@ export default function PropertyShowcase() {
                   <span
                     style={{
                       position: 'relative',
-                      width: '8px',
-                      height: '8px',
+                      width: '6px',
+                      height: '6px',
                       borderRadius: '50%',
                       backgroundColor: BRAND.premiumRed,
                     }}
@@ -1087,8 +1118,8 @@ export default function PropertyShowcase() {
                 <span
                   style={{
                     fontFamily: 'var(--font-heading)',
-                    fontSize: '0.78rem',
-                    letterSpacing: '3px',
+                    fontSize: '0.72rem',
+                    letterSpacing: '2.5px',
                     color: BRAND.primaryBlue,
                     fontWeight: 700,
                     textTransform: 'uppercase',
@@ -1098,12 +1129,12 @@ export default function PropertyShowcase() {
                 </span>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <span
                   style={{
                     fontFamily: 'var(--font-heading)',
-                    fontSize: '0.72rem',
-                    letterSpacing: '2px',
+                    fontSize: '0.68rem',
+                    letterSpacing: '1.5px',
                     color: BRAND.skyBlue,
                     fontWeight: 700,
                     textTransform: 'uppercase',
@@ -1111,22 +1142,22 @@ export default function PropertyShowcase() {
                 >
                   SCROLL TO ADVANCE PROPERTIES
                 </span>
-                <ChevronDown size={14} color={BRAND.skyBlue} />
+                <ChevronDown size={13} color={BRAND.skyBlue} />
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                 <button
                   onClick={scrollToCatalog}
                   style={{
                     cursor: 'pointer',
                     background: 'none',
                     border: `1px solid ${BRAND.skyBlue}`,
-                    padding: '4px 14px',
+                    padding: '3px 12px',
                     borderRadius: '20px',
                     fontFamily: 'var(--font-heading)',
-                    fontSize: '0.7rem',
+                    fontSize: '0.66rem',
                     color: BRAND.primaryBlue,
-                    letterSpacing: '1px',
+                    letterSpacing: '0.8px',
                     fontWeight: 700,
                     textTransform: 'uppercase',
                   }}
@@ -1137,11 +1168,11 @@ export default function PropertyShowcase() {
                 <span
                   style={{
                     display: 'inline-block',
-                    padding: '2px 8px',
+                    padding: '2px 7px',
                     backgroundColor: 'rgba(18, 164, 220, 0.1)',
                     borderRadius: '4px',
                     fontFamily: 'monospace',
-                    fontSize: '0.74rem',
+                    fontSize: '0.7rem',
                     color: BRAND.skyBlue,
                     fontWeight: 700,
                   }}
@@ -1159,7 +1190,7 @@ export default function PropertyShowcase() {
               zIndex: 9,
               backgroundColor: '#F9FBFE',
               borderBottom: '1px solid rgba(38, 54, 111, 0.12)',
-              padding: '0.8rem 0',
+              padding: '0.35rem 0',
               overflow: 'hidden',
             }}
           >
@@ -1307,19 +1338,19 @@ export default function PropertyShowcase() {
             style={{
               position: 'relative',
               zIndex: 10,
-              padding: '0.8rem 4vw',
+              padding: '0.45rem 4vw',
               backgroundColor: 'rgba(255, 255, 255, 0.94)',
               borderTop: '1px solid rgba(38, 54, 111, 0.1)',
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
-              fontSize: '0.78rem',
+              fontSize: '0.72rem',
               fontFamily: 'var(--font-heading)',
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <span style={{ color: 'rgba(38, 54, 111, 0.6)' }}>ACTIVE COLLECTION:</span>
-              <span style={{ fontWeight: 900, color: BRAND.primaryBlue, letterSpacing: '1px' }}>
+              <span style={{ fontWeight: 900, color: BRAND.primaryBlue, letterSpacing: '0.8px' }}>
                 [{activeCollection?.roman || 'I'}] {activeCollection?.name || 'COMMERCIALS'}
               </span>
             </div>
@@ -1343,7 +1374,7 @@ export default function PropertyShowcase() {
         id="complete-portfolio-catalog"
         style={{
           position: 'relative',
-          height: '320vh', // Sticky track so cards rotate continuously with scroll
+          height: '560vh', // Extended luxury scroll runway with resting plateaus for effortless readability
           backgroundColor: BRAND.white,
         }}
       >
@@ -1366,10 +1397,27 @@ export default function PropertyShowcase() {
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
         >
-          {/* ── HIGH-CONTRAST DYNAMIC BACKGROUND MOTION GRAPHICS (UPGRADED) ── */}
-          {/* Moves auto continuously; accelerates visibly while scrolling; decelerates smoothly when stopped */}
+          {/* ── LUXURY ARCHITECTURAL CELESTIAL ORBITAL & GOLDEN RATIO MATRIX BACKGROUND ── */}
+          {/* Calm, editorial, high-prestige motion graphics replacing compass & radar sweep */}
 
-          {/* Motion Element 1: High-Contrast Rotating Compass Wheel with 8 Cardinal Badges & Crosshairs */}
+          {/* 1. Atmospheric Architectural Optical Core (Soft Champagne Gold & Cyan Radiance) */}
+          <div
+            aria-hidden="true"
+            style={{
+              position: 'absolute',
+              top: '52%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              width: '950px',
+              height: '950px',
+              borderRadius: '50%',
+              background: 'radial-gradient(circle at center, rgba(197, 168, 128, 0.16) 0%, rgba(18, 164, 220, 0.08) 38%, rgba(38, 54, 111, 0.03) 60%, transparent 75%)',
+              pointerEvents: 'none',
+              zIndex: 0,
+            }}
+          />
+
+          {/* 2. Primary Architectural Armature Ring with Golden Ratio Subdivisions (Diameter 1140px) */}
           <motion.div
             aria-hidden="true"
             style={{
@@ -1378,62 +1426,77 @@ export default function PropertyShowcase() {
               left: '50%',
               x: '-50%',
               y: '-50%',
-              width: '1120px',
-              height: '1120px',
+              width: '1140px',
+              height: '1140px',
               borderRadius: '50%',
-              border: '2px dashed rgba(38, 54, 111, 0.28)',
-              rotate: bgCompassRotate, // Auto + Scroll accelerated!
+              border: '1.5px solid rgba(197, 168, 128, 0.38)',
+              rotate: bgArchMatrixRotate,
               pointerEvents: 'none',
               zIndex: 0,
             }}
           >
-            {/* Rotating Crosshair Axes */}
-            <div style={{ position: 'absolute', top: '50%', left: 0, right: 0, height: '1px', borderTop: '1px dashed rgba(38, 54, 111, 0.22)' }} />
-            <div style={{ position: 'absolute', left: '50%', top: 0, bottom: 0, width: '1px', borderLeft: '1px dashed rgba(38, 54, 111, 0.22)' }} />
+            {/* Fine Architectural Cross-Datum Lines */}
+            <div style={{ position: 'absolute', top: '50%', left: 0, right: 0, height: '1px', borderTop: '1px solid rgba(197, 168, 128, 0.22)' }} />
+            <div style={{ position: 'absolute', left: '50%', top: 0, bottom: 0, width: '1px', borderLeft: '1px solid rgba(197, 168, 128, 0.22)' }} />
 
-            {/* 8 Cardinal & Intercardinal Markers on the Ring: 100% UNMISTAKABLY VISIBLE! */}
+            {/* Concentric Golden Section Inner Dash (φ = 0.618) */}
+            <div
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '704px',
+                height: '704px',
+                borderRadius: '50%',
+                border: '1px dashed rgba(197, 168, 128, 0.28)',
+              }}
+            />
+
+            {/* 8 Architectural Precision Nodes with Golden Ratio Metrics */}
             {[
-              { label: 'NORTH // 000°', angle: 0, primary: true },
-              { label: 'NE 045°', angle: 45, primary: false },
-              { label: 'EAST // 090°', angle: 90, primary: true },
-              { label: 'SE 135°', angle: 135, primary: false },
-              { label: 'SOUTH // 180°', angle: 180, primary: true },
-              { label: 'SW 225°', angle: 225, primary: false },
-              { label: 'WEST // 270°', angle: 270, primary: true },
-              { label: 'NW 315°', angle: 315, primary: false },
-            ].map((card, cIdx) => {
-              const rad = (card.angle * Math.PI) / 180;
-              const rDist = 560; // On outer boundary
+              { label: 'SECTION α // φ 1.618', angle: 0 },
+              { label: 'AXIS 045° // DATUM', angle: 45 },
+              { label: 'SECTION β // ELEV 540M', angle: 90 },
+              { label: 'AXIS 135° // MERIDIAN', angle: 135 },
+              { label: 'SECTION γ // SOVEREIGN', angle: 180 },
+              { label: 'AXIS 225° // GEOMETRY', angle: 225 },
+              { label: 'SECTION δ // ALPHA HUB', angle: 270 },
+              { label: 'AXIS 315° // HORIZON', angle: 315 },
+            ].map((node, nIdx) => {
+              const rad = (node.angle * Math.PI) / 180;
+              const rDist = 570;
               const xPos = Math.round(rDist * Math.sin(rad));
               const yPos = Math.round(-rDist * Math.cos(rad));
+              const isMajor = nIdx % 2 === 0;
               return (
                 <div
-                  key={cIdx}
+                  key={nIdx}
                   style={{
                     position: 'absolute',
                     top: '50%',
                     left: '50%',
                     transform: `translate(calc(-50% + ${xPos}px), calc(-50% + ${yPos}px))`,
-                    backgroundColor: card.primary ? BRAND.primaryBlue : BRAND.white,
-                    color: card.primary ? BRAND.white : BRAND.skyBlue,
-                    border: `1.5px solid ${card.primary ? BRAND.skyBlue : 'rgba(18, 164, 220, 0.7)'}`,
-                    padding: card.primary ? '3px 10px' : '2px 7px',
-                    borderRadius: '4px',
+                    backgroundColor: isMajor ? 'rgba(255, 255, 255, 0.96)' : 'transparent',
+                    color: isMajor ? BRAND.primaryBlue : 'rgba(197, 168, 128, 0.85)',
+                    border: isMajor ? '1px solid rgba(197, 168, 128, 0.55)' : 'none',
+                    padding: isMajor ? '2px 8px' : '0',
+                    borderRadius: '3px',
                     fontFamily: 'monospace',
-                    fontSize: card.primary ? '0.72rem' : '0.64rem',
-                    fontWeight: 900,
-                    letterSpacing: '0.8px',
-                    boxShadow: '0 2px 8px rgba(38, 54, 111, 0.15)',
+                    fontSize: '0.66rem',
+                    letterSpacing: '1px',
+                    fontWeight: 700,
+                    boxShadow: isMajor ? '0 2px 8px rgba(38, 54, 111, 0.08)' : 'none',
                     whiteSpace: 'nowrap',
                   }}
                 >
-                  {card.label}
+                  {node.label}
                 </div>
               );
             })}
           </motion.div>
 
-          {/* Motion Element 2: Concentric Inner Coordinate Ring (Diameter 760px) Counter-Rotating */}
+          {/* 3. Concentric Parametric Astrolabe Ring (Diameter 840px) Counter-Rotating */}
           <motion.div
             aria-hidden="true"
             style={{
@@ -1442,22 +1505,22 @@ export default function PropertyShowcase() {
               left: '50%',
               x: '-50%',
               y: '-50%',
-              width: '760px',
-              height: '760px',
+              width: '840px',
+              height: '840px',
               borderRadius: '50%',
-              border: '1.5px solid rgba(18, 164, 220, 0.35)',
-              rotate: bgInnerRingRotate, // Counter-rotates auto + scroll accelerated!
+              border: '1.5px solid rgba(18, 164, 220, 0.32)',
+              rotate: bgGoldenRatioRingRotate,
               pointerEvents: 'none',
               zIndex: 0,
             }}
           >
-            {/* 12 Nautical Graduation Ticks at 30-degree increments */}
+            {/* 12 Metric Subdivision Nodes in Champagne Gold & Sky Blue */}
             {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((deg, dIdx) => {
               const rad = (deg * Math.PI) / 180;
-              const rDist = 380;
+              const rDist = 420;
               const xPos = rDist * Math.sin(rad);
               const yPos = -rDist * Math.cos(rad);
-              const isQuarter = deg % 90 === 0;
+              const isGold = dIdx % 3 === 0;
               return (
                 <div
                   key={dIdx}
@@ -1466,18 +1529,18 @@ export default function PropertyShowcase() {
                     top: '50%',
                     left: '50%',
                     transform: `translate(calc(-50% + ${xPos}px), calc(-50% + ${yPos}px))`,
-                    width: isQuarter ? '10px' : '6px',
-                    height: isQuarter ? '10px' : '6px',
+                    width: isGold ? '8px' : '5px',
+                    height: isGold ? '8px' : '5px',
                     borderRadius: '50%',
-                    backgroundColor: isQuarter ? BRAND.premiumRed : BRAND.skyBlue,
-                    boxShadow: isQuarter ? '0 0 10px #D2143A' : '0 0 6px #12A4DC',
+                    backgroundColor: isGold ? '#C5A880' : BRAND.skyBlue,
+                    boxShadow: isGold ? '0 0 10px rgba(197, 168, 128, 0.8)' : '0 0 8px rgba(18, 164, 220, 0.6)',
                   }}
                 />
               );
             })}
           </motion.div>
 
-          {/* Motion Element 3: Counter-Rotating Outer Planetary Ring with Roman Badges */}
+          {/* 4. Tilted 3D Celestial Gimbal Ellipse (Precessing 3D Armature) */}
           <motion.div
             aria-hidden="true"
             style={{
@@ -1486,148 +1549,97 @@ export default function PropertyShowcase() {
               left: '50%',
               x: '-50%',
               y: '-50%',
-              width: '1420px',
-              height: '1420px',
+              width: '1360px',
+              height: '660px',
               borderRadius: '50%',
               border: '1.5px solid rgba(18, 164, 220, 0.22)',
-              rotate: bgOrbitRotate, // Counter-rotates auto + scroll accelerated!
+              transform: 'rotateX(62deg)',
+              rotate: bgGyroscopicPrecession,
               pointerEvents: 'none',
               zIndex: 0,
             }}
           >
-            {/* Orbiting Roman badges along circle */}
-            {['I', 'II', 'III', 'IV', 'V'].map((roman, rIdx) => {
-              const rAngle = rIdx * 72;
-              const rRad = (rAngle * Math.PI) / 180;
-              const xPos = Math.round(710 * Math.sin(rRad));
-              const yPos = Math.round(-710 * Math.cos(rRad));
-              return (
-                <div
-                  key={rIdx}
-                  style={{
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    transform: `translate(calc(-50% + ${xPos}px), calc(-50% + ${yPos}px))`,
-                    width: '34px',
-                    height: '34px',
-                    borderRadius: '50%',
-                    backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                    border: `2px solid ${BRAND.skyBlue}`,
-                    boxShadow: '0 0 14px rgba(18, 164, 220, 0.45)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontFamily: 'var(--font-heading)',
-                    fontSize: '0.78rem',
-                    fontWeight: 900,
-                    color: BRAND.primaryBlue,
-                  }}
-                >
-                  {roman}
-                </div>
-              );
-            })}
-          </motion.div>
-
-          {/* Motion Element 4: Illuminated Rotating Radar Sweep Beam with High-Contrast Needle! */}
-          <motion.div
-            aria-hidden="true"
-            style={{
-              position: 'absolute',
-              top: '52%',
-              left: '50%',
-              x: '-50%',
-              y: '-50%',
-              width: '940px',
-              height: '940px',
-              borderRadius: '50%',
-              background: 'conic-gradient(from 0deg, rgba(18, 164, 220, 0.28) 0deg, rgba(18, 164, 220, 0.06) 45deg, transparent 75deg, transparent 360deg)',
-              rotate: bgRadarRotate, // Sweeps around continuously!
-              pointerEvents: 'none',
-              zIndex: 0,
-            }}
-          >
-            {/* Illuminated Sweeping Cyan Needle Arm with Glowing Beacon Head - 100% CLEARLY OBSERVABLE */}
+            {/* Orbiting Satellite Node 1 (Champagne Gold) */}
             <div
               style={{
                 position: 'absolute',
                 top: '50%',
-                left: '50%',
-                width: '470px',
-                height: '2.5px',
-                background: 'linear-gradient(90deg, rgba(18, 164, 220, 0.15) 0%, #12A4DC 70%, #FFFFFF 100%)',
-                boxShadow: '0 0 14px #12A4DC, 0 0 28px rgba(18, 164, 220, 0.7)',
-                transformOrigin: '0% 50%',
+                right: '-6px',
                 transform: 'translateY(-50%)',
-                borderRadius: '3px',
+                width: '14px',
+                height: '14px',
+                borderRadius: '50%',
+                backgroundColor: '#C5A880',
+                border: '2px solid #FFFFFF',
+                boxShadow: '0 0 16px rgba(197, 168, 128, 0.9), 0 0 30px rgba(197, 168, 128, 0.5)',
               }}
-            >
-              <div
-                style={{
-                  position: 'absolute',
-                  right: '-5px',
-                  top: '50%',
-                  transform: 'translateY(-50%)',
-                  width: '12px',
-                  height: '12px',
-                  borderRadius: '50%',
-                  backgroundColor: BRAND.skyBlue,
-                  border: '2px solid #FFFFFF',
-                  boxShadow: '0 0 16px #12A4DC, 0 0 24px #12A4DC',
-                }}
-              />
-            </div>
+            />
+
+            {/* Orbiting Satellite Node 2 (Sky Blue) */}
+            <div
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '-6px',
+                transform: 'translateY(-50%)',
+                width: '14px',
+                height: '14px',
+                borderRadius: '50%',
+                backgroundColor: BRAND.skyBlue,
+                border: '2px solid #FFFFFF',
+                boxShadow: '0 0 16px rgba(18, 164, 220, 0.9), 0 0 30px rgba(18, 164, 220, 0.5)',
+              }}
+            />
           </motion.div>
 
-          {/* Motion Element 4: Floating Drifting Stars & Badges */}
+          {/* 5. Minimalist Luxury Architectural Coordinate Badges (Corner Framing) */}
           <div
             aria-hidden="true"
             style={{
               position: 'absolute',
-              top: '20%',
+              top: '18%',
               left: '7%',
               display: 'flex',
               flexDirection: 'column',
-              gap: '6px',
+              gap: '4px',
               fontFamily: 'monospace',
-              fontSize: '0.7rem',
+              fontSize: '0.68rem',
               color: 'rgba(38, 54, 111, 0.45)',
-              letterSpacing: '1.5px',
+              letterSpacing: '1.2px',
               pointerEvents: 'none',
               zIndex: 1,
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: BRAND.skyBlue }} />
-              <span>HYDERABAD SOVEREIGN GRID</span>
+              <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#C5A880' }} />
+              <span style={{ fontWeight: 700, color: BRAND.primaryBlue }}>ARCHITECTURAL MATRIX // TELANGANA</span>
             </div>
-            <span>ELEVATION: 540M // SECTOR 01-05</span>
+            <span>ELEVATION: 540M // SOVEREIGN CORRIDOR</span>
           </div>
 
           <div
             aria-hidden="true"
             style={{
               position: 'absolute',
-              top: '22%',
+              top: '18%',
               right: '7%',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'flex-end',
-              gap: '6px',
+              gap: '4px',
               fontFamily: 'monospace',
-              fontSize: '0.7rem',
+              fontSize: '0.68rem',
               color: 'rgba(38, 54, 111, 0.45)',
-              letterSpacing: '1.5px',
+              letterSpacing: '1.2px',
               pointerEvents: 'none',
               zIndex: 1,
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span>ACTIVE ROTARY BEARING: {Math.round(((-totalRotaryAngle % 360 + 360) % 360))}°</span>
-              <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: BRAND.premiumRed }} />
+              <span>ACTIVE CARD: {safeRotaryItem?.roman || 'I'} // {safeRotaryItem?.name || ''}</span>
+              <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: BRAND.skyBlue }} />
             </div>
-            <span>ROTARY SPEED: DYNAMIC KINETIC</span>
+            <span>GOLDEN RATIO φ 1.618 // DWELL FOCUS</span>
           </div>
 
           {/* ── STREAMLINED SECTION HEADER & INTEGRATED CONTROLS (COMPACT & FULLY VISIBLE) ── */}

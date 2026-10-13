@@ -11,128 +11,161 @@ import ExplodedPlotView from './components/ExplodedPlotView';
 import NRIInvestmentSection from './components/NRIInvestmentSection';
 
 const CloudTransition = ({ scrollProgress }) => {
-  // Physics-based spring smoothing: transforms discrete mouse-wheel notches into fluid 60/120fps continuous motion
+  // Ultra-responsive, buttery-smooth physics spring (critically damped, zero jitter/lag)
   const smoothProgress = useSpring(scrollProgress, {
-    stiffness: 90,
-    damping: 26,
-    mass: 0.5,
-    restDelta: 0.0005,
+    stiffness: 120,
+    damping: 24,
+    mass: 0.12,
+    restDelta: 0.0001,
   });
 
-  // Rising upside into the hero section with smooth parallax drift and gentle scale expansion
-  const leftY = useTransform(smoothProgress, [0, 0.7, 1.0], ['0px', '-22vh', '-30vh']);
-  const leftScale = useTransform(smoothProgress, [0, 0.7, 1.0], [1.0, 1.28, 1.38]);
-  const leftOpacity = useTransform(smoothProgress, [0, 0.15, 0.75, 0.95], [0.85, 1.0, 0.9, 0]);
+  // ── Rising Clouds Trajectory: Sweeps up from lower horizon to completely engulf the Hero section ──
+  // At progress 0: Clouds rest gracefully in the lower horizon (bottom 15-20%, y ~ 80vh - 88vh),
+  // leaving the video, "REDEFINING LUXURY" headline, and "Explore Portfolio" button completely visible.
+  // As user scrolls: Clouds dynamically billow upwards across the screen, blanketing the hero in pure white clouds.
+  // At progress 1.0: Whole hero is engulfed in a sea of pure white clouds, seamlessly merging into Section 2!
 
-  const middleY = useTransform(smoothProgress, [0, 0.7, 1.0], ['0px', '-28vh', '-36vh']);
-  const middleScale = useTransform(smoothProgress, [0, 0.7, 1.0], [1.0, 1.35, 1.45]);
-  const middleOpacity = useTransform(smoothProgress, [0, 0.15, 0.75, 0.95], [0.9, 1.0, 0.95, 0]);
+  // Layer 1: Leading High Background Cloud
+  const backCloudY = useTransform(smoothProgress, [0, 0.45, 0.8, 1.0], ['80vh', '30vh', '-22vh', '-48vh']);
+  const backCloudScale = useTransform(smoothProgress, [0, 0.5, 1.0], [1.0, 1.15, 1.3]);
+  const backCloudOpacity = useTransform(smoothProgress, [0, 0.12, 0.7, 1.0], [0.7, 1.0, 1.0, 0.95]);
 
-  const rightY = useTransform(smoothProgress, [0, 0.7, 1.0], ['0px', '-22vh', '-30vh']);
-  const rightScale = useTransform(smoothProgress, [0, 0.7, 1.0], [1.0, 1.28, 1.38]);
-  const rightOpacity = useTransform(smoothProgress, [0, 0.15, 0.75, 0.95], [0.85, 1.0, 0.9, 0]);
+  // Layer 2: Left Wing Flanking Cloud (inward rolling drift)
+  const leftCloudY = useTransform(smoothProgress, [0, 0.45, 0.8, 1.0], ['84vh', '34vh', '-18vh', '-42vh']);
+  const leftCloudX = useTransform(smoothProgress, [0, 0.5, 1.0], ['-4vw', '0vw', '4vw']);
+  const leftCloudScale = useTransform(smoothProgress, [0, 0.5, 1.0], [1.0, 1.18, 1.32]);
+  const leftCloudOpacity = useTransform(smoothProgress, [0, 0.12, 0.7, 1.0], [0.75, 1.0, 1.0, 0.95]);
 
-  // Glowing white light & atmospheric bloom (rendered with GPU radial gradients, zero blur recalculation!)
-  const glowY = useTransform(smoothProgress, [0, 0.7, 1.0], ['0px', '-26vh', '-34vh']);
-  const glowScale = useTransform(smoothProgress, [0, 0.7, 1.0], [1.0, 1.45, 1.6]);
-  const glowOpacity = useTransform(smoothProgress, [0, 0.25, 0.75, 0.95], [0.5, 1.0, 0.95, 0]);
+  // Layer 3: Right Wing Flanking Cloud (inward rolling drift, flipped)
+  const rightCloudY = useTransform(smoothProgress, [0, 0.45, 0.8, 1.0], ['84vh', '34vh', '-18vh', '-42vh']);
+  const rightCloudX = useTransform(smoothProgress, [0, 0.5, 1.0], ['4vw', '0vw', '-4vw']);
+  const rightCloudScale = useTransform(smoothProgress, [0, 0.5, 1.0], [1.0, 1.18, 1.32]);
+  const rightCloudOpacity = useTransform(smoothProgress, [0, 0.12, 0.7, 1.0], [0.75, 1.0, 1.0, 0.95]);
 
-  const fogY = useTransform(smoothProgress, [0, 0.7, 1.0], ['0px', '-26vh', '-34vh']);
-  const fogOpacity = useTransform(smoothProgress, [0, 0.3, 0.75, 0.95], [0.35, 1.0, 0.9, 0]);
+  // Layer 4: Grand Foreground Billowing Cloud (Center Apex)
+  const frontCloudY = useTransform(smoothProgress, [0, 0.45, 0.8, 1.0], ['82vh', '28vh', '-22vh', '-46vh']);
+  const frontCloudScale = useTransform(smoothProgress, [0, 0.5, 1.0], [1.02, 1.2, 1.36]);
+  const frontCloudOpacity = useTransform(smoothProgress, [0, 0.1, 0.7, 1.0], [0.8, 1.0, 1.0, 0.98]);
+
+  // Layer 5: Base Overlap Cloud (Seals lower boundary)
+  const baseCloudY = useTransform(smoothProgress, [0, 0.45, 0.8, 1.0], ['88vh', '38vh', '-12vh', '-34vh']);
+  const baseCloudScale = useTransform(smoothProgress, [0, 0.5, 1.0], [1.0, 1.14, 1.25]);
+  const baseCloudOpacity = useTransform(smoothProgress, [0, 0.12, 0.7, 1.0], [0.85, 1.0, 1.0, 1.0]);
+
+  // Layer 6: Solid White Rising Cloud Deck (Ensures 100% opaque white coverage beneath clouds)
+  const fogDeckY = useTransform(smoothProgress, [0, 0.45, 0.8, 1.0], ['92vh', '42vh', '-10vh', '-30vh']);
+  const fogDeckOpacity = useTransform(smoothProgress, [0, 0.12, 0.65, 1.0], [0.25, 0.85, 1.0, 1.0]);
+
+  // Layer 7: Radiant Sunlight Atmospheric Bloom
+  const glowY = useTransform(smoothProgress, [0, 0.45, 0.8, 1.0], ['84vh', '30vh', '-18vh', '-38vh']);
+  const glowScale = useTransform(smoothProgress, [0, 0.5, 1.0], [1.0, 1.25, 1.45]);
+  const glowOpacity = useTransform(smoothProgress, [0, 0.12, 0.65, 1.0], [0.15, 0.9, 0.95, 0.8]);
 
   return (
     <div
       aria-hidden="true"
       style={{
         position: 'absolute',
-        top: '-150px',
-        left: 0,
+        inset: 0,
         width: '100%',
-        height: '500px',
+        height: '100%',
         pointerEvents: 'none',
-        zIndex: 30,
+        zIndex: 15,
         overflow: 'visible',
       }}
     >
-      {/* ── Glowing White Light Transition (GPU-accelerated radial gradients, 0ms blur raster lag) ── */}
-
-      {/* 1. Rising white atmospheric wash behind clouds */}
+      {/* ── 1. Pure White Rising Fog Deck (guarantees 100% white coverage over hero video) ── */}
       <motion.div
         style={{
           position: 'absolute',
-          top: '-35%',
+          top: 0,
           left: 0,
           width: '100%',
-          height: '170%',
-          background: 'radial-gradient(ellipse 90% 70% at 50% 50%, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.85) 45%, rgba(18, 164, 220, 0.18) 70%, transparent 100%)',
-          y: fogY,
-          opacity: fogOpacity,
+          height: '160vh',
+          background: 'linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.8) 15%, #FFFFFF 32%, #FFFFFF 100%)',
+          y: fogDeckY,
+          opacity: fogDeckOpacity,
           zIndex: 1,
           willChange: 'transform, opacity',
-          transform: 'translate3d(0, 0, 0)',
+          backfaceVisibility: 'hidden',
+          WebkitBackfaceVisibility: 'hidden',
           pointerEvents: 'none',
         }}
       />
 
-      {/* 2. Core Glowing White Bloom (GPU fragment shader bloom, no costly blur filter) */}
+      {/* ── 2. Atmospheric Sunlight Radiance & Sky Blue Backlight ── */}
       <motion.div
         style={{
           position: 'absolute',
-          top: '50%',
+          top: 0,
           left: '50%',
-          width: '85vw',
-          maxWidth: '1400px',
-          height: '400px',
+          width: '100vw',
+          maxWidth: '1700px',
+          height: '650px',
           x: '-50%',
           y: glowY,
           scale: glowScale,
           opacity: glowOpacity,
-          borderRadius: '50%',
-          background: 'radial-gradient(ellipse at center, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.95) 25%, rgba(255, 255, 255, 0.7) 50%, rgba(18, 164, 220, 0.22) 72%, transparent 85%)',
+          background: 'radial-gradient(ellipse 85% 65% at 50% 60%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.92) 42%, rgba(18, 164, 220, 0.22) 72%, transparent 100%)',
           zIndex: 2,
           willChange: 'transform, opacity',
-          transform: 'translate3d(0, 0, 0)',
           pointerEvents: 'none',
         }}
       />
 
-      {/* 3. Radiant Horizontal Light Beam across seam */}
+      {/* ── 3. High Leading Cloud (Reaches hero title first) ── */}
       <motion.div
         style={{
           position: 'absolute',
-          top: '45%',
-          left: '-10%',
-          width: '120%',
-          height: '220px',
-          background: 'radial-gradient(ellipse 80% 50% at 50% 50%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.85) 35%, rgba(18,164,220,0.25) 65%, transparent 100%)',
-          y: glowY,
-          opacity: glowOpacity,
-          zIndex: 2,
-          willChange: 'transform, opacity',
-          transform: 'translate3d(0, 0, 0)',
-          pointerEvents: 'none',
-        }}
-      />
-
-      {/* ── 3 Clouds (GPU Hardware Accelerated, zero drop-shadow re-rasterization) ── */}
-
-      {/* Middle Cloud: Center Cloud */}
-      <motion.div
-        style={{
-          position: 'absolute',
+          top: 0,
           left: '50%',
-          top: '0',
-          width: '72vw',
+          width: '90vw',
+          minWidth: '900px',
+          maxWidth: '1600px',
+          height: '560px',
+          x: '-50%',
+          y: backCloudY,
+          scale: backCloudScale,
+          opacity: backCloudOpacity,
+          zIndex: 3,
+          willChange: 'transform, opacity',
+          backfaceVisibility: 'hidden',
+          WebkitBackfaceVisibility: 'hidden',
+          pointerEvents: 'none',
+        }}
+      >
+        <img
+          src="/clouds.png"
+          alt=""
+          loading="eager"
+          decoding="async"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'contain',
+            display: 'block',
+            pointerEvents: 'none',
+            userSelect: 'none',
+          }}
+        />
+      </motion.div>
+
+      {/* ── 4. Left Flanking Wing Cloud (Rolls inward across screen) ── */}
+      <motion.div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: '-10%',
+          width: '75vw',
           minWidth: '750px',
           maxWidth: '1400px',
           height: '540px',
-          x: '-50%',
-          y: middleY,
-          scale: middleScale,
-          opacity: middleOpacity,
+          x: leftCloudX,
+          y: leftCloudY,
+          scale: leftCloudScale,
+          opacity: leftCloudOpacity,
           zIndex: 4,
           willChange: 'transform, opacity',
-          transform: 'translate3d(0, 0, 0)',
           backfaceVisibility: 'hidden',
           WebkitBackfaceVisibility: 'hidden',
           pointerEvents: 'none',
@@ -154,59 +187,22 @@ const CloudTransition = ({ scrollProgress }) => {
         />
       </motion.div>
 
-      {/* Left Side: One Cloud */}
+      {/* ── 5. Right Flanking Wing Cloud (Flipped, rolls inward across screen) ── */}
       <motion.div
         style={{
           position: 'absolute',
-          left: '-6%',
-          top: '30px',
-          width: '62vw',
-          minWidth: '650px',
-          maxWidth: '1200px',
-          height: '480px',
-          y: leftY,
-          scale: leftScale,
-          opacity: leftOpacity,
-          zIndex: 5,
+          top: 0,
+          right: '-10%',
+          width: '75vw',
+          minWidth: '750px',
+          maxWidth: '1400px',
+          height: '540px',
+          x: rightCloudX,
+          y: rightCloudY,
+          scale: rightCloudScale,
+          opacity: rightCloudOpacity,
+          zIndex: 4,
           willChange: 'transform, opacity',
-          transform: 'translate3d(0, 0, 0)',
-          backfaceVisibility: 'hidden',
-          WebkitBackfaceVisibility: 'hidden',
-          pointerEvents: 'none',
-        }}
-      >
-        <img
-          src="/clouds.png"
-          alt=""
-          loading="eager"
-          decoding="async"
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'contain',
-            display: 'block',
-            pointerEvents: 'none',
-            userSelect: 'none',
-          }}
-        />
-      </motion.div>
-
-      {/* Right Side: One Cloud */}
-      <motion.div
-        style={{
-          position: 'absolute',
-          right: '-6%',
-          top: '30px',
-          width: '62vw',
-          minWidth: '650px',
-          maxWidth: '1200px',
-          height: '480px',
-          y: rightY,
-          scale: rightScale,
-          opacity: rightOpacity,
-          zIndex: 5,
-          willChange: 'transform, opacity',
-          transform: 'translate3d(0, 0, 0)',
           backfaceVisibility: 'hidden',
           WebkitBackfaceVisibility: 'hidden',
           pointerEvents: 'none',
@@ -223,6 +219,79 @@ const CloudTransition = ({ scrollProgress }) => {
             objectFit: 'contain',
             display: 'block',
             transform: 'scaleX(-1)',
+            pointerEvents: 'none',
+            userSelect: 'none',
+          }}
+        />
+      </motion.div>
+
+      {/* ── 6. Grand Foreground Cloud Crest (Center Apex Billow) ── */}
+      <motion.div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: '50%',
+          width: '100vw',
+          minWidth: '950px',
+          maxWidth: '1750px',
+          height: '620px',
+          x: '-50%',
+          y: frontCloudY,
+          scale: frontCloudScale,
+          opacity: frontCloudOpacity,
+          zIndex: 5,
+          willChange: 'transform, opacity',
+          backfaceVisibility: 'hidden',
+          WebkitBackfaceVisibility: 'hidden',
+          pointerEvents: 'none',
+        }}
+      >
+        <img
+          src="/clouds.png"
+          alt=""
+          loading="eager"
+          decoding="async"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'contain',
+            display: 'block',
+            pointerEvents: 'none',
+            userSelect: 'none',
+          }}
+        />
+      </motion.div>
+
+      {/* ── 7. Base Overlap Cloud Bank (Seals bottom horizon) ── */}
+      <motion.div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: '50%',
+          width: '110vw',
+          maxWidth: '1800px',
+          height: '520px',
+          x: '-50%',
+          y: baseCloudY,
+          scale: baseCloudScale,
+          opacity: baseCloudOpacity,
+          zIndex: 6,
+          willChange: 'transform, opacity',
+          backfaceVisibility: 'hidden',
+          WebkitBackfaceVisibility: 'hidden',
+          pointerEvents: 'none',
+        }}
+      >
+        <img
+          src="/clouds.png"
+          alt=""
+          loading="eager"
+          decoding="async"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'contain',
+            display: 'block',
             pointerEvents: 'none',
             userSelect: 'none',
           }}
@@ -389,6 +458,9 @@ export default function Home() {
             </Link>
           </motion.div>
         </motion.div>
+
+        {/* ── Volumetric Cloud Blanket: Rises up and completely covers the hero section while scrolling ── */}
+        <CloudTransition scrollProgress={heroScroll} />
       </section>
 
       {/* 2. Architectural Design Section — 2 Organic Shaped Images, Editorial Layout, 3D Button & Slider */}
@@ -402,7 +474,20 @@ export default function Home() {
           backgroundColor: '#FFFFFF',
         }}
       >
-        <CloudTransition scrollProgress={heroScroll} />
+        {/* Soft atmospheric cloud mist seamlessly bridging from Hero transition */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: 'absolute',
+            top: '-60px',
+            left: 0,
+            width: '100%',
+            height: '220px',
+            pointerEvents: 'none',
+            zIndex: 2,
+            background: 'linear-gradient(to bottom, #FFFFFF 0%, rgba(255,255,255,0.85) 45%, transparent 100%)',
+          }}
+        />
         <ArchitecturalDesign />
       </section>
 

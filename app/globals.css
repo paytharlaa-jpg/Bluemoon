@@ -146,59 +146,74 @@ a {
   color: var(--sky-blue);
 }
 
-/* Navigation */
+/* Navigation - Luxury Glassmorphic Header */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 2rem 4rem;
+  padding: 1.1rem 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 100;
-  transition: background 0.3s ease;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.68);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 30px rgba(38, 54, 111, 0.05);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .navbar.scrolled {
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  padding: 1rem 4rem;
-}
-
-.navbar.scrolled .nav-links a {
-  color: var(--primary-blue);
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  border-bottom: 1px solid rgba(38, 54, 111, 0.1);
+  box-shadow: 0 10px 35px rgba(38, 54, 111, 0.08);
+  padding: 0.85rem 4rem;
 }
 
 .logo img {
-  height: 60px;
+  height: 52px;
   object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+  transform: scale(1.02);
 }
 
 .nav-links {
   display: flex;
-  gap: 3rem;
+  gap: 2.8rem;
+  align-items: center;
 }
 
 .nav-links a {
   font-family: var(--font-heading);
-  font-size: 0.9rem;
+  font-size: 0.84rem;
   letter-spacing: 2px;
-  color: var(--white);
+  color: var(--primary-blue);
   text-transform: uppercase;
-  transition: color 0.3s ease;
+  font-weight: 700;
+  transition: all 0.3s ease;
   position: relative;
+  padding: 4px 0;
+}
+
+.nav-links a:hover {
+  color: var(--sky-blue);
 }
 
 .nav-links a::after {
   content: '';
   position: absolute;
-  bottom: -4px;
+  bottom: -2px;
   left: 0;
   width: 0;
-  height: 1px;
-  background: var(--premium-red);
+  height: 2px;
+  background: linear-gradient(90deg, var(--sky-blue), var(--champagne-gold));
   transition: width 0.3s ease;
 }
 
@@ -326,8 +341,8 @@ a {
   background-color: var(--primary-blue);
   transition: all 0.3s ease;
 }
-.navbar:not(.scrolled) .hamburger .line {
-  background-color: var(--white);
+.navbar .hamburger .line {
+  background-color: var(--primary-blue);
 }
 @media (max-width: 768px) {
   .nav-links {
@@ -340,11 +355,15 @@ a {
     top: 100%;
     left: 0;
     width: 100%;
-    background: var(--dark-bg);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid rgba(38, 54, 111, 0.12);
+    box-shadow: 0 15px 40px rgba(38, 54, 111, 0.1);
     padding: 2rem;
   }
   .nav-links.open a {
-    color: var(--white);
+    color: var(--primary-blue);
   }
   .hamburger {
     display: flex;
