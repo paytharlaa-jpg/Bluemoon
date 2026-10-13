@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useScroll, useTransform, useSpring, cubicBezier } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring, useMotionValue, cubicBezier } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -321,7 +321,36 @@ export default function Home() {
   const heroOpacity = useTransform(smoothHeroScroll, [0, 0.8], [1, 0]);
   const heroScale = useTransform(smoothHeroScroll, [0, 1], [1, 1.08]);
 
-  const title = "REDEFINING LUXURY".split(" ");
+  // Interactive Negative Mask Cursor Tracking with ultra-smooth spring physics
+  const mouseX = useMotionValue(-500);
+  const mouseY = useMotionValue(-500);
+  const [isHeroHovered, setIsHeroHovered] = useState(false);
+
+  const springX = useSpring(mouseX, { stiffness: 320, damping: 28, mass: 0.15 });
+  const springY = useSpring(mouseY, { stiffness: 320, damping: 28, mass: 0.15 });
+
+  const handleHeroMouseMove = (e) => {
+    if (!heroRef.current) return;
+    const rect = heroRef.current.getBoundingClientRect();
+    mouseX.set(e.clientX - rect.left);
+    mouseY.set(e.clientY - rect.top);
+    if (!isHeroHovered) setIsHeroHovered(true);
+  };
+
+  const handleHeroMouseLeave = () => {
+    setIsHeroHovered(false);
+  };
+
+  const handleHeroTouchMove = (e) => {
+    if (!heroRef.current || !e.touches || !e.touches[0]) return;
+    const rect = heroRef.current.getBoundingClientRect();
+    mouseX.set(e.touches[0].clientX - rect.left);
+    mouseY.set(e.touches[0].clientY - rect.top);
+    setIsHeroHovered(true);
+  };
+
+  const line1 = ["OUR", "IDENTITY"];
+  const line2 = ["IS", "YOUR", "TRUST"];
   
   // Custom easing for premium feel
   const premiumEase = [0.76, 0, 0.24, 1];
@@ -332,6 +361,11 @@ export default function Home() {
       {/* 1. Cinematic Hero Section */}
       <section 
         ref={heroRef}
+        onMouseMove={handleHeroMouseMove}
+        onMouseLeave={handleHeroMouseLeave}
+        onTouchStart={handleHeroTouchMove}
+        onTouchMove={handleHeroTouchMove}
+        onTouchEnd={handleHeroMouseLeave}
         style={{
           position: 'relative',
           height: '100vh',
@@ -339,7 +373,8 @@ export default function Home() {
           alignItems: 'center',
           justifyContent: 'center',
           overflow: 'hidden',
-          backgroundColor: 'var(--dark-bg)'
+          backgroundColor: 'var(--dark-bg)',
+          cursor: isHeroHovered ? 'crosshair' : 'default',
         }}
       >
         {/* Cinematic video background */}
@@ -382,6 +417,55 @@ export default function Home() {
           pointerEvents: 'none',
         }} />
 
+        {/* ── Interactive Negative Mask Spotlight (Mouse-Controlled Inversion Lens) ── */}
+        <motion.div
+          aria-hidden="true"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: 'clamp(210px, 22vw, 290px)',
+            height: 'clamp(210px, 22vw, 290px)',
+            borderRadius: '50%',
+            backgroundColor: '#FFFFFF',
+            mixBlendMode: 'difference',
+            pointerEvents: 'none',
+            zIndex: 12,
+            x: springX,
+            y: springY,
+            translateX: '-50%',
+            translateY: '-50%',
+            scale: isHeroHovered ? 1 : 0,
+            opacity: isHeroHovered ? 1 : 0,
+            transition: 'scale 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease',
+            boxShadow: '0 0 50px rgba(255, 255, 255, 0.95)',
+          }}
+        />
+
+        {/* ── Secondary Precision Ring for Negative Mask ── */}
+        <motion.div
+          aria-hidden="true"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: 'clamp(236px, 24vw, 320px)',
+            height: 'clamp(236px, 24vw, 320px)',
+            borderRadius: '50%',
+            border: '1.5px solid rgba(255, 255, 255, 0.75)',
+            mixBlendMode: 'difference',
+            pointerEvents: 'none',
+            zIndex: 13,
+            x: springX,
+            y: springY,
+            translateX: '-50%',
+            translateY: '-50%',
+            scale: isHeroHovered ? 1 : 0,
+            opacity: isHeroHovered ? 1 : 0,
+            transition: 'scale 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease',
+          }}
+        />
+
         <motion.div 
           style={{ 
             position: 'relative', 
@@ -389,7 +473,12 @@ export default function Home() {
             textAlign: 'center',
             opacity: heroOpacity,
             scale: heroScale,
-            paddingTop: '5rem'
+            paddingTop: '4rem',
+            width: '100%',
+            maxWidth: '1440px',
+            margin: '0 auto',
+            paddingLeft: '1.5rem',
+            paddingRight: '1.5rem',
           }}
         >
           <motion.p 
@@ -398,9 +487,9 @@ export default function Home() {
             transition={{ delay: 2.5, duration: 1 }}
             style={{ 
               color: 'var(--sky-blue)', 
-              letterSpacing: '10px', 
-              fontSize: '1rem',
-              marginBottom: '2rem',
+              letterSpacing: 'clamp(6px, 1.2vw, 12px)', 
+              fontSize: 'clamp(0.85rem, 1.2vw, 1.05rem)',
+              marginBottom: '1.8rem',
               fontFamily: 'var(--font-heading)',
               textShadow: '0 2px 10px rgba(0,0,0,0.5)',
               textTransform: 'uppercase'
@@ -409,39 +498,67 @@ export default function Home() {
             BlueMoon Properties
           </motion.p>
           
+          {/* Main Headline: "OUR IDENTITY IS YOUR TRUST" with Negative Mask interaction */}
           <h1 style={{ 
             display: 'flex', 
-            gap: '2vw', 
+            flexDirection: 'column',
+            alignItems: 'center',
             justifyContent: 'center',
-            overflow: 'hidden',
+            gap: 'clamp(0.2rem, 1vw, 0.8rem)',
             fontFamily: 'var(--font-heading)',
-            fontSize: 'clamp(3rem, 8vw, 8rem)',
-            color: '#fff',
+            fontSize: 'clamp(2.3rem, 6.2vw, 6.5rem)',
+            color: '#FFFFFF',
             textTransform: 'uppercase',
-            lineHeight: 1.1,
-            textShadow: '0 4px 20px rgba(0,0,0,0.3)'
+            lineHeight: 1.05,
+            letterSpacing: 'clamp(2px, 0.4vw, 6px)',
+            textShadow: '0 4px 20px rgba(0,0,0,0.3)',
+            userSelect: 'none',
+            padding: '0 0.5rem',
           }}>
-            {title.map((word, index) => (
-              <motion.span
-                key={index}
-                initial={{ y: '100%' }}
-                animate={{ y: '0%' }}
-                transition={{ 
-                  delay: 2.8 + (index * 0.15), 
-                  duration: 1.2, 
-                  ease: premiumEase 
-                }}
-              >
-                {word}
-              </motion.span>
-            ))}
+            {/* Line 1: OUR IDENTITY */}
+            <div style={{ display: 'flex', gap: 'clamp(0.6vw, 1.6vw, 2.4vw)', justifyContent: 'center', overflow: 'hidden' }}>
+              {line1.map((word, index) => (
+                <motion.span
+                  key={word}
+                  initial={{ y: '110%' }}
+                  animate={{ y: '0%' }}
+                  transition={{ 
+                    delay: 2.8 + (index * 0.14), 
+                    duration: 1.2, 
+                    ease: premiumEase 
+                  }}
+                  style={{ display: 'inline-block' }}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </div>
+
+            {/* Line 2: IS YOUR TRUST */}
+            <div style={{ display: 'flex', gap: 'clamp(0.6vw, 1.6vw, 2.4vw)', justifyContent: 'center', overflow: 'hidden' }}>
+              {line2.map((word, index) => (
+                <motion.span
+                  key={word}
+                  initial={{ y: '110%' }}
+                  animate={{ y: '0%' }}
+                  transition={{ 
+                    delay: 3.1 + (index * 0.14), 
+                    duration: 1.2, 
+                    ease: premiumEase 
+                  }}
+                  style={{ display: 'inline-block' }}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </div>
           </h1>
 
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 3.5, duration: 1.5 }}
-            style={{ marginTop: '5rem' }}
+            transition={{ delay: 3.6, duration: 1.5 }}
+            style={{ marginTop: 'clamp(2.8rem, 5vw, 4.5rem)' }}
           >
             <Link href="/portfolio" style={{
               color: '#fff',
