@@ -326,8 +326,8 @@ export default function Home() {
   const mouseY = useMotionValue(-500);
   const [isHeroHovered, setIsHeroHovered] = useState(false);
 
-  const springX = useSpring(mouseX, { stiffness: 320, damping: 28, mass: 0.15 });
-  const springY = useSpring(mouseY, { stiffness: 320, damping: 28, mass: 0.15 });
+  const springX = useSpring(mouseX, { stiffness: 450, damping: 32, mass: 0.1 });
+  const springY = useSpring(mouseY, { stiffness: 450, damping: 32, mass: 0.1 });
 
   const handleHeroMouseMove = (e) => {
     if (!heroRef.current) return;
@@ -417,15 +417,15 @@ export default function Home() {
           pointerEvents: 'none',
         }} />
 
-        {/* ── Interactive Negative Mask Spotlight (Mouse-Controlled Inversion Lens) ── */}
+        {/* ── Interactive Negative Mask Spotlight (Refined Mouse Point Lens) ── */}
         <motion.div
           aria-hidden="true"
           style={{
             position: 'absolute',
             top: 0,
             left: 0,
-            width: 'clamp(210px, 22vw, 290px)',
-            height: 'clamp(210px, 22vw, 290px)',
+            width: 'clamp(64px, 8vw, 80px)',
+            height: 'clamp(64px, 8vw, 80px)',
             borderRadius: '50%',
             backgroundColor: '#FFFFFF',
             mixBlendMode: 'difference',
@@ -437,22 +437,22 @@ export default function Home() {
             translateY: '-50%',
             scale: isHeroHovered ? 1 : 0,
             opacity: isHeroHovered ? 1 : 0,
-            transition: 'scale 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease',
-            boxShadow: '0 0 50px rgba(255, 255, 255, 0.95)',
+            transition: 'scale 0.22s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease',
+            boxShadow: '0 0 20px rgba(255, 255, 255, 0.85)',
           }}
         />
 
-        {/* ── Secondary Precision Ring for Negative Mask ── */}
+        {/* ── Precision Outer Reticle Ring ── */}
         <motion.div
           aria-hidden="true"
           style={{
             position: 'absolute',
             top: 0,
             left: 0,
-            width: 'clamp(236px, 24vw, 320px)',
-            height: 'clamp(236px, 24vw, 320px)',
+            width: 'clamp(80px, 10vw, 98px)',
+            height: 'clamp(80px, 10vw, 98px)',
             borderRadius: '50%',
-            border: '1.5px solid rgba(255, 255, 255, 0.75)',
+            border: '1.5px solid rgba(255, 255, 255, 0.85)',
             mixBlendMode: 'difference',
             pointerEvents: 'none',
             zIndex: 13,
@@ -462,7 +462,30 @@ export default function Home() {
             translateY: '-50%',
             scale: isHeroHovered ? 1 : 0,
             opacity: isHeroHovered ? 1 : 0,
-            transition: 'scale 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease',
+            transition: 'scale 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease',
+          }}
+        />
+
+        {/* ── Center Reticle Pinpoint Dot ── */}
+        <motion.div
+          aria-hidden="true"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '6px',
+            height: '6px',
+            borderRadius: '50%',
+            backgroundColor: '#FFFFFF',
+            mixBlendMode: 'difference',
+            pointerEvents: 'none',
+            zIndex: 14,
+            x: springX,
+            y: springY,
+            translateX: '-50%',
+            translateY: '-50%',
+            scale: isHeroHovered ? 1 : 0,
+            opacity: isHeroHovered ? 1 : 0,
           }}
         />
 
