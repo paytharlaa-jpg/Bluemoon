@@ -17,8 +17,8 @@ import React, { useEffect, useRef } from 'react';
  */
 export default function ParticleWaveBackground({
   className = '',
-  dotColor = '30, 41, 59', // Deep architectural slate / charcoal (RGB)
-  accentColor = '38, 54, 111', // Blue Moon primary navy
+  dotColor = '38, 54, 111', // Blue Moon primary blue #26366F (RGB)
+  accentColor = '18, 164, 220', // Blue Moon sky blue #12A4DC (RGB)
   dotCountX = 85, // Number of dots along the wave length
   dotCountY = 34, // Number of parallel strands across ribbon width
   speed = 0.42, // Wave propagation speed

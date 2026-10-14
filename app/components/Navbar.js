@@ -9,9 +9,10 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 40);
     };
-    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -20,13 +21,12 @@ export default function Navbar() {
       <div className="logo">
         <Link href="/">
           <img
-            src="/Blue Moon logo.jpeg"
+            src="/Blue_Moon_logo-removebg-preview.png"
             alt="BlueMoon Properties"
             style={{
-              height: '54px',
+              height: '52px',
               width: 'auto',
               objectFit: 'contain',
-              mixBlendMode: 'multiply',
               display: 'block',
             }}
           />
@@ -40,7 +40,7 @@ export default function Navbar() {
         <Link href="/gallery" onClick={() => setMenuOpen(false)}>Gallery</Link>
         <Link href="/contact" onClick={() => setMenuOpen(false)}>Contact Us</Link>
       </div>
-      <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+      <div className={`hamburger ${menuOpen ? 'open' : ''}`} onClick={() => setMenuOpen(!menuOpen)}>
         <span className="line"></span>
         <span className="line"></span>
         <span className="line"></span>

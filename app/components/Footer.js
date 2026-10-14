@@ -5,7 +5,19 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="footer-content">
         <div className="footer-brand">
-          <h2 className="footer-title">BlueMoon Properties</h2>
+          <Link href="/">
+            <img
+              src="/Blue_Moon_logo-removebg-preview.png"
+              alt="BlueMoon Properties"
+              style={{
+                width: '200px',
+                height: 'auto',
+                filter: 'brightness(0) invert(1)',
+                marginBottom: '1.2rem',
+                display: 'block',
+              }}
+            />
+          </Link>
           <p className="footer-tagline">OUR IDENTITY IS YOUR TRUST</p>
           <p className="footer-established">Since 2002</p>
         </div>

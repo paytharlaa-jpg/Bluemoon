@@ -44,7 +44,7 @@ export default function PanoramicLandscapeSilhouette({ className = '' }) {
         style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(to top, rgba(235, 226, 212, 0.45) 0%, rgba(247, 243, 235, 0) 100%)',
+          background: 'linear-gradient(to top, rgba(18, 164, 220, 0.08) 0%, rgba(255, 255, 255, 0) 100%)',
         }}
       />
 
@@ -65,11 +65,11 @@ export default function PanoramicLandscapeSilhouette({ className = '' }) {
       >
         <path
           d="M0,80 Q240,40 480,75 T960,50 Q1200,85 1440,60 L1440,140 L0,140 Z"
-          fill="#E7DCB"
+          fill="rgba(18, 164, 220, 0.04)"
         />
         <path
           d="M0,80 Q240,40 480,75 T960,50 Q1200,85 1440,60"
-          stroke="rgba(197, 168, 128, 0.45)"
+          stroke="rgba(18, 164, 220, 0.35)"
           strokeWidth="1.2"
         />
       </motion.svg>
@@ -91,17 +91,17 @@ export default function PanoramicLandscapeSilhouette({ className = '' }) {
       >
         <path
           d="M0,50 Q320,15 640,45 T1180,30 Q1310,48 1440,35 L1440,110 L0,110 Z"
-          fill="#DFD2BF"
+          fill="rgba(38, 54, 111, 0.04)"
         />
         <path
           d="M0,50 Q320,15 640,45 T1180,30 Q1310,48 1440,35"
-          stroke="rgba(23, 43, 105, 0.15)"
+          stroke="rgba(38, 54, 111, 0.15)"
           strokeWidth="1.4"
         />
         {/* Subtle contour lines tracing hill crests */}
         <path
           d="M0,68 Q340,38 660,62 T1200,48 Q1320,64 1440,52"
-          stroke="rgba(197, 168, 128, 0.35)"
+          stroke="rgba(18, 164, 220, 0.25)"
           strokeWidth="1"
           strokeDasharray="4 8"
         />
@@ -115,7 +115,7 @@ export default function PanoramicLandscapeSilhouette({ className = '' }) {
           left: 0,
           right: 0,
           height: '40px',
-          background: 'linear-gradient(to top, rgba(247, 243, 235, 0.7) 0%, transparent 100%)',
+          background: 'linear-gradient(to top, rgba(255, 255, 255, 0.95) 0%, transparent 100%)',
         }}
       />
     </div>

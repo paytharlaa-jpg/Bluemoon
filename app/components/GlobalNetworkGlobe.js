@@ -154,16 +154,16 @@ export default function GlobalNetworkGlobe({
 
       // ─── AMBIENT ATMOSPHERIC BACK-GLOW ───
       const glowGrad = ctx.createRadialGradient(0, 0, globeRadius * 0.3, 0, 0, globeRadius * 1.45);
-      glowGrad.addColorStop(0, 'rgba(197, 168, 128, 0.10)');
-      glowGrad.addColorStop(0.55, 'rgba(18, 164, 220, 0.07)');
-      glowGrad.addColorStop(1, 'rgba(247, 243, 235, 0)');
+      glowGrad.addColorStop(0, 'rgba(18, 164, 220, 0.10)');
+      glowGrad.addColorStop(0.55, 'rgba(38, 54, 111, 0.05)');
+      glowGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
       ctx.fillStyle = glowGrad;
       ctx.beginPath();
       ctx.arc(0, 0, globeRadius * 1.4, 0, Math.PI * 2);
       ctx.fill();
 
       // ─── SPHERE SILHOUETTE OUTLINE ───
-      ctx.strokeStyle = 'rgba(197, 168, 128, 0.28)';
+      ctx.strokeStyle = 'rgba(18, 164, 220, 0.32)';
       ctx.lineWidth = 1.2;
       ctx.beginPath();
       ctx.arc(0, 0, globeRadius, 0, Math.PI * 2);
@@ -186,8 +186,8 @@ export default function GlobalNetworkGlobe({
         }
         ctx.closePath();
         ctx.strokeStyle = lat === 0
-          ? 'rgba(197, 168, 128, 0.35)' // Equator
-          : 'rgba(23, 43, 105, 0.10)';
+          ? 'rgba(18, 164, 220, 0.45)' // Equator
+          : 'rgba(38, 54, 111, 0.10)';
         ctx.lineWidth = lat === 0 ? 1.4 : 0.8;
         ctx.stroke();
       }
@@ -205,20 +205,20 @@ export default function GlobalNetworkGlobe({
             ctx.lineTo(pt.x, pt.y);
           }
         }
-        ctx.strokeStyle = 'rgba(23, 43, 105, 0.08)';
+        ctx.strokeStyle = 'rgba(38, 54, 111, 0.08)';
         ctx.lineWidth = 0.8;
         ctx.stroke();
       }
 
       // ─── CELESTIAL ORBITAL RINGS ───
-      // Ring 1: Champagne Gold inclined orbit
+      // Ring 1: Sky Blue inclined orbit
       ctx.save();
       ctx.rotate(-0.35);
       ctx.beginPath();
       const ring1RadiusX = globeRadius * 1.28;
       const ring1RadiusY = globeRadius * 0.46;
       ctx.ellipse(0, 0, ring1RadiusX, ring1RadiusY, 0, 0, Math.PI * 2);
-      ctx.strokeStyle = 'rgba(197, 168, 128, 0.38)';
+      ctx.strokeStyle = 'rgba(18, 164, 220, 0.40)';
       ctx.lineWidth = 1;
       ctx.setLineDash([4, 6]);
       ctx.stroke();
@@ -228,11 +228,11 @@ export default function GlobalNetworkGlobe({
       const photon1Angle = pulseTime * 0.8;
       const p1x = Math.cos(photon1Angle) * ring1RadiusX;
       const p1y = Math.sin(photon1Angle) * ring1RadiusY;
-      ctx.fillStyle = '#C5A880';
+      ctx.fillStyle = '#12A4DC';
       ctx.beginPath();
       ctx.arc(p1x, p1y, 3, 0, Math.PI * 2);
       ctx.fill();
-      ctx.fillStyle = 'rgba(197, 168, 128, 0.3)';
+      ctx.fillStyle = 'rgba(18, 164, 220, 0.35)';
       ctx.beginPath();
       ctx.arc(p1x, p1y, 7, 0, Math.PI * 2);
       ctx.fill();
@@ -328,7 +328,7 @@ export default function GlobalNetworkGlobe({
           ctx.arc(node.x, node.y, haloSize, 0, Math.PI * 2);
           ctx.fill();
 
-          ctx.strokeStyle = `rgba(197, 168, 128, ${0.8 * alpha})`;
+          ctx.strokeStyle = `rgba(18, 164, 220, ${0.8 * alpha})`;
           ctx.lineWidth = 1.4;
           ctx.beginPath();
           ctx.arc(node.x, node.y, 4.5 * scale, 0, Math.PI * 2);
@@ -340,8 +340,8 @@ export default function GlobalNetworkGlobe({
           ctx.fill();
 
           if (isFront) {
-            ctx.fillStyle = '#172B69';
-            ctx.font = '700 8.5px "Plus Jakarta Sans", sans-serif';
+            ctx.fillStyle = '#26366F';
+            ctx.font = '700 8.5px "Inter", sans-serif';
             ctx.textAlign = 'left';
             ctx.fillText('HYDERABAD [HUB]', node.x + 8, node.y - 4);
           }
@@ -359,8 +359,8 @@ export default function GlobalNetworkGlobe({
           ctx.stroke();
 
           if (isFront) {
-            ctx.fillStyle = 'rgba(23, 43, 105, 0.75)';
-            ctx.font = '600 7.5px "Plus Jakarta Sans", sans-serif';
+            ctx.fillStyle = 'rgba(38, 54, 111, 0.85)';
+            ctx.font = '600 7.5px "Inter", sans-serif';
             ctx.textAlign = 'left';
             ctx.fillText(node.name.toUpperCase(), node.x + 6, node.y + 2);
           }

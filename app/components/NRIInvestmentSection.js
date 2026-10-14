@@ -27,7 +27,7 @@ const BRAND = {
   skyBlue: '#12A4DC',
   premiumRed: '#D2143A',
   white: '#FFFFFF',
-  offWhite: '#F8FAFD',
+  offWhite: '#FFFFFF',
 };
 
 // Global Currencies and conversion rates against INR (approx baseline)
@@ -279,8 +279,8 @@ export default function NRIInvestmentSection() {
                   width: '8px',
                   height: '8px',
                   borderRadius: '50%',
-                  backgroundColor: '#10B981',
-                  boxShadow: '0 0 10px rgba(16, 185, 129, 0.8)',
+                  backgroundColor: BRAND.skyBlue,
+                  boxShadow: '0 0 10px rgba(18, 164, 220, 0.8)',
                   display: 'inline-block',
                 }}
               />
@@ -317,11 +317,8 @@ export default function NRIInvestmentSection() {
                         display: 'inline-block',
                         padding: '2px 8px',
                         borderRadius: '12px',
-                        backgroundColor:
-                          desk.status.includes('Primary')
-                            ? 'rgba(18, 164, 220, 0.12)'
-                            : 'rgba(16, 185, 129, 0.12)',
-                        color: desk.status.includes('Primary') ? '#0284C7' : '#059669',
+                        backgroundColor: 'rgba(18, 164, 220, 0.12)',
+                        color: BRAND.skyBlue,
                         fontFamily: 'monospace',
                         fontSize: '0.66rem',
                         fontWeight: 700,
@@ -566,17 +563,17 @@ export default function NRIInvestmentSection() {
                   backgroundColor: 'rgba(255, 255, 255, 0.88)',
                   backdropFilter: 'blur(12px)',
                   borderRadius: '16px',
-                  border: '1px solid rgba(16, 185, 129, 0.25)',
-                  boxShadow: '0 8px 24px rgba(16, 185, 129, 0.08)',
+                  border: '1px solid rgba(18, 164, 220, 0.25)',
+                  boxShadow: '0 8px 24px rgba(18, 164, 220, 0.08)',
                 }}
               >
-                <span style={{ display: 'block', fontSize: '0.66rem', fontFamily: 'var(--font-heading)', letterSpacing: '1.5px', color: '#059669', marginBottom: '4px' }}>
+                <span style={{ display: 'block', fontSize: '0.66rem', fontFamily: 'var(--font-heading)', letterSpacing: '1.5px', color: BRAND.skyBlue, marginBottom: '4px', fontWeight: 700 }}>
                   PROJECTED 5-YR PORTFOLIO VALUE
                 </span>
-                <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.9rem', fontWeight: 900, color: '#059669' }}>
+                <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.9rem', fontWeight: 900, color: BRAND.primaryBlue }}>
                   ₹{projectedInr5Yr} CR
                 </div>
-                <span style={{ fontSize: '0.72rem', color: BRAND.primaryBlue, fontFamily: 'monospace', fontWeight: 700 }}>
+                <span style={{ fontSize: '0.72rem', color: BRAND.skyBlue, fontFamily: 'monospace', fontWeight: 700 }}>
                   ≈ {selectedCurrency.symbol} {projectedForeign5Yr}
                 </span>
               </div>
@@ -816,7 +813,7 @@ export default function NRIInvestmentSection() {
                         padding: '12px 14px',
                         borderRadius: '8px',
                         border: '1px solid rgba(255, 255, 255, 0.2)',
-                        backgroundColor: '#1E2C5B',
+                        backgroundColor: BRAND.primaryBlue,
                         color: BRAND.white,
                         fontFamily: 'var(--font-body)',
                         fontSize: '0.9rem',
@@ -847,7 +844,7 @@ export default function NRIInvestmentSection() {
                         padding: '12px 14px',
                         borderRadius: '8px',
                         border: '1px solid rgba(255, 255, 255, 0.2)',
-                        backgroundColor: '#1E2C5B',
+                        backgroundColor: BRAND.primaryBlue,
                         color: BRAND.white,
                         fontFamily: 'var(--font-body)',
                         fontSize: '0.9rem',

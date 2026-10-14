@@ -163,68 +163,68 @@ export default function FluidRibbonMatrix({
       const my = mouse.currentY * 35;
 
       const pts = [
-        // 0: Originates OUTSIDE the section/box at top-left
+        // 0: Originates OUTSIDE the section/box at top-left (Pure White)
         {
           x: 15 + Math.sin(simTime * 0.7) * 22 + mx * 0.3,
           y: 12 + Math.cos(simTime * 0.5) * 18 + my * 0.3,
           z: -75 + Math.sin(simTime * 0.6) * 25,
-          color: [248, 252, 255], // Ice White
+          color: [255, 255, 255], // Pure White (#FFFFFF)
         },
-        // 1: Sweeps from outside directly into the box interior
+        // 1: Sweeps from outside directly into the box interior (Sky Blue)
         {
           x: width * 0.22 + Math.cos(simTime * 0.6) * 20 + mx * 0.5,
           y: height * 0.20 + Math.sin(simTime * 0.8) * 22 + my * 0.5,
           z: -15 + Math.cos(simTime * 0.7) * 20,
-          color: [186, 230, 253], // Pale Sky Blue
+          color: [18, 164, 220], // Sky Blue (#12A4DC)
         },
-        // 2: Upper center crest (Sky Blue) weaving under currency selectors & title
+        // 2: Upper center crest (Sky Blue)
         {
           x: width * 0.45 + Math.sin(simTime * 0.85) * 28 + mx * 0.7,
           y: height * 0.25 + Math.cos(simTime * 0.7) * 22 + my * 0.6,
           z: 40 + Math.sin(simTime * 0.8) * 28,
           color: [18, 164, 220], // Sky Blue (#12A4DC)
         },
-        // 3: Center sweep (Navy Blue) through the arbitrage slider content
+        // 3: Center sweep (Primary Blue)
         {
           x: width * 0.70 + Math.cos(simTime * 0.5) * 25 + mx * 0.8,
           y: height * 0.35 + Math.sin(simTime * 0.65) * 26 + my * 0.7,
           z: -10 + Math.cos(simTime * 0.55) * 22,
-          color: [38, 54, 111], // Royal Navy (#26366F)
+          color: [38, 54, 111], // Primary Blue (#26366F)
         },
-        // 4: Right curl inside the card
+        // 4: Right curl inside the card (Primary Blue)
         {
           x: width * 0.84 + Math.sin(simTime * 0.6) * 22 + mx * 0.6,
           y: height * 0.52 + Math.cos(simTime * 0.75) * 25 + my * 0.6,
           z: -65 + Math.sin(simTime * 0.65) * 25,
-          color: [79, 70, 229], // Deep Indigo
+          color: [38, 54, 111], // Primary Blue (#26366F)
         },
-        // 5: Lower return weaving beneath live output cards (Vivid Magenta)
+        // 5: Lower return weaving beneath live output cards (Red Accent)
         {
           x: width * 0.60 + Math.cos(simTime * 0.7) * 28 + mx * 0.7,
           y: height * 0.64 + Math.sin(simTime * 0.55) * 22 + my * 0.7,
           z: 60 + Math.cos(simTime * 0.7) * 32,
-          color: [192, 38, 211], // Vivid Magenta
+          color: [210, 20, 58], // Red Accent (#D2143A)
         },
-        // 6: Forward crest swelling in 3D under KPI telemetry
+        // 6: Forward crest swelling in 3D under KPI telemetry (Red Accent)
         {
           x: width * 0.36 + Math.sin(simTime * 0.8) * 26 + mx * 0.9,
           y: height * 0.72 + Math.cos(simTime * 0.65) * 20 + my * 0.8,
           z: 125 + Math.sin(simTime * 0.85) * 35,
-          color: [210, 20, 58], // Premium Red (#D2143A)
+          color: [210, 20, 58], // Red Accent (#D2143A)
         },
-        // 7: Sweeping towards lower-left
+        // 7: Sweeping towards lower-left (Sky Blue)
         {
           x: width * 0.22 + Math.cos(simTime * 0.55) * 22 + mx * 1.0,
           y: height * 0.86 + Math.sin(simTime * 0.7) * 25 + my * 0.9,
           z: 165 + Math.cos(simTime * 0.6) * 30,
-          color: [18, 164, 220], // Cyan / Blue
+          color: [18, 164, 220], // Sky Blue (#12A4DC)
         },
-        // 8: Gentle exit / terminal loop
+        // 8: Gentle exit / terminal loop (Primary Blue)
         {
           x: width * 0.12 + Math.sin(simTime * 0.65) * 20 + mx * 1.1,
           y: height * 0.98 + Math.cos(simTime * 0.8) * 22 + my * 1.0,
           z: 200 + Math.sin(simTime * 0.7) * 25,
-          color: [2, 132, 199], // Deep Cobalt
+          color: [38, 54, 111], // Primary Blue (#26366F)
         },
       ];
 

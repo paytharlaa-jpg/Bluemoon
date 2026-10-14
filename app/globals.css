@@ -1,23 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&display=swap');
+
+@font-face {
+  font-family: 'Trajan Pro Bold';
+  src: local('Trajan Pro Bold'), local('TrajanPro-Bold'), local('Trajan Pro'), local('Cinzel Bold');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Trajan Pro';
+  src: local('Trajan Pro'), local('TrajanPro-Regular'), local('Cinzel');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
+  /* Approved Corporate Brand Colors — Strictly HEX Only */
   --primary-blue: #26366F;
   --sky-blue: #12A4DC;
   --premium-red: #D2143A;
   --white: #FFFFFF;
-  --dark-bg: #0a0e1c;
-  --light-gray: #f5f5f5;
+  --dark-bg: #26366F;
+  --light-gray: #FFFFFF;
 
-  /* $100K-Level Luxury Editorial Palette */
-  --warm-ivory: #F7F3EB;
-  --deep-navy: #172B69;
-  --champagne-gold: #C5A880;
-  --gold-accent: #D4AF37;
-  --muted-sand: #EADCC9;
+  /* Legacy variable re-mappings strictly to approved corporate colors (No gold / ivories) */
+  --warm-ivory: #FFFFFF;
+  --deep-navy: #26366F;
+  --champagne-gold: #12A4DC;
+  --gold-accent: #D2143A;
+  --muted-sand: #FFFFFF;
   
-  --font-heading: 'Trajan Pro Bold', 'Cinzel', serif;
-  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-serif: 'Cinzel', serif;
+  --font-heading: 'Trajan Pro Bold', 'Trajan Pro', 'Cinzel', serif;
+  --font-body: 'Times New Roman', Times, Baskerville, Georgia, serif;
+  --font-serif: 'Times New Roman', Times, serif;
 }
 
 * {
@@ -38,7 +55,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
 }
 
@@ -146,42 +163,51 @@ a {
   color: var(--sky-blue);
 }
 
-/* Navigation - Luxury Glassmorphic Header */
+/* Navigation - Transparent at starting, light blur effect on scroll */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 1.1rem 4rem;
+  padding: 1.25rem 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.68);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 0 4px 30px rgba(38, 54, 111, 0.05);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: none;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .navbar.scrolled {
-  background: rgba(255, 255, 255, 0.86);
-  backdrop-filter: blur(28px) saturate(200%);
-  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px) saturate(160%);
+  -webkit-backdrop-filter: blur(8px) saturate(160%);
   border-bottom: 1px solid rgba(38, 54, 111, 0.1);
-  box-shadow: 0 10px 35px rgba(38, 54, 111, 0.08);
+  box-shadow: 0 8px 30px rgba(38, 54, 111, 0.08);
   padding: 0.85rem 4rem;
 }
 
 .logo img {
   height: 52px;
   object-fit: contain;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, filter 0.4s ease;
 }
 
 .logo:hover img {
   transform: scale(1.02);
+}
+
+/* Logo contrast on dark video when transparent vs clean on white when scrolled */
+.navbar:not(.scrolled) .logo img {
+  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.9)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+}
+
+.navbar.scrolled .logo img {
+  filter: none;
 }
 
 .nav-links {
@@ -194,16 +220,22 @@ a {
   font-family: var(--font-heading);
   font-size: 0.84rem;
   letter-spacing: 2px;
-  color: var(--primary-blue);
+  color: #FFFFFF;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.55);
   text-transform: uppercase;
   font-weight: 700;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
   position: relative;
   padding: 4px 0;
 }
 
+.navbar.scrolled .nav-links a {
+  color: var(--primary-blue);
+  text-shadow: none;
+}
+
 .nav-links a:hover {
-  color: var(--sky-blue);
+  color: var(--sky-blue) !important;
 }
 
 .nav-links a::after {
@@ -213,12 +245,31 @@ a {
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, var(--sky-blue), var(--champagne-gold));
+  background: var(--sky-blue);
   transition: width 0.3s ease;
 }
 
 .nav-links a:hover::after {
   width: 100%;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 1001;
+}
+
+.hamburger .line {
+  width: 25px;
+  height: 2px;
+  background-color: #FFFFFF;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled .hamburger .line {
+  background-color: var(--primary-blue);
 }
 
 /* Sections */
@@ -273,13 +324,14 @@ a {
 .text-body {
   font-size: 1.1rem;
   line-height: 1.8;
-  color: #555;
+  color: var(--primary-blue);
+  opacity: 0.88;
   margin-bottom: 2rem;
 }
 
 /* Footer */
 .site-footer {
-  background-color: var(--dark-bg);
+  background-color: var(--primary-blue);
   color: var(--white);
   padding: 4rem 4rem 2rem 4rem;
 }
@@ -294,15 +346,17 @@ a {
   font-size: 2rem;
   letter-spacing: 2px;
   margin-bottom: 0.5rem;
+  color: var(--white);
 }
 .footer-tagline {
   color: var(--sky-blue);
   font-size: 0.9rem;
   letter-spacing: 1px;
   margin-bottom: 0.5rem;
+  font-weight: 700;
 }
 .footer-established {
-  color: #888;
+  color: rgba(255, 255, 255, 0.75);
   font-size: 0.9rem;
 }
 .footer-links h3, .footer-contact h3 {
@@ -310,21 +364,22 @@ a {
   font-family: var(--font-heading);
   margin-bottom: 1.5rem;
   font-size: 1.2rem;
+  font-weight: 800;
 }
 .footer-links a, .footer-contact p {
   display: block;
-  color: #aaa;
+  color: rgba(255, 255, 255, 0.85);
   margin-bottom: 0.8rem;
   transition: color 0.3s ease;
 }
 .footer-links a:hover {
-  color: var(--white);
+  color: var(--sky-blue);
 }
 .footer-bottom {
   text-align: center;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255,255,255,0.15);
   padding-top: 2rem;
-  color: #666;
+  color: rgba(255, 255, 255, 0.65);
   font-size: 0.9rem;
 }
 
@@ -510,3 +565,195 @@ a {
   box-shadow: 0 10px 26px rgba(18, 164, 220, 0.15), 0 4px 12px rgba(38, 54, 111, 0.08);
 }
 
+/* ══════════════════════════════════════════════════════════════════════════
+   MOBILE VIEWPORT ALIGNMENT & RESPONSIVE POLISH (MAX-WIDTH: 768px & 480px)
+   ZERO CHANGES TO DESKTOP — MOBILE ONLY
+   ══════════════════════════════════════════════════════════════════════════ */
+.hamburger.open .line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+.hamburger.open .line:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open .line:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -6px);
+}
+
+@media (max-width: 768px) {
+  /* 1. Global Body & Root Safety */
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+
+  /* 2. Glass Navigation Bar on Mobile */
+  .navbar {
+    padding: 0.85rem 1.25rem !important;
+  }
+  .navbar.scrolled {
+    padding: 0.75rem 1.25rem !important;
+  }
+  .logo img {
+    height: 44px !important;
+  }
+  .nav-links.open {
+    padding: 1.5rem 1.25rem 2rem 1.25rem !important;
+    gap: 1.1rem !important;
+  }
+  .nav-links.open a {
+    font-size: 0.92rem !important;
+    padding: 8px 0 !important;
+    border-bottom: 1px solid rgba(38, 54, 111, 0.08);
+  }
+
+  /* 3. Section 2: Architectural Design (Vertical Stacking Mobile Layout) */
+  .arch-honors-ribbon {
+    display: none !important;
+  }
+  .arch-image-cluster {
+    width: min(290px, 82vw) !important;
+    height: 250px !important;
+    left: 50% !important;
+    right: auto !important;
+    top: 16% !important;
+    transform: translate(-50%, 0) !important;
+  }
+  .arch-slide-1-text,
+  .arch-slide-2-text {
+    width: 92% !important;
+    max-width: 420px !important;
+    left: 50% !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: 4.8rem !important;
+    transform: translate(-50%, 0) !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .arch-slide-1-text p,
+  .arch-slide-2-text p {
+    text-align: center !important;
+    margin-bottom: 1.2rem !important;
+    font-size: 0.95rem !important;
+    max-width: 100% !important;
+  }
+  .arch-slider-nav {
+    left: 50% !important;
+    right: auto !important;
+    bottom: 1.3rem !important;
+    transform: translateX(-50%) !important;
+  }
+
+  /* 4. Section 5: The 4 Pillars of Remote Ownership */
+  .pillars-header-flex {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 1.5rem !important;
+  }
+  .pillars-header-flex > div:first-child {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .pillars-header-flex > div:first-child > div:last-child {
+    margin: 0 auto !important;
+  }
+  .pillars-globe-wrapper {
+    width: 100% !important;
+    max-width: 280px !important;
+    margin: -15px auto !important;
+    overflow: hidden !important;
+  }
+
+  /* 5. Section 6: NRI Investment & Arbitrage Simulator */
+  .nri-arbitrage-box {
+    padding: 1.4rem 1.1rem !important;
+    border-radius: 20px !important;
+    margin-bottom: 3.5rem !important;
+  }
+  .nri-form-row {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* 6. Section 7: Corporate Brochure Download */
+  .brochure-section {
+    padding: 3.5rem 1.25rem 5rem 1.25rem !important;
+  }
+  .brochure-card-inner {
+    border-radius: 20px !important;
+  }
+  .brochure-text-col {
+    padding: 2.2rem 1.25rem !important;
+    flex: 1 1 100% !important;
+  }
+  .brochure-img-col {
+    padding: 1.5rem 1.25rem 2.2rem 1.25rem !important;
+    flex: 1 1 100% !important;
+  }
+
+  /* 7. Site Footer */
+  .site-footer {
+    padding: 3.5rem 1.5rem 2rem 1.5rem !important;
+    text-align: center !important;
+  }
+  .footer-content {
+    grid-template-columns: 1fr !important;
+    gap: 2.2rem !important;
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Small phone optimizations (viewport <= 480px) */
+  .arch-image-cluster {
+    width: 250px !important;
+    height: 220px !important;
+    top: 15% !important;
+  }
+  .arch-slide-1-text,
+  .arch-slide-2-text {
+    bottom: 4.4rem !important;
+  }
+  .arch-slide-1-text h2,
+  .arch-slide-2-text h2 {
+    font-size: 1.4rem !important;
+  }
+  .nri-arbitrage-box {
+    padding: 1.2rem 0.85rem !important;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   HERON INTRO SECTION // ARCHITECTURAL MODELLING ENGINE (RESPONSIVE)
+   ══════════════════════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .heron-intro-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .heron-intro-image {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(38, 54, 111, 0.15) !important;
+    min-height: 380px !important;
+  }
+  .heron-partners-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    height: auto !important;
+  }
+  .heron-partners-grid > div:nth-child(n+4) {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .heron-partners-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .heron-partners-grid > div:nth-child(n+3) {
+    display: none !important;
+  }
+}

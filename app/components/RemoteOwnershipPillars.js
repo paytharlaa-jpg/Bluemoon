@@ -16,17 +16,18 @@ import GlobalNetworkGlobe from './GlobalNetworkGlobe';
 import TopographicContours from './TopographicContours';
 import PanoramicLandscapeSilhouette from './PanoramicLandscapeSilhouette';
 
-// Luxury Editorial Palette Tokens
+// Approved BlueMoon Corporate Palette Tokens
 const PALETTE = {
-  warmIvory: '#F7F3EB',
-  ivoryCard: 'rgba(255, 255, 255, 0.82)',
-  deepNavy: '#172B69',
+  warmIvory: '#FFFFFF',
+  ivoryCard: '#FFFFFF',
+  deepNavy: '#26366F',
   primaryBlue: '#26366F',
-  champagneGold: '#C5A880',
-  goldAccent: '#D4AF37',
-  mutedSand: '#EADCC9',
+  champagneGold: '#12A4DC', // Replaced prohibited gold with approved Sky Blue
+  goldAccent: '#D2143A', // Replaced prohibited gold with approved Red Accent
+  mutedSand: '#FFFFFF',
   skyBlue: '#12A4DC',
   pureWhite: '#FFFFFF',
+  redAccent: '#D2143A',
 };
 
 // Approved 4 Pillars Content
@@ -128,17 +129,17 @@ function PillarCard({ pillar, index, shouldReduceMotion }) {
       transition={{ type: 'spring', stiffness: 260, damping: 24 }}
       style={{
         position: 'relative',
-        backgroundColor: PALETTE.ivoryCard,
+        backgroundColor: '#FFFFFF',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
         borderRadius: '24px',
         padding: '2.4rem 2rem',
         border: isHovered
-          ? `1px solid rgba(197, 168, 128, 0.65)`
-          : `1px solid rgba(197, 168, 128, 0.25)`,
+          ? `1px solid rgba(18, 164, 220, 0.65)`
+          : `1px solid rgba(38, 54, 111, 0.12)`,
         boxShadow: isHovered
-          ? '0 28px 65px rgba(23, 43, 105, 0.11), 0 2px 10px rgba(197, 168, 128, 0.15)'
-          : '0 18px 45px rgba(23, 43, 105, 0.05)',
+          ? '0 28px 65px rgba(38, 54, 111, 0.12), 0 2px 10px rgba(18, 164, 220, 0.15)'
+          : '0 18px 45px rgba(38, 54, 111, 0.05)',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
@@ -170,7 +171,7 @@ function PillarCard({ pillar, index, shouldReduceMotion }) {
         {pillar.num}
       </motion.span>
 
-      {/* ── Ambient Soft Gold Corner Sheen ── */}
+      {/* ── Ambient Sky Blue Corner Sheen ── */}
       <div
         style={{
           position: 'absolute',
@@ -178,7 +179,7 @@ function PillarCard({ pillar, index, shouldReduceMotion }) {
           right: 0,
           width: '140px',
           height: '140px',
-          background: 'radial-gradient(circle at top right, rgba(197, 168, 128, 0.12), transparent 70%)',
+          background: 'radial-gradient(circle at top right, rgba(18, 164, 220, 0.12), transparent 70%)',
           pointerEvents: 'none',
           zIndex: 0,
         }}
@@ -195,7 +196,7 @@ function PillarCard({ pillar, index, shouldReduceMotion }) {
             marginBottom: '1.6rem',
           }}
         >
-          {/* Subtle Roman Badge / Step Indicator */}
+          {/* Subtle Step Indicator */}
           <div
             style={{
               display: 'inline-flex',
@@ -203,8 +204,8 @@ function PillarCard({ pillar, index, shouldReduceMotion }) {
               gap: '6px',
               padding: '4px 10px',
               borderRadius: '20px',
-              backgroundColor: 'rgba(197, 168, 128, 0.12)',
-              border: '1px solid rgba(197, 168, 128, 0.3)',
+              backgroundColor: 'rgba(18, 164, 220, 0.10)',
+              border: '1px solid rgba(18, 164, 220, 0.3)',
             }}
           >
             <span
@@ -212,7 +213,7 @@ function PillarCard({ pillar, index, shouldReduceMotion }) {
                 fontFamily: 'monospace',
                 fontSize: '0.72rem',
                 fontWeight: 700,
-                color: PALETTE.champagneGold,
+                color: PALETTE.skyBlue,
                 letterSpacing: '1px',
               }}
             >
@@ -224,7 +225,7 @@ function PillarCard({ pillar, index, shouldReduceMotion }) {
           <motion.div
             animate={{
               scale: isHovered && !shouldReduceMotion ? 1.08 : 1,
-              backgroundColor: isHovered ? PALETTE.deepNavy : PALETTE.primaryBlue,
+              backgroundColor: isHovered ? PALETTE.primaryBlue : PALETTE.skyBlue,
             }}
             transition={{ duration: 0.3 }}
             style={{
@@ -236,8 +237,8 @@ function PillarCard({ pillar, index, shouldReduceMotion }) {
               alignItems: 'center',
               justifyContent: 'center',
               color: PALETTE.pureWhite,
-              boxShadow: '0 8px 20px rgba(23, 43, 105, 0.22)',
-              border: '1px solid rgba(197, 168, 128, 0.45)',
+              boxShadow: '0 8px 20px rgba(38, 54, 111, 0.22)',
+              border: '1px solid rgba(18, 164, 220, 0.45)',
             }}
           >
             <pillar.icon size={21} color="#FFFFFF" />
@@ -265,7 +266,7 @@ function PillarCard({ pillar, index, shouldReduceMotion }) {
             fontFamily: 'var(--font-body)',
             fontSize: '0.78rem',
             letterSpacing: '1.2px',
-            color: PALETTE.champagneGold,
+            color: PALETTE.skyBlue,
             fontWeight: 700,
             textTransform: 'uppercase',
             marginBottom: '1.1rem',
@@ -280,7 +281,7 @@ function PillarCard({ pillar, index, shouldReduceMotion }) {
             fontFamily: 'var(--font-body)',
             fontSize: '0.92rem',
             lineHeight: 1.68,
-            color: 'rgba(23, 43, 105, 0.78)',
+            color: 'rgba(38, 54, 111, 0.85)',
             marginBottom: '1.6rem',
           }}
         >
@@ -293,7 +294,7 @@ function PillarCard({ pillar, index, shouldReduceMotion }) {
         style={{
           position: 'relative',
           zIndex: 1,
-          borderTop: '1px solid rgba(197, 168, 128, 0.22)',
+          borderTop: '1px solid rgba(38, 54, 111, 0.12)',
           paddingTop: '1.3rem',
           display: 'flex',
           flexDirection: 'column',
@@ -342,7 +343,7 @@ export default function RemoteOwnershipPillars({ className = '' }) {
 
   return (
     <div style={{ position: 'relative', marginBottom: '5.5rem' }}>
-      {/* ── PHASE 1: Golden Horizon Beam (Expands Outward on Entry) ── */}
+      {/* ── PHASE 1: Corporate Sky Blue Horizon Beam (Expands Outward on Entry) ── */}
       <motion.div
         aria-hidden="true"
         initial={{ scaleX: 0, opacity: 0 }}
@@ -355,8 +356,8 @@ export default function RemoteOwnershipPillars({ className = '' }) {
           left: '4%',
           right: '4%',
           height: '3px',
-          background: 'linear-gradient(90deg, transparent 0%, rgba(197, 168, 128, 0.45) 15%, #D4AF37 50%, rgba(18, 164, 220, 0.5) 85%, transparent 100%)',
-          boxShadow: '0 0 24px rgba(212, 175, 55, 0.8), 0 0 10px rgba(18, 164, 220, 0.4)',
+          background: 'linear-gradient(90deg, transparent 0%, rgba(18, 164, 220, 0.4) 15%, #12A4DC 50%, rgba(38, 54, 111, 0.5) 85%, transparent 100%)',
+          boxShadow: '0 0 24px rgba(18, 164, 220, 0.8), 0 0 10px rgba(38, 54, 111, 0.4)',
           zIndex: 10,
           transformOrigin: 'center',
           pointerEvents: 'none',
@@ -375,8 +376,8 @@ export default function RemoteOwnershipPillars({ className = '' }) {
             transform: 'translateX(-50%) rotate(45deg)',
             width: '12px',
             height: '12px',
-            backgroundColor: '#D4AF37',
-            boxShadow: '0 0 16px rgba(212, 175, 55, 0.95)',
+            backgroundColor: '#12A4DC',
+            boxShadow: '0 0 16px rgba(18, 164, 220, 0.95)',
           }}
         />
       </motion.div>
@@ -404,12 +405,12 @@ export default function RemoteOwnershipPillars({ className = '' }) {
         }}
         style={{
           position: 'relative',
-          backgroundColor: PALETTE.warmIvory,
+          backgroundColor: '#FFFFFF',
           borderRadius: '36px',
           padding: 'clamp(3rem, 6vw, 6rem) clamp(1.5rem, 4vw, 4rem)',
           overflow: 'hidden',
-          boxShadow: '0 30px 80px rgba(23, 43, 105, 0.05)',
-          border: '1px solid rgba(197, 168, 128, 0.28)',
+          boxShadow: '0 30px 80px rgba(38, 54, 111, 0.06)',
+          border: '1px solid rgba(38, 54, 111, 0.12)',
         }}
       >
         {/* ── PHASE 3: Architectural Retracting Shutter / Veil ── */}
@@ -423,7 +424,7 @@ export default function RemoteOwnershipPillars({ className = '' }) {
             style={{
               position: 'absolute',
               inset: 0,
-              background: 'linear-gradient(to bottom, rgba(247, 243, 235, 0.96), rgba(235, 226, 212, 0.88))',
+              background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.92))',
               transformOrigin: 'top',
               pointerEvents: 'none',
               zIndex: 4,
@@ -435,7 +436,7 @@ export default function RemoteOwnershipPillars({ className = '' }) {
         <TopographicContours />
         <PanoramicLandscapeSilhouette />
 
-        {/* Soft Ambient Sunlight Gradient */}
+        {/* Soft Ambient Radiance Gradient */}
         <div
           aria-hidden="true"
           style={{
@@ -445,7 +446,7 @@ export default function RemoteOwnershipPillars({ className = '' }) {
             width: '600px',
             height: '600px',
             borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(197, 168, 128, 0.14) 0%, rgba(247, 243, 235, 0) 70%)',
+            background: 'radial-gradient(circle, rgba(18, 164, 220, 0.10) 0%, rgba(255, 255, 255, 0) 70%)',
             pointerEvents: 'none',
             zIndex: 0,
           }}
@@ -473,7 +474,7 @@ export default function RemoteOwnershipPillars({ className = '' }) {
           >
             {/* Left Column: Editorial Heading Sequence */}
             <div style={{ maxWidth: '780px' }}>
-              {/* 1. Small Uppercase Eyebrow with Gold Compass Star */}
+              {/* 1. Small Uppercase Eyebrow with Compass Star */}
               <motion.div
                 initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -485,18 +486,18 @@ export default function RemoteOwnershipPillars({ className = '' }) {
                   gap: '8px',
                   padding: '6px 18px',
                   borderRadius: '50px',
-                  backgroundColor: 'rgba(197, 168, 128, 0.15)',
-                  border: '1px solid rgba(197, 168, 128, 0.35)',
+                  backgroundColor: 'rgba(18, 164, 220, 0.12)',
+                  border: '1px solid rgba(18, 164, 220, 0.35)',
                   marginBottom: '1.2rem',
                 }}
               >
-                <Compass size={13} color={PALETTE.champagneGold} />
+                <Compass size={13} color={PALETTE.skyBlue} />
                 <span
                   style={{
                     fontFamily: 'var(--font-heading)',
                     fontSize: '0.74rem',
                     letterSpacing: '3px',
-                    color: PALETTE.deepNavy,
+                    color: PALETTE.primaryBlue,
                     fontWeight: 700,
                     textTransform: 'uppercase',
                   }}
@@ -514,14 +515,15 @@ export default function RemoteOwnershipPillars({ className = '' }) {
                 style={{
                   fontFamily: 'var(--font-heading)',
                   fontSize: 'clamp(2.3rem, 4.8vw, 3.8rem)',
-                  color: PALETTE.deepNavy,
+                  color: PALETTE.primaryBlue,
                   margin: '0 0 1rem 0',
                   lineHeight: 1.15,
                   letterSpacing: '0.5px',
+                  fontWeight: 800,
                 }}
               >
                 THE 4 PILLARS OF <br />
-                <span style={{ color: PALETTE.primaryBlue }}>REMOTE OWNERSHIP</span>
+                <span style={{ color: PALETTE.skyBlue }}>REMOTE OWNERSHIP</span>
               </motion.h3>
 
               {/* 3. Subtitle */}
@@ -534,7 +536,7 @@ export default function RemoteOwnershipPillars({ className = '' }) {
                   fontFamily: 'var(--font-body)',
                   fontSize: 'clamp(1.05rem, 1.4vw, 1.25rem)',
                   lineHeight: 1.7,
-                  color: 'rgba(23, 43, 105, 0.78)',
+                  color: 'rgba(38, 54, 111, 0.85)',
                   margin: '0 0 1.6rem 0',
                   maxWidth: '680px',
                 }}
@@ -543,7 +545,7 @@ export default function RemoteOwnershipPillars({ className = '' }) {
                 Engineered to eliminate distance, bureaucratic friction, and physical transit requirements.
               </motion.p>
 
-              {/* 4. Animated Thin Gold Accent Line */}
+              {/* 4. Animated Thin Accent Line */}
               <motion.div
                 initial={{ scaleX: 0, opacity: 0 }}
                 whileInView={{ scaleX: 1, opacity: 1 }}
@@ -553,7 +555,7 @@ export default function RemoteOwnershipPillars({ className = '' }) {
                   height: '2px',
                   width: '100%',
                   maxWidth: '380px',
-                  background: `linear-gradient(90deg, ${PALETTE.champagneGold}, rgba(18, 164, 220, 0.4), transparent)`,
+                  background: `linear-gradient(90deg, ${PALETTE.skyBlue}, rgba(38, 54, 111, 0.4), transparent)`,
                   transformOrigin: 'left',
                 }}
               />
@@ -618,7 +620,7 @@ export default function RemoteOwnershipPillars({ className = '' }) {
               textAlign: 'center',
             }}
           >
-            {/* Decorative Gold Dividers & Crest */}
+            {/* Decorative Dividers & Emblem */}
             <div
               style={{
                 display: 'flex',
@@ -633,24 +635,24 @@ export default function RemoteOwnershipPillars({ className = '' }) {
                 style={{
                   flex: 1,
                   height: '1px',
-                  background: 'linear-gradient(90deg, transparent, rgba(197, 168, 128, 0.5))',
+                  background: 'linear-gradient(90deg, transparent, rgba(18, 164, 220, 0.5))',
                 }}
               />
-              {/* Gold Diamond Emblem */}
+              {/* Emblem */}
               <div
                 style={{
                   width: '9px',
                   height: '9px',
                   transform: 'rotate(45deg)',
-                  backgroundColor: PALETTE.champagneGold,
-                  boxShadow: '0 0 10px rgba(197, 168, 128, 0.6)',
+                  backgroundColor: PALETTE.skyBlue,
+                  boxShadow: '0 0 10px rgba(18, 164, 220, 0.6)',
                 }}
               />
               <div
                 style={{
                   flex: 1,
                   height: '1px',
-                  background: 'linear-gradient(90deg, rgba(197, 168, 128, 0.5), transparent)',
+                  background: 'linear-gradient(90deg, rgba(18, 164, 220, 0.5), transparent)',
                 }}
               />
             </div>
@@ -661,8 +663,8 @@ export default function RemoteOwnershipPillars({ className = '' }) {
                 fontFamily: 'var(--font-heading)',
                 fontSize: 'clamp(0.82rem, 1.2vw, 0.95rem)',
                 letterSpacing: '5px',
-                color: PALETTE.deepNavy,
-                fontWeight: 700,
+                color: PALETTE.primaryBlue,
+                fontWeight: 800,
                 textTransform: 'uppercase',
               }}
             >
@@ -674,7 +676,7 @@ export default function RemoteOwnershipPillars({ className = '' }) {
                 display: 'block',
                 fontFamily: 'var(--font-body)',
                 fontSize: '0.78rem',
-                color: 'rgba(23, 43, 105, 0.55)',
+                color: 'rgba(38, 54, 111, 0.65)',
                 marginTop: '6px',
                 letterSpacing: '1px',
               }}

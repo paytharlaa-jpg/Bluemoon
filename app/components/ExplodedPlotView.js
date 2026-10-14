@@ -32,10 +32,10 @@ const BRAND = {
   primaryBlue: '#26366F',
   skyBlue: '#12A4DC',
   premiumRed: '#D2143A',
-  warmIvory: '#F7F3EB',
-  ivoryParchment: '#FAF8F5',
-  warmStone: '#6E6254',
-  warmStoneBorder: '#E5DFD3',
+  warmIvory: '#FFFFFF',
+  ivoryParchment: '#FFFFFF',
+  warmStone: '#26366F',
+  warmStoneBorder: 'rgba(38, 54, 111, 0.15)',
   white: '#FFFFFF',
 };
 
@@ -45,7 +45,7 @@ const PLOT_LAYERS = [
     id: 'layer-bedrock',
     index: 1,
     folderLabel: 'BEDROCK',
-    color: '#D97706', // Amber Gold
+    color: '#26366F', // Sovereign Primary Blue
     name: 'HMDA & RERA CLEAR FREEHOLD TITLE',
     elevationLabel: 'FOUNDATION BEDROCK // LEGAL CORE',
     depth: 'FOUNDATION BEDROCK',
@@ -72,7 +72,7 @@ const PLOT_LAYERS = [
     id: 'layer-aquifer',
     index: 2,
     folderLabel: 'AQUIFER',
-    color: '#0284C7', // Sky Azure
+    color: '#12A4DC', // Sky Blue
     name: 'GROUNDWATER HYDROLOGY & RECHARGE',
     elevationLabel: '-18.0 METERS // SUBTERRANEAN AQUIFER',
     depth: '-18.0 METERS',
@@ -99,7 +99,7 @@ const PLOT_LAYERS = [
     id: 'layer-strata',
     index: 3,
     folderLabel: 'STRATA',
-    color: '#10B981', // Emerald Green
+    color: '#26366F', // Primary Blue
     name: 'CERTIFIED LOAD-BEARING STRATA',
     elevationLabel: '-4.0 METERS // GEOTECHNICAL BED',
     depth: '-4.0 METERS',
@@ -180,7 +180,7 @@ const PLOT_LAYERS = [
     id: 'layer-sky',
     index: 6,
     folderLabel: 'SOLAR SKY',
-    color: '#F59E0B', // Solar Gold
+    color: '#12A4DC', // Sky Blue
     name: 'SOVEREIGN SKY & SOLAR RIGHTS',
     elevationLabel: '+15.0M ATMOSPHERE // ATMOSPHERIC CORRIDOR',
     depth: '+15.0M ATMOSPHERE',
@@ -273,7 +273,7 @@ export default function ExplodedPlotView() {
           position: 'relative',
           width: '100%',
           height: '100%',
-          backgroundColor: '#0F172A',
+          backgroundColor: '#26366F',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
@@ -294,7 +294,7 @@ export default function ExplodedPlotView() {
           style={{
             position: 'absolute',
             inset: 0,
-            background: 'linear-gradient(to top, rgba(15, 23, 42, 0.92) 0%, transparent 60%)',
+            background: 'linear-gradient(to top, rgba(38, 54, 111, 0.95) 0%, transparent 60%)',
             pointerEvents: 'none',
           }}
         />
@@ -401,7 +401,7 @@ export default function ExplodedPlotView() {
         <div
           style={{
             paddingTop: '3px',
-            borderTop: '1px solid #F1F5F9',
+            borderTop: '1px solid rgba(38, 54, 111, 0.12)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
@@ -435,7 +435,7 @@ export default function ExplodedPlotView() {
           position: 'relative',
           width: '100%',
           height: '100%',
-          backgroundColor: '#0F172A',
+          backgroundColor: '#26366F',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
@@ -456,7 +456,7 @@ export default function ExplodedPlotView() {
           style={{
             position: 'absolute',
             inset: 0,
-            background: 'linear-gradient(to top, rgba(15, 23, 42, 0.92) 0%, transparent 60%)',
+            background: 'linear-gradient(to top, rgba(38, 54, 111, 0.95) 0%, transparent 60%)',
             pointerEvents: 'none',
           }}
         />
@@ -475,7 +475,7 @@ export default function ExplodedPlotView() {
           >
             SURVEY
           </span>
-          <span style={{ fontSize: '6px', fontFamily: 'monospace', color: '#34D399', fontWeight: 700 }}>
+          <span style={{ fontSize: '6px', fontFamily: 'monospace', color: BRAND.skyBlue, fontWeight: 700 }}>
             CLEAR
           </span>
         </div>
@@ -633,7 +633,7 @@ export default function ExplodedPlotView() {
             style={{
               fontFamily: 'var(--font-body)',
               fontSize: 'clamp(1.05rem, 1.5vw, 1.25rem)',
-              color: '#52493E',
+              color: 'rgba(38, 54, 111, 0.85)',
               maxWidth: '680px',
               margin: '0 auto 8px auto',
               lineHeight: 1.5,
@@ -992,7 +992,7 @@ export default function ExplodedPlotView() {
                     position: 'relative',
                     height: '100%',
                     minHeight: '260px',
-                    backgroundColor: '#0F172A',
+                    backgroundColor: '#26366F',
                     borderRadius: '16px',
                     overflow: 'hidden',
                     display: 'flex',
@@ -1002,7 +1002,7 @@ export default function ExplodedPlotView() {
                     boxSizing: 'border-box',
                     border: selectedCard === 'left'
                       ? `2.5px solid ${activeLayer.color}`
-                      : '1px solid rgba(110, 98, 84, 0.2)',
+                      : '1px solid rgba(38, 54, 111, 0.2)',
                     boxShadow: selectedCard === 'left'
                       ? `0 0 25px ${activeLayer.color}40`
                       : 'none',
@@ -1025,7 +1025,7 @@ export default function ExplodedPlotView() {
                     style={{
                       position: 'absolute',
                       inset: 0,
-                      background: 'linear-gradient(to top, rgba(15, 23, 42, 0.88) 0%, transparent 60%)',
+                      background: 'linear-gradient(to top, rgba(38, 54, 111, 0.92) 0%, transparent 60%)',
                       pointerEvents: 'none',
                     }}
                   />
@@ -1034,7 +1034,7 @@ export default function ExplodedPlotView() {
                   <div style={{ position: 'relative', zIndex: 2 }}>
                     <span
                       style={{
-                        backgroundColor: 'rgba(15, 23, 42, 0.88)',
+                        backgroundColor: 'rgba(38, 54, 111, 0.90)',
                         border: `1px solid ${activeLayer.color}`,
                         color: BRAND.white,
                         padding: '3px 8px',
@@ -1048,12 +1048,12 @@ export default function ExplodedPlotView() {
                     </span>
                   </div>
 
-                  {/* Bottom Image Caption in Warm Ivory styling */}
+                  {/* Bottom Image Caption */}
                   <div
                     style={{
                       position: 'relative',
                       zIndex: 2,
-                      backgroundColor: 'rgba(250, 248, 245, 0.94)',
+                      backgroundColor: '#FFFFFF',
                       padding: '9px 12px',
                       borderRadius: '8px',
                       border: `1px solid ${BRAND.warmStoneBorder}`,
@@ -1061,13 +1061,13 @@ export default function ExplodedPlotView() {
                       fontFamily: 'monospace',
                       fontSize: '0.68rem',
                       lineHeight: 1.35,
-                      boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                      boxShadow: '0 4px 12px rgba(38, 54, 111, 0.1)',
                     }}
                   >
                     <span style={{ color: activeLayer.color, fontWeight: 700, display: 'block', marginBottom: '2px' }}>
                       LAYER 0{activeLayer.index} // BLUEPRINT CAD (/plots.jpg)
                     </span>
-                    <span style={{ color: '#4A4237' }}>{activeLayer.leftCaption}</span>
+                    <span style={{ color: 'rgba(38, 54, 111, 0.85)' }}>{activeLayer.leftCaption}</span>
                   </div>
                 </div>
 
@@ -1137,7 +1137,7 @@ export default function ExplodedPlotView() {
                       style={{
                         fontFamily: 'var(--font-body)',
                         fontSize: '0.94rem',
-                        color: '#423A30',
+                        color: 'rgba(38, 54, 111, 0.85)',
                         lineHeight: 1.6,
                         margin: '0 0 18px 0',
                       }}
@@ -1167,7 +1167,7 @@ export default function ExplodedPlotView() {
                             key={mIdx}
                             style={{
                               padding: '8px 10px',
-                              backgroundColor: '#FAF8F5',
+                              backgroundColor: '#FFFFFF',
                               borderRadius: '8px',
                               border: `1px solid ${BRAND.warmStoneBorder}`,
                             }}
@@ -1176,9 +1176,10 @@ export default function ExplodedPlotView() {
                               style={{
                                 fontFamily: 'var(--font-heading)',
                                 fontSize: '0.58rem',
-                                color: BRAND.warmStone,
+                                color: BRAND.skyBlue,
                                 display: 'block',
                                 marginBottom: '2px',
+                                fontWeight: 700,
                               }}
                             >
                               {m.label}
@@ -1235,7 +1236,7 @@ export default function ExplodedPlotView() {
                               gap: '8px',
                               fontSize: '0.78rem',
                               fontFamily: 'var(--font-body)',
-                              color: '#3E362C',
+                              color: 'rgba(38, 54, 111, 0.85)',
                               lineHeight: 1.35,
                             }}
                           >
@@ -1295,7 +1296,7 @@ export default function ExplodedPlotView() {
                     position: 'relative',
                     height: '100%',
                     minHeight: '260px',
-                    backgroundColor: '#0F172A',
+                    backgroundColor: '#26366F',
                     borderRadius: '16px',
                     overflow: 'hidden',
                     display: 'flex',
@@ -1305,7 +1306,7 @@ export default function ExplodedPlotView() {
                     boxSizing: 'border-box',
                     border: selectedCard === 'right'
                       ? `2.5px solid ${activeLayer.color}`
-                      : '1px solid rgba(110, 98, 84, 0.2)',
+                      : '1px solid rgba(38, 54, 111, 0.2)',
                     boxShadow: selectedCard === 'right'
                       ? `0 0 25px ${activeLayer.color}40`
                       : 'none',
@@ -1328,7 +1329,7 @@ export default function ExplodedPlotView() {
                     style={{
                       position: 'absolute',
                       inset: 0,
-                      background: 'linear-gradient(to top, rgba(15, 23, 42, 0.88) 0%, transparent 60%)',
+                      background: 'linear-gradient(to top, rgba(38, 54, 111, 0.92) 0%, transparent 60%)',
                       pointerEvents: 'none',
                     }}
                   />
@@ -1337,7 +1338,7 @@ export default function ExplodedPlotView() {
                   <div style={{ position: 'relative', zIndex: 2 }}>
                     <span
                       style={{
-                        backgroundColor: 'rgba(15, 23, 42, 0.88)',
+                        backgroundColor: 'rgba(38, 54, 111, 0.90)',
                         border: `1px solid ${activeLayer.color}`,
                         color: BRAND.white,
                         padding: '3px 8px',
@@ -1351,12 +1352,12 @@ export default function ExplodedPlotView() {
                     </span>
                   </div>
 
-                  {/* Bottom Image Caption in Warm Ivory styling */}
+                  {/* Bottom Image Caption */}
                   <div
                     style={{
                       position: 'relative',
                       zIndex: 2,
-                      backgroundColor: 'rgba(250, 248, 245, 0.94)',
+                      backgroundColor: '#FFFFFF',
                       padding: '9px 12px',
                       borderRadius: '8px',
                       border: `1px solid ${BRAND.warmStoneBorder}`,
@@ -1364,13 +1365,13 @@ export default function ExplodedPlotView() {
                       fontFamily: 'monospace',
                       fontSize: '0.68rem',
                       lineHeight: 1.35,
-                      boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                      boxShadow: '0 4px 12px rgba(38, 54, 111, 0.1)',
                     }}
                   >
                     <span style={{ color: activeLayer.color, fontWeight: 700, display: 'block', marginBottom: '2px' }}>
                       LAYER 0{activeLayer.index} // SOVEREIGN SURVEY (/lands.jpg)
                     </span>
-                    <span style={{ color: '#4A4237' }}>{activeLayer.rightCaption}</span>
+                    <span style={{ color: 'rgba(38, 54, 111, 0.85)' }}>{activeLayer.rightCaption}</span>
                   </div>
                 </div>
               </div>

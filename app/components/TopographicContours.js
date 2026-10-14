@@ -38,14 +38,14 @@ export default function TopographicContours({ className = '' }) {
       >
         <defs>
           <linearGradient id="contourGold" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#C5A880" stopOpacity="0.04" />
-            <stop offset="50%" stopColor="#C5A880" stopOpacity="0.16" />
-            <stop offset="100%" stopColor="#12A4DC" stopOpacity="0.06" />
+            <stop offset="0%" stopColor="#12A4DC" stopOpacity="0.04" />
+            <stop offset="50%" stopColor="#12A4DC" stopOpacity="0.16" />
+            <stop offset="100%" stopColor="#26366F" stopOpacity="0.06" />
           </linearGradient>
           <linearGradient id="contourNavy" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#172B69" stopOpacity="0.02" />
-            <stop offset="60%" stopColor="#172B69" stopOpacity="0.08" />
-            <stop offset="100%" stopColor="#C5A880" stopOpacity="0.03" />
+            <stop offset="0%" stopColor="#26366F" stopOpacity="0.02" />
+            <stop offset="60%" stopColor="#26366F" stopOpacity="0.08" />
+            <stop offset="100%" stopColor="#12A4DC" stopOpacity="0.03" />
           </linearGradient>
         </defs>
 
@@ -87,7 +87,7 @@ export default function TopographicContours({ className = '' }) {
         />
 
         {/* Geodetic Grid Crosshairs */}
-        <g stroke="rgba(197, 168, 128, 0.35)" strokeWidth="1">
+        <g stroke="rgba(18, 164, 220, 0.35)" strokeWidth="1">
           {/* Crosshair 1 (Top-Left) */}
           <line x1="140" y1="120" x2="160" y2="120" />
           <line x1="150" y1="110" x2="150" y2="130" />
@@ -111,13 +111,13 @@ export default function TopographicContours({ className = '' }) {
           fontFamily: 'monospace',
           fontSize: '0.68rem',
           letterSpacing: '2px',
-          color: 'rgba(23, 43, 105, 0.35)',
+          color: 'rgba(38, 54, 111, 0.40)',
           textTransform: 'uppercase',
         }}
       >
         <span>GEODETIC SURVEY REF // BM-SOV-4P</span>
         <br />
-        <span style={{ color: 'rgba(197, 168, 128, 0.65)' }}>17°23&apos;44&quot;N 78°28&apos;29&quot;E · ELEV 542M MSL</span>
+        <span style={{ color: 'rgba(18, 164, 220, 0.75)' }}>17°23&apos;44&quot;N 78°28&apos;29&quot;E · ELEV 542M MSL</span>
       </div>
 
       <div
@@ -128,14 +128,14 @@ export default function TopographicContours({ className = '' }) {
           fontFamily: 'monospace',
           fontSize: '0.66rem',
           letterSpacing: '2px',
-          color: 'rgba(23, 43, 105, 0.30)',
+          color: 'rgba(38, 54, 111, 0.35)',
           textAlign: 'right',
           textTransform: 'uppercase',
         }}
       >
         <span>HYDERABAD SOVEREIGN LAND RESERVES</span>
         <br />
-        <span style={{ color: 'rgba(18, 164, 220, 0.55)' }}>GLOBAL CAPITAL CORRIDOR // VERIFIED TITLE</span>
+        <span style={{ color: 'rgba(18, 164, 220, 0.65)' }}>GLOBAL CAPITAL CORRIDOR // VERIFIED TITLE</span>
       </div>
     </div>
   );

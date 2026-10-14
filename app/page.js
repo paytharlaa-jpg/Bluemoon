@@ -9,6 +9,7 @@ import PropertyShowcase from './components/PropertyShowcase';
 import ArchitecturalDesign from './components/ArchitecturalDesign';
 import ExplodedPlotView from './components/ExplodedPlotView';
 import NRIInvestmentSection from './components/NRIInvestmentSection';
+import HeronIntroSection from './components/HeronIntroSection';
 
 const CloudTransition = ({ scrollProgress }) => {
   // Ultra-responsive, buttery-smooth physics spring (critically damped, zero jitter/lag)
@@ -26,69 +27,68 @@ const CloudTransition = ({ scrollProgress }) => {
   // At progress 1.0: Whole hero is engulfed, seamlessly revealing Section 2.
 
   // Layer 1: Leading High Background Cloud
-  const backCloudY = useTransform(smoothProgress, [0, 0.45, 0.8, 1.0], ['0vh', '-32vh', '-68vh', '-86vh']);
-  const backCloudScale = useTransform(smoothProgress, [0, 0.5, 1.0], [1.0, 1.15, 1.3]);
-  const backCloudOpacity = useTransform(smoothProgress, [0, 0.15, 0.75, 0.95, 1.05], [0.85, 1.0, 1.0, 0.4, 0]);
+  const backCloudY = useTransform(smoothProgress, [0, 0.5, 1.0], ['40px', '-180px', '-450px']);
+  const backCloudScale = useTransform(smoothProgress, [0, 0.5, 1.0], [1.02, 1.18, 1.3]);
+  const backCloudOpacity = useTransform(smoothProgress, [0, 0.2, 0.8, 1.0], [0.65, 1.0, 1.0, 0.4]);
 
   // Layer 2: Left Wing Flanking Cloud (inward rolling drift)
-  const leftCloudY = useTransform(smoothProgress, [0, 0.45, 0.8, 1.0], ['0vh', '-28vh', '-64vh', '-80vh']);
+  const leftCloudY = useTransform(smoothProgress, [0, 0.5, 1.0], ['40px', '-160px', '-420px']);
   const leftCloudX = useTransform(smoothProgress, [0, 0.5, 1.0], ['-4vw', '0vw', '4vw']);
-  const leftCloudScale = useTransform(smoothProgress, [0, 0.5, 1.0], [1.0, 1.18, 1.32]);
-  const leftCloudOpacity = useTransform(smoothProgress, [0, 0.15, 0.75, 0.95, 1.05], [0.85, 1.0, 1.0, 0.4, 0]);
+  const leftCloudScale = useTransform(smoothProgress, [0, 0.5, 1.0], [1.02, 1.2, 1.32]);
+  const leftCloudOpacity = useTransform(smoothProgress, [0, 0.2, 0.8, 1.0], [0.7, 1.0, 1.0, 0.4]);
 
   // Layer 3: Right Wing Flanking Cloud (inward rolling drift, flipped)
-  const rightCloudY = useTransform(smoothProgress, [0, 0.45, 0.8, 1.0], ['0vh', '-28vh', '-64vh', '-80vh']);
+  const rightCloudY = useTransform(smoothProgress, [0, 0.5, 1.0], ['40px', '-160px', '-420px']);
   const rightCloudX = useTransform(smoothProgress, [0, 0.5, 1.0], ['4vw', '0vw', '-4vw']);
-  const rightCloudScale = useTransform(smoothProgress, [0, 0.5, 1.0], [1.0, 1.18, 1.32]);
-  const rightCloudOpacity = useTransform(smoothProgress, [0, 0.15, 0.75, 0.95, 1.05], [0.85, 1.0, 1.0, 0.4, 0]);
+  const rightCloudScale = useTransform(smoothProgress, [0, 0.5, 1.0], [1.02, 1.2, 1.32]);
+  const rightCloudOpacity = useTransform(smoothProgress, [0, 0.2, 0.8, 1.0], [0.7, 1.0, 1.0, 0.4]);
 
   // Layer 4: Grand Foreground Billowing Cloud (Center Apex)
-  const frontCloudY = useTransform(smoothProgress, [0, 0.45, 0.8, 1.0], ['0vh', '-36vh', '-74vh', '-90vh']);
-  const frontCloudScale = useTransform(smoothProgress, [0, 0.5, 1.0], [1.02, 1.2, 1.36]);
-  const frontCloudOpacity = useTransform(smoothProgress, [0, 0.15, 0.75, 0.95, 1.05], [0.9, 1.0, 1.0, 0.4, 0]);
+  const frontCloudY = useTransform(smoothProgress, [0, 0.5, 1.0], ['50px', '-180px', '-460px']);
+  const frontCloudScale = useTransform(smoothProgress, [0, 0.5, 1.0], [1.02, 1.22, 1.36]);
+  const frontCloudOpacity = useTransform(smoothProgress, [0, 0.2, 0.8, 1.0], [0.75, 1.0, 1.0, 0.4]);
 
   // Layer 5: Base Overlap Cloud (Seals lower boundary)
-  const baseCloudY = useTransform(smoothProgress, [0, 0.45, 0.8, 1.0], ['0vh', '-24vh', '-54vh', '-70vh']);
-  const baseCloudScale = useTransform(smoothProgress, [0, 0.5, 1.0], [1.0, 1.14, 1.25]);
-  const baseCloudOpacity = useTransform(smoothProgress, [0, 0.15, 0.75, 0.95, 1.05], [0.9, 1.0, 1.0, 0.4, 0]);
+  const baseCloudY = useTransform(smoothProgress, [0, 0.5, 1.0], ['30px', '-130px', '-340px']);
+  const baseCloudScale = useTransform(smoothProgress, [0, 0.5, 1.0], [1.02, 1.15, 1.25]);
+  const baseCloudOpacity = useTransform(smoothProgress, [0, 0.2, 0.8, 1.0], [0.8, 1.0, 1.0, 0.4]);
 
   // Layer 6: Solid White Rising Cloud Deck (Ensures 100% opaque white coverage beneath clouds)
-  const fogDeckY = useTransform(smoothProgress, [0, 0.45, 0.8, 1.0], ['0vh', '-28vh', '-62vh', '-78vh']);
-  const fogDeckOpacity = useTransform(smoothProgress, [0, 0.15, 0.75, 0.95, 1.05], [0.25, 0.9, 1.0, 0.4, 0]);
+  const fogDeckY = useTransform(smoothProgress, [0, 0.5, 1.0], ['140px', '-120px', '-360px']);
+  const fogDeckOpacity = useTransform(smoothProgress, [0, 0.2, 0.7, 1.0], [0.25, 0.95, 1.0, 0.4]);
 
   // Layer 7: Radiant Sunlight Atmospheric Bloom
-  const glowY = useTransform(smoothProgress, [0, 0.45, 0.8, 1.0], ['0vh', '-30vh', '-66vh', '-82vh']);
+  const glowY = useTransform(smoothProgress, [0, 0.5, 1.0], ['40px', '-140px', '-360px']);
   const glowScale = useTransform(smoothProgress, [0, 0.5, 1.0], [1.0, 1.25, 1.45]);
-  const glowOpacity = useTransform(smoothProgress, [0, 0.15, 0.75, 0.95, 1.05], [0.15, 0.9, 0.95, 0.3, 0]);
+  const glowOpacity = useTransform(smoothProgress, [0, 0.2, 0.8, 1.0], [0.15, 0.9, 0.9, 0.2]);
 
   return (
     <div
       aria-hidden="true"
       style={{
         position: 'absolute',
-        top: 0,
+        bottom: 0,
         left: 0,
         width: '100%',
+        height: '100%',
         pointerEvents: 'none',
-        zIndex: 25,
-        overflow: 'visible',
+        zIndex: 5,
+        overflow: 'hidden',
       }}
     >
       {/* ── 1. Pure White Rising Fog Deck (bridges Section 2 upwards into Hero video) ── */}
       <motion.div
         style={{
           position: 'absolute',
-          top: '-30vh',
+          bottom: '-250px',
           left: 0,
           width: '100%',
-          height: '120vh',
-          background: 'linear-gradient(to top, #FFFFFF 0%, #FFFFFF 50%, rgba(255, 255, 255, 0.92) 75%, transparent 100%)',
+          height: 'calc(60vh + 250px)',
+          background: 'linear-gradient(to top, #FFFFFF 0%, #FFFFFF 35%, rgba(255, 255, 255, 0.9) 60%, rgba(255, 255, 255, 0.3) 80%, transparent 100%)',
           y: fogDeckY,
           opacity: fogDeckOpacity,
           zIndex: 1,
           willChange: 'transform, opacity',
-          backfaceVisibility: 'hidden',
-          WebkitBackfaceVisibility: 'hidden',
           pointerEvents: 'none',
         }}
       />
@@ -97,11 +97,11 @@ const CloudTransition = ({ scrollProgress }) => {
       <motion.div
         style={{
           position: 'absolute',
-          top: '-180px',
+          bottom: '-60px',
           left: '50%',
           width: '100vw',
           maxWidth: '1700px',
-          height: '650px',
+          height: '360px',
           x: '-50%',
           y: glowY,
           scale: glowScale,
@@ -113,24 +113,22 @@ const CloudTransition = ({ scrollProgress }) => {
         }}
       />
 
-      {/* ── 3. High Leading Cloud (Reaches hero title first) ── */}
+      {/* ── 3. High Leading Cloud (Moved down to fill horizon seamlessly) ── */}
       <motion.div
         style={{
           position: 'absolute',
-          top: '-160px',
+          bottom: '-120px',
           left: '50%',
           width: '90vw',
           minWidth: '900px',
           maxWidth: '1600px',
-          height: '560px',
+          height: '420px',
           x: '-50%',
           y: backCloudY,
           scale: backCloudScale,
           opacity: backCloudOpacity,
           zIndex: 3,
           willChange: 'transform, opacity',
-          backfaceVisibility: 'hidden',
-          WebkitBackfaceVisibility: 'hidden',
           pointerEvents: 'none',
         }}
       >
@@ -143,6 +141,7 @@ const CloudTransition = ({ scrollProgress }) => {
             width: '100%',
             height: '100%',
             objectFit: 'contain',
+            objectPosition: 'bottom center',
             display: 'block',
             pointerEvents: 'none',
             userSelect: 'none',
@@ -154,20 +153,18 @@ const CloudTransition = ({ scrollProgress }) => {
       <motion.div
         style={{
           position: 'absolute',
-          top: '-140px',
+          bottom: '-120px',
           left: '-10%',
           width: '75vw',
           minWidth: '750px',
           maxWidth: '1400px',
-          height: '540px',
+          height: '400px',
           x: leftCloudX,
           y: leftCloudY,
           scale: leftCloudScale,
           opacity: leftCloudOpacity,
           zIndex: 4,
           willChange: 'transform, opacity',
-          backfaceVisibility: 'hidden',
-          WebkitBackfaceVisibility: 'hidden',
           pointerEvents: 'none',
         }}
       >
@@ -180,6 +177,7 @@ const CloudTransition = ({ scrollProgress }) => {
             width: '100%',
             height: '100%',
             objectFit: 'contain',
+            objectPosition: 'bottom center',
             display: 'block',
             pointerEvents: 'none',
             userSelect: 'none',
@@ -191,20 +189,18 @@ const CloudTransition = ({ scrollProgress }) => {
       <motion.div
         style={{
           position: 'absolute',
-          top: '-140px',
+          bottom: '-120px',
           right: '-10%',
           width: '75vw',
           minWidth: '750px',
           maxWidth: '1400px',
-          height: '540px',
+          height: '400px',
           x: rightCloudX,
           y: rightCloudY,
           scale: rightCloudScale,
           opacity: rightCloudOpacity,
           zIndex: 4,
           willChange: 'transform, opacity',
-          backfaceVisibility: 'hidden',
-          WebkitBackfaceVisibility: 'hidden',
           pointerEvents: 'none',
         }}
       >
@@ -217,6 +213,7 @@ const CloudTransition = ({ scrollProgress }) => {
             width: '100%',
             height: '100%',
             objectFit: 'contain',
+            objectPosition: 'bottom center',
             display: 'block',
             transform: 'scaleX(-1)',
             pointerEvents: 'none',
@@ -229,20 +226,18 @@ const CloudTransition = ({ scrollProgress }) => {
       <motion.div
         style={{
           position: 'absolute',
-          top: '-180px',
+          bottom: '-130px',
           left: '50%',
           width: '100vw',
           minWidth: '950px',
           maxWidth: '1750px',
-          height: '620px',
+          height: '440px',
           x: '-50%',
           y: frontCloudY,
           scale: frontCloudScale,
           opacity: frontCloudOpacity,
           zIndex: 5,
           willChange: 'transform, opacity',
-          backfaceVisibility: 'hidden',
-          WebkitBackfaceVisibility: 'hidden',
           pointerEvents: 'none',
         }}
       >
@@ -255,6 +250,7 @@ const CloudTransition = ({ scrollProgress }) => {
             width: '100%',
             height: '100%',
             objectFit: 'contain',
+            objectPosition: 'bottom center',
             display: 'block',
             pointerEvents: 'none',
             userSelect: 'none',
@@ -266,19 +262,17 @@ const CloudTransition = ({ scrollProgress }) => {
       <motion.div
         style={{
           position: 'absolute',
-          top: '-100px',
+          bottom: '-90px',
           left: '50%',
           width: '110vw',
           maxWidth: '1800px',
-          height: '520px',
+          height: '360px',
           x: '-50%',
           y: baseCloudY,
           scale: baseCloudScale,
           opacity: baseCloudOpacity,
           zIndex: 6,
           willChange: 'transform, opacity',
-          backfaceVisibility: 'hidden',
-          WebkitBackfaceVisibility: 'hidden',
           pointerEvents: 'none',
         }}
       >
@@ -291,12 +285,27 @@ const CloudTransition = ({ scrollProgress }) => {
             width: '100%',
             height: '100%',
             objectFit: 'contain',
+            objectPosition: 'bottom center',
             display: 'block',
             pointerEvents: 'none',
             userSelect: 'none',
           }}
         />
       </motion.div>
+
+      {/* ── 8. Solid Pure White Base Horizon Fill (Completely eliminates any gap into Section 2) ── */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          width: '100%',
+          height: '180px',
+          background: 'linear-gradient(to top, #FFFFFF 0%, #FFFFFF 35%, rgba(255, 255, 255, 0.95) 60%, transparent 100%)',
+          zIndex: 7,
+          pointerEvents: 'none',
+        }}
+      />
     </div>
   );
 };
@@ -598,9 +607,17 @@ export default function Home() {
             </Link>
           </motion.div>
         </motion.div>
+
+        {/* ── Volumetric Cloud Transition: Contained inside Hero bottom boundary, rises on scroll, zero bleed into Section 2 ── */}
+        <CloudTransition scrollProgress={heroScroll} />
       </section>
 
-      {/* 2. Architectural Design Section — 2 Organic Shaped Images, Editorial Layout, 3D Button & Slider */}
+      {/* 2. Architectural Guidance & Property Advisory Section (Heron Intro Section) */}
+      <section style={{ position: 'relative', zIndex: 20, backgroundColor: '#FFFFFF' }}>
+        <HeronIntroSection />
+      </section>
+
+      {/* 3. Architectural Design Section — 2 Organic Shaped Images, Editorial Layout, 3D Button & Slider */}
       <section 
         ref={heritageRef}
         style={{ 
@@ -611,8 +628,6 @@ export default function Home() {
           backgroundColor: '#FFFFFF',
         }}
       >
-        {/* ── Volumetric Cloud Transition: Arises from Section 2 upwards into Hero Section during scroll ── */}
-        <CloudTransition scrollProgress={heroScroll} />
         <ArchitecturalDesign />
       </section>
 
@@ -634,7 +649,7 @@ export default function Home() {
           </div>
           
           {/* Frosted Glass Overlay */}
-          <div style={{ position: 'relative', zIndex: 2, background: 'linear-gradient(135deg, rgba(38, 54, 111, 0.9) 0%, rgba(10, 14, 28, 0.95) 100%)', backdropFilter: 'blur(10px)', display: 'flex', flexWrap: 'wrap' }}>
+          <div style={{ position: 'relative', zIndex: 2, background: 'linear-gradient(135deg, rgba(38, 54, 111, 0.92) 0%, rgba(38, 54, 111, 0.98) 100%)', backdropFilter: 'blur(10px)', display: 'flex', flexWrap: 'wrap' }}>
             
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
@@ -701,7 +716,7 @@ export default function Home() {
                 {/* Mock Brochure Cover inside the 3D box */}
                 <Image src="/hero.jpg" alt="Brochure Cover" fill style={{ objectFit: 'cover', opacity: 0.9 }} />
                 <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(to bottom, rgba(38,54,111,0.2), rgba(38,54,111,0.95))', display: 'flex', flexDirection: 'column', padding: '2.5rem', color: '#fff' }}>
-                  <img src="/Blue Moon logo.jpeg" alt="Logo" style={{ width: '140px', mixBlendMode: 'screen', filter: 'brightness(0) invert(1)', marginBottom: 'auto' }} />
+                  <img src="/Blue_Moon_logo-removebg-preview.png" alt="Logo" style={{ width: '150px', filter: 'brightness(0) invert(1)', marginBottom: 'auto' }} />
                   <div>
                     <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.2rem', lineHeight: 1.1 }}>Corporate<br/>Brochure</h3>
                     <div style={{ width: '40px', height: '2px', backgroundColor: 'var(--premium-red)', marginTop: '1rem', marginBottom: '1rem' }}></div>

@@ -29,6 +29,8 @@ import {
   Disc3,
   Sparkles
 } from 'lucide-react';
+import ArchitecturalSkylineWaveBackground from './ArchitecturalSkylineWaveBackground';
+import HeronMethodologySection from './HeronMethodologySection';
 
 // ─── Approved Brand Constants ──────────────────────────────────────────────────
 // Brand Colors: Primary Blue #26366F | Sky Blue #12A4DC | Premium Red #D2143A | White #FFFFFF
@@ -307,7 +309,7 @@ function CinematicScrollCard({
             alignItems: 'center',
             justifyContent: 'space-between',
             padding: '0.45rem 1.4rem',
-            backgroundColor: '#F8FAFD',
+            backgroundColor: '#FFFFFF',
             borderBottom: '1px solid rgba(38, 54, 111, 0.12)',
             flexShrink: 0,
           }}
@@ -375,7 +377,7 @@ function CinematicScrollCard({
             style={{
               position: 'relative',
               height: '100%',
-              backgroundColor: '#0F172A',
+              backgroundColor: BRAND.primaryBlue,
               overflow: 'hidden',
             }}
           >
@@ -589,7 +591,7 @@ function CinematicScrollCard({
                     key={sIdx}
                     style={{
                       padding: '6px 10px',
-                      backgroundColor: '#F8FAFD',
+                      backgroundColor: '#FFFFFF',
                       border: '1px solid rgba(38, 54, 111, 0.1)',
                       borderRadius: '6px',
                     }}
@@ -714,7 +716,7 @@ function CinematicScrollCard({
                 }}
                 className="hover:scale-105"
                 onMouseOver={(e) => {
-                  e.currentTarget.style.backgroundColor = '#F8FAFD';
+                  e.currentTarget.style.backgroundColor = '#FFFFFF';
                   e.currentTarget.style.borderColor = BRAND.skyBlue;
                 }}
                 onMouseOut={(e) => {
@@ -779,12 +781,12 @@ export default function PropertyShowcase() {
     smoothProgress,
     [0, 0.22, 0.45, 0.68, 0.9, 1],
     [
-      '#F4F7FC', // Commercials
-      '#F2F8F4', // Land Reserves
-      '#FBF5F7', // Luxury Flats
-      '#F2F8FC', // Open Plots
-      '#FCF9F2', // Ultra Villas
-      '#FCF9F2',
+      '#FFFFFF', // Commercials
+      '#FFFFFF', // Land Reserves
+      '#FFFFFF', // Luxury Flats
+      '#FFFFFF', // Open Plots
+      '#FFFFFF', // Ultra Villas
+      '#FFFFFF',
     ]
   );
 
@@ -793,11 +795,11 @@ export default function PropertyShowcase() {
     [0, 0.22, 0.45, 0.68, 0.9, 1],
     [
       'radial-gradient(ellipse at center, rgba(18, 164, 220, 0.16) 0%, rgba(38, 54, 111, 0.03) 55%, transparent 75%)',
-      'radial-gradient(ellipse at center, rgba(16, 185, 129, 0.14) 0%, rgba(38, 54, 111, 0.03) 55%, transparent 75%)',
-      'radial-gradient(ellipse at center, rgba(210, 20, 58, 0.14) 0%, rgba(38, 54, 111, 0.03) 55%, transparent 75%)',
-      'radial-gradient(ellipse at center, rgba(14, 165, 233, 0.16) 0%, rgba(38, 54, 111, 0.03) 55%, transparent 75%)',
-      'radial-gradient(ellipse at center, rgba(245, 158, 11, 0.15) 0%, rgba(38, 54, 111, 0.03) 55%, transparent 75%)',
-      'radial-gradient(ellipse at center, rgba(245, 158, 11, 0.15) 0%, rgba(38, 54, 111, 0.03) 55%, transparent 75%)',
+      'radial-gradient(ellipse at center, rgba(38, 54, 111, 0.12) 0%, rgba(18, 164, 220, 0.04) 55%, transparent 75%)',
+      'radial-gradient(ellipse at center, rgba(210, 20, 58, 0.12) 0%, rgba(38, 54, 111, 0.03) 55%, transparent 75%)',
+      'radial-gradient(ellipse at center, rgba(18, 164, 220, 0.16) 0%, rgba(38, 54, 111, 0.03) 55%, transparent 75%)',
+      'radial-gradient(ellipse at center, rgba(38, 54, 111, 0.12) 0%, rgba(18, 164, 220, 0.04) 55%, transparent 75%)',
+      'radial-gradient(ellipse at center, rgba(38, 54, 111, 0.12) 0%, rgba(18, 164, 220, 0.04) 55%, transparent 75%)',
     ]
   );
 
@@ -848,36 +850,13 @@ export default function PropertyShowcase() {
   const windowScrollVelocity = useVelocity(scrollY);
   const catalogScrollVelocity = useVelocity(catalogScrollProgress);
 
-  // ── BRAND NEW: Luxury Architectural Orbital & Golden Ratio Matrix Motion ──
-  const bgArchMatrixRotate = useMotionValue(0);
-  const bgGoldenRatioRingRotate = useMotionValue(0);
-  const bgGyroscopicPrecession = useMotionValue(0);
-  const currentSpeedRef = useRef(1.4);
-
-  useAnimationFrame((time, delta) => {
-    const dt = Math.min(delta / 1000, 0.05);
-    const vWin = Math.abs(windowScrollVelocity.get() || 0); // Window scroll in px/sec
-    const vCat = Math.abs(catalogScrollVelocity.get() || 0); // Catalog progress rate
-
-    // Stately, ultra-calm architectural orbital motion:
-    // Base idle speed: 1.2 deg/s (graceful, tranquil, editorial drift)
-    // Scroll responsive boost: gently rises up to 3.6 deg/s (never rapid or frantic!)
-    const scrollBoost = Math.min(vWin * 0.002 + vCat * 2.5, 2.4);
-    const targetSpeed = 1.2 + scrollBoost;
-
-    currentSpeedRef.current += (targetSpeed - currentSpeedRef.current) * 0.05;
-
-    bgArchMatrixRotate.set((bgArchMatrixRotate.get() + currentSpeedRef.current * dt) % 360);
-    bgGoldenRatioRingRotate.set((bgGoldenRatioRingRotate.get() - currentSpeedRef.current * 0.65 * dt) % 360);
-    bgGyroscopicPrecession.set((bgGyroscopicPrecession.get() + currentSpeedRef.current * 0.45 * dt) % 360);
-  });
-
   // Continuous wheel rotation driven by catalog scroll with READING DWELL PLATEAUS
   const [scrollWheelAngle, setScrollWheelAngle] = useState(0);
   const [dragOffsetAngle, setDragOffsetAngle] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [dragStartX, setDragStartX] = useState(0);
   const [dragStartAngle, setDragStartAngle] = useState(0);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   // 5 cards means 72 degrees per card. Full 360 degrees rotation over the scroll track.
   // ── READING PLATEAU SYSTEM ──
@@ -954,6 +933,11 @@ export default function PropertyShowcase() {
   };
 
   const handleMouseMove = (e) => {
+    if (typeof window !== 'undefined') {
+      const x = (e.clientX / window.innerWidth) - 0.5;
+      const y = (e.clientY / window.innerHeight) - 0.5;
+      setMousePos({ x, y });
+    }
     if (!isDragging) return;
     const deltaX = e.clientX - dragStartX;
     setDragOffsetAngle(dragStartAngle + deltaX * 0.35);
@@ -1188,7 +1172,7 @@ export default function PropertyShowcase() {
             style={{
               position: 'relative',
               zIndex: 9,
-              backgroundColor: '#F9FBFE',
+              backgroundColor: '#FFFFFF',
               borderBottom: '1px solid rgba(38, 54, 111, 0.12)',
               padding: '0.35rem 0',
               overflow: 'hidden',
@@ -1365,6 +1349,9 @@ export default function PropertyShowcase() {
         </motion.div>
       </div>
 
+      {/* ── Section between PORTFOLIO 1 to 5 and COMPLETE PORTFOLIO CATALOG: WHY US & USE CASES ── */}
+      <HeronMethodologySection />
+
       {/* ══════════════════════════════════════════════════════════════════════════
           2. UPGRADED: 5-CARDS ROTARY DIAL WITH GLOWING NEON BORDERS
              & DYNAMIC AUTOPLAY + SCROLL-ACCELERATED BACKGROUND MOTION GRAPHICS
@@ -1397,250 +1384,13 @@ export default function PropertyShowcase() {
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
         >
-          {/* ── LUXURY ARCHITECTURAL CELESTIAL ORBITAL & GOLDEN RATIO MATRIX BACKGROUND ── */}
-          {/* Calm, editorial, high-prestige motion graphics replacing compass & radar sweep */}
-
-          {/* 1. Atmospheric Architectural Optical Core (Soft Champagne Gold & Cyan Radiance) */}
-          <div
-            aria-hidden="true"
-            style={{
-              position: 'absolute',
-              top: '52%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              width: '950px',
-              height: '950px',
-              borderRadius: '50%',
-              background: 'radial-gradient(circle at center, rgba(197, 168, 128, 0.16) 0%, rgba(18, 164, 220, 0.08) 38%, rgba(38, 54, 111, 0.03) 60%, transparent 75%)',
-              pointerEvents: 'none',
-              zIndex: 0,
-            }}
+          {/* ── ARCHITECTURAL SKYLINE & HARMONIC KINETIC WAVES BACKGROUND ── */}
+          {/* Features blueprint skyline towers, animated laser scanning, and multi-layer undulating waves in approved corporate branding colors */}
+          <ArchitecturalSkylineWaveBackground
+            mousePos={mousePos}
+            activeCollectionName={safeRotaryItem?.name || 'COMMERCIALS'}
+            activeRoman={safeRotaryItem?.roman || 'I'}
           />
-
-          {/* 2. Primary Architectural Armature Ring with Golden Ratio Subdivisions (Diameter 1140px) */}
-          <motion.div
-            aria-hidden="true"
-            style={{
-              position: 'absolute',
-              top: '52%',
-              left: '50%',
-              x: '-50%',
-              y: '-50%',
-              width: '1140px',
-              height: '1140px',
-              borderRadius: '50%',
-              border: '1.5px solid rgba(197, 168, 128, 0.38)',
-              rotate: bgArchMatrixRotate,
-              pointerEvents: 'none',
-              zIndex: 0,
-            }}
-          >
-            {/* Fine Architectural Cross-Datum Lines */}
-            <div style={{ position: 'absolute', top: '50%', left: 0, right: 0, height: '1px', borderTop: '1px solid rgba(197, 168, 128, 0.22)' }} />
-            <div style={{ position: 'absolute', left: '50%', top: 0, bottom: 0, width: '1px', borderLeft: '1px solid rgba(197, 168, 128, 0.22)' }} />
-
-            {/* Concentric Golden Section Inner Dash (φ = 0.618) */}
-            <div
-              style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                width: '704px',
-                height: '704px',
-                borderRadius: '50%',
-                border: '1px dashed rgba(197, 168, 128, 0.28)',
-              }}
-            />
-
-            {/* 8 Architectural Precision Nodes with Golden Ratio Metrics */}
-            {[
-              { label: 'SECTION α // φ 1.618', angle: 0 },
-              { label: 'AXIS 045° // DATUM', angle: 45 },
-              { label: 'SECTION β // ELEV 540M', angle: 90 },
-              { label: 'AXIS 135° // MERIDIAN', angle: 135 },
-              { label: 'SECTION γ // SOVEREIGN', angle: 180 },
-              { label: 'AXIS 225° // GEOMETRY', angle: 225 },
-              { label: 'SECTION δ // ALPHA HUB', angle: 270 },
-              { label: 'AXIS 315° // HORIZON', angle: 315 },
-            ].map((node, nIdx) => {
-              const rad = (node.angle * Math.PI) / 180;
-              const rDist = 570;
-              const xPos = Math.round(rDist * Math.sin(rad));
-              const yPos = Math.round(-rDist * Math.cos(rad));
-              const isMajor = nIdx % 2 === 0;
-              return (
-                <div
-                  key={nIdx}
-                  style={{
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    transform: `translate(calc(-50% + ${xPos}px), calc(-50% + ${yPos}px))`,
-                    backgroundColor: isMajor ? 'rgba(255, 255, 255, 0.96)' : 'transparent',
-                    color: isMajor ? BRAND.primaryBlue : 'rgba(197, 168, 128, 0.85)',
-                    border: isMajor ? '1px solid rgba(197, 168, 128, 0.55)' : 'none',
-                    padding: isMajor ? '2px 8px' : '0',
-                    borderRadius: '3px',
-                    fontFamily: 'monospace',
-                    fontSize: '0.66rem',
-                    letterSpacing: '1px',
-                    fontWeight: 700,
-                    boxShadow: isMajor ? '0 2px 8px rgba(38, 54, 111, 0.08)' : 'none',
-                    whiteSpace: 'nowrap',
-                  }}
-                >
-                  {node.label}
-                </div>
-              );
-            })}
-          </motion.div>
-
-          {/* 3. Concentric Parametric Astrolabe Ring (Diameter 840px) Counter-Rotating */}
-          <motion.div
-            aria-hidden="true"
-            style={{
-              position: 'absolute',
-              top: '52%',
-              left: '50%',
-              x: '-50%',
-              y: '-50%',
-              width: '840px',
-              height: '840px',
-              borderRadius: '50%',
-              border: '1.5px solid rgba(18, 164, 220, 0.32)',
-              rotate: bgGoldenRatioRingRotate,
-              pointerEvents: 'none',
-              zIndex: 0,
-            }}
-          >
-            {/* 12 Metric Subdivision Nodes in Champagne Gold & Sky Blue */}
-            {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((deg, dIdx) => {
-              const rad = (deg * Math.PI) / 180;
-              const rDist = 420;
-              const xPos = rDist * Math.sin(rad);
-              const yPos = -rDist * Math.cos(rad);
-              const isGold = dIdx % 3 === 0;
-              return (
-                <div
-                  key={dIdx}
-                  style={{
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    transform: `translate(calc(-50% + ${xPos}px), calc(-50% + ${yPos}px))`,
-                    width: isGold ? '8px' : '5px',
-                    height: isGold ? '8px' : '5px',
-                    borderRadius: '50%',
-                    backgroundColor: isGold ? '#C5A880' : BRAND.skyBlue,
-                    boxShadow: isGold ? '0 0 10px rgba(197, 168, 128, 0.8)' : '0 0 8px rgba(18, 164, 220, 0.6)',
-                  }}
-                />
-              );
-            })}
-          </motion.div>
-
-          {/* 4. Tilted 3D Celestial Gimbal Ellipse (Precessing 3D Armature) */}
-          <motion.div
-            aria-hidden="true"
-            style={{
-              position: 'absolute',
-              top: '52%',
-              left: '50%',
-              x: '-50%',
-              y: '-50%',
-              width: '1360px',
-              height: '660px',
-              borderRadius: '50%',
-              border: '1.5px solid rgba(18, 164, 220, 0.22)',
-              transform: 'rotateX(62deg)',
-              rotate: bgGyroscopicPrecession,
-              pointerEvents: 'none',
-              zIndex: 0,
-            }}
-          >
-            {/* Orbiting Satellite Node 1 (Champagne Gold) */}
-            <div
-              style={{
-                position: 'absolute',
-                top: '50%',
-                right: '-6px',
-                transform: 'translateY(-50%)',
-                width: '14px',
-                height: '14px',
-                borderRadius: '50%',
-                backgroundColor: '#C5A880',
-                border: '2px solid #FFFFFF',
-                boxShadow: '0 0 16px rgba(197, 168, 128, 0.9), 0 0 30px rgba(197, 168, 128, 0.5)',
-              }}
-            />
-
-            {/* Orbiting Satellite Node 2 (Sky Blue) */}
-            <div
-              style={{
-                position: 'absolute',
-                top: '50%',
-                left: '-6px',
-                transform: 'translateY(-50%)',
-                width: '14px',
-                height: '14px',
-                borderRadius: '50%',
-                backgroundColor: BRAND.skyBlue,
-                border: '2px solid #FFFFFF',
-                boxShadow: '0 0 16px rgba(18, 164, 220, 0.9), 0 0 30px rgba(18, 164, 220, 0.5)',
-              }}
-            />
-          </motion.div>
-
-          {/* 5. Minimalist Luxury Architectural Coordinate Badges (Corner Framing) */}
-          <div
-            aria-hidden="true"
-            style={{
-              position: 'absolute',
-              top: '18%',
-              left: '7%',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '4px',
-              fontFamily: 'monospace',
-              fontSize: '0.68rem',
-              color: 'rgba(38, 54, 111, 0.45)',
-              letterSpacing: '1.2px',
-              pointerEvents: 'none',
-              zIndex: 1,
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#C5A880' }} />
-              <span style={{ fontWeight: 700, color: BRAND.primaryBlue }}>ARCHITECTURAL MATRIX // TELANGANA</span>
-            </div>
-            <span>ELEVATION: 540M // SOVEREIGN CORRIDOR</span>
-          </div>
-
-          <div
-            aria-hidden="true"
-            style={{
-              position: 'absolute',
-              top: '18%',
-              right: '7%',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'flex-end',
-              gap: '4px',
-              fontFamily: 'monospace',
-              fontSize: '0.68rem',
-              color: 'rgba(38, 54, 111, 0.45)',
-              letterSpacing: '1.2px',
-              pointerEvents: 'none',
-              zIndex: 1,
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span>ACTIVE CARD: {safeRotaryItem?.roman || 'I'} // {safeRotaryItem?.name || ''}</span>
-              <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: BRAND.skyBlue }} />
-            </div>
-            <span>GOLDEN RATIO φ 1.618 // DWELL FOCUS</span>
-          </div>
 
           {/* ── STREAMLINED SECTION HEADER & INTEGRATED CONTROLS (COMPACT & FULLY VISIBLE) ── */}
           <div
@@ -2135,7 +1885,7 @@ export default function PropertyShowcase() {
                       width: '100%',
                       height: '8px',
                       appearance: 'none',
-                      backgroundColor: '#E2E8F0',
+                      backgroundColor: 'rgba(38, 54, 111, 0.15)',
                       borderRadius: '4px',
                       outline: 'none',
                       cursor: 'pointer',
@@ -2162,7 +1912,7 @@ export default function PropertyShowcase() {
                 <div
                   style={{
                     padding: '12px 18px',
-                    backgroundColor: '#F8FAFD',
+                    backgroundColor: '#FFFFFF',
                     border: '1px solid rgba(38, 54, 111, 0.12)',
                     borderRadius: '8px',
                     display: 'flex',
@@ -2185,7 +1935,7 @@ export default function PropertyShowcase() {
               {/* Right: Yield Matrix */}
               <div
                 style={{
-                  backgroundColor: '#F8FAFD',
+                  backgroundColor: '#FFFFFF',
                   border: '1px solid rgba(38, 54, 111, 0.14)',
                   borderRadius: '20px',
                   padding: '3rem 2.5rem',

@@ -429,6 +429,7 @@ export default function ArchitecturalDesign() {
 
         {/* ── Honors / Awwwards Ribbon on Far Right Edge ── */}
         <div
+          className="arch-honors-ribbon"
           style={{
             position: 'absolute',
             right: 0,
@@ -489,6 +490,7 @@ export default function ArchitecturalDesign() {
               SLIDE 1 TEXT (LEFT SIDE) — Belgrade Arbor Kinetic Editorial Text Opening
              ══════════════════════════════════════════════════════════════════════ */}
           <motion.div
+            className="arch-slide-1-text"
             style={{
               position: 'absolute',
               left: 0,
@@ -586,6 +588,7 @@ export default function ArchitecturalDesign() {
               SLIDE 2 TEXT (RIGHT SIDE) — Belgrade Arbor Kinetic Editorial Text Opening
              ══════════════════════════════════════════════════════════════════════ */}
           <motion.div
+            className="arch-slide-2-text"
             style={{
               position: 'absolute',
               right: 0,
@@ -684,6 +687,7 @@ export default function ArchitecturalDesign() {
              ══════════════════════════════════════════════════════════════════════ */}
           <motion.div
             ref={imageClusterRef}
+            className="arch-image-cluster"
             style={{
               position: 'absolute',
               right: 0,
@@ -818,6 +822,7 @@ export default function ArchitecturalDesign() {
 
         {/* ── Bottom Interactive Progress Slider (Pinned at Bottom-Left) ── */}
         <div
+          className="arch-slider-nav"
           style={{
             position: 'absolute',
             bottom: '2.5rem',

@@ -54,14 +54,13 @@ export default function Preloader() {
           >
             <div style={{ marginBottom: '2rem' }}>
               <img 
-                src="/Blue Moon logo.jpeg" 
+                src="/Blue_Moon_logo-removebg-preview.png" 
                 alt="BlueMoon Properties Logo" 
                 style={{ 
-                  width: '300px', 
-                  maxWidth: '80vw', 
+                  width: '320px', 
+                  maxWidth: '85vw', 
                   height: 'auto', 
                   objectFit: 'contain',
-                  mixBlendMode: 'multiply'
                 }} 
               />
             </div>
