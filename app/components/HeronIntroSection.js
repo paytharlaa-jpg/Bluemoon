@@ -207,6 +207,7 @@ export default function HeronIntroSection() {
 
           {/* Interactive Visual Stage: Dual-Layered Building */}
           <div
+            className="heron-building-stage"
             style={{
               position: 'relative',
               width: '100%',
@@ -398,6 +399,7 @@ export default function HeronIntroSection() {
 
           {/* Partner / Clients Heading Row with Auto-Roll Status */}
           <div
+            className="heron-intro-clients-header"
             style={{
               display: 'flex',
               justifyContent: 'space-between',
@@ -571,6 +573,7 @@ export default function HeronIntroSection() {
 
           {/* Integration Caption */}
           <p
+            className="heron-integration-caption"
             style={{
               padding: '11px 24px',
               borderTop: '1px solid rgba(38, 54, 111, 0.15)',

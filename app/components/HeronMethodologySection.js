@@ -24,6 +24,7 @@ function MethodologyRow({
   text,
   side, // 'left' | 'right' (where the dark text pill bar is located)
   imageContent,
+  mobileContent,
   isFirst,
   isLast,
 }) {
@@ -52,213 +53,345 @@ function MethodologyRow({
   const isBarOnRight = side === 'right';
 
   return (
-    <div
-      ref={rowRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        position: 'relative',
-        width: '100%',
-        minHeight: 'clamp(520px, 62vh, 660px)',
-        backgroundColor: BRAND.offWhite,
-        borderBottom: isLast ? 'none' : '1px solid rgba(38, 54, 111, 0.15)',
-        overflow: 'hidden',
-        cursor: 'row-resize',
-        userSelect: 'none',
-      }}
-    >
-      {/* ── Continuous Center Vertical Divider (Runs down through all 4 sections) ── */}
+    <>
+      {/* ─── DESKTOP VIEW (Visible on screens > 768px, 100% UNTOUCHED) ─── */}
       <div
+        ref={rowRef}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        className="methodology-desktop-row"
         style={{
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
-          left: '50%',
-          width: '1px',
-          backgroundColor: 'rgba(38, 54, 111, 0.16)',
-          pointerEvents: 'none',
-          zIndex: 3,
-        }}
-      />
-
-      {/* ── Left Edge Continuous CAD Measurement Ruler ── */}
-      <div
-        style={{
-          position: 'absolute',
-          left: '12px',
-          top: '25px',
-          bottom: '25px',
-          width: '16px',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          pointerEvents: 'none',
-          zIndex: 2,
+          position: 'relative',
+          width: '100%',
+          minHeight: 'clamp(520px, 62vh, 660px)',
+          backgroundColor: BRAND.offWhite,
+          borderBottom: isLast ? 'none' : '1px solid rgba(38, 54, 111, 0.15)',
+          overflow: 'hidden',
+          cursor: 'row-resize',
+          userSelect: 'none',
         }}
       >
-        {Array.from({ length: 16 }).map((_, i) => (
-          <span
-            key={i}
+        {/* ── Continuous Center Vertical Divider (Runs down through all 4 sections) ── */}
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            left: '50%',
+            width: '1px',
+            backgroundColor: 'rgba(38, 54, 111, 0.16)',
+            pointerEvents: 'none',
+            zIndex: 3,
+          }}
+        />
+
+        {/* ── Left Edge Continuous CAD Measurement Ruler ── */}
+        <div
+          style={{
+            position: 'absolute',
+            left: '12px',
+            top: '25px',
+            bottom: '25px',
+            width: '16px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            pointerEvents: 'none',
+            zIndex: 2,
+          }}
+        >
+          {Array.from({ length: 16 }).map((_, i) => (
+            <span
+              key={i}
+              style={{
+                width: i % 4 === 0 ? '12px' : '6px',
+                height: '1px',
+                backgroundColor: 'rgba(38, 54, 111, 0.22)',
+                display: 'block',
+              }}
+            />
+          ))}
+        </div>
+
+        {/* ── Technical Corner Plus Ticks (+) ── */}
+        <span style={{ position: 'absolute', top: '16px', left: '20px', color: 'rgba(38, 54, 111, 0.35)', fontFamily: 'monospace', fontSize: '15px', pointerEvents: 'none', zIndex: 2 }}>+</span>
+        <span style={{ position: 'absolute', top: '16px', right: '20px', color: 'rgba(38, 54, 111, 0.35)', fontFamily: 'monospace', fontSize: '15px', pointerEvents: 'none', zIndex: 2 }}>+</span>
+        <span style={{ position: 'absolute', bottom: '16px', left: '20px', color: 'rgba(38, 54, 111, 0.35)', fontFamily: 'monospace', fontSize: '15px', pointerEvents: 'none', zIndex: 2 }}>+</span>
+        <span style={{ position: 'absolute', bottom: '16px', right: '20px', color: 'rgba(38, 54, 111, 0.35)', fontFamily: 'monospace', fontSize: '15px', pointerEvents: 'none', zIndex: 2 }}>+</span>
+
+        {/* ── Section Telemetry Tag at Top Corner ── */}
+        <div
+          style={{
+            position: 'absolute',
+            top: '20px',
+            left: isBarOnRight ? '36px' : 'calc(50% + 28px)',
+            zIndex: 4,
+            fontFamily: 'var(--font-heading)',
+            fontSize: '0.72rem',
+            letterSpacing: '2.5px',
+            color: BRAND.skyBlue,
+            fontWeight: 700,
+            textTransform: 'uppercase',
+            pointerEvents: 'none',
+          }}
+        >
+          [{stepNum}] // SERVICE: {name.toUpperCase()}
+        </div>
+
+        {/* ── 2-Column Content Grid: Image on one side, Pill bar tracks line on other side ── */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            zIndex: 2,
+            pointerEvents: 'none',
+          }}
+        >
+          {/* Left Half (holds either image or empty space for pill) */}
+          <div
             style={{
-              width: i % 4 === 0 ? '12px' : '6px',
-              height: '1px',
-              backgroundColor: 'rgba(38, 54, 111, 0.22)',
+              position: 'relative',
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '30px',
+              boxSizing: 'border-box',
+            }}
+          >
+            {isBarOnRight && imageContent}
+          </div>
+
+          {/* Right Half (holds either image or empty space for pill) */}
+          <div
+            style={{
+              position: 'relative',
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '30px',
+              boxSizing: 'border-box',
+            }}
+          >
+            {!isBarOnRight && imageContent}
+          </div>
+        </div>
+
+        {/* ── Dynamic Mouse-Tracking Full-Width Red Laser Line ── */}
+        <motion.div
+          style={{
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            top: smoothLineY,
+            height: '1.5px',
+            backgroundColor: BRAND.premiumRed,
+            zIndex: 10,
+            pointerEvents: 'none',
+          }}
+        />
+
+        {/* ── Dynamic Dark Text Pill Bar (Attached to line on designated side, moves with mouse) ── */}
+        <motion.div
+          style={{
+            position: 'absolute',
+            top: smoothLineY,
+            translateY: '-50%',
+            left: isBarOnRight ? '50%' : '24px',
+            width: isBarOnRight ? 'calc(50% - 24px)' : 'calc(50% - 48px)',
+            minHeight: '52px',
+            backgroundColor: '#1E2433', // Sleek dark charcoal pill bar matching screenshots
+            color: BRAND.white,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            padding: '10px 24px',
+            zIndex: 12,
+            pointerEvents: 'none',
+            boxShadow: '0 12px 30px rgba(0,0,0,0.3)',
+            borderLeft: isBarOnRight ? `3px solid ${BRAND.skyBlue}` : 'none',
+            borderRight: !isBarOnRight ? `3px solid ${BRAND.skyBlue}` : 'none',
+            boxSizing: 'border-box',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', minWidth: 0, flex: 1, overflow: 'hidden' }}>
+            <span
+              style={{
+                fontFamily: 'var(--font-heading)',
+                fontSize: 'clamp(0.85rem, 1vw, 1.05rem)',
+                fontWeight: 900,
+                letterSpacing: '0.8px',
+                color: BRAND.white,
+                textTransform: 'uppercase',
+                flexShrink: 0,
+              }}
+            >
+              {name}
+            </span>
+
+            <span
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: 'clamp(0.8rem, 0.9vw, 0.92rem)',
+                color: 'rgba(255, 255, 255, 0.9)',
+                lineHeight: 1.35,
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+              }}
+            >
+              {text}
+            </span>
+          </div>
+
+          {/* Red Accent Dot at End of Pill Bar */}
+          <span
+            style={{
+              width: '6px',
+              height: '6px',
+              backgroundColor: BRAND.premiumRed,
+              display: 'block',
+              flexShrink: 0,
+              marginLeft: '12px',
+            }}
+          />
+        </motion.div>
+      </div>
+
+      {/* ─── MOBILE VIEW (Visible on screens <= 768px, Perfectly Aligned & Stacked) ─── */}
+      <div
+        className="methodology-mobile-row"
+        style={{
+          width: '100%',
+          backgroundColor: BRAND.offWhite,
+          borderBottom: isLast ? 'none' : '1px solid rgba(38, 54, 111, 0.15)',
+          padding: '24px 16px 28px 16px',
+          boxSizing: 'border-box',
+          position: 'relative',
+        }}
+      >
+        {/* Top Header Tag */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            marginBottom: '12px',
+            paddingBottom: '8px',
+            borderBottom: '1px dashed rgba(38, 54, 111, 0.15)',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span
+              style={{
+                fontFamily: 'var(--font-heading)',
+                fontSize: '0.74rem',
+                letterSpacing: '2px',
+                color: BRAND.skyBlue,
+                fontWeight: 800,
+              }}
+            >
+              [{stepNum}]
+            </span>
+            <span
+              style={{
+                fontFamily: 'var(--font-heading)',
+                fontSize: '0.68rem',
+                letterSpacing: '2px',
+                color: 'rgba(38, 54, 111, 0.65)',
+                textTransform: 'uppercase',
+                fontWeight: 700,
+              }}
+            >
+              CORE SERVICE
+            </span>
+          </div>
+
+          <span
+            style={{
+              width: '8px',
+              height: '8px',
+              backgroundColor: BRAND.premiumRed,
+              borderRadius: '50%',
+              boxShadow: '0 0 8px rgba(210, 20, 58, 0.6)',
               display: 'block',
             }}
           />
-        ))}
-      </div>
-
-      {/* ── Technical Corner Plus Ticks (+) ── */}
-      <span style={{ position: 'absolute', top: '16px', left: '20px', color: 'rgba(38, 54, 111, 0.35)', fontFamily: 'monospace', fontSize: '15px', pointerEvents: 'none', zIndex: 2 }}>+</span>
-      <span style={{ position: 'absolute', top: '16px', right: '20px', color: 'rgba(38, 54, 111, 0.35)', fontFamily: 'monospace', fontSize: '15px', pointerEvents: 'none', zIndex: 2 }}>+</span>
-      <span style={{ position: 'absolute', bottom: '16px', left: '20px', color: 'rgba(38, 54, 111, 0.35)', fontFamily: 'monospace', fontSize: '15px', pointerEvents: 'none', zIndex: 2 }}>+</span>
-      <span style={{ position: 'absolute', bottom: '16px', right: '20px', color: 'rgba(38, 54, 111, 0.35)', fontFamily: 'monospace', fontSize: '15px', pointerEvents: 'none', zIndex: 2 }}>+</span>
-
-      {/* ── Section Telemetry Tag at Top Corner ── */}
-      <div
-        style={{
-          position: 'absolute',
-          top: '20px',
-          left: isBarOnRight ? '36px' : 'calc(50% + 28px)',
-          zIndex: 4,
-          fontFamily: 'var(--font-heading)',
-          fontSize: '0.72rem',
-          letterSpacing: '2.5px',
-          color: BRAND.skyBlue,
-          fontWeight: 700,
-          textTransform: 'uppercase',
-          pointerEvents: 'none',
-        }}
-      >
-        [{stepNum}] // SERVICE: {name.toUpperCase()}
-      </div>
-
-      {/* ── 2-Column Content Grid: Image on one side, Pill bar tracks line on other side ── */}
-      <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          zIndex: 2,
-          pointerEvents: 'none',
-        }}
-      >
-        {/* Left Half (holds either image or empty space for pill) */}
-        <div
-          style={{
-            position: 'relative',
-            width: '100%',
-            height: '100%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '30px',
-            boxSizing: 'border-box',
-          }}
-        >
-          {isBarOnRight && imageContent}
         </div>
 
-        {/* Right Half (holds either image or empty space for pill) */}
+        {/* Dark Charcoal Pill Banner: Full Width on Mobile */}
         <div
           style={{
-            position: 'relative',
-            width: '100%',
-            height: '100%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '30px',
-            boxSizing: 'border-box',
+            backgroundColor: '#1E2433',
+            color: BRAND.white,
+            borderRadius: '8px',
+            padding: '16px 18px',
+            borderLeft: `4px solid ${BRAND.skyBlue}`,
+            boxShadow: '0 8px 24px rgba(0,0,0,0.14)',
+            marginBottom: '16px',
           }}
         >
-          {!isBarOnRight && imageContent}
-        </div>
-      </div>
-
-      {/* ── Dynamic Mouse-Tracking Full-Width Red Laser Line ── */}
-      <motion.div
-        style={{
-          position: 'absolute',
-          left: 0,
-          right: 0,
-          top: smoothLineY,
-          height: '1.5px',
-          backgroundColor: BRAND.premiumRed,
-          zIndex: 10,
-          pointerEvents: 'none',
-        }}
-      />
-
-      {/* ── Dynamic Dark Text Pill Bar (Attached to line on designated side, moves with mouse) ── */}
-      <motion.div
-        style={{
-          position: 'absolute',
-          top: smoothLineY,
-          translateY: '-50%',
-          left: isBarOnRight ? '50%' : '24px',
-          width: isBarOnRight ? 'calc(50% - 24px)' : 'calc(50% - 48px)',
-          minHeight: '52px',
-          backgroundColor: '#1E2433', // Sleek dark charcoal pill bar matching screenshots
-          color: BRAND.white,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          padding: '10px 24px',
-          zIndex: 12,
-          pointerEvents: 'none',
-          boxShadow: '0 12px 30px rgba(0,0,0,0.3)',
-          borderLeft: isBarOnRight ? `3px solid ${BRAND.skyBlue}` : 'none',
-          borderRight: !isBarOnRight ? `3px solid ${BRAND.skyBlue}` : 'none',
-          boxSizing: 'border-box',
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', minWidth: 0, flex: 1, overflow: 'hidden' }}>
-          <span
+          <h3
             style={{
               fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(0.85rem, 1vw, 1.05rem)',
+              fontSize: '1.08rem',
               fontWeight: 900,
-              letterSpacing: '0.8px',
+              letterSpacing: '0.5px',
               color: BRAND.white,
               textTransform: 'uppercase',
-              flexShrink: 0,
+              margin: '0 0 8px 0',
+              lineHeight: 1.25,
             }}
           >
             {name}
-          </span>
-
-          <span
+          </h3>
+          <p
             style={{
               fontFamily: 'var(--font-body)',
-              fontSize: 'clamp(0.8rem, 0.9vw, 0.92rem)',
-              color: 'rgba(255, 255, 255, 0.9)',
-              lineHeight: 1.35,
-              whiteSpace: 'nowrap',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
+              fontSize: '0.92rem',
+              color: 'rgba(255, 255, 255, 0.92)',
+              margin: 0,
+              lineHeight: 1.5,
             }}
           >
             {text}
-          </span>
+          </p>
         </div>
 
-        {/* Red Accent Dot at End of Pill Bar */}
-        <span
+        {/* Clean Architectural Drawing Stage */}
+        <div
           style={{
-            width: '6px',
-            height: '6px',
-            backgroundColor: BRAND.premiumRed,
-            display: 'block',
-            flexShrink: 0,
-            marginLeft: '12px',
+            width: '100%',
+            backgroundColor: '#FFFFFF',
+            borderRadius: '8px',
+            border: '1px solid rgba(38, 54, 111, 0.12)',
+            boxShadow: '0 4px 16px rgba(38, 54, 111, 0.05)',
+            position: 'relative',
+            overflow: 'hidden',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '18px 12px',
+            boxSizing: 'border-box',
           }}
-        />
-      </motion.div>
-    </div>
+        >
+          {/* Subtle Technical Plus Marks */}
+          <span style={{ position: 'absolute', top: '8px', left: '10px', color: 'rgba(38, 54, 111, 0.25)', fontFamily: 'monospace', fontSize: '13px' }}>+</span>
+          <span style={{ position: 'absolute', top: '8px', right: '10px', color: 'rgba(38, 54, 111, 0.25)', fontFamily: 'monospace', fontSize: '13px' }}>+</span>
+          <span style={{ position: 'absolute', bottom: '8px', left: '10px', color: 'rgba(38, 54, 111, 0.25)', fontFamily: 'monospace', fontSize: '13px' }}>+</span>
+          <span style={{ position: 'absolute', bottom: '8px', right: '10px', color: 'rgba(38, 54, 111, 0.25)', fontFamily: 'monospace', fontSize: '13px' }}>+</span>
+
+          {mobileContent || imageContent}
+        </div>
+      </div>
+    </>
   );
 }
 
@@ -491,6 +624,43 @@ export default function HeronMethodologySection() {
               />
             </div>
           }
+          mobileContent={
+            <div style={{ position: 'relative', width: '100%', height: '220px' }}>
+              <Image
+                src="/why-us-observe.jpg"
+                alt="Property Buying & Selling Elevation Model"
+                fill
+                sizes="(max-width: 768px) 100vw, 520px"
+                style={{
+                  objectFit: 'contain',
+                  filter: 'contrast(1.1)',
+                  mixBlendMode: 'multiply',
+                }}
+              />
+              <div
+                style={{
+                  position: 'absolute',
+                  top: '34%',
+                  left: '42%',
+                  width: '10px',
+                  height: '10px',
+                  backgroundColor: BRAND.premiumRed,
+                  boxShadow: '0 0 8px rgba(210, 20, 58, 0.6)',
+                }}
+              />
+              <div
+                style={{
+                  position: 'absolute',
+                  bottom: '36%',
+                  right: '28%',
+                  width: '10px',
+                  height: '10px',
+                  backgroundColor: BRAND.premiumRed,
+                  boxShadow: '0 0 8px rgba(210, 20, 58, 0.6)',
+                }}
+              />
+            </div>
+          }
         />
 
         {/* ── 2. SECTION: Real Estate Investment ── */}
@@ -594,6 +764,96 @@ export default function HeronMethodologySection() {
               </div>
             </div>
           }
+          mobileContent={
+            <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px' }}>
+              <div style={{ position: 'relative', width: '100%', height: '170px' }}>
+                <Image
+                  src="/why-us-advise.jpg"
+                  alt="Real Estate Investment Floor Plan"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 520px"
+                  style={{
+                    objectFit: 'contain',
+                    filter: 'contrast(1.1)',
+                    mixBlendMode: 'multiply',
+                  }}
+                />
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '38%',
+                    left: '49%',
+                    width: '10px',
+                    height: '10px',
+                    backgroundColor: BRAND.premiumRed,
+                    boxShadow: '0 0 8px rgba(210, 20, 58, 0.7)',
+                  }}
+                />
+              </div>
+              <div
+                style={{
+                  width: '100%',
+                  backgroundColor: '#1E2433',
+                  color: '#FFFFFF',
+                  padding: '14px 16px',
+                  borderRadius: '6px',
+                  border: `1.5px solid ${BRAND.skyBlue}`,
+                  boxSizing: 'border-box',
+                }}
+              >
+                <div
+                  style={{
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: '0.62rem',
+                    letterSpacing: '1.5px',
+                    color: 'rgba(255,255,255,0.6)',
+                    textTransform: 'uppercase',
+                    marginBottom: '3px',
+                  }}
+                >
+                  BLUEMOON // INVESTMENT AUDIT #02
+                </div>
+                <h4
+                  style={{
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: '0.82rem',
+                    fontWeight: 800,
+                    color: BRAND.skyBlue,
+                    letterSpacing: '0.5px',
+                    lineHeight: 1.25,
+                    margin: '0 0 6px 0',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  HIGH APPRECIATION CORRIDOR
+                </h4>
+                <p
+                  style={{
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '0.8rem',
+                    lineHeight: 1.4,
+                    color: 'rgba(255,255,255,0.88)',
+                    margin: '0 0 8px 0',
+                  }}
+                >
+                  Strategic growth location verified with 100% clear legal title and high ROI trajectory.
+                </p>
+                <div
+                  style={{
+                    borderTop: '1px dashed rgba(255,255,255,0.2)',
+                    paddingTop: '6px',
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: '0.62rem',
+                    color: BRAND.premiumRed,
+                    letterSpacing: '1px',
+                    fontWeight: 700,
+                  }}
+                >
+                  RERA APPROVED &amp; AUDITED
+                </div>
+              </div>
+            </div>
+          }
         />
 
         {/* ── 3. SECTION: Construction & Development ── */}
@@ -647,6 +907,51 @@ export default function HeronMethodologySection() {
                 <div style={{ height: '4px', width: '100%', backgroundColor: 'rgba(255,255,255,0.2)', borderRadius: '2px', marginBottom: '6px' }} />
                 <div style={{ height: '4px', width: '70%', backgroundColor: 'rgba(255,255,255,0.2)', borderRadius: '2px', marginBottom: '6px' }} />
                 <div style={{ height: '4px', width: '85%', backgroundColor: BRAND.skyBlue, borderRadius: '2px' }} />
+              </div>
+            </div>
+          }
+          mobileContent={
+            <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
+              <div style={{ position: 'relative', width: '100%', height: '175px' }}>
+                <Image
+                  src="/why-us-act.jpg"
+                  alt="Construction & Development Structural Model"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 520px"
+                  style={{
+                    objectFit: 'contain',
+                    filter: 'contrast(1.1)',
+                    mixBlendMode: 'multiply',
+                  }}
+                />
+              </div>
+              <div
+                style={{
+                  width: '100%',
+                  maxWidth: '220px',
+                  backgroundColor: '#1E2433',
+                  color: '#FFFFFF',
+                  padding: '10px 14px',
+                  borderRadius: '4px',
+                  border: '1px solid rgba(18, 164, 220, 0.4)',
+                  alignSelf: 'flex-start',
+                }}
+              >
+                <div
+                  style={{
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: '0.68rem',
+                    letterSpacing: '1.5px',
+                    fontWeight: 800,
+                    color: BRAND.skyBlue,
+                    marginBottom: '6px',
+                  }}
+                >
+                  QUALITY AUDIT...
+                </div>
+                <div style={{ height: '3px', width: '100%', backgroundColor: 'rgba(255,255,255,0.2)', borderRadius: '2px', marginBottom: '4px' }} />
+                <div style={{ height: '3px', width: '70%', backgroundColor: 'rgba(255,255,255,0.2)', borderRadius: '2px', marginBottom: '4px' }} />
+                <div style={{ height: '3px', width: '85%', backgroundColor: BRAND.skyBlue, borderRadius: '2px' }} />
               </div>
             </div>
           }
@@ -720,6 +1025,64 @@ export default function HeronMethodologySection() {
               </div>
             </div>
           }
+          mobileContent={
+            <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
+              <div style={{ position: 'relative', width: '100%', height: '170px' }}>
+                <Image
+                  src="/why-us-learn.jpg"
+                  alt="Property Consulting & NRI Services Master Plan"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 520px"
+                  style={{
+                    objectFit: 'contain',
+                    filter: 'contrast(1.1)',
+                    mixBlendMode: 'multiply',
+                  }}
+                />
+              </div>
+              <div
+                style={{
+                  width: '100%',
+                  backgroundColor: '#1E2433',
+                  color: '#FFFFFF',
+                  padding: '14px 16px',
+                  borderRadius: '6px',
+                  border: `1.5px solid ${BRAND.skyBlue}`,
+                  boxSizing: 'border-box',
+                }}
+              >
+                <div
+                  style={{
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: '0.68rem',
+                    letterSpacing: '2px',
+                    fontWeight: 800,
+                    color: BRAND.skyBlue,
+                    marginBottom: '6px',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  SERVICE ASSURANCE
+                </div>
+                <ul
+                  style={{
+                    listStyle: 'none',
+                    padding: 0,
+                    margin: 0,
+                    fontFamily: 'monospace',
+                    fontSize: '0.65rem',
+                    color: 'rgba(255,255,255,0.88)',
+                    lineHeight: 1.6,
+                  }}
+                >
+                  <li>• CLEAR TITLE VERIFICATION</li>
+                  <li>• RERA COMPLIANCE CHECK</li>
+                  <li>• NRI POWER OF ATTORNEY</li>
+                  <li>• DEDICATED CONSULTANT</li>
+                </ul>
+              </div>
+            </div>
+          }
         />
       </div>
 
@@ -728,6 +1091,7 @@ export default function HeronMethodologySection() {
           Connected cleanly below the 4 methodology sections.
          ══════════════════════════════════════════════════════════════════════════ */}
       <section
+        className="use-cases-grid"
         style={{
           borderTop: '1px solid rgba(38, 54, 111, 0.15)',
           borderBottom: '1px solid rgba(38, 54, 111, 0.15)',
@@ -739,6 +1103,7 @@ export default function HeronMethodologySection() {
       >
         {/* Left Side: Clean CAD Preview on Light Canvas (Zero Dark Grid) */}
         <div
+          className="use-cases-left-pane"
           style={{
             borderRight: '1px solid rgba(38, 54, 111, 0.15)',
             position: 'relative',
@@ -850,6 +1215,8 @@ export default function HeronMethodologySection() {
               right: '28px',
               zIndex: 10,
               display: 'flex',
+              flexWrap: 'wrap',
+              gap: '8px',
               justifyContent: 'space-between',
               alignItems: 'center',
               fontFamily: 'var(--font-heading)',
@@ -868,6 +1235,7 @@ export default function HeronMethodologySection() {
 
         {/* Right Side: Use Cases Heading + Interactive Accordion List */}
         <div
+          className="use-cases-right-pane"
           style={{
             padding: '60px 4vw 60px 4vw',
             display: 'flex',
