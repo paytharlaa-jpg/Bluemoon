@@ -838,3 +838,50 @@ a {
   }
 }
 
+/* Persistent Floating WhatsApp Pulsing Keyframes */
+@keyframes whatsappPulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.25;
+  }
+  100% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+}
+
+.whatsapp-radar-pulse {
+  animation: whatsappPulse 2.4s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+}
+
+/* Header Upside & Navbar Responsive Queries */
+@media (max-width: 1024px) {
+  .header-desktop-nav {
+    display: none !important;
+  }
+  .header-mobile-toggle {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 820px) {
+  .header-upside-email {
+    display: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-upside-socials {
+    display: none !important;
+  }
+  .header-upside-bar {
+    font-size: 0.74rem !important;
+  }
+}
+
+
+

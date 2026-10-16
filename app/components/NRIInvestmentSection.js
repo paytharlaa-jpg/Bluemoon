@@ -115,7 +115,7 @@ export default function NRIInvestmentSection() {
     email: '',
     phone: '',
     country: 'United States',
-    assetClass: 'Open Plots & Land Reserves',
+    assetClass: 'Ultra Luxury Villas',
   });
 
   // Calculate equivalent INR in Crores
@@ -134,7 +134,7 @@ export default function NRIInvestmentSection() {
     setConsultationSubmitted(true);
     setTimeout(() => {
       setConsultationSubmitted(false);
-      setFormData({ fullName: '', email: '', phone: '', country: 'United States', assetClass: 'Open Plots & Land Reserves' });
+      setFormData({ fullName: '', email: '', phone: '', country: 'United States', assetClass: 'Ultra Luxury Villas' });
     }, 5000);
   };
 
@@ -332,30 +332,11 @@ export default function NRIInvestmentSection() {
                     style={{
                       fontSize: '0.78rem',
                       color: 'rgba(38, 54, 111, 0.65)',
-                      marginBottom: '10px',
                       fontWeight: 500,
                     }}
                   >
                     {desk.country}
                   </div>
-
-                  <a
-                    href={`tel:${desk.phone.replace(/[^+\d]/g, '')}`}
-                    style={{
-                      fontFamily: 'monospace',
-                      fontSize: '0.82rem',
-                      fontWeight: 700,
-                      color: BRAND.skyBlue,
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '6px',
-                      textDecoration: 'none',
-                    }}
-                    title={`Call ${desk.city} Desk`}
-                  >
-                    <PhoneCall size={12} />
-                    {desk.phone}
-                  </a>
                 </div>
               ))}
             </div>
@@ -851,10 +832,11 @@ export default function NRIInvestmentSection() {
                         outline: 'none',
                       }}
                     >
-                      <option value="Open Plots & Land Reserves">Open Plots & Land Reserves</option>
-                      <option value="Commercial Landmarks">Commercial Landmarks</option>
-                      <option value="Ultra Villas & Estates">Ultra Villas & Estates</option>
-                      <option value="Luxury Sky Flats">Luxury Sky Flats</option>
+                      <option value="Ultra Luxury Villas">Ultra Luxury Villas</option>
+                      <option value="Luxury Apartments">Luxury Apartments</option>
+                      <option value="Open Plots">Open Plots</option>
+                      <option value="Commercial">Commercial</option>
+                      <option value="Bulk Land Parcels">Bulk Land Parcels</option>
                       <option value="Complete Portfolio Allocation">Complete Portfolio Allocation</option>
                     </select>
                   </div>

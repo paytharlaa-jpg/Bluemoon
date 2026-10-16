@@ -369,6 +369,7 @@ export default function Home() {
       
       {/* 1. Cinematic Hero Section */}
       <section 
+        id="home"
         ref={heroRef}
         onMouseMove={handleHeroMouseMove}
         onMouseLeave={handleHeroMouseLeave}
@@ -383,7 +384,7 @@ export default function Home() {
           justifyContent: 'center',
           overflow: 'hidden',
           backgroundColor: 'var(--dark-bg)',
-          cursor: isHeroHovered ? 'crosshair' : 'default',
+          cursor: 'default',
         }}
       >
         {/* Cinematic video background */}
@@ -505,7 +506,7 @@ export default function Home() {
             textAlign: 'center',
             opacity: heroOpacity,
             scale: heroScale,
-            paddingTop: '4rem',
+            paddingTop: 'clamp(5.5rem, 11vh, 7.5rem)',
             width: '100%',
             maxWidth: '1440px',
             margin: '0 auto',
@@ -613,12 +614,13 @@ export default function Home() {
       </section>
 
       {/* 2. Architectural Guidance & Property Advisory Section (Heron Intro Section) */}
-      <section style={{ position: 'relative', zIndex: 20, backgroundColor: '#FFFFFF' }}>
+      <section id="about" style={{ position: 'relative', zIndex: 20, backgroundColor: '#FFFFFF' }}>
         <HeronIntroSection />
       </section>
 
-      {/* 3. Architectural Design Section — 2 Organic Shaped Images, Editorial Layout, 3D Button & Slider */}
+      {/* 3. Architectural Design Section — Why BlueMoon */}
       <section 
+        id="why-us"
         ref={heritageRef}
         style={{ 
           position: 'relative', 
@@ -631,11 +633,15 @@ export default function Home() {
         <ArchitecturalDesign />
       </section>
 
-      {/* 3. Billion Dollar Property Showcase (Sticky Scroll Parallax) */}
-      <PropertyShowcase />
+      {/* 4. Billion Dollar Property Showcase (Sticky Scroll Parallax) */}
+      <div id="properties">
+        <PropertyShowcase />
+      </div>
 
-      {/* 4. Exploded View of an Open Plot (Deconstructed Axonometric Blueprint) */}
-      <ExplodedPlotView />
+      {/* 5. Architectural Blueprint (5 Master Portfolios Deconstructed 3D Isometric Dossiers) */}
+      <div id="gallery">
+        <ExplodedPlotView />
+      </div>
 
       {/* 5. NRI & International Investors (Global Diaspora Sovereign Wealth Desk) */}
       <NRIInvestmentSection />

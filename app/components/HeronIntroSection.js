@@ -127,7 +127,7 @@ export default function HeronIntroSection() {
         style={{
           display: 'grid',
           gridTemplateColumns: 'minmax(320px, 1.05fr) minmax(360px, 1fr)',
-          minHeight: '660px',
+          minHeight: 'auto',
         }}
       >
         {/* Left Column: Building Outline that transforms into Colorful Building on Scroll */}
@@ -143,8 +143,8 @@ export default function HeronIntroSection() {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            minHeight: '520px',
-            padding: '24px 20px',
+            minHeight: 'auto',
+            padding: '36px 24px',
           }}
           onMouseEnter={() => setIsInteractive(false)}
         >
@@ -205,18 +205,18 @@ export default function HeronIntroSection() {
             <span style={{ letterSpacing: '1px' }}>SCROLL TO RENDER</span>
           </div>
 
-          {/* Interactive Visual Stage: Dual-Layered Building */}
+          {/* Interactive Visual Stage: Dual-Layered Building (Normalized 4:3 Proportion) */}
           <div
             className="heron-building-stage"
             style={{
               position: 'relative',
               width: '100%',
-              maxWidth: '520px',
-              aspectRatio: '2 / 3',
+              maxWidth: '480px',
+              aspectRatio: '4 / 3',
               margin: 'auto',
-              borderRadius: '4px',
+              borderRadius: '6px',
               overflow: 'hidden',
-              boxShadow: '0 12px 36px rgba(38, 54, 111, 0.08)',
+              boxShadow: '0 12px 36px rgba(38, 54, 111, 0.12)',
               backgroundColor: '#FFFFFF',
             }}
           >
@@ -233,14 +233,13 @@ export default function HeronIntroSection() {
               }}
             >
               <Image
-                src="/tower-outline.jpg"
-                alt="Architectural CAD outline elevation line drawing of skyscraper"
+                src="/villa-outline.jpg"
+                alt="Architectural CAD outline elevation line drawing of ultra luxury villa"
                 fill
                 sizes="(max-width: 900px) 100vw, 50vw"
                 style={{
-                  objectFit: 'contain',
+                  objectFit: 'cover',
                   objectPosition: 'center',
-                  padding: '8px',
                 }}
                 priority
               />
@@ -262,14 +261,13 @@ export default function HeronIntroSection() {
               }}
             >
               <Image
-                src="/tower-color.jpg"
-                alt="Colorful photorealistic architectural photograph of the completed skyscraper tower"
+                src="/villa-color.jpg"
+                alt="Colorful photorealistic architectural photograph of the completed ultra luxury villa"
                 fill
                 sizes="(max-width: 900px) 100vw, 50vw"
                 style={{
-                  objectFit: 'contain',
+                  objectFit: 'cover',
                   objectPosition: 'center',
-                  padding: '8px',
                 }}
                 priority
               />
@@ -330,28 +328,103 @@ export default function HeronIntroSection() {
             className="heron-intro-statement"
             style={{
               flex: 1,
-              padding: 'clamp(36px, 5vw, 65px) clamp(24px, 5vw, 60px)',
+              padding: 'clamp(30px, 4vw, 48px) clamp(24px, 4vw, 48px)',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
             }}
           >
-            {/* The user-requested corporate statement text */}
-            <h2
+            {/* User-Requested Graphic Card Layout Matching Attached Photo */}
+            <div
               style={{
-                fontFamily: 'var(--font-heading)',
-                fontSize: 'clamp(1.5rem, 2.1vw, 2.3rem)',
-                lineHeight: 1.25,
-                color: 'var(--primary-blue)',
-                marginBottom: '32px',
-                textTransform: 'uppercase',
-                fontWeight: 700,
-                letterSpacing: '-0.01em',
+                backgroundColor: '#0A1C3F', // Corporate Royal Navy Blue matching photo & header
+                borderRadius: '12px',
+                padding: 'clamp(2rem, 3.2vw, 2.8rem) clamp(1.6rem, 2.8vw, 2.4rem)',
+                boxShadow: '0 12px 36px rgba(10, 28, 63, 0.18)',
+                border: '1px solid rgba(18, 164, 220, 0.2)',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                textAlign: 'center',
+                marginBottom: '26px',
               }}
             >
-              Every property journey comes with important decisions. We aim to make that journey
-              clearer through responsive communication, personalized attention, and practical guidance.
-            </h2>
+              {/* Line 1: BLUEMOON PROPERTIES */}
+              <div
+                style={{
+                  fontFamily: 'var(--font-heading), "Cinzel", "Playfair Display", Georgia, serif',
+                  fontSize: 'clamp(1.15rem, 1.9vw, 1.65rem)',
+                  fontWeight: 900,
+                  letterSpacing: '3px',
+                  color: '#FFFFFF',
+                  textTransform: 'uppercase',
+                  lineHeight: 1.2,
+                  marginBottom: '10px',
+                }}
+              >
+                BLUEMOON PROPERTIES
+              </div>
+
+              {/* Line 2: Cyan flanked — SINCE 2002 — */}
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '12px',
+                  width: '100%',
+                  maxWidth: '300px',
+                  marginBottom: '18px',
+                }}
+              >
+                <div style={{ height: '2px', flex: 1, backgroundColor: '#0088CC' }} />
+                <span
+                  style={{
+                    color: '#0088CC',
+                    fontWeight: 800,
+                    fontSize: 'clamp(0.85rem, 1.05vw, 0.98rem)',
+                    letterSpacing: '3px',
+                    fontFamily: 'var(--font-heading), serif',
+                    textTransform: 'uppercase',
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  SINCE 2002
+                </span>
+                <div style={{ height: '2px', flex: 1, backgroundColor: '#0088CC' }} />
+              </div>
+
+              {/* Lines 3 & 4: Beyond Property. A Legacy of Trust. */}
+              <h2
+                style={{
+                  fontFamily: 'var(--font-heading), "Playfair Display", Georgia, serif',
+                  fontSize: 'clamp(1.9rem, 3vw, 2.9rem)',
+                  fontWeight: 800,
+                  lineHeight: 1.18,
+                  color: '#FFFFFF',
+                  margin: '0 0 16px 0',
+                  letterSpacing: '-0.01em',
+                }}
+              >
+                Beyond Property.<br />
+                <span style={{ color: '#FFFFFF' }}>A Legacy of Trust.</span>
+              </h2>
+
+              {/* Line 5: OUR IDENTITY IS YOUR TRUST */}
+              <div
+                style={{
+                  color: '#0088CC',
+                  fontFamily: 'var(--font-heading), -apple-system, sans-serif',
+                  fontSize: 'clamp(0.95rem, 1.25vw, 1.22rem)',
+                  fontWeight: 900,
+                  letterSpacing: '2px',
+                  textTransform: 'uppercase',
+                  marginTop: '4px',
+                }}
+              >
+                OUR IDENTITY IS YOUR TRUST
+              </div>
+            </div>
 
             {/* Technical Button: Learn More */}
             <div>

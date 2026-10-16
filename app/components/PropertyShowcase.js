@@ -48,63 +48,38 @@ const COLLECTIONS = [
     id: 1,
     roman: 'I',
     num: '01',
-    name: 'COMMERCIALS',
-    categoryTag: 'GRADE-A CORPORATE ASSETS',
-    title: 'COMMERCIAL LANDMARKS',
-    subtitle: 'Next-Generation Headquarters & Flagship Retail Hubs',
-    image: '/commercial.jpg',
-    desc: "Architectural marvels engineered for international enterprise. Column-free floor plates, integrated smart BMS telemetry, biophilic sky terraces, and platinum-grade connectivity anchoring Hyderabad's prime financial corridors.",
-    zone: 'FINANCIAL DISTRICT // SECTOR 01',
-    coords: '17°26\'44"N  78°22\'18"E',
-    compass: '018° NNE',
-    minInvestment: 5.0,
-    baseArea: '4,500 SQ.FT',
-    projectedYield: '11.8% NET',
-    appreciation: '16.5% YoY',
+    name: 'ULTRA LUXURY VILLAS',
+    categoryTag: 'PRIVATE PALATIAL ESTATES',
+    title: 'ULTRA LUXURY VILLAS',
+    subtitle: 'Palatial Mansions Surrounded by Private Zen Gardens & Heated Lap Pools',
+    image: '/5%20properties/ultra%20luxury%20villas.jpg',
+    desc: 'The crowning achievement of residential grandeur. Palatial individual estates designed with double-height marble lobbies, private heated infinity lap pools, zen reflection courtyards, private elevators, and subterranean car galleries.',
+    zone: 'PRESTIGE VALLEY ENCLAVE // SECTOR 01',
+    coords: '17°24\'08"N  78°19\'36"E',
+    compass: '315° NW',
+    minInvestment: 9.0,
+    baseArea: '8,500 SQ.FT',
+    projectedYield: '9.2% NET',
+    appreciation: '17.6% YoY',
     specs: [
-      { label: 'DELIVERED SCALE', val: '2.8M+', unit: 'SQ.FT' },
-      { label: 'PRIME HUBS', val: '40+', unit: 'TOWERS' },
-      { label: 'TENANT ROSTER', val: 'AAA', unit: 'GRADE' },
-      { label: 'ECO STANDARD', val: 'PLATINUM', unit: 'LEED' },
+      { label: 'PALATIAL SCALE', val: '8,500', unit: 'SQ.FT' },
+      { label: 'LIMITED EDITION', val: '50+', unit: 'ESTATES' },
+      { label: 'PRIVATE AMENITY', val: 'INFINITY', unit: 'POOL' },
+      { label: 'WHITE-GLOVE', val: '24/7', unit: 'BUTLER' },
     ],
-    features: ['High-Speed Elevators', 'Integrated Heliport', 'Double-Height Lobby', 'Zero Carbon Footprint'],
+    features: ['Private Heated Lap Pool', 'Subterranean Car Gallery', 'Private Otis Elevator', 'Smart Home Matrix'],
   },
   {
     id: 2,
     roman: 'II',
     num: '02',
-    name: 'LAND RESERVES',
-    categoryTag: 'SOVEREIGN HOLDINGS',
-    title: 'TERRA RESERVES',
-    subtitle: 'Curated Institutional Land Banks & Infrastructure Corridors',
-    image: '/lands.jpg',
-    desc: 'Pristine, strategically accumulated land tracts spanning high-velocity growth axes. Meticulously cleared with 100% legal sovereignty, these generational tracts anchor upcoming master-planned commercial and residential townships.',
-    zone: 'OUTER RING ROAD // AXIS 02',
-    coords: '17°22\'10"N  78°18\'04"E',
-    compass: '112° ESE',
-    minInvestment: 8.5,
-    baseArea: '10 ACRES',
-    projectedYield: '14.2% NET',
-    appreciation: '22.0% YoY',
-    specs: [
-      { label: 'CURATED HOLDINGS', val: '500+', unit: 'ACRES' },
-      { label: 'TITLE SECURITY', val: '100%', unit: 'CLEAR' },
-      { label: 'CORRIDOR ACCESS', val: '150FT', unit: 'ROAD' },
-      { label: 'HORIZON VALUE', val: '3.4X', unit: 'ALPHA' },
-    ],
-    features: ['Highway Frontage', 'Instant Registration', 'Complete Title Clearance', 'Master-Plan Zoned'],
-  },
-  {
-    id: 3,
-    roman: 'III',
-    num: '03',
-    name: 'LUXURY FLATS',
+    name: 'LUXURY APARTMENTS',
     categoryTag: 'SKYLINE RESIDENCES',
-    title: 'VERTICAL SANCTUARIES',
+    title: 'LUXURY APARTMENTS',
     subtitle: 'Sculptural High-Rise Residences Overlooking the Horizon',
-    image: '/flats.jpg',
+    image: '/5%20properties/luxury%20apartments.jpg',
     desc: 'Ascending high above the metropolis, these vertical sanctuaries merge monumental structural beauty with the serenity of a private estate. Wrap-around panoramic terraces, acoustic sound isolation, and dedicated private sky lounges.',
-    zone: 'JUBILEE HILLS OVERLOOK // SECTOR 03',
+    zone: 'JUBILEE HILLS OVERLOOK // SECTOR 02',
     coords: '17°25\'32"N  78°21\'45"E',
     compass: '245° WSW',
     minInvestment: 3.5,
@@ -120,16 +95,16 @@ const COLLECTIONS = [
     features: ['Private Elevator Lobby', 'Sky Infinity Pool', 'Bespoke Italian Kitchens', 'Panoramic Decks'],
   },
   {
-    id: 4,
-    roman: 'IV',
-    num: '04',
+    id: 3,
+    roman: 'III',
+    num: '03',
     name: 'OPEN PLOTS',
     categoryTag: 'CANVAS ESTATES',
-    title: 'PRISTINE ENCLAVES',
+    title: 'OPEN PLOTS',
     subtitle: 'Gated Eco-Sanctuaries & Bespoke Building Canvases',
-    image: '/plots.jpg',
+    image: '/5%20properties/open%20plots.jpg',
     desc: 'An immaculate canvas for your bespoke architectural dream. Situated within secure, low-density gated eco-communities featuring wide tree-lined boulevards, underground utility grids, and private country clubs.',
-    zone: 'AEROTROPOLIS CORRIDOR // SECTOR 04',
+    zone: 'AEROTROPOLIS CORRIDOR // SECTOR 03',
     coords: '17°19\'50"N  78°28\'12"E',
     compass: '168° SSE',
     minInvestment: 1.8,
@@ -145,29 +120,54 @@ const COLLECTIONS = [
     features: ['100% Vastu Compliant', 'Underground Utilities', 'Clubhouse Access', '24/7 Gated Perimeter'],
   },
   {
+    id: 4,
+    roman: 'IV',
+    num: '04',
+    name: 'COMMERCIAL',
+    categoryTag: 'GRADE-A CORPORATE ASSETS',
+    title: 'COMMERCIAL LANDMARKS',
+    subtitle: 'Next-Generation Headquarters & Flagship Retail Hubs',
+    image: '/5%20properties/commercial.jpg',
+    desc: "Architectural marvels engineered for international enterprise. Column-free floor plates, integrated smart BMS telemetry, biophilic sky terraces, and platinum-grade connectivity anchoring Hyderabad's prime financial corridors.",
+    zone: 'FINANCIAL DISTRICT // SECTOR 04',
+    coords: '17°26\'44"N  78°22\'18"E',
+    compass: '018° NNE',
+    minInvestment: 5.0,
+    baseArea: '4,500 SQ.FT',
+    projectedYield: '11.8% NET',
+    appreciation: '16.5% YoY',
+    specs: [
+      { label: 'DELIVERED SCALE', val: '2.8M+', unit: 'SQ.FT' },
+      { label: 'PRIME HUBS', val: '40+', unit: 'TOWERS' },
+      { label: 'TENANT ROSTER', val: 'AAA', unit: 'GRADE' },
+      { label: 'ECO STANDARD', val: 'PLATINUM', unit: 'LEED' },
+    ],
+    features: ['High-Speed Elevators', 'Integrated Heliport', 'Double-Height Lobby', 'Zero Carbon Footprint'],
+  },
+  {
     id: 5,
     roman: 'V',
     num: '05',
-    name: 'ULTRA VILLAS',
-    categoryTag: 'PRIVATE ESTATES',
-    title: 'SOVEREIGN RESIDENCES',
-    subtitle: 'Palatial Mansions Surrounded by Private Zen Gardens',
-    image: '/villas.jpg',
-    desc: 'The crowning achievement of residential grandeur. Palatial individual estates designed with double-height marble lobbies, private heated infinity lap pools, zen reflection courtyards, private elevators, and subterranean car galleries.',
-    zone: 'PRESTIGE VALLEY ENCLAVE // SECTOR 05',
-    coords: '17°24\'08"N  78°19\'36"E',
-    compass: '315° NW',
-    minInvestment: 9.0,
-    baseArea: '8,500 SQ.FT',
-    projectedYield: '9.2% NET',
-    appreciation: '17.6% YoY',
+    name: 'BULK LAND PARCELS',
+    categoryTag: 'SOVEREIGN HOLDINGS',
+    title: 'BULK LAND PARCELS',
+    subtitle: 'Curated Institutional Land Banks & Infrastructure Corridors',
+    image: '/5%20properties/bulk%20land.jpg',
+    desc: 'Pristine, strategically accumulated land tracts spanning high-velocity growth axes. Meticulously cleared with 100% legal sovereignty, these generational tracts anchor upcoming master-planned commercial and residential townships.',
+    zone: 'OUTER RING ROAD // AXIS 05',
+    coords: '17°22\'10"N  78°18\'04"E',
+    compass: '112° ESE',
+    minInvestment: 8.5,
+    baseArea: '10 ACRES',
+    projectedYield: '14.2% NET',
+    appreciation: '22.0% YoY',
     specs: [
-      { label: 'PALATIAL SCALE', val: '8,500', unit: 'SQ.FT' },
-      { label: 'LIMITED EDITION', val: '50+', unit: 'ESTATES' },
-      { label: 'PRIVATE AMENITY', val: 'INFINITY', unit: 'POOL' },
-      { label: 'WHITE-GLOVE', val: '24/7', unit: 'BUTLER' },
+      { label: 'CURATED HOLDINGS', val: '500+', unit: 'ACRES' },
+      { label: 'TITLE SECURITY', val: '100%', unit: 'CLEAR' },
+      { label: 'CORRIDOR ACCESS', val: '150FT', unit: 'ROAD' },
+      { label: 'HORIZON VALUE', val: '3.4X', unit: 'ALPHA' },
     ],
-    features: ['Private Heated Lap Pool', 'Subterranean Car Gallery', 'Private Otis Elevator', 'Smart Home Matrix'],
+    features: ['Highway Frontage', 'Instant Registration', 'Complete Title Clearance', 'Master-Plan Zoned'],
   },
 ];
 
@@ -776,16 +776,16 @@ export default function PropertyShowcase() {
   const progressHeight = useTransform(smoothProgress, [0, 1], ['0%', '100%']);
 
   // ── Smooth Background Color & Ambient Transitions for the 5 Properties ──
-  // Commercials (Crystal Corporate Blue) -> Land Reserves (Sage Terra Green) -> Luxury Flats (Palatial Rose Champagne) -> Open Plots (Horizon Azure) -> Ultra Villas (Imperial Warm Gold)
+  // Ultra Luxury Villas -> Luxury Apartments -> Open Plots -> Commercial -> Bulk Land Parcels
   const sectionBgColor = useTransform(
     smoothProgress,
     [0, 0.22, 0.45, 0.68, 0.9, 1],
     [
-      '#FFFFFF', // Commercials
-      '#FFFFFF', // Land Reserves
-      '#FFFFFF', // Luxury Flats
+      '#FFFFFF', // Ultra Luxury Villas
+      '#FFFFFF', // Luxury Apartments
       '#FFFFFF', // Open Plots
-      '#FFFFFF', // Ultra Villas
+      '#FFFFFF', // Commercial
+      '#FFFFFF', // Bulk Land Parcels
       '#FFFFFF',
     ]
   );
@@ -957,10 +957,10 @@ export default function PropertyShowcase() {
     investAmount < 3
       ? 'OPEN PLOTS // PRISTINE ENCLAVES'
       : investAmount < 7
-      ? 'LUXURY FLATS // VERTICAL SANCTUARIES'
+      ? 'LUXURY APARTMENTS // VERTICAL SANCTUARIES'
       : investAmount < 15
-      ? 'COMMERCIALS // GRADE-A LANDMARKS'
-      : 'ULTRA VILLAS & TERRA RESERVES';
+      ? 'COMMERCIAL // GRADE-A LANDMARKS'
+      : 'ULTRA LUXURY VILLAS & BULK LAND PARCELS';
 
   return (
     <>
@@ -969,7 +969,7 @@ export default function PropertyShowcase() {
          ══════════════════════════════════════════════════════════════════════════ */}
       <div
         ref={containerRef}
-        id="property-showcase"
+        id="portfolio"
         style={{
           position: 'relative',
           height: '500vh',
@@ -1209,15 +1209,15 @@ export default function PropertyShowcase() {
                   <TickerSymbols.Diamond />
                   <span>THAT BRINGS GENERATIONS AND LEGACIES TOGETHER</span>
                   <TickerSymbols.Crest />
-                  <span style={{ color: BRAND.skyBlue }}>I. COMMERCIALS</span>
+                  <span style={{ color: BRAND.skyBlue }}>I. ULTRA LUXURY VILLAS</span>
                   <TickerSymbols.Star />
-                  <span style={{ color: BRAND.primaryBlue }}>II. LAND RESERVES</span>
+                  <span style={{ color: BRAND.primaryBlue }}>II. LUXURY APARTMENTS</span>
                   <TickerSymbols.Arch />
-                  <span style={{ color: BRAND.skyBlue }}>III. LUXURY FLATS</span>
+                  <span style={{ color: BRAND.skyBlue }}>III. OPEN PLOTS</span>
                   <TickerSymbols.Diamond />
-                  <span style={{ color: BRAND.primaryBlue }}>IV. OPEN PLOTS</span>
+                  <span style={{ color: BRAND.primaryBlue }}>IV. COMMERCIAL</span>
                   <TickerSymbols.Star />
-                  <span style={{ color: BRAND.premiumRed }}>V. ULTRA VILLAS</span>
+                  <span style={{ color: BRAND.premiumRed }}>V. BULK LAND PARCELS</span>
                   <TickerSymbols.Crest />
                 </div>
               ))}
@@ -1388,7 +1388,7 @@ export default function PropertyShowcase() {
           {/* Features blueprint skyline towers, animated laser scanning, and multi-layer undulating waves in approved corporate branding colors */}
           <ArchitecturalSkylineWaveBackground
             mousePos={mousePos}
-            activeCollectionName={safeRotaryItem?.name || 'COMMERCIALS'}
+            activeCollectionName={safeRotaryItem?.name || 'ULTRA LUXURY VILLAS'}
             activeRoman={safeRotaryItem?.roman || 'I'}
           />
 

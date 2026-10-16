@@ -4,7 +4,7 @@
  * ExplodedPlotView Component — Earthy & Natural 3D Architectural Edition
  * Design Direction: Light Warm Ivory Theme | 3D Isometric Folders | Cinematic Spring Transitions
  * Strict Three-State Interaction:
- * STATE 1: All 6 dimensional folders in a balanced horizontal row on wide screens.
+ * STATE 1: All 5 dimensional folders in a balanced horizontal row on wide screens.
  * STATE 2: Clicked folder opens with 3 small floating preview cards (Left image, Center content, Right image).
  * STATE 3: Full-screen 3-column detail presentation (Left image, Center complete dossier, Right image).
  */
@@ -24,6 +24,7 @@ import {
   ArrowRight,
   Maximize2,
   Sparkles,
+  Building,
 } from 'lucide-react';
 import { InteractiveFolder } from './InteractiveFolder';
 import ParticleWaveBackground from './ParticleWaveBackground';
@@ -39,168 +40,141 @@ const BRAND = {
   white: '#FFFFFF',
 };
 
-// ─── Source of Truth: 6 Architectural Blueprint Layers ─────────────────────────
+// ─── Source of Truth: 5 Architectural Blueprint Portfolios ─────────────────────
 const PLOT_LAYERS = [
   {
-    id: 'layer-bedrock',
+    id: 'layer-villas',
     index: 1,
-    folderLabel: 'BEDROCK',
+    folderLabel: 'ULTRA VILLAS',
     color: '#26366F', // Sovereign Primary Blue
-    name: 'HMDA & RERA CLEAR FREEHOLD TITLE',
-    elevationLabel: 'FOUNDATION BEDROCK // LEGAL CORE',
-    depth: 'FOUNDATION BEDROCK',
-    status: 'ABSOLUTE TITLE PURITY',
-    icon: FileCheck2,
-    leftImage: '/plots.jpg',
-    rightImage: '/lands.jpg',
-    leftCaption: 'BLUEPRINT CAD-DEMARCATION // 17°26\'44"N 78°22\'18"E // HMDA SANCTIONED BOUNDARY',
-    rightCaption: 'SOVEREIGN REVENUE SEARCH // HIGH COURT VERIFIED // SPOT REGISTRATION',
-    desc: '100% unencumbered, clear freehold ownership. 30-year unbroken chain search report verified by Senior High Court Advocates. Ready for immediate spot registration at the sub-registrar office.',
+    name: 'ULTRA LUXURY VILLAS & PRIVATE MANSIONS',
+    elevationLabel: 'SECTOR 01 // PALATIAL ARCHITECTURAL RESIDENCES',
+    depth: 'G+2 MANSION',
+    status: 'BESPOKE ESTATES',
+    icon: Sparkles,
+    leftImage: '/5%20properties/ultra%20luxury%20villas.jpg',
+    rightImage: '/villas.jpg',
+    leftCaption: 'ARCHITECTURAL CAD BLUEPRINT // HEATED LAP POOL // MARBLE ATRIUM // 17°24\'08"N 78°19\'36"E',
+    rightCaption: '8,500 SQ.FT PALATIAL RESIDENCE // SUBTERRANEAN CAR VAULT // PRIVATE ELEVATOR',
+    desc: 'The crowning achievement of residential grandeur. Palatial individual estates designed with double-height marble lobbies, private heated infinity lap pools, zen reflection courtyards, private elevators, and subterranean car galleries.',
     metrics: [
-      { label: 'STATUTORY SANCTION', value: 'HMDA / RERA', desc: '100% Sanctioned Master Layout' },
-      { label: 'TITLE LITIGATION RISK', value: '0.00%', desc: '30-Year High Court Certified Search' },
-      { label: 'REGISTRATION SPEED', value: 'IMMEDIATE', desc: 'Spot Sub-Registrar Stamped' },
-      { label: 'BANK LOAN GRADE', value: 'AAA GRADE', desc: 'SBI, HDFC, ICICI Approved (75%)' },
+      { label: 'PALATIAL SCALE', value: '8,500 SQ.FT', desc: 'Customizable G+2 Estate Footprint' },
+      { label: 'PRIVATE RETREAT', value: 'INFINITY POOL', desc: 'Temperature-Controlled Lap Pool' },
+      { label: 'ACOUSTIC SHIELD', value: 'P-3 ISOLATION', desc: 'Triple-Glazed Noise & Climate Damping' },
+      { label: 'PROJECTED ALPHA', value: '17.6% YoY', desc: 'Prestige Valley Enclave Appreciation' },
     ],
     guarantees: [
-      '30-Year unbroken chain of ownership with clean digital revenue passbooks',
+      '100% Freehold ownership with individual title deeds and geo-cadastral demarcation',
+      'Engineered with seismic-resilient RCC shear core and platinum-grade Italian fittings',
+      '24/7 dedicated white-glove concierge and multi-tier biometric security matrix',
+    ],
+  },
+  {
+    id: 'layer-apartments',
+    index: 2,
+    folderLabel: 'APARTMENTS',
+    color: '#12A4DC', // Sky Blue
+    name: 'LUXURY HIGH-RISE APARTMENTS & PENTHOUSES',
+    elevationLabel: 'SECTOR 02 // 55-FLOOR VERTICAL SANCTUARIES',
+    depth: '+180M SKYLINE',
+    status: 'SKY RESIDENCES',
+    icon: Building,
+    leftImage: '/5%20properties/luxury%20apartments.jpg',
+    rightImage: '/flats.jpg',
+    leftCaption: 'STRUCTURAL CAD SCHEMATICS // 55 FLOORS // WRAP-AROUND SKYLINE TERRACES',
+    rightCaption: 'SKY INFINITY POOL // PRIVATE ELEVATOR LOBBY // 3,800 SQ.FT DESIGNER SUITE',
+    desc: 'Ascending high above the metropolis, these vertical sanctuaries merge monumental structural beauty with the serenity of a private estate. Wrap-around panoramic terraces, acoustic sound isolation, and dedicated private sky lounges.',
+    metrics: [
+      { label: 'TOWER ELEVATION', value: '55 FLOORS', desc: 'Aerodynamic Wind-Tunnel Tested Core' },
+      { label: 'SUITE SCALE', value: '3,800 SQ.FT', desc: 'Panoramic Skyline Residences' },
+      { label: 'HOSPITALITY', value: '5★ CONCIERGE', desc: 'Round-the-Clock Valet & Attendant' },
+      { label: 'PROJECTED YIELD', value: '8.4% NET', desc: 'High-Demand Sovereign Rental Return' },
+    ],
+    guarantees: [
+      'IGBC Platinum green building certification with advanced energy conservation',
+      'Private access-controlled high-speed elevators opening straight into individual foyers',
+      'Advanced acoustic decoupling between party walls ensuring pin-drop silence',
+    ],
+  },
+  {
+    id: 'layer-plots',
+    index: 3,
+    folderLabel: 'OPEN PLOTS',
+    color: '#26366F', // Sovereign Primary Blue
+    name: 'HMDA & RERA CLEAR GATED OPEN PLOTS',
+    elevationLabel: 'SECTOR 03 // MASTER-PLANNED CANVAS ESTATES',
+    depth: 'CANVAS 0.0M',
+    status: '100% CLEAR TITLE',
+    icon: Compass,
+    leftImage: '/5%20properties/open%20plots.jpg',
+    rightImage: '/plots.jpg',
+    leftCaption: 'CADASTRAL LAYOUT BLUEPRINT // 60-FT BOULEVARDS // HMDA & RERA SANCTIONED',
+    rightCaption: '100% VASTU COMPLIANT // VIRGIN RED LOAM // 24/7 GATED ECO-COMMUNITY',
+    desc: 'An immaculate canvas for your bespoke architectural dream. Situated within secure, low-density gated eco-communities featuring wide tree-lined boulevards, underground utility grids, and private country clubs.',
+    metrics: [
+      { label: 'PLOTTED PARCELS', value: '600+ SQ.YDS', desc: 'Engineered Vastu-Compliant Footprints' },
+      { label: 'STATUTORY SANCTION', value: '100% HMDA', desc: 'Full RERA Sanctioned Master Layout' },
+      { label: 'BOULEVARD WIDTH', value: '60 FT ROADS', desc: 'Underground Power & Fiber Grids' },
+      { label: 'ANNUAL ALPHA', value: '19.2% YoY', desc: 'Aerotropolis Corridor Appreciation' },
+    ],
+    guarantees: [
+      '30-Year unbroken chain of ownership verified by Senior High Court Advocates',
       'Immediate spot registration with precision GPS geo-coordinates stamped on deed',
       'Pre-approved by premier institutional banks for up to 75% plot financing',
     ],
   },
   {
-    id: 'layer-aquifer',
-    index: 2,
-    folderLabel: 'AQUIFER',
-    color: '#12A4DC', // Sky Blue
-    name: 'GROUNDWATER HYDROLOGY & RECHARGE',
-    elevationLabel: '-18.0 METERS // SUBTERRANEAN AQUIFER',
-    depth: '-18.0 METERS',
-    status: 'WATER SECURITY',
-    icon: Droplets,
-    leftImage: '/plots.jpg',
-    rightImage: '/lands.jpg',
-    leftCaption: 'HYDROLOGY CORE // -18.0M SUBTERRANEAN STREAM // PERENNIAL RECHARGE',
-    rightCaption: 'RAINWATER HARVESTING SHAFTS // 1.8M LITERS NET-POSITIVE ECOLOGICAL BALANCE',
-    desc: 'Abundant natural subterranean perennial sweet water table. Deep ecological rainwater percolation pits engineered every 100 meters across the enclave to ensure self-sustaining water security.',
-    metrics: [
-      { label: 'WATER TABLE DEPTH', value: '45 - 60 FT', desc: 'Perennial Sweet Aquifer Table' },
-      { label: 'POTABILITY INDEX', value: 'TDS 240 PPM', desc: 'Naturally Sweet Potable Water' },
-      { label: 'HARVESTING PITS', value: 'EVERY 100M', desc: 'Deep Percolation Shafts' },
-      { label: 'ANNUAL RECHARGE', value: '1.8M LITERS', desc: 'Net-Positive Ecological Water Balance' },
-    ],
-    guarantees: [
-      'Natural subterranean sweet aquifer stream feeding round-the-year well water',
-      'Scientific rainwater harvesting shafts replenishing the groundwater table',
-      'Central overhead reservoir guaranteeing 24/7 hydrostatic tap pressure',
-    ],
-  },
-  {
-    id: 'layer-strata',
-    index: 3,
-    folderLabel: 'STRATA',
-    color: '#26366F', // Primary Blue
-    name: 'CERTIFIED LOAD-BEARING STRATA',
-    elevationLabel: '-4.0 METERS // GEOTECHNICAL BED',
-    depth: '-4.0 METERS',
-    status: 'SOIL ENGINEERING',
-    icon: Layers,
-    leftImage: '/plots.jpg',
-    rightImage: '/lands.jpg',
-    leftCaption: 'GEOTECHNICAL CORE SAMPLES // 285 kN/m² HEAVY BEARING CAPACITY',
-    rightCaption: 'VIRGIN RED GRAVEL LOAM // 98% PROCTOR DENSITY // ZERO SUBSIDENCE',
-    desc: 'Laboratory-certified high-density virgin red gravel loam. Rigorously tested Safe Bearing Capacity (SBC) engineered for heavy multi-story luxury villas with zero settlement risk.',
-    metrics: [
-      { label: 'SAFE BEARING CAPACITY', value: '285 kN/m²', desc: 'Lab-Certified Heavy SBC' },
-      { label: 'STRATUM PROFILE', value: 'RED LOAM', desc: 'Non-Alluvial Virgin High Ground' },
-      { label: 'SETTLEMENT RISK', value: '0.00%', desc: 'Zero Subsidence & Zero Marshy Fill' },
-      { label: 'COMPACTION INDEX', value: '98% PROCTOR', desc: 'Engineered Foundation Bed' },
-    ],
-    guarantees: [
-      'Certified soil core test reports provided with every plot deed',
-      'Virgin elevated land: Zero industrial waste, zero marshy backfilling',
-      'Seismic Zone II compliance: Highest structural stability in the Deccan Plateau',
-    ],
-  },
-  {
-    id: 'layer-utilities',
+    id: 'layer-commercial',
     index: 4,
-    folderLabel: 'UTILITIES',
-    color: '#D2143A', // Palatial Crimson Red
-    name: 'CONCEALED SMART UTILITY TRENCHES',
-    elevationLabel: '-1.5 METERS // SUB-SURFACE MATRIX',
-    depth: '-1.5 METERS',
-    status: 'UNDERGROUND NETWORK',
-    icon: Zap,
-    leftImage: '/plots.jpg',
-    rightImage: '/lands.jpg',
-    leftCaption: 'UNDER-CURB RCC BOX DRAINS // 11KV ARMORED CABLING // CONCEALED GRID',
-    rightCaption: 'DUAL FIBER OPTIC DUCTS // HDPE PRESSURIZED WATER FEEDER MATRIX',
-    desc: '100% concealed underground utility matrix—zero dangling overhead cables, zero roadside open sewers, and pre-installed individual plot connection chambers for plug-and-play villa construction.',
-    metrics: [
-      { label: 'ELECTRICAL GRID', value: '11KV ARMORED', desc: 'Zero Overhead Cables (Concealed)' },
-      { label: 'HIGH-SPEED TELECOM', value: 'DUAL DUCTS', desc: 'Pre-Laid Fiber To Every Boundary' },
-      { label: 'WATER FEEDER', value: 'HDPE MATRIX', desc: 'Direct Potable High-Pressure Supply' },
-      { label: 'STORMWATER CHANNELS', value: 'RCC BOX DRAINS', desc: 'Under-Curb Anti-Flood Channels' },
-    ],
-    guarantees: [
-      '100% underground power transmission with armored distribution transformers',
-      'High-density HDPE water pipelines pre-tapped directly into each individual plot',
-      'Under-curb concealed RCC stormwater drains preventing road waterlogging',
-    ],
-  },
-  {
-    id: 'layer-surface',
-    index: 5,
-    folderLabel: 'SURFACE',
-    color: '#26366F', // Sovereign Navy Blue
-    name: 'SURFACE INFRASTRUCTURE & AVENUES',
-    elevationLabel: '0.0M SURFACE // TERRAIN LEVEL',
-    depth: '0.0M SURFACE',
-    status: 'GATED MASTER-PLANNED',
-    icon: Compass,
-    leftImage: '/plots.jpg',
-    rightImage: '/lands.jpg',
-    leftCaption: '40-60 FT HEAVY-DUTY BITUMEN AVENUES // POLISHED GRANITE KERBSTONES',
-    rightCaption: '8 FT COMPOUND PERIMETER WALL // SOLAR FENCING // RFID BIOMETRIC ENTRY',
-    desc: 'Precision-graded 40–60 ft heavy bitumen/concrete avenues, polished granite kerbs, pedestrian walkways, RFID biometric perimeter fencing, and intelligent automated streetscaping.',
-    metrics: [
-      { label: 'AVENUE WIDTH', value: '40 - 60 FT', desc: 'Heavy-Duty Concrete & Bitumen Boulevards' },
-      { label: 'PLOT BOUNDARY', value: 'PRE-CAST RCC', desc: 'Permanent Cadastral Demarcation' },
-      { label: 'SECURITY PERIMETER', value: '8 FT WALL', desc: 'Solar Fencing + RFID Entry' },
-      { label: 'SIDEWALK INFRA', value: 'GRANITE KERB', desc: 'Dedicated Pedestrian Avenues' },
-    ],
-    guarantees: [
-      '100% Cardinal Vastu alignment (East & North-facing prime orientations)',
-      'Intelligent solar LED streetlamps with automated dusk-to-dawn telemetry',
-      '24/7 monitored CCTV surveillance grid with automated number-plate recognition',
-    ],
-  },
-  {
-    id: 'layer-sky',
-    index: 6,
-    folderLabel: 'SOLAR SKY',
+    folderLabel: 'COMMERCIAL',
     color: '#12A4DC', // Sky Blue
-    name: 'SOVEREIGN SKY & SOLAR RIGHTS',
-    elevationLabel: '+15.0M ATMOSPHERE // ATMOSPHERIC CORRIDOR',
-    depth: '+15.0M ATMOSPHERE',
-    status: 'ELEVATION ZONING',
-    icon: Sun,
-    leftImage: '/plots.jpg',
-    rightImage: '/lands.jpg',
-    leftCaption: 'UNRESTRICTED VERTICAL SKY RIGHTS // ZERO HIGH-TENSION HAZARDS',
-    rightCaption: 'YEAR-ROUND CLEAN SOLAR PV HARVEST // 38 AQI PRISTINE MICROCLIMATE',
-    desc: 'Unrestricted vertical elevation rights, 100% unshaded year-round solar light absorption, pollution-free microclimate, and native tree plantation canopy cooling.',
+    name: 'GRADE-A COMMERCIAL LANDMARKS & CORPORATE HUBS',
+    elevationLabel: 'SECTOR 04 // PRIME FINANCIAL DISTRICT',
+    depth: 'GRADE-A ASSET',
+    status: 'CORPORATE CORE',
+    icon: Zap,
+    leftImage: '/5%20properties/commercial.jpg',
+    rightImage: '/architectural-tower-drawing.jpg',
+    leftCaption: 'COMMERCIAL CAD BLUEPRINT // COLUMN-FREE FLOOR PLATES // PLATINUM LEED',
+    rightCaption: 'FLAGSHIP ENTERPRISE HUB // DOUBLE-HEIGHT LOBBY // SMART BMS TELEMETRY',
+    desc: "Architectural marvels engineered for international enterprise. Column-free floor plates, integrated smart BMS telemetry, biophilic sky terraces, and platinum-grade connectivity anchoring Hyderabad's prime financial corridors.",
     metrics: [
-      { label: 'AIR QUALITY INDEX', value: '38 AQI', desc: 'Pristine Forest Green Zone' },
-      { label: 'SOLAR EXPOSURE', value: '5.4 kWh/m²', desc: 'Year-Round Clean Solar Energy' },
-      { label: 'ZONING CLEARANCE', value: 'G+3 FLOORS', desc: 'Unrestricted Freehold Vertical Rights' },
-      { label: 'HT LINE HAZARD', value: '0.00% HAZARD', desc: 'Zero High-Tension Electromagnetic Lines' },
+      { label: 'DELIVERED SCALE', value: '2.8M+ SQ.FT', desc: 'Anchoring Premier Tech Corridors' },
+      { label: 'ECO STANDARD', value: 'LEED PLATINUM', desc: 'Zero Carbon Footprint Engineering' },
+      { label: 'TENANT ROSTER', value: 'AAA GRADE', desc: 'Multinational Corporate Headquarters' },
+      { label: 'NET YIELD', value: '11.8% NET', desc: 'Predictable Institutional Cash Flow' },
     ],
     guarantees: [
-      'Unrestricted solar and natural daylight absorption rights for rooftop solar PV',
-      'Zero overhead high-tension power cables or electromagnetic corridor hazards',
-      'Avenue canopy microclimate cooling with native avenue tree plantations',
+      'Pre-leased institutional grade spaces with blue-chip global tenants',
+      'Dual redundant electrical grids with 100% backup and rooftop solar telemetry',
+      'Smart BMS automation monitoring real-time indoor air quality, thermal load, and security',
+    ],
+  },
+  {
+    id: 'layer-bulkland',
+    index: 5,
+    folderLabel: 'BULK LAND',
+    color: '#D2143A', // Palatial Crimson Red
+    name: 'STRATEGIC BULK LAND PARCELS & INFRASTRUCTURE TRACTS',
+    elevationLabel: 'AXIS 05 // HIGH-VELOCITY GROWTH AXES',
+    depth: '10+ ACRES SOVEREIGN',
+    status: 'LAND RESERVES',
+    icon: FileCheck2,
+    leftImage: '/5%20properties/bulk%20land.jpg',
+    rightImage: '/lands.jpg',
+    leftCaption: 'GIS CADASTRAL SURVEY // HIGHWAY CORRIDOR ACCESS // 100% LEGAL TITLE',
+    rightCaption: 'STRATEGIC LAND BANK // MASTER-PLAN ZONED // HIGH-VALUATION HORIZON ALPHA',
+    desc: 'Pristine, strategically accumulated land tracts spanning high-velocity growth axes. Meticulously cleared with 100% legal sovereignty, these generational tracts anchor upcoming master-planned commercial and residential townships.',
+    metrics: [
+      { label: 'TRACT SCALE', value: '10 - 100+ ACRES', desc: 'Contiguous Sovereign Land Banks' },
+      { label: 'CORRIDOR ACCESS', value: '150 FT FRONT', desc: 'Direct National Highway & ORR Access' },
+      { label: 'TITLE SECURITY', value: '100% CLEAR', desc: 'Certified Zero-Encumbrance Audit' },
+      { label: 'HORIZON EXPANSION', value: '3.4X ALPHA', desc: '5-Year Sovereign Value Multiplier' },
+    ],
+    guarantees: [
+      'Highway frontage with instant registration and complete title clearance',
+      'Master-plan zoned for mixed-use, township, or high-value commercial deployment',
+      'Comprehensive physical GPS demarcation with permanent RCC boundary monuments',
     ],
   },
 ];
@@ -320,7 +294,7 @@ export default function ExplodedPlotView() {
 
         <div style={{ position: 'relative', zIndex: 10, display: 'flex', alignItems: 'center', justifyContent: 'space-between', color: '#FFFFFF' }}>
           <span style={{ fontFamily: 'monospace', fontSize: '6.5px', fontWeight: 800, opacity: 0.95 }}>
-            /plots.jpg
+            {layer.folderLabel} // CAD
           </span>
           <Maximize2 size={8} style={{ color: layer.color }} />
         </div>
@@ -482,7 +456,7 @@ export default function ExplodedPlotView() {
 
         <div style={{ position: 'relative', zIndex: 10, display: 'flex', alignItems: 'center', justifyContent: 'space-between', color: '#FFFFFF' }}>
           <span style={{ fontFamily: 'monospace', fontSize: '6.5px', fontWeight: 800, opacity: 0.95 }}>
-            /lands.jpg
+            {layer.folderLabel} // ARCH
           </span>
           <Maximize2 size={8} style={{ color: layer.color }} />
         </div>
@@ -592,7 +566,7 @@ export default function ExplodedPlotView() {
                 textTransform: 'uppercase',
               }}
             >
-              THE 6 LAYERS OF A PREMIUM PLOT
+              THE 5 ARCHITECTURAL BLUEPRINTS
             </span>
           </motion.div>
 
@@ -640,7 +614,7 @@ export default function ExplodedPlotView() {
               fontWeight: 500,
             }}
           >
-            Every layer is engineered for a stronger tomorrow.
+            Five master portfolios engineered with architectural precision and sovereign trust.
           </motion.p>
 
           {/* Supporting Text */}
@@ -663,11 +637,11 @@ export default function ExplodedPlotView() {
               fontStyle: 'italic',
             }}
           >
-            More than land. It&apos;s a foundation for your dreams.
+            Every dimension designed for generational legacy and institutional security.
           </motion.span>
         </motion.div>
 
-        {/* ── STATE 1 & STATE 2: SIX 3D ISOMETRIC FOLDERS (Staggered Entry Cascade on Scroll) ── */}
+        {/* ── STATE 1 & STATE 2: FIVE 3D ISOMETRIC FOLDERS (Staggered Entry Cascade on Scroll) ── */}
         <motion.div
           className="blueprint-folders-row"
           initial="hidden"
@@ -909,7 +883,7 @@ export default function ExplodedPlotView() {
                       transition: 'all 0.2s ease',
                     }}
                   >
-                    1. CAD BLUEPRINT (/plots.jpg)
+                    1. CAD BLUEPRINT
                   </button>
                   <button
                     onClick={() => setSelectedCard('center')}
@@ -943,7 +917,7 @@ export default function ExplodedPlotView() {
                       transition: 'all 0.2s ease',
                     }}
                   >
-                    3. SURVEY RECORD (/lands.jpg)
+                    3. ARCHITECTURAL ELEVATION
                   </button>
                 </div>
 
@@ -1065,7 +1039,7 @@ export default function ExplodedPlotView() {
                     }}
                   >
                     <span style={{ color: activeLayer.color, fontWeight: 700, display: 'block', marginBottom: '2px' }}>
-                      LAYER 0{activeLayer.index} // BLUEPRINT CAD (/plots.jpg)
+                      PORTFOLIO 0{activeLayer.index} // BLUEPRINT CAD
                     </span>
                     <span style={{ color: 'rgba(38, 54, 111, 0.85)' }}>{activeLayer.leftCaption}</span>
                   </div>
@@ -1369,7 +1343,7 @@ export default function ExplodedPlotView() {
                     }}
                   >
                     <span style={{ color: activeLayer.color, fontWeight: 700, display: 'block', marginBottom: '2px' }}>
-                      LAYER 0{activeLayer.index} // SOVEREIGN SURVEY (/lands.jpg)
+                      PORTFOLIO 0{activeLayer.index} // ARCHITECTURAL ELEVATION
                     </span>
                     <span style={{ color: 'rgba(38, 54, 111, 0.85)' }}>{activeLayer.rightCaption}</span>
                   </div>
@@ -1382,10 +1356,10 @@ export default function ExplodedPlotView() {
 
       {/* Global CSS for 6-in-a-Row Wide Screen Layout & Mobile Responsive Stacking */}
       <style jsx global>{`
-        /* Wide Desktop Screen (>= 1100px): Balanced 6-Folder Horizontal Row */
+        /* Wide Desktop Screen (>= 1100px): Balanced 5-Folder Horizontal Row */
         .blueprint-folders-row {
           display: grid;
-          grid-template-columns: repeat(6, 1fr);
+          grid-template-columns: repeat(5, 1fr);
           gap: 1.2rem;
           max-width: 1400px;
           margin: 0 auto;

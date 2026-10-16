@@ -395,79 +395,52 @@ function MethodologyRow({
   );
 }
 
-// ── 8 Use Case Disciplines Data ──
+// ── 5 Core Property Portfolios Data ──
 const USE_CASES = [
   {
     num: '01',
-    role: 'Architects',
-    text: 'Hand the repetitive modelling to Heron and keep your focus on design.',
-    detail: 'Eliminate hours spent manually re-dimensioning floor plans and cleaning CAD linework. Heron handles repetitive grid layout adjustments so you can spend your time exploring design iterations.',
-    image: '/why-us-observe.jpg',
-    tag: 'REPETITIVE_MODELLING',
-    software: 'REVIT // RHINO // ARCHICAD',
+    role: 'Ultra Luxury Villas',
+    text: 'Private architectural sanctuaries with infinity pools and bespoke craftsmanship.',
+    detail: 'Individually crafted private residences featuring expansive manicured lawns, double-height living spaces, custom Italian marble finishes, personal infinity pools, and smart-home automation within high-security gated estates.',
+    image: '/use-cases/ultra-luxury-villas.jpg',
+    tag: 'BESPOKE_LIVING_VILLAS',
+    software: '4,500 – 12,000 SQ.FT // PRIVATE ESTATES',
   },
   {
     num: '02',
-    role: 'Interior Designers',
-    text: 'Get quick help with layouts, fixtures, and clearances without leaving your model.',
-    detail: 'Verify ADA door swing clearances, furniture clearances, and custom casework offsets instantly within your 3D model environment.',
-    image: '/why-us-advise.jpg',
-    tag: 'CLEARANCE_OPTIMIZATION',
-    software: 'SKETCHUP // REVIT',
+    role: 'Luxury Apartments',
+    text: 'Skyline residences with panoramic vistas, sky terraces, and resort amenities.',
+    detail: 'Iconic architectural high-rise towers offering curated 3 & 4 BHK residences with wraparound private balconies, private elevator lobbies, sky lounges, and resort-grade wellness facilities in premier metropolitan nodes.',
+    image: '/use-cases/luxury-apartments.jpg',
+    tag: 'HIGH_RISE_RESIDENCES',
+    software: '1,800 – 4,200 SQ.FT // SKY RESIDENCES',
   },
   {
     num: '03',
-    role: 'Landscape Architects',
-    text: 'Sort grading, site elements, and layouts without the manual grind.',
-    detail: 'Automate contour calculations, cut-and-fill balances, and hardscape boundary alignments seamlessly across complex terrain masterplans.',
-    image: '/why-us-learn.jpg',
-    tag: 'TERRAIN_GRADING_CAD',
-    software: 'CIVIL 3D // RHINO',
+    role: 'Open Plots',
+    text: 'RERA-approved plotted developments with manicured avenues and immediate possession.',
+    detail: 'Master-planned gated layouts featuring underground utility cabling, wide blacktop avenue trees, designer street lighting, dedicated clubhouses, and 100% clear titles ready for bespoke construction.',
+    image: '/use-cases/open-plots.jpg',
+    tag: 'GATED_PLOTTED_COMMUNITY',
+    software: '200 – 1,200 SQ.YDS // CLEAR TITLE LAYOUTS',
   },
   {
     num: '04',
-    role: 'Engineers',
-    text: 'Run discipline-specific checks and edits in the model, so coordination issues surface earlier.',
-    detail: 'Detect structural clash points, beam penetration violations, and MEP shaft interferences well before schematic milestones or construction documentation.',
-    image: '/why-us-act.jpg',
-    tag: 'STRUCTURAL_COORDINATION',
-    software: 'TEKLA // REVIT STRUCTURE',
+    role: 'Commercial',
+    text: 'Grade-A office towers, corporate tech parks, and high-footfall retail avenues.',
+    detail: 'Institutional-grade commercial assets engineered for multinational corporate tenants, tech campuses, and prime high-street retail promenades offering LEED-certified sustainability and lucrative yield stability.',
+    image: '/use-cases/commercial.jpg',
+    tag: 'GRADE_A_COMMERCIAL',
+    software: '10,000 – 250,000 SQ.FT // HIGH YIELD ASSETS',
   },
   {
     num: '05',
-    role: 'BIM Managers',
-    text: "Keep models clean and on-standard with an agent that knows your firm's rules.",
-    detail: 'Enforce naming conventions, clean up unreferenced CAD links, purge corrupt families, and maintain audit-ready BIM execution standards across all team models.',
-    image: '/architectural-tower-drawing.jpg',
-    tag: 'BIM_GOVERNANCE',
-    software: 'NAVISWORKS // REVIT BIM',
-  },
-  {
-    num: '06',
-    role: 'Drafters',
-    text: 'Skip the tedious drawing cleanup and let Heron handle the repeatable parts.',
-    detail: 'Automate sheet annotations, detail referencing, view alignment, and title block parameters without repetitive manual typing.',
-    image: '/tower-outline.jpg',
-    tag: 'DRAWING_PRODUCTION',
-    software: 'AUTOCAD // REVIT ARCH',
-  },
-  {
-    num: '07',
-    role: 'Design Leads',
-    text: "Keep quality and standards consistent across everyone's work.",
-    detail: 'Ensure cohesive architectural language and regulatory compliance across diverse project squads without spending your evenings performing redline checks.',
-    image: '/commercial.jpg',
-    tag: 'STUDIO_QUALITY_CONTROL',
-    software: 'ENTERPRISE_STUDIO_SUITE',
-  },
-  {
-    num: '08',
-    role: 'Small Firms',
-    text: 'Get the output of a bigger team without adding headcount.',
-    detail: 'Scale project capacity, handle enterprise-scale commercial tenders, and deliver multi-story developments with the nimble agility of a boutique studio.',
-    image: '/willow-creek-site-plan.jpg',
-    tag: 'AGILE_PRACTICE_SCALING',
-    software: 'CLOUD_STUDIO_COLLAB',
+    role: 'Bulk Land Parcels',
+    text: 'Strategic contiguous acreage along high-velocity infrastructure growth corridors.',
+    detail: 'Vast master development land banks positioned along state expressways, industrial growth corridors, and high-density expansion zones, completely vetted with forensic legal scrutiny and boundary geo-fencing.',
+    image: '/use-cases/bulk-land-parcels.jpg',
+    tag: 'INSTITUTIONAL_LAND_BANK',
+    software: '5 – 100+ ACRES // EXPRESSWAY CORRIDORS',
   },
 ];
 
@@ -587,78 +560,174 @@ export default function HeronMethodologySection() {
           isFirst={true}
           isLast={false}
           imageContent={
-            <div style={{ position: 'relative', width: '100%', maxWidth: '520px', height: '75%' }}>
-              <Image
-                src="/why-us-observe.jpg"
-                alt="Property Buying & Selling Elevation Model"
-                fill
-                sizes="(max-width: 768px) 100vw, 520px"
-                style={{
-                  objectFit: 'contain',
-                  filter: 'contrast(1.1)',
-                  mixBlendMode: 'multiply',
-                }}
-              />
-              {/* Red Square Accent Observation Markers matching Screenshot 1 */}
+            <div style={{ position: 'relative', width: '100%', maxWidth: '540px', height: '360px' }}>
               <div
                 style={{
                   position: 'absolute',
-                  top: '34%',
-                  left: '42%',
-                  width: '12px',
-                  height: '12px',
-                  backgroundColor: BRAND.premiumRed,
-                  boxShadow: '0 0 10px rgba(210, 20, 58, 0.6)',
+                  inset: 0,
+                  borderRadius: '10px',
+                  overflow: 'hidden',
+                  boxShadow: '0 20px 45px rgba(38, 54, 111, 0.16)',
+                  border: '1px solid rgba(38, 54, 111, 0.14)',
                 }}
-              />
+              >
+                <Image
+                  src="/4%20services/property%20buying%20and%20selling.jpg"
+                  alt="Property Buying & Selling"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 540px"
+                  style={{
+                    objectFit: 'cover',
+                  }}
+                />
+                <div
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'linear-gradient(to top, rgba(16, 24, 40, 0.65) 0%, rgba(16, 24, 40, 0.1) 45%, rgba(16, 24, 40, 0) 100%)',
+                  }}
+                />
+              </div>
+
+              {/* Floating Blueprint Telemetry Tag */}
               <div
                 style={{
                   position: 'absolute',
-                  bottom: '36%',
-                  right: '28%',
-                  width: '12px',
-                  height: '12px',
-                  backgroundColor: BRAND.premiumRed,
-                  boxShadow: '0 0 10px rgba(210, 20, 58, 0.6)',
+                  top: '14px',
+                  right: '16px',
+                  backgroundColor: 'rgba(30, 36, 51, 0.88)',
+                  backdropFilter: 'blur(8px)',
+                  color: BRAND.skyBlue,
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: '0.65rem',
+                  letterSpacing: '1.5px',
+                  fontWeight: 800,
+                  padding: '6px 12px',
+                  borderRadius: '4px',
+                  border: '1px solid rgba(18, 164, 220, 0.4)',
                 }}
-              />
+              >
+                TRANSACTION // VERIFIED LISTINGS
+              </div>
+
+              {/* Bottom Floating Info Card */}
+              <div
+                style={{
+                  position: 'absolute',
+                  bottom: '16px',
+                  left: '16px',
+                  right: '16px',
+                  backgroundColor: 'rgba(30, 36, 51, 0.92)',
+                  backdropFilter: 'blur(10px)',
+                  color: '#FFFFFF',
+                  padding: '14px 18px',
+                  borderRadius: '6px',
+                  border: `1.5px solid ${BRAND.skyBlue}`,
+                  boxShadow: '0 12px 30px rgba(0,0,0,0.25)',
+                  maxWidth: '340px',
+                }}
+              >
+                <div
+                  style={{
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: '0.62rem',
+                    letterSpacing: '1.8px',
+                    color: 'rgba(255,255,255,0.65)',
+                    textTransform: 'uppercase',
+                    marginBottom: '3px',
+                  }}
+                >
+                  BLUEMOON // SERVICE #01
+                </div>
+                <h4
+                  style={{
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: '0.85rem',
+                    fontWeight: 800,
+                    color: BRAND.skyBlue,
+                    letterSpacing: '0.5px',
+                    margin: '0 0 4px 0',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  END-TO-END TRANSACTION ASSURANCE
+                </h4>
+                <p
+                  style={{
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '0.8rem',
+                    lineHeight: 1.35,
+                    color: 'rgba(255,255,255,0.88)',
+                    margin: 0,
+                  }}
+                >
+                  Transparent pricing, clear ownership titles, and frictionless paperwork from offer to registration.
+                </p>
+              </div>
             </div>
           }
           mobileContent={
-            <div style={{ position: 'relative', width: '100%', height: '220px' }}>
-              <Image
-                src="/why-us-observe.jpg"
-                alt="Property Buying & Selling Elevation Model"
-                fill
-                sizes="(max-width: 768px) 100vw, 520px"
-                style={{
-                  objectFit: 'contain',
-                  filter: 'contrast(1.1)',
-                  mixBlendMode: 'multiply',
-                }}
-              />
+            <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px' }}>
+              <div style={{ position: 'relative', width: '100%', height: '210px', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 10px 25px rgba(38, 54, 111, 0.12)' }}>
+                <Image
+                  src="/4%20services/property%20buying%20and%20selling.jpg"
+                  alt="Property Buying & Selling"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 520px"
+                  style={{
+                    objectFit: 'cover',
+                  }}
+                />
+              </div>
               <div
                 style={{
-                  position: 'absolute',
-                  top: '34%',
-                  left: '42%',
-                  width: '10px',
-                  height: '10px',
-                  backgroundColor: BRAND.premiumRed,
-                  boxShadow: '0 0 8px rgba(210, 20, 58, 0.6)',
+                  width: '100%',
+                  backgroundColor: '#1E2433',
+                  color: '#FFFFFF',
+                  padding: '14px 16px',
+                  borderRadius: '6px',
+                  border: `1.5px solid ${BRAND.skyBlue}`,
+                  boxSizing: 'border-box',
                 }}
-              />
-              <div
-                style={{
-                  position: 'absolute',
-                  bottom: '36%',
-                  right: '28%',
-                  width: '10px',
-                  height: '10px',
-                  backgroundColor: BRAND.premiumRed,
-                  boxShadow: '0 0 8px rgba(210, 20, 58, 0.6)',
-                }}
-              />
+              >
+                <div
+                  style={{
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: '0.62rem',
+                    letterSpacing: '1.5px',
+                    color: 'rgba(255,255,255,0.6)',
+                    textTransform: 'uppercase',
+                    marginBottom: '3px',
+                  }}
+                >
+                  BLUEMOON // SERVICE #01
+                </div>
+                <h4
+                  style={{
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: '0.82rem',
+                    fontWeight: 800,
+                    color: BRAND.skyBlue,
+                    letterSpacing: '0.5px',
+                    lineHeight: 1.25,
+                    margin: '0 0 6px 0',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  END-TO-END TRANSACTION ASSURANCE
+                </h4>
+                <p
+                  style={{
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '0.8rem',
+                    lineHeight: 1.4,
+                    color: 'rgba(255,255,255,0.88)',
+                    margin: 0,
+                  }}
+                >
+                  Transparent pricing, clear ownership titles, and frictionless paperwork from offer to registration.
+                </p>
+              </div>
             </div>
           }
         />
@@ -672,43 +741,70 @@ export default function HeronMethodologySection() {
           isFirst={false}
           isLast={false}
           imageContent={
-            <div style={{ position: 'relative', width: '100%', maxWidth: '520px', height: '75%' }}>
-              <Image
-                src="/why-us-advise.jpg"
-                alt="Real Estate Investment Floor Plan"
-                fill
-                sizes="(max-width: 768px) 100vw, 520px"
-                style={{
-                  objectFit: 'contain',
-                  filter: 'contrast(1.1)',
-                  mixBlendMode: 'multiply',
-                }}
-              />
-              {/* Red Indicator Point in Corridor matching Screenshot 2 */}
+            <div style={{ position: 'relative', width: '100%', maxWidth: '540px', height: '360px' }}>
               <div
                 style={{
                   position: 'absolute',
-                  top: '38%',
-                  left: '49%',
-                  width: '12px',
-                  height: '12px',
-                  backgroundColor: BRAND.premiumRed,
-                  boxShadow: '0 0 10px rgba(210, 20, 58, 0.7)',
+                  inset: 0,
+                  borderRadius: '10px',
+                  overflow: 'hidden',
+                  boxShadow: '0 20px 45px rgba(38, 54, 111, 0.16)',
+                  border: '1px solid rgba(38, 54, 111, 0.14)',
                 }}
-              />
-              {/* Dark Investment Intelligence Card matching Screenshot 2 */}
+              >
+                <Image
+                  src="/4%20services/realestate%20investment.jpg"
+                  alt="Real Estate Investment Analysis"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 540px"
+                  style={{
+                    objectFit: 'cover',
+                  }}
+                />
+                <div
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'linear-gradient(to top, rgba(16, 24, 40, 0.6) 0%, rgba(16, 24, 40, 0) 50%)',
+                  }}
+                />
+              </div>
+
+              {/* Top Badge */}
               <div
                 style={{
                   position: 'absolute',
-                  bottom: '8%',
-                  right: '6%',
-                  backgroundColor: '#1E2433',
+                  top: '14px',
+                  left: '16px',
+                  backgroundColor: 'rgba(30, 36, 51, 0.88)',
+                  backdropFilter: 'blur(8px)',
+                  color: BRAND.skyBlue,
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: '0.65rem',
+                  letterSpacing: '1.5px',
+                  fontWeight: 800,
+                  padding: '6px 12px',
+                  borderRadius: '4px',
+                  border: '1px solid rgba(18, 164, 220, 0.4)',
+                }}
+              >
+                PORTFOLIO // HIGH ROI YIELD
+              </div>
+
+              {/* Dark Investment Intelligence Card */}
+              <div
+                style={{
+                  position: 'absolute',
+                  bottom: '14px',
+                  right: '16px',
+                  backgroundColor: 'rgba(30, 36, 51, 0.94)',
+                  backdropFilter: 'blur(10px)',
                   color: '#FFFFFF',
                   padding: '16px 20px',
-                  borderRadius: '4px',
+                  borderRadius: '6px',
                   border: `1.5px solid ${BRAND.skyBlue}`,
-                  boxShadow: '0 16px 40px rgba(0,0,0,0.25)',
-                  maxWidth: '280px',
+                  boxShadow: '0 16px 40px rgba(0,0,0,0.35)',
+                  maxWidth: '300px',
                 }}
               >
                 <div
@@ -766,27 +862,14 @@ export default function HeronMethodologySection() {
           }
           mobileContent={
             <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px' }}>
-              <div style={{ position: 'relative', width: '100%', height: '170px' }}>
+              <div style={{ position: 'relative', width: '100%', height: '210px', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 10px 25px rgba(38, 54, 111, 0.12)' }}>
                 <Image
-                  src="/why-us-advise.jpg"
+                  src="/4%20services/realestate%20investment.jpg"
                   alt="Real Estate Investment Floor Plan"
                   fill
                   sizes="(max-width: 768px) 100vw, 520px"
                   style={{
-                    objectFit: 'contain',
-                    filter: 'contrast(1.1)',
-                    mixBlendMode: 'multiply',
-                  }}
-                />
-                <div
-                  style={{
-                    position: 'absolute',
-                    top: '38%',
-                    left: '49%',
-                    width: '10px',
-                    height: '10px',
-                    backgroundColor: BRAND.premiumRed,
-                    boxShadow: '0 0 8px rgba(210, 20, 58, 0.7)',
+                    objectFit: 'cover',
                   }}
                 />
               </div>
@@ -865,31 +948,70 @@ export default function HeronMethodologySection() {
           isFirst={false}
           isLast={false}
           imageContent={
-            <div style={{ position: 'relative', width: '100%', maxWidth: '520px', height: '75%' }}>
-              <Image
-                src="/why-us-act.jpg"
-                alt="Construction & Development Structural Model"
-                fill
-                sizes="(max-width: 768px) 100vw, 520px"
-                style={{
-                  objectFit: 'contain',
-                  filter: 'contrast(1.1)',
-                  mixBlendMode: 'multiply',
-                }}
-              />
-              {/* Floating "QUALITY AUDIT..." Card matching Screenshot 3 */}
+            <div style={{ position: 'relative', width: '100%', maxWidth: '540px', height: '360px' }}>
               <div
                 style={{
                   position: 'absolute',
-                  bottom: '16%',
-                  left: '10%',
-                  backgroundColor: '#1E2433',
-                  color: '#FFFFFF',
-                  padding: '12px 18px',
+                  inset: 0,
+                  borderRadius: '10px',
+                  overflow: 'hidden',
+                  boxShadow: '0 20px 45px rgba(38, 54, 111, 0.16)',
+                  border: '1px solid rgba(38, 54, 111, 0.14)',
+                }}
+              >
+                <Image
+                  src="/4%20services/construction%20and%20development.jpg"
+                  alt="Construction & Development"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 540px"
+                  style={{
+                    objectFit: 'cover',
+                  }}
+                />
+                <div
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'linear-gradient(to top, rgba(16, 24, 40, 0.6) 0%, rgba(16, 24, 40, 0) 50%)',
+                  }}
+                />
+              </div>
+
+              {/* Top Badge */}
+              <div
+                style={{
+                  position: 'absolute',
+                  top: '14px',
+                  right: '16px',
+                  backgroundColor: 'rgba(30, 36, 51, 0.88)',
+                  backdropFilter: 'blur(8px)',
+                  color: BRAND.skyBlue,
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: '0.65rem',
+                  letterSpacing: '1.5px',
+                  fontWeight: 800,
+                  padding: '6px 12px',
                   borderRadius: '4px',
                   border: '1px solid rgba(18, 164, 220, 0.4)',
-                  boxShadow: '0 12px 30px rgba(0,0,0,0.2)',
-                  width: '180px',
+                }}
+              >
+                STANDARDS // IS 456 CERTIFIED
+              </div>
+
+              {/* Floating "QUALITY AUDIT..." Card */}
+              <div
+                style={{
+                  position: 'absolute',
+                  bottom: '16px',
+                  left: '16px',
+                  backgroundColor: 'rgba(30, 36, 51, 0.94)',
+                  backdropFilter: 'blur(10px)',
+                  color: '#FFFFFF',
+                  padding: '14px 18px',
+                  borderRadius: '6px',
+                  border: '1.5px solid rgba(18, 164, 220, 0.5)',
+                  boxShadow: '0 16px 40px rgba(0,0,0,0.3)',
+                  width: '210px',
                 }}
               >
                 <div
@@ -902,37 +1024,45 @@ export default function HeronMethodologySection() {
                     marginBottom: '8px',
                   }}
                 >
-                  QUALITY AUDIT...
+                  QUALITY AUDIT // PASS
                 </div>
                 <div style={{ height: '4px', width: '100%', backgroundColor: 'rgba(255,255,255,0.2)', borderRadius: '2px', marginBottom: '6px' }} />
                 <div style={{ height: '4px', width: '70%', backgroundColor: 'rgba(255,255,255,0.2)', borderRadius: '2px', marginBottom: '6px' }} />
-                <div style={{ height: '4px', width: '85%', backgroundColor: BRAND.skyBlue, borderRadius: '2px' }} />
+                <div style={{ height: '4px', width: '92%', backgroundColor: BRAND.skyBlue, borderRadius: '2px', marginBottom: '8px' }} />
+                <div
+                  style={{
+                    fontFamily: 'monospace',
+                    fontSize: '0.65rem',
+                    color: 'rgba(255,255,255,0.7)',
+                    letterSpacing: '0.5px',
+                  }}
+                >
+                  GRADE M30 • STRUC QA VERIFIED
+                </div>
               </div>
             </div>
           }
           mobileContent={
             <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
-              <div style={{ position: 'relative', width: '100%', height: '175px' }}>
+              <div style={{ position: 'relative', width: '100%', height: '210px', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 10px 25px rgba(38, 54, 111, 0.12)' }}>
                 <Image
-                  src="/why-us-act.jpg"
+                  src="/4%20services/construction%20and%20development.jpg"
                   alt="Construction & Development Structural Model"
                   fill
                   sizes="(max-width: 768px) 100vw, 520px"
                   style={{
-                    objectFit: 'contain',
-                    filter: 'contrast(1.1)',
-                    mixBlendMode: 'multiply',
+                    objectFit: 'cover',
                   }}
                 />
               </div>
               <div
                 style={{
                   width: '100%',
-                  maxWidth: '220px',
+                  maxWidth: '260px',
                   backgroundColor: '#1E2433',
                   color: '#FFFFFF',
-                  padding: '10px 14px',
-                  borderRadius: '4px',
+                  padding: '12px 16px',
+                  borderRadius: '6px',
                   border: '1px solid rgba(18, 164, 220, 0.4)',
                   alignSelf: 'flex-start',
                 }}
@@ -947,11 +1077,11 @@ export default function HeronMethodologySection() {
                     marginBottom: '6px',
                   }}
                 >
-                  QUALITY AUDIT...
+                  QUALITY AUDIT // PASS
                 </div>
                 <div style={{ height: '3px', width: '100%', backgroundColor: 'rgba(255,255,255,0.2)', borderRadius: '2px', marginBottom: '4px' }} />
                 <div style={{ height: '3px', width: '70%', backgroundColor: 'rgba(255,255,255,0.2)', borderRadius: '2px', marginBottom: '4px' }} />
-                <div style={{ height: '3px', width: '85%', backgroundColor: BRAND.skyBlue, borderRadius: '2px' }} />
+                <div style={{ height: '3px', width: '92%', backgroundColor: BRAND.skyBlue, borderRadius: '2px' }} />
               </div>
             </div>
           }
@@ -966,31 +1096,70 @@ export default function HeronMethodologySection() {
           isFirst={false}
           isLast={true}
           imageContent={
-            <div style={{ position: 'relative', width: '100%', maxWidth: '520px', height: '75%' }}>
-              <Image
-                src="/why-us-learn.jpg"
-                alt="Property Consulting & NRI Services Master Plan"
-                fill
-                sizes="(max-width: 768px) 100vw, 520px"
-                style={{
-                  objectFit: 'contain',
-                  filter: 'contrast(1.1)',
-                  mixBlendMode: 'multiply',
-                }}
-              />
-              {/* Dark "SERVICE ASSURANCE" Card matching Screenshot 4 */}
+            <div style={{ position: 'relative', width: '100%', maxWidth: '540px', height: '360px' }}>
               <div
                 style={{
                   position: 'absolute',
-                  bottom: '10%',
-                  left: '6%',
-                  backgroundColor: '#1E2433',
+                  inset: 0,
+                  borderRadius: '10px',
+                  overflow: 'hidden',
+                  boxShadow: '0 20px 45px rgba(38, 54, 111, 0.16)',
+                  border: '1px solid rgba(38, 54, 111, 0.14)',
+                }}
+              >
+                <Image
+                  src="/4%20services/property%20consultant.jpg"
+                  alt="Property Consulting & NRI Services"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 540px"
+                  style={{
+                    objectFit: 'cover',
+                  }}
+                />
+                <div
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'linear-gradient(to top, rgba(16, 24, 40, 0.6) 0%, rgba(16, 24, 40, 0) 50%)',
+                  }}
+                />
+              </div>
+
+              {/* Top Badge */}
+              <div
+                style={{
+                  position: 'absolute',
+                  top: '14px',
+                  right: '16px',
+                  backgroundColor: 'rgba(30, 36, 51, 0.88)',
+                  backdropFilter: 'blur(8px)',
+                  color: BRAND.skyBlue,
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: '0.65rem',
+                  letterSpacing: '1.5px',
+                  fontWeight: 800,
+                  padding: '6px 12px',
+                  borderRadius: '4px',
+                  border: '1px solid rgba(18, 164, 220, 0.4)',
+                }}
+              >
+                GLOBAL CLIENTS // NRI DESK
+              </div>
+
+              {/* Dark "SERVICE ASSURANCE" Card */}
+              <div
+                style={{
+                  position: 'absolute',
+                  bottom: '14px',
+                  left: '16px',
+                  backgroundColor: 'rgba(30, 36, 51, 0.94)',
+                  backdropFilter: 'blur(10px)',
                   color: '#FFFFFF',
                   padding: '14px 18px',
-                  borderRadius: '4px',
+                  borderRadius: '6px',
                   border: `1.5px solid ${BRAND.skyBlue}`,
-                  boxShadow: '0 16px 40px rgba(0,0,0,0.25)',
-                  width: '180px',
+                  boxShadow: '0 16px 40px rgba(0,0,0,0.35)',
+                  width: '210px',
                 }}
               >
                 <div
@@ -1013,7 +1182,7 @@ export default function HeronMethodologySection() {
                     margin: 0,
                     fontFamily: 'monospace',
                     fontSize: '0.68rem',
-                    color: 'rgba(255,255,255,0.8)',
+                    color: 'rgba(255,255,255,0.85)',
                     lineHeight: 1.6,
                   }}
                 >
@@ -1027,16 +1196,14 @@ export default function HeronMethodologySection() {
           }
           mobileContent={
             <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
-              <div style={{ position: 'relative', width: '100%', height: '170px' }}>
+              <div style={{ position: 'relative', width: '100%', height: '210px', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 10px 25px rgba(38, 54, 111, 0.12)' }}>
                 <Image
-                  src="/why-us-learn.jpg"
+                  src="/4%20services/property%20consultant.jpg"
                   alt="Property Consulting & NRI Services Master Plan"
                   fill
                   sizes="(max-width: 768px) 100vw, 520px"
                   style={{
-                    objectFit: 'contain',
-                    filter: 'contrast(1.1)',
-                    mixBlendMode: 'multiply',
+                    objectFit: 'cover',
                   }}
                 />
               </div>
@@ -1158,7 +1325,7 @@ export default function HeronMethodologySection() {
                   textTransform: 'uppercase',
                 }}
               >
-                ROLE: {USE_CASES[activeUseCase].role.toUpperCase()}
+                PROPERTY: {USE_CASES[activeUseCase].role.toUpperCase()}
               </span>
             </div>
 
@@ -1172,11 +1339,11 @@ export default function HeronMethodologySection() {
                 fontWeight: 800,
               }}
             >
-              [{USE_CASES[activeUseCase].num} / 08]
+              [{USE_CASES[activeUseCase].num} / 05]
             </span>
           </div>
 
-          {/* Main Visual Image for Active Use Case with Smooth Fade */}
+          {/* Main Visual Image for Active Property Portfolio with Smooth Fade */}
           <AnimatePresence mode="wait">
             <motion.div
               key={USE_CASES[activeUseCase].role}
@@ -1187,8 +1354,12 @@ export default function HeronMethodologySection() {
               style={{
                 position: 'relative',
                 width: '100%',
-                height: '75%',
-                maxWidth: '620px',
+                aspectRatio: '16/9',
+                maxWidth: '640px',
+                borderRadius: '12px',
+                overflow: 'hidden',
+                boxShadow: '0 25px 60px rgba(38, 54, 111, 0.18)',
+                border: '1px solid rgba(38, 54, 111, 0.15)',
                 zIndex: 2,
               }}
             >
@@ -1197,10 +1368,16 @@ export default function HeronMethodologySection() {
                 alt={USE_CASES[activeUseCase].role}
                 fill
                 priority
+                sizes="(max-width: 768px) 100vw, 640px"
                 style={{
-                  objectFit: 'contain',
-                  filter: 'contrast(1.08)',
-                  mixBlendMode: 'multiply',
+                  objectFit: 'cover',
+                }}
+              />
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background: 'linear-gradient(to top, rgba(16, 24, 40, 0.45) 0%, rgba(16, 24, 40, 0) 40%)',
                 }}
               />
             </motion.div>
@@ -1228,12 +1405,12 @@ export default function HeronMethodologySection() {
               paddingTop: '10px',
             }}
           >
-            <span>INTEGRATION: {USE_CASES[activeUseCase].software}</span>
-            <span style={{ color: BRAND.skyBlue, fontWeight: 700 }}>TAG: {USE_CASES[activeUseCase].tag}</span>
+            <span>SCALE // {USE_CASES[activeUseCase].software}</span>
+            <span style={{ color: BRAND.skyBlue, fontWeight: 700 }}>CATEGORY: {USE_CASES[activeUseCase].tag}</span>
           </div>
         </div>
 
-        {/* Right Side: Use Cases Heading + Interactive Accordion List */}
+        {/* Right Side: 5 Properties Heading + Interactive Accordion List */}
         <div
           className="use-cases-right-pane"
           style={{
@@ -1262,7 +1439,7 @@ export default function HeronMethodologySection() {
             >
               <span>+ SECTION 03.2</span>
               <span style={{ color: 'rgba(38, 54, 111, 0.3)' }}>//</span>
-              <span>USE CASES +</span>
+              <span>5 PROPERTIES +</span>
             </div>
 
             <h2
@@ -1277,9 +1454,9 @@ export default function HeronMethodologySection() {
                 margin: 0,
               }}
             >
-              Made for the people
+              Curated for every
               <br />
-              in the model
+              investment scale
             </h2>
           </div>
 
