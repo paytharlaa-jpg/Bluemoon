@@ -91,7 +91,7 @@ export default function AboutPage() {
       ref={containerRef}
       style={{ 
         backgroundColor: '#FFFFFF', 
-        color: '#0A1C3F', 
+        color: '#222f80', 
         minHeight: '100vh', 
         paddingTop: '92px',
         overflow: 'hidden'
@@ -151,7 +151,7 @@ export default function AboutPage() {
                 padding: '6px 14px',
                 backgroundColor: '#FFFFFF',
                 borderRadius: '30px',
-                border: '1px solid rgba(10, 28, 63, 0.12)',
+                border: '1px solid rgba(34, 47, 128, 0.12)',
                 fontSize: '0.82rem',
                 color: '#475569',
                 fontFamily: 'var(--font-heading)',
@@ -161,7 +161,7 @@ export default function AboutPage() {
             >
               <Link href="/" style={{ color: '#12A4DC', textDecoration: 'none', fontWeight: 700 }}>HOME</Link>
               <span>/</span>
-              <span style={{ color: '#0A1C3F', fontWeight: 800 }}>ABOUT US</span>
+              <span style={{ color: '#222f80', fontWeight: 800 }}>ABOUT US</span>
             </div>
 
             <div
@@ -213,7 +213,7 @@ export default function AboutPage() {
                 fontWeight: 900,
                 letterSpacing: '1px',
                 lineHeight: 1.15,
-                color: '#0A1C3F',
+                color: '#222f80',
                 margin: '0 0 1.5rem 0',
                 textTransform: 'uppercase',
               }}
@@ -250,7 +250,7 @@ export default function AboutPage() {
               { num: '15+', label: 'Years of Trust & Precision', sub: 'Established 2011 in Telangana', color: '#12A4DC' },
               { num: '500+', label: 'Acres Delivered & Banked', sub: 'High-appreciation strategic tracts', color: '#D2143A' },
               { num: '1,200+', label: 'HNI & NRI Families Guided', sub: 'Across USA, UK, UAE & India', color: '#12A4DC' },
-              { num: '100%', label: 'Clear Title Guarantee', sub: 'TS RERA Registered & Certified', color: '#0A1C3F' },
+              { num: '100%', label: 'Clear Title Guarantee', sub: 'TS RERA Registered & Certified', color: '#222f80' },
             ].map((stat, idx) => (
               <motion.div
                 key={idx}
@@ -265,7 +265,7 @@ export default function AboutPage() {
                   borderTop: `4px solid ${stat.color}`,
                   borderRadius: '12px',
                   padding: '24px 20px',
-                  boxShadow: '0 6px 20px rgba(10, 28, 63, 0.05)',
+                  boxShadow: '0 6px 20px rgba(34, 47, 128, 0.05)',
                   transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                 }}
               >
@@ -286,7 +286,7 @@ export default function AboutPage() {
                     fontFamily: 'var(--font-heading)',
                     fontSize: '0.94rem',
                     fontWeight: 800,
-                    color: '#0A1C3F',
+                    color: '#222f80',
                     letterSpacing: '0.5px',
                     marginBottom: '4px',
                   }}
@@ -339,7 +339,7 @@ export default function AboutPage() {
                 borderRadius: '16px',
                 overflow: 'hidden',
                 border: '2px solid rgba(18, 164, 220, 0.2)',
-                boxShadow: '0 20px 50px rgba(10, 28, 63, 0.1)',
+                boxShadow: '0 20px 50px rgba(34, 47, 128, 0.1)',
                 backgroundColor: '#FFFFFF',
               }}
             >
@@ -360,7 +360,7 @@ export default function AboutPage() {
                 style={{
                   position: 'absolute',
                   inset: 0,
-                  background: 'linear-gradient(180deg, transparent 40%, rgba(10, 28, 63, 0.85) 100%)',
+                  background: 'linear-gradient(180deg, transparent 40%, rgba(34, 47, 128, 0.85) 100%)',
                 }}
               />
               <div
@@ -386,7 +386,7 @@ export default function AboutPage() {
                       fontStyle: 'italic',
                       fontSize: '0.94rem',
                       lineHeight: 1.55,
-                      color: '#0A1C3F',
+                      color: '#222f80',
                       margin: '0 0 8px 0',
                       fontWeight: 600,
                     }}
@@ -436,7 +436,7 @@ export default function AboutPage() {
                 fontSize: 'clamp(1.9rem, 3.4vw, 3rem)',
                 fontWeight: 800,
                 lineHeight: 1.25,
-                color: '#0A1C3F',
+                color: '#222f80',
                 margin: '0 0 1.5rem 0',
               }}
             >
@@ -471,7 +471,7 @@ export default function AboutPage() {
                     border: '1px solid rgba(18, 164, 220, 0.16)',
                     borderRadius: '12px',
                     padding: '20px 22px',
-                    boxShadow: '0 4px 18px rgba(10, 28, 63, 0.04)',
+                    boxShadow: '0 4px 18px rgba(34, 47, 128, 0.04)',
                     transition: 'all 0.25s ease',
                   }}
                 >
@@ -492,7 +492,7 @@ export default function AboutPage() {
                         fontFamily: 'var(--font-heading)',
                         fontSize: '1.05rem',
                         fontWeight: 800,
-                        color: '#0A1C3F',
+                        color: '#222f80',
                         letterSpacing: '0.5px',
                         marginBottom: '6px',
                       }}
@@ -548,7 +548,7 @@ export default function AboutPage() {
                 fontFamily: 'var(--font-heading)',
                 fontSize: 'clamp(1.9rem, 3.5vw, 3rem)',
                 fontWeight: 800,
-                color: '#0A1C3F',
+                color: '#222f80',
                 margin: '0 0 1.2rem 0',
               }}
             >
@@ -575,7 +575,7 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: mIdx * 0.1 }}
-                whileHover={{ y: -8, boxShadow: '0 16px 36px rgba(10, 28, 63, 0.1)' }}
+                whileHover={{ y: -8, boxShadow: '0 16px 36px rgba(34, 47, 128, 0.1)' }}
                 style={{
                   backgroundColor: '#F8FAFC',
                   border: '1px solid rgba(18, 164, 220, 0.2)',
@@ -586,7 +586,7 @@ export default function AboutPage() {
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
-                  boxShadow: '0 6px 20px rgba(10, 28, 63, 0.05)',
+                  boxShadow: '0 6px 20px rgba(34, 47, 128, 0.05)',
                   transition: 'all 0.3s ease',
                 }}
               >
@@ -616,7 +616,7 @@ export default function AboutPage() {
                       fontFamily: 'var(--font-heading)',
                       fontSize: '1.2rem',
                       fontWeight: 800,
-                      color: '#0A1C3F',
+                      color: '#222f80',
                       marginBottom: '12px',
                       lineHeight: 1.35,
                     }}
@@ -646,11 +646,11 @@ export default function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             style={{
-              backgroundColor: '#0A1C3F',
+              backgroundColor: '#222f80',
               borderRadius: '20px',
               border: '2px solid #12A4DC',
               padding: 'clamp(2.5rem, 5vw, 4rem)',
-              boxShadow: '0 24px 60px rgba(10, 28, 63, 0.25)',
+              boxShadow: '0 24px 60px rgba(34, 47, 128, 0.25)',
               display: 'flex',
               flexWrap: 'wrap',
               alignItems: 'center',
@@ -729,7 +729,7 @@ export default function AboutPage() {
                   alignItems: 'center',
                   gap: '10px',
                   backgroundColor: '#FFFFFF',
-                  color: '#0A1C3F',
+                  color: '#222f80',
                   padding: '14px 28px',
                   borderRadius: '6px',
                   fontFamily: 'var(--font-heading)',

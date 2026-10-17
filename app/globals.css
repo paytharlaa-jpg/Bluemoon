@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Special+Gothic+Expanded+One&display=swap');
 
 @font-face {
   font-family: 'Trajan Pro Bold';
@@ -883,5 +884,70 @@ a {
   }
 }
 
+/* ══════════════════════════════════════════════════════════════════════════
+   REFERENCE3 CINEMATIC HERO SECTION STYLES
+   ══════════════════════════════════════════════════════════════════════════ */
+.hero-shell {
+  height: 260vh;
+}
 
+.hero-title {
+  font-family: 'Special Gothic Expanded One', 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 0.92;
+  font-size: clamp(2.75rem, 8.4vw, 5.4rem);
+}
 
+.word-gap {
+  padding-right: 0.22em;
+  padding-bottom: 0.06em;
+}
+
+.glass-panel {
+  background-color: color-mix(in oklab, white 62%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid color-mix(in oklab, white 60%, transparent);
+}
+
+@keyframes cloudDrift {
+  from {
+    transform: translateX(-8%);
+  }
+  to {
+    transform: translateX(8%);
+  }
+}
+
+.animate-cloud-drift {
+  animation: cloudDrift var(--drift-duration, 26s) ease-in-out infinite alternate;
+}
+
+.bg-sky-soft {
+  background-color: oklch(0.9 0.03 225);
+}
+
+.text-foreground {
+  color: oklch(0.2 0.062 264);
+}
+
+.text-foreground\/80 {
+  color: color-mix(in oklab, oklch(0.2 0.062 264) 80%, transparent);
+}
+
+.text-foreground\/70 {
+  color: color-mix(in oklab, oklch(0.2 0.062 264) 70%, transparent);
+}
+
+.bg-primary {
+  background-color: oklch(0.2 0.062 264);
+}
+
+.text-primary-foreground {
+  color: oklch(0.985 0.006 85);
+}
+
+.bg-background {
+  background-color: #FFFFFF;
+}

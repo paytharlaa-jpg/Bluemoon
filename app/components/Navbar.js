@@ -257,13 +257,13 @@ export default function Navbar() {
 
       {/* ══════════════════════════════════════════════════════════════════════════
           2. MAIN HEADER NAVBAR - EXACTLY AS IN SCREENSHOT
-          Solid Navy Blue (#0A1C3F) with 2px Red Bottom Border
+          Solid Navy Blue (#222f80) with 2px Red Bottom Border
           Logo Left | Bold Uppercase Serif Navigation Links Right
          ══════════════════════════════════════════════════════════════════════════ */}
       <nav
         style={{
           width: '100%',
-          backgroundColor: '#0A1C3F', // Corporate Deep Navy Blue matching screenshot
+          backgroundColor: '#222f80', // Corporate Deep Navy Blue matching screenshot
           borderBottom: '2px solid #D2143A', // Thin Red line along entire bottom
           boxShadow: '0 8px 30px rgba(0, 0, 0, 0.35)',
           padding: '0 clamp(1rem, 3.5vw, 3rem)',
@@ -431,7 +431,7 @@ export default function Navbar() {
           className="header-mobile-drawer"
           style={{
             width: '100%',
-            backgroundColor: '#0A1C3F',
+            backgroundColor: '#222f80',
             borderBottom: '3px solid #D2143A',
             padding: '24px 20px 30px 20px',
             display: 'flex',

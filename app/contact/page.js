@@ -73,7 +73,7 @@ export default function ContactPage() {
     <main 
       style={{ 
         backgroundColor: '#FFFFFF', 
-        color: '#0A1C3F', 
+        color: '#222f80', 
         minHeight: '100vh', 
         paddingTop: '92px',
         overflow: 'hidden'
@@ -121,7 +121,7 @@ export default function ContactPage() {
                 padding: '6px 14px',
                 backgroundColor: '#FFFFFF',
                 borderRadius: '30px',
-                border: '1px solid rgba(10, 28, 63, 0.12)',
+                border: '1px solid rgba(34, 47, 128, 0.12)',
                 fontSize: '0.82rem',
                 color: '#475569',
                 fontFamily: 'var(--font-heading)',
@@ -131,7 +131,7 @@ export default function ContactPage() {
             >
               <Link href="/" style={{ color: '#12A4DC', textDecoration: 'none', fontWeight: 700 }}>HOME</Link>
               <span>/</span>
-              <span style={{ color: '#0A1C3F', fontWeight: 800 }}>CONTACT US</span>
+              <span style={{ color: '#222f80', fontWeight: 800 }}>CONTACT US</span>
             </div>
 
             <div
@@ -191,7 +191,7 @@ export default function ContactPage() {
                   fontWeight: 900,
                   letterSpacing: '1px',
                   lineHeight: 1.15,
-                  color: '#0A1C3F',
+                  color: '#222f80',
                   margin: '0 0 1.2rem 0',
                   textTransform: 'uppercase',
                 }}
@@ -224,7 +224,7 @@ export default function ContactPage() {
                     borderRadius: '12px',
                     padding: '18px 22px',
                     textDecoration: 'none',
-                    boxShadow: '0 6px 20px rgba(10, 28, 63, 0.05)',
+                    boxShadow: '0 6px 20px rgba(34, 47, 128, 0.05)',
                     transition: 'all 0.25s ease',
                   }}
                   className="hover:scale-102 hover:shadow-lg"
@@ -243,7 +243,7 @@ export default function ContactPage() {
                     <div style={{ fontSize: '0.78rem', color: '#64748B', textTransform: 'uppercase', letterSpacing: '1px', fontFamily: 'var(--font-heading)', fontWeight: 800 }}>
                       Managing Partner Direct Line
                     </div>
-                    <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', fontWeight: 900, color: '#0A1C3F' }}>
+                    <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', fontWeight: 900, color: '#222f80' }}>
                       +91 9849 44 2929
                     </div>
                   </div>
@@ -261,7 +261,7 @@ export default function ContactPage() {
                     borderRadius: '12px',
                     padding: '18px 22px',
                     textDecoration: 'none',
-                    boxShadow: '0 6px 20px rgba(10, 28, 63, 0.05)',
+                    boxShadow: '0 6px 20px rgba(34, 47, 128, 0.05)',
                     transition: 'all 0.25s ease',
                   }}
                   className="hover:scale-102 hover:shadow-lg"
@@ -280,7 +280,7 @@ export default function ContactPage() {
                     <div style={{ fontSize: '0.78rem', color: '#64748B', textTransform: 'uppercase', letterSpacing: '1px', fontFamily: 'var(--font-heading)', fontWeight: 800 }}>
                       Executive Advisory Desk
                     </div>
-                    <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', fontWeight: 900, color: '#0A1C3F' }}>
+                    <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', fontWeight: 900, color: '#222f80' }}>
                       +91 9553 44 2929
                     </div>
                   </div>
@@ -326,7 +326,7 @@ export default function ContactPage() {
                 borderRadius: '20px',
                 border: '2px solid rgba(18, 164, 220, 0.3)',
                 padding: 'clamp(2rem, 4vw, 3rem)',
-                boxShadow: '0 20px 60px rgba(10, 28, 63, 0.08)',
+                boxShadow: '0 20px 60px rgba(34, 47, 128, 0.08)',
               }}
             >
               {submitted ? (
@@ -346,7 +346,7 @@ export default function ContactPage() {
                   >
                     <CheckCircle2 size={38} />
                   </div>
-                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', fontWeight: 800, color: '#0A1C3F', marginBottom: '10px' }}>
+                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', fontWeight: 800, color: '#222f80', marginBottom: '10px' }}>
                     Consultation Request Received
                   </h3>
                   <p style={{ fontSize: '0.96rem', color: '#475569', lineHeight: 1.6, marginBottom: '2rem' }}>
@@ -374,14 +374,14 @@ export default function ContactPage() {
                     <div style={{ color: '#D2143A', fontFamily: 'var(--font-heading)', fontSize: '0.8rem', fontWeight: 800, letterSpacing: '1.5px', marginBottom: '4px' }}>
                       SCHEDULE APPOINTMENT
                     </div>
-                    <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.45rem', fontWeight: 900, color: '#0A1C3F', margin: 0 }}>
+                    <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.45rem', fontWeight: 900, color: '#222f80', margin: 0 }}>
                       Request A Confidential Consultation
                     </h3>
                   </div>
 
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                     <div>
-                      <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: '#0A1C3F', marginBottom: '6px' }}>
+                      <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: '#222f80', marginBottom: '6px' }}>
                         Full Name *
                       </label>
                       <input
@@ -393,10 +393,10 @@ export default function ContactPage() {
                         style={{
                           width: '100%',
                           backgroundColor: '#F8FAFC',
-                          border: '1.5px solid rgba(10, 28, 63, 0.15)',
+                          border: '1.5px solid rgba(34, 47, 128, 0.15)',
                           borderRadius: '8px',
                           padding: '12px 16px',
-                          color: '#0A1C3F',
+                          color: '#222f80',
                           fontSize: '0.94rem',
                           outline: 'none',
                         }}
@@ -405,7 +405,7 @@ export default function ContactPage() {
 
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
                       <div>
-                        <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: '#0A1C3F', marginBottom: '6px' }}>
+                        <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: '#222f80', marginBottom: '6px' }}>
                           Phone / WhatsApp *
                         </label>
                         <input
@@ -417,10 +417,10 @@ export default function ContactPage() {
                           style={{
                             width: '100%',
                             backgroundColor: '#F8FAFC',
-                            border: '1.5px solid rgba(10, 28, 63, 0.15)',
+                            border: '1.5px solid rgba(34, 47, 128, 0.15)',
                             borderRadius: '8px',
                             padding: '12px 16px',
-                            color: '#0A1C3F',
+                            color: '#222f80',
                             fontSize: '0.94rem',
                             outline: 'none',
                           }}
@@ -428,7 +428,7 @@ export default function ContactPage() {
                       </div>
 
                       <div>
-                        <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: '#0A1C3F', marginBottom: '6px' }}>
+                        <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: '#222f80', marginBottom: '6px' }}>
                           Email Address *
                         </label>
                         <input
@@ -440,10 +440,10 @@ export default function ContactPage() {
                           style={{
                             width: '100%',
                             backgroundColor: '#F8FAFC',
-                            border: '1.5px solid rgba(10, 28, 63, 0.15)',
+                            border: '1.5px solid rgba(34, 47, 128, 0.15)',
                             borderRadius: '8px',
                             padding: '12px 16px',
-                            color: '#0A1C3F',
+                            color: '#222f80',
                             fontSize: '0.94rem',
                             outline: 'none',
                           }}
@@ -452,7 +452,7 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: '#0A1C3F', marginBottom: '6px' }}>
+                      <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: '#222f80', marginBottom: '6px' }}>
                         Asset Class of Interest
                       </label>
                       <select
@@ -461,10 +461,10 @@ export default function ContactPage() {
                         style={{
                           width: '100%',
                           backgroundColor: '#F8FAFC',
-                          border: '1.5px solid rgba(10, 28, 63, 0.15)',
+                          border: '1.5px solid rgba(34, 47, 128, 0.15)',
                           borderRadius: '8px',
                           padding: '12px 16px',
-                          color: '#0A1C3F',
+                          color: '#222f80',
                           fontSize: '0.94rem',
                           outline: 'none',
                           fontWeight: 600,
@@ -479,7 +479,7 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: '#0A1C3F', marginBottom: '6px' }}>
+                      <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: '#222f80', marginBottom: '6px' }}>
                         Preferred Consultation Mode
                       </label>
                       <select
@@ -488,10 +488,10 @@ export default function ContactPage() {
                         style={{
                           width: '100%',
                           backgroundColor: '#F8FAFC',
-                          border: '1.5px solid rgba(10, 28, 63, 0.15)',
+                          border: '1.5px solid rgba(34, 47, 128, 0.15)',
                           borderRadius: '8px',
                           padding: '12px 16px',
-                          color: '#0A1C3F',
+                          color: '#222f80',
                           fontSize: '0.94rem',
                           outline: 'none',
                           fontWeight: 600,
@@ -505,7 +505,7 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: '#0A1C3F', marginBottom: '6px' }}>
+                      <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: '#222f80', marginBottom: '6px' }}>
                         Special Requirements or Message
                       </label>
                       <textarea
@@ -516,10 +516,10 @@ export default function ContactPage() {
                         style={{
                           width: '100%',
                           backgroundColor: '#F8FAFC',
-                          border: '1.5px solid rgba(10, 28, 63, 0.15)',
+                          border: '1.5px solid rgba(34, 47, 128, 0.15)',
                           borderRadius: '8px',
                           padding: '12px 16px',
-                          color: '#0A1C3F',
+                          color: '#222f80',
                           fontSize: '0.94rem',
                           outline: 'none',
                           resize: 'vertical',
@@ -593,7 +593,7 @@ export default function ContactPage() {
                 fontFamily: 'var(--font-heading)',
                 fontSize: 'clamp(1.9rem, 3.5vw, 3rem)',
                 fontWeight: 800,
-                color: '#0A1C3F',
+                color: '#222f80',
                 margin: '0 0 1.2rem 0',
               }}
             >
@@ -617,14 +617,14 @@ export default function ContactPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              whileHover={{ y: -6, boxShadow: '0 16px 36px rgba(10, 28, 63, 0.08)' }}
+              whileHover={{ y: -6, boxShadow: '0 16px 36px rgba(34, 47, 128, 0.08)' }}
               style={{
                 backgroundColor: '#FFFFFF',
                 border: '1.5px solid rgba(210, 20, 58, 0.25)',
                 borderTop: '5px solid #D2143A',
                 borderRadius: '16px',
                 padding: '32px 28px',
-                boxShadow: '0 4px 18px rgba(10, 28, 63, 0.04)',
+                boxShadow: '0 4px 18px rgba(34, 47, 128, 0.04)',
                 transition: 'all 0.3s ease',
               }}
             >
@@ -632,7 +632,7 @@ export default function ContactPage() {
                 <div style={{ backgroundColor: 'rgba(210, 20, 58, 0.1)', padding: '12px', borderRadius: '10px', color: '#D2143A' }}>
                   <Building2 size={24} />
                 </div>
-                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: 900, color: '#0A1C3F', margin: 0 }}>
+                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: 900, color: '#222f80', margin: 0 }}>
                   Hyderabad Corporate HQ
                 </h3>
               </div>
@@ -666,14 +666,14 @@ export default function ContactPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              whileHover={{ y: -6, boxShadow: '0 16px 36px rgba(10, 28, 63, 0.08)' }}
+              whileHover={{ y: -6, boxShadow: '0 16px 36px rgba(34, 47, 128, 0.08)' }}
               style={{
                 backgroundColor: '#FFFFFF',
                 border: '1.5px solid rgba(18, 164, 220, 0.25)',
                 borderTop: '5px solid #12A4DC',
                 borderRadius: '16px',
                 padding: '32px 28px',
-                boxShadow: '0 4px 18px rgba(10, 28, 63, 0.04)',
+                boxShadow: '0 4px 18px rgba(34, 47, 128, 0.04)',
                 transition: 'all 0.3s ease',
               }}
             >
@@ -681,7 +681,7 @@ export default function ContactPage() {
                 <div style={{ backgroundColor: 'rgba(18, 164, 220, 0.1)', padding: '12px', borderRadius: '10px', color: '#12A4DC' }}>
                   <Building2 size={24} />
                 </div>
-                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: 900, color: '#0A1C3F', margin: 0 }}>
+                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: 900, color: '#222f80', margin: 0 }}>
                   Banswada Regional Office
                 </h3>
               </div>
@@ -743,7 +743,7 @@ export default function ContactPage() {
                 fontFamily: 'var(--font-heading)',
                 fontSize: 'clamp(1.9rem, 3.5vw, 3rem)',
                 fontWeight: 800,
-                color: '#0A1C3F',
+                color: '#222f80',
                 margin: '0 0 1.2rem 0',
               }}
             >
@@ -766,7 +766,7 @@ export default function ContactPage() {
                   transition={{ duration: 0.4, delay: idx * 0.08 }}
                   style={{
                     backgroundColor: isOpen ? '#F0F7FF' : '#F8FAFC',
-                    border: isOpen ? '1.5px solid #12A4DC' : '1px solid rgba(10, 28, 63, 0.1)',
+                    border: isOpen ? '1.5px solid #12A4DC' : '1px solid rgba(34, 47, 128, 0.1)',
                     borderRadius: '12px',
                     overflow: 'hidden',
                     transition: 'all 0.25s ease',
@@ -782,7 +782,7 @@ export default function ContactPage() {
                       justifyContent: 'space-between',
                       background: 'transparent',
                       border: 'none',
-                      color: '#0A1C3F',
+                      color: '#222f80',
                       textAlign: 'left',
                       fontFamily: 'var(--font-heading)',
                       fontSize: '1rem',

@@ -46,7 +46,7 @@ export default function PropertiesPage() {
     <main 
       style={{ 
         backgroundColor: '#FFFFFF', 
-        color: '#0A1C3F', 
+        color: '#222f80', 
         minHeight: '100vh', 
         paddingTop: '92px',
         overflow: 'hidden'
@@ -94,7 +94,7 @@ export default function PropertiesPage() {
                 padding: '6px 14px',
                 backgroundColor: '#FFFFFF',
                 borderRadius: '30px',
-                border: '1px solid rgba(10, 28, 63, 0.12)',
+                border: '1px solid rgba(34, 47, 128, 0.12)',
                 fontSize: '0.82rem',
                 color: '#475569',
                 fontFamily: 'var(--font-heading)',
@@ -104,7 +104,7 @@ export default function PropertiesPage() {
             >
               <Link href="/" style={{ color: '#12A4DC', textDecoration: 'none', fontWeight: 700 }}>HOME</Link>
               <span>/</span>
-              <span style={{ color: '#0A1C3F', fontWeight: 800 }}>PROPERTIES</span>
+              <span style={{ color: '#222f80', fontWeight: 800 }}>PROPERTIES</span>
             </div>
 
             <div
@@ -156,7 +156,7 @@ export default function PropertiesPage() {
                 fontWeight: 900,
                 letterSpacing: '1px',
                 lineHeight: 1.15,
-                color: '#0A1C3F',
+                color: '#222f80',
                 margin: '0 0 1.2rem 0',
                 textTransform: 'uppercase',
               }}
@@ -190,7 +190,7 @@ export default function PropertiesPage() {
               border: '1.5px solid rgba(18, 164, 220, 0.25)',
               width: 'fit-content',
               maxWidth: '100%',
-              boxShadow: '0 4px 16px rgba(10, 28, 63, 0.05)',
+              boxShadow: '0 4px 16px rgba(34, 47, 128, 0.05)',
             }}
           >
             {categories.map((cat) => {
@@ -207,8 +207,8 @@ export default function PropertiesPage() {
                   }}
                   style={{
                     backgroundColor: isSelected ? '#D2143A' : '#FFFFFF',
-                    color: isSelected ? '#FFFFFF' : '#0A1C3F',
-                    border: isSelected ? '1px solid #D2143A' : '1px solid rgba(10, 28, 63, 0.1)',
+                    color: isSelected ? '#FFFFFF' : '#222f80',
+                    border: isSelected ? '1px solid #D2143A' : '1px solid rgba(34, 47, 128, 0.1)',
                     borderRadius: '8px',
                     padding: '10px 18px',
                     fontFamily: 'var(--font-heading)',
@@ -286,7 +286,7 @@ export default function PropertiesPage() {
                   fontFamily: 'var(--font-heading)',
                   fontSize: 'clamp(2rem, 3.5vw, 3.1rem)',
                   fontWeight: 900,
-                  color: '#0A1C3F',
+                  color: '#222f80',
                   lineHeight: 1.2,
                   margin: '0 0 1.2rem 0',
                 }}
@@ -327,7 +327,7 @@ export default function PropertiesPage() {
                     <div style={{ fontSize: '0.78rem', color: '#64748B', marginBottom: '3px' }}>
                       {spec.label}
                     </div>
-                    <div style={{ fontFamily: 'var(--font-heading)', fontSize: '0.94rem', fontWeight: 800, color: '#0A1C3F' }}>
+                    <div style={{ fontFamily: 'var(--font-heading)', fontSize: '0.94rem', fontWeight: 800, color: '#222f80' }}>
                       {spec.val}
                     </div>
                   </div>
@@ -370,8 +370,8 @@ export default function PropertiesPage() {
                     alignItems: 'center',
                     gap: '8px',
                     backgroundColor: '#F8FAFC',
-                    color: '#0A1C3F',
-                    border: '1.5px solid rgba(10, 28, 63, 0.2)',
+                    color: '#222f80',
+                    border: '1.5px solid rgba(34, 47, 128, 0.2)',
                     padding: '14px 26px',
                     borderRadius: '6px',
                     fontFamily: 'var(--font-heading)',
@@ -403,7 +403,7 @@ export default function PropertiesPage() {
                   borderRadius: '16px',
                   overflow: 'hidden',
                   border: '2px solid rgba(18, 164, 220, 0.2)',
-                  boxShadow: '0 20px 50px rgba(10, 28, 63, 0.12)',
+                  boxShadow: '0 20px 50px rgba(34, 47, 128, 0.12)',
                   position: 'relative',
                 }}
               >
@@ -423,7 +423,7 @@ export default function PropertiesPage() {
                     borderRadius: '6px',
                     fontSize: '0.82rem',
                     fontWeight: 700,
-                    color: '#0A1C3F',
+                    color: '#222f80',
                     border: '1px solid rgba(18, 164, 220, 0.3)',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
                   }}
@@ -438,7 +438,7 @@ export default function PropertiesPage() {
                     borderRadius: '12px',
                     overflow: 'hidden',
                     border: '1px solid rgba(18, 164, 220, 0.18)',
-                    boxShadow: '0 8px 24px rgba(10, 28, 63, 0.08)',
+                    boxShadow: '0 8px 24px rgba(34, 47, 128, 0.08)',
                   }}
                 >
                   <img
@@ -452,7 +452,7 @@ export default function PropertiesPage() {
                     borderRadius: '12px',
                     overflow: 'hidden',
                     border: '1px solid rgba(18, 164, 220, 0.18)',
-                    boxShadow: '0 8px 24px rgba(10, 28, 63, 0.08)',
+                    boxShadow: '0 8px 24px rgba(34, 47, 128, 0.08)',
                   }}
                 >
                   <img
@@ -501,7 +501,7 @@ export default function PropertiesPage() {
             >
               ASSET CLASS 02
             </span>
-            <span style={{ color: '#0A1C3F', fontSize: '0.9rem', fontWeight: 700 }}>Skyline Living & Infinite Vistas</span>
+            <span style={{ color: '#222f80', fontSize: '0.9rem', fontWeight: 700 }}>Skyline Living & Infinite Vistas</span>
           </motion.div>
 
           <div
@@ -525,7 +525,7 @@ export default function PropertiesPage() {
                   borderRadius: '16px',
                   overflow: 'hidden',
                   border: '2px solid rgba(18, 164, 220, 0.2)',
-                  boxShadow: '0 20px 50px rgba(10, 28, 63, 0.12)',
+                  boxShadow: '0 20px 50px rgba(34, 47, 128, 0.12)',
                   position: 'relative',
                 }}
               >
@@ -545,7 +545,7 @@ export default function PropertiesPage() {
                     borderRadius: '6px',
                     fontSize: '0.82rem',
                     fontWeight: 700,
-                    color: '#0A1C3F',
+                    color: '#222f80',
                     border: '1px solid rgba(18, 164, 220, 0.3)',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
                   }}
@@ -560,7 +560,7 @@ export default function PropertiesPage() {
                     borderRadius: '12px',
                     overflow: 'hidden',
                     border: '1px solid rgba(18, 164, 220, 0.18)',
-                    boxShadow: '0 8px 24px rgba(10, 28, 63, 0.08)',
+                    boxShadow: '0 8px 24px rgba(34, 47, 128, 0.08)',
                   }}
                 >
                   <img
@@ -574,7 +574,7 @@ export default function PropertiesPage() {
                     borderRadius: '12px',
                     overflow: 'hidden',
                     border: '1px solid rgba(18, 164, 220, 0.18)',
-                    boxShadow: '0 8px 24px rgba(10, 28, 63, 0.08)',
+                    boxShadow: '0 8px 24px rgba(34, 47, 128, 0.08)',
                   }}
                 >
                   <img
@@ -599,7 +599,7 @@ export default function PropertiesPage() {
                   fontFamily: 'var(--font-heading)',
                   fontSize: 'clamp(2rem, 3.5vw, 3.1rem)',
                   fontWeight: 900,
-                  color: '#0A1C3F',
+                  color: '#222f80',
                   lineHeight: 1.2,
                   margin: '0 0 1.2rem 0',
                 }}
@@ -683,8 +683,8 @@ export default function PropertiesPage() {
                     alignItems: 'center',
                     gap: '8px',
                     backgroundColor: '#FFFFFF',
-                    color: '#0A1C3F',
-                    border: '1.5px solid rgba(10, 28, 63, 0.2)',
+                    color: '#222f80',
+                    border: '1.5px solid rgba(34, 47, 128, 0.2)',
                     padding: '14px 26px',
                     borderRadius: '6px',
                     fontFamily: 'var(--font-heading)',
@@ -739,7 +739,7 @@ export default function PropertiesPage() {
                 fontFamily: 'var(--font-heading)',
                 fontSize: 'clamp(1.9rem, 3.5vw, 3rem)',
                 fontWeight: 800,
-                color: '#0A1C3F',
+                color: '#222f80',
                 margin: '0 0 1.2rem 0',
               }}
             >
@@ -763,7 +763,7 @@ export default function PropertiesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              whileHover={{ y: -6, boxShadow: '0 16px 40px rgba(10, 28, 63, 0.1)' }}
+              whileHover={{ y: -6, boxShadow: '0 16px 40px rgba(34, 47, 128, 0.1)' }}
               style={{
                 backgroundColor: '#F8FAFC',
                 border: '1.5px solid rgba(18, 164, 220, 0.25)',
@@ -772,7 +772,7 @@ export default function PropertiesPage() {
                 overflow: 'hidden',
                 display: 'flex',
                 flexDirection: 'column',
-                boxShadow: '0 6px 20px rgba(10, 28, 63, 0.05)',
+                boxShadow: '0 6px 20px rgba(34, 47, 128, 0.05)',
                 transition: 'all 0.3s ease',
               }}
             >
@@ -808,7 +808,7 @@ export default function PropertiesPage() {
                       fontFamily: 'var(--font-heading)',
                       fontSize: '1.35rem',
                       fontWeight: 800,
-                      color: '#0A1C3F',
+                      color: '#222f80',
                       marginBottom: '10px',
                     }}
                   >
@@ -874,7 +874,7 @@ export default function PropertiesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              whileHover={{ y: -6, boxShadow: '0 16px 40px rgba(10, 28, 63, 0.1)' }}
+              whileHover={{ y: -6, boxShadow: '0 16px 40px rgba(34, 47, 128, 0.1)' }}
               style={{
                 backgroundColor: '#F8FAFC',
                 border: '1.5px solid rgba(210, 20, 58, 0.25)',
@@ -883,7 +883,7 @@ export default function PropertiesPage() {
                 overflow: 'hidden',
                 display: 'flex',
                 flexDirection: 'column',
-                boxShadow: '0 6px 20px rgba(10, 28, 63, 0.05)',
+                boxShadow: '0 6px 20px rgba(34, 47, 128, 0.05)',
                 transition: 'all 0.3s ease',
               }}
             >
@@ -919,7 +919,7 @@ export default function PropertiesPage() {
                       fontFamily: 'var(--font-heading)',
                       fontSize: '1.35rem',
                       fontWeight: 800,
-                      color: '#0A1C3F',
+                      color: '#222f80',
                       marginBottom: '10px',
                     }}
                   >
@@ -1004,7 +1004,7 @@ export default function PropertiesPage() {
               borderRadius: '20px',
               border: '2px solid rgba(18, 164, 220, 0.35)',
               overflow: 'hidden',
-              boxShadow: '0 24px 60px rgba(10, 28, 63, 0.08)',
+              boxShadow: '0 24px 60px rgba(34, 47, 128, 0.08)',
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
               gap: 0,
@@ -1037,7 +1037,7 @@ export default function PropertiesPage() {
                   fontFamily: 'var(--font-heading)',
                   fontSize: 'clamp(2rem, 3.2vw, 2.9rem)',
                   fontWeight: 900,
-                  color: '#0A1C3F',
+                  color: '#222f80',
                   margin: '0 0 1.2rem 0',
                   lineHeight: 1.2,
                 }}
@@ -1058,7 +1058,7 @@ export default function PropertiesPage() {
                 ].map((point, ptIdx) => (
                   <div key={ptIdx} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <CheckCircle2 size={18} style={{ color: '#12A4DC', flexShrink: 0 }} />
-                    <span style={{ fontSize: '0.94rem', color: '#0A1C3F', fontWeight: 600 }}>{point}</span>
+                    <span style={{ fontSize: '0.94rem', color: '#222f80', fontWeight: 600 }}>{point}</span>
                   </div>
                 ))}
               </div>
@@ -1131,7 +1131,7 @@ export default function PropertiesPage() {
                 style={{
                   position: 'absolute',
                   inset: 0,
-                  background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.2) 60%, rgba(10, 28, 63, 0.4) 100%)',
+                  background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.2) 60%, rgba(34, 47, 128, 0.4) 100%)',
                 }}
               />
               <div

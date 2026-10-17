@@ -337,10 +337,10 @@ export default function HeronIntroSection() {
             {/* User-Requested Graphic Card Layout Matching Attached Photo */}
             <div
               style={{
-                backgroundColor: '#0A1C3F', // Corporate Royal Navy Blue matching photo & header
+                backgroundColor: '#222f80', // Corporate Royal Navy Blue matching photo & header
                 borderRadius: '12px',
                 padding: 'clamp(2rem, 3.2vw, 2.8rem) clamp(1.6rem, 2.8vw, 2.4rem)',
-                boxShadow: '0 12px 36px rgba(10, 28, 63, 0.18)',
+                boxShadow: '0 12px 36px rgba(34, 47, 128, 0.18)',
                 border: '1px solid rgba(18, 164, 220, 0.2)',
                 display: 'flex',
                 flexDirection: 'column',

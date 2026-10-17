@@ -353,7 +353,7 @@ export default function GalleryPage() {
     <main 
       style={{ 
         backgroundColor: '#FFFFFF', 
-        color: '#0A1C3F', 
+        color: '#222f80', 
         minHeight: '100vh', 
         paddingTop: '92px',
         overflow: 'hidden'
@@ -401,7 +401,7 @@ export default function GalleryPage() {
                 padding: '6px 14px',
                 backgroundColor: '#FFFFFF',
                 borderRadius: '30px',
-                border: '1px solid rgba(10, 28, 63, 0.12)',
+                border: '1px solid rgba(34, 47, 128, 0.12)',
                 fontSize: '0.82rem',
                 color: '#475569',
                 fontFamily: 'var(--font-heading)',
@@ -411,7 +411,7 @@ export default function GalleryPage() {
             >
               <Link href="/" style={{ color: '#12A4DC', textDecoration: 'none', fontWeight: 700 }}>HOME</Link>
               <span>/</span>
-              <span style={{ color: '#0A1C3F', fontWeight: 800 }}>GALLERY</span>
+              <span style={{ color: '#222f80', fontWeight: 800 }}>GALLERY</span>
             </div>
 
             <div
@@ -463,7 +463,7 @@ export default function GalleryPage() {
                 fontWeight: 900,
                 letterSpacing: '1px',
                 lineHeight: 1.15,
-                color: '#0A1C3F',
+                color: '#222f80',
                 margin: '0 0 1.2rem 0',
                 textTransform: 'uppercase',
               }}
@@ -497,7 +497,7 @@ export default function GalleryPage() {
               border: '1.5px solid rgba(18, 164, 220, 0.25)',
               width: 'fit-content',
               maxWidth: '100%',
-              boxShadow: '0 4px 16px rgba(10, 28, 63, 0.05)',
+              boxShadow: '0 4px 16px rgba(34, 47, 128, 0.05)',
             }}
           >
             {filterTabs.map((tab) => {
@@ -522,8 +522,8 @@ export default function GalleryPage() {
                   }}
                   style={{
                     backgroundColor: isSelected ? '#D2143A' : '#FFFFFF',
-                    color: isSelected ? '#FFFFFF' : '#0A1C3F',
-                    border: isSelected ? '1px solid #D2143A' : '1px solid rgba(10, 28, 63, 0.1)',
+                    color: isSelected ? '#FFFFFF' : '#222f80',
+                    border: isSelected ? '1px solid #D2143A' : '1px solid rgba(34, 47, 128, 0.1)',
                     borderRadius: '8px',
                     padding: '10px 18px',
                     fontFamily: 'var(--font-heading)',
@@ -562,7 +562,7 @@ export default function GalleryPage() {
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#12A4DC', fontSize: '0.82rem', fontFamily: 'var(--font-heading)', fontWeight: 800, letterSpacing: '1.5px', marginBottom: '6px' }}>
                 <span>GALLERY SECTION 02</span>
               </div>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.9rem, 3.4vw, 2.9rem)', fontWeight: 900, color: '#0A1C3F', margin: 0 }}>
+              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.9rem, 3.4vw, 2.9rem)', fontWeight: 900, color: '#222f80', margin: 0 }}>
                 Ultra Luxury Villas Collection (8 Masterpieces)
               </h2>
             </div>
@@ -585,7 +585,7 @@ export default function GalleryPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.5, delay: (idx % 4) * 0.1 }}
-                whileHover={{ y: -8, boxShadow: '0 18px 45px rgba(10, 28, 63, 0.12)' }}
+                whileHover={{ y: -8, boxShadow: '0 18px 45px rgba(34, 47, 128, 0.12)' }}
                 onClick={() => openLightbox(img)}
                 style={{
                   backgroundColor: '#FFFFFF',
@@ -594,7 +594,7 @@ export default function GalleryPage() {
                   border: '1.5px solid rgba(18, 164, 220, 0.2)',
                   cursor: 'pointer',
                   position: 'relative',
-                  boxShadow: '0 6px 20px rgba(10, 28, 63, 0.05)',
+                  boxShadow: '0 6px 20px rgba(34, 47, 128, 0.05)',
                   transition: 'all 0.3s ease',
                 }}
                 className="group"
@@ -618,7 +618,7 @@ export default function GalleryPage() {
                       right: '12px',
                       backgroundColor: 'rgba(255, 255, 255, 0.9)',
                       backdropFilter: 'blur(8px)',
-                      color: '#0A1C3F',
+                      color: '#222f80',
                       padding: '6px',
                       borderRadius: '50%',
                       boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
@@ -629,7 +629,7 @@ export default function GalleryPage() {
                 </div>
 
                 <div style={{ padding: '18px 20px', borderTop: '1px solid rgba(18, 164, 220, 0.12)' }}>
-                  <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.02rem', fontWeight: 800, color: '#0A1C3F', marginBottom: '4px' }}>
+                  <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.02rem', fontWeight: 800, color: '#222f80', marginBottom: '4px' }}>
                     {img.title}
                   </h4>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.82rem', color: '#12A4DC', fontWeight: 600, marginBottom: '6px' }}>
@@ -664,7 +664,7 @@ export default function GalleryPage() {
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#D2143A', fontSize: '0.82rem', fontFamily: 'var(--font-heading)', fontWeight: 800, letterSpacing: '1.5px', marginBottom: '6px' }}>
                 <span>GALLERY SECTION 03</span>
               </div>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.9rem, 3.4vw, 2.9rem)', fontWeight: 900, color: '#0A1C3F', margin: 0 }}>
+              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.9rem, 3.4vw, 2.9rem)', fontWeight: 900, color: '#222f80', margin: 0 }}>
                 High-Rise Luxury Apartments & Sky Penthouses (7 Views)
               </h2>
             </div>
@@ -687,7 +687,7 @@ export default function GalleryPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.5, delay: (idx % 4) * 0.1 }}
-                whileHover={{ y: -8, boxShadow: '0 18px 45px rgba(10, 28, 63, 0.12)' }}
+                whileHover={{ y: -8, boxShadow: '0 18px 45px rgba(34, 47, 128, 0.12)' }}
                 onClick={() => openLightbox(img)}
                 style={{
                   backgroundColor: '#FFFFFF',
@@ -696,7 +696,7 @@ export default function GalleryPage() {
                   border: '1.5px solid rgba(18, 164, 220, 0.2)',
                   cursor: 'pointer',
                   position: 'relative',
-                  boxShadow: '0 6px 20px rgba(10, 28, 63, 0.05)',
+                  boxShadow: '0 6px 20px rgba(34, 47, 128, 0.05)',
                   transition: 'all 0.3s ease',
                 }}
                 className="group"
@@ -720,7 +720,7 @@ export default function GalleryPage() {
                       right: '12px',
                       backgroundColor: 'rgba(255, 255, 255, 0.9)',
                       backdropFilter: 'blur(8px)',
-                      color: '#0A1C3F',
+                      color: '#222f80',
                       padding: '6px',
                       borderRadius: '50%',
                       boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
@@ -731,7 +731,7 @@ export default function GalleryPage() {
                 </div>
 
                 <div style={{ padding: '18px 20px', borderTop: '1px solid rgba(18, 164, 220, 0.12)' }}>
-                  <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.02rem', fontWeight: 800, color: '#0A1C3F', marginBottom: '4px' }}>
+                  <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.02rem', fontWeight: 800, color: '#222f80', marginBottom: '4px' }}>
                     {img.title}
                   </h4>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.82rem', color: '#12A4DC', fontWeight: 600, marginBottom: '6px' }}>
@@ -766,7 +766,7 @@ export default function GalleryPage() {
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#12A4DC', fontSize: '0.82rem', fontFamily: 'var(--font-heading)', fontWeight: 800, letterSpacing: '1.5px', marginBottom: '6px' }}>
                 <span>GALLERY SECTION 04</span>
               </div>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.9rem, 3.4vw, 2.9rem)', fontWeight: 900, color: '#0A1C3F', margin: 0 }}>
+              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.9rem, 3.4vw, 2.9rem)', fontWeight: 900, color: '#222f80', margin: 0 }}>
                 Master-Planned Plotted Communities & Layouts (5 Views)
               </h2>
             </div>
@@ -789,7 +789,7 @@ export default function GalleryPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.5, delay: (idx % 4) * 0.1 }}
-                whileHover={{ y: -8, boxShadow: '0 18px 45px rgba(10, 28, 63, 0.12)' }}
+                whileHover={{ y: -8, boxShadow: '0 18px 45px rgba(34, 47, 128, 0.12)' }}
                 onClick={() => openLightbox(img)}
                 style={{
                   backgroundColor: '#F8FAFC',
@@ -798,7 +798,7 @@ export default function GalleryPage() {
                   border: '1.5px solid rgba(18, 164, 220, 0.2)',
                   cursor: 'pointer',
                   position: 'relative',
-                  boxShadow: '0 6px 20px rgba(10, 28, 63, 0.05)',
+                  boxShadow: '0 6px 20px rgba(34, 47, 128, 0.05)',
                   transition: 'all 0.3s ease',
                 }}
                 className="group"
@@ -822,7 +822,7 @@ export default function GalleryPage() {
                       right: '12px',
                       backgroundColor: 'rgba(255, 255, 255, 0.9)',
                       backdropFilter: 'blur(8px)',
-                      color: '#0A1C3F',
+                      color: '#222f80',
                       padding: '6px',
                       borderRadius: '50%',
                       boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
@@ -833,7 +833,7 @@ export default function GalleryPage() {
                 </div>
 
                 <div style={{ padding: '18px 20px', borderTop: '1px solid rgba(18, 164, 220, 0.12)' }}>
-                  <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', fontWeight: 800, color: '#0A1C3F', marginBottom: '4px' }}>
+                  <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', fontWeight: 800, color: '#222f80', marginBottom: '4px' }}>
                     {img.title}
                   </h4>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.82rem', color: '#12A4DC', fontWeight: 600, marginBottom: '6px' }}>
@@ -868,7 +868,7 @@ export default function GalleryPage() {
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#D2143A', fontSize: '0.82rem', fontFamily: 'var(--font-heading)', fontWeight: 800, letterSpacing: '1.5px', marginBottom: '6px' }}>
                 <span>GALLERY SECTION 05</span>
               </div>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.9rem, 3.4vw, 2.9rem)', fontWeight: 900, color: '#0A1C3F', margin: 0 }}>
+              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.9rem, 3.4vw, 2.9rem)', fontWeight: 900, color: '#222f80', margin: 0 }}>
                 Commercial Hubs & Corporate Plazas (5 Views)
               </h2>
             </div>
@@ -891,7 +891,7 @@ export default function GalleryPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.5, delay: (idx % 4) * 0.1 }}
-                whileHover={{ y: -8, boxShadow: '0 18px 45px rgba(10, 28, 63, 0.12)' }}
+                whileHover={{ y: -8, boxShadow: '0 18px 45px rgba(34, 47, 128, 0.12)' }}
                 onClick={() => openLightbox(img)}
                 style={{
                   backgroundColor: '#FFFFFF',
@@ -900,7 +900,7 @@ export default function GalleryPage() {
                   border: '1.5px solid rgba(210, 20, 58, 0.25)',
                   cursor: 'pointer',
                   position: 'relative',
-                  boxShadow: '0 6px 20px rgba(10, 28, 63, 0.05)',
+                  boxShadow: '0 6px 20px rgba(34, 47, 128, 0.05)',
                   transition: 'all 0.3s ease',
                 }}
                 className="group"
@@ -924,7 +924,7 @@ export default function GalleryPage() {
                       right: '12px',
                       backgroundColor: 'rgba(255, 255, 255, 0.9)',
                       backdropFilter: 'blur(8px)',
-                      color: '#0A1C3F',
+                      color: '#222f80',
                       padding: '6px',
                       borderRadius: '50%',
                       boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
@@ -935,7 +935,7 @@ export default function GalleryPage() {
                 </div>
 
                 <div style={{ padding: '18px 20px', borderTop: '1px solid rgba(210, 20, 58, 0.15)' }}>
-                  <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', fontWeight: 800, color: '#0A1C3F', marginBottom: '4px' }}>
+                  <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', fontWeight: 800, color: '#222f80', marginBottom: '4px' }}>
                     {img.title}
                   </h4>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.82rem', color: '#D2143A', fontWeight: 700, marginBottom: '6px' }}>
@@ -970,7 +970,7 @@ export default function GalleryPage() {
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#12A4DC', fontSize: '0.82rem', fontFamily: 'var(--font-heading)', fontWeight: 800, letterSpacing: '1.5px', marginBottom: '6px' }}>
                 <span>GALLERY SECTION 06</span>
               </div>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.9rem, 3.4vw, 2.9rem)', fontWeight: 900, color: '#0A1C3F', margin: 0 }}>
+              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.9rem, 3.4vw, 2.9rem)', fontWeight: 900, color: '#222f80', margin: 0 }}>
                 Strategic Bulk Land Reserves & Corridors (5 Views)
               </h2>
             </div>
@@ -993,7 +993,7 @@ export default function GalleryPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.5, delay: (idx % 4) * 0.1 }}
-                whileHover={{ y: -8, boxShadow: '0 18px 45px rgba(10, 28, 63, 0.12)' }}
+                whileHover={{ y: -8, boxShadow: '0 18px 45px rgba(34, 47, 128, 0.12)' }}
                 onClick={() => openLightbox(img)}
                 style={{
                   backgroundColor: '#F8FAFC',
@@ -1002,7 +1002,7 @@ export default function GalleryPage() {
                   border: '1.5px solid rgba(18, 164, 220, 0.2)',
                   cursor: 'pointer',
                   position: 'relative',
-                  boxShadow: '0 6px 20px rgba(10, 28, 63, 0.05)',
+                  boxShadow: '0 6px 20px rgba(34, 47, 128, 0.05)',
                   transition: 'all 0.3s ease',
                 }}
                 className="group"
@@ -1026,7 +1026,7 @@ export default function GalleryPage() {
                       right: '12px',
                       backgroundColor: 'rgba(255, 255, 255, 0.9)',
                       backdropFilter: 'blur(8px)',
-                      color: '#0A1C3F',
+                      color: '#222f80',
                       padding: '6px',
                       borderRadius: '50%',
                       boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
@@ -1037,7 +1037,7 @@ export default function GalleryPage() {
                 </div>
 
                 <div style={{ padding: '18px 20px', borderTop: '1px solid rgba(18, 164, 220, 0.12)' }}>
-                  <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', fontWeight: 800, color: '#0A1C3F', marginBottom: '4px' }}>
+                  <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', fontWeight: 800, color: '#222f80', marginBottom: '4px' }}>
                     {img.title}
                   </h4>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.82rem', color: '#12A4DC', fontWeight: 600, marginBottom: '6px' }}>
@@ -1072,7 +1072,7 @@ export default function GalleryPage() {
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#12A4DC', fontSize: '0.82rem', fontFamily: 'var(--font-heading)', fontWeight: 800, letterSpacing: '1.5px', marginBottom: '6px' }}>
                 <span>GALLERY SECTION 07</span>
               </div>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.9rem, 3.4vw, 2.9rem)', fontWeight: 900, color: '#0A1C3F', margin: 0 }}>
+              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.9rem, 3.4vw, 2.9rem)', fontWeight: 900, color: '#222f80', margin: 0 }}>
                 Blueprints, CAD Schematics & Engineering Plans (4 Dossiers)
               </h2>
             </div>
@@ -1095,7 +1095,7 @@ export default function GalleryPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.5, delay: (idx % 4) * 0.1 }}
-                whileHover={{ y: -8, boxShadow: '0 18px 45px rgba(10, 28, 63, 0.12)' }}
+                whileHover={{ y: -8, boxShadow: '0 18px 45px rgba(34, 47, 128, 0.12)' }}
                 onClick={() => openLightbox(img)}
                 style={{
                   backgroundColor: '#FFFFFF',
@@ -1104,7 +1104,7 @@ export default function GalleryPage() {
                   border: '2px solid rgba(18, 164, 220, 0.3)',
                   cursor: 'pointer',
                   position: 'relative',
-                  boxShadow: '0 6px 20px rgba(10, 28, 63, 0.05)',
+                  boxShadow: '0 6px 20px rgba(34, 47, 128, 0.05)',
                   transition: 'all 0.3s ease',
                 }}
                 className="group"
@@ -1139,7 +1139,7 @@ export default function GalleryPage() {
                 </div>
 
                 <div style={{ padding: '18px 20px', borderTop: '1px solid rgba(18, 164, 220, 0.2)' }}>
-                  <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', fontWeight: 800, color: '#0A1C3F', marginBottom: '4px' }}>
+                  <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', fontWeight: 800, color: '#222f80', marginBottom: '4px' }}>
                     {img.title}
                   </h4>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.82rem', color: '#12A4DC', fontWeight: 600, marginBottom: '6px' }}>
@@ -1174,11 +1174,11 @@ export default function GalleryPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             style={{
-              backgroundColor: '#0A1C3F',
+              backgroundColor: '#222f80',
               borderRadius: '20px',
               border: '2px solid #12A4DC',
               padding: 'clamp(2.5rem, 5vw, 4rem)',
-              boxShadow: '0 24px 60px rgba(10, 28, 63, 0.25)',
+              boxShadow: '0 24px 60px rgba(34, 47, 128, 0.25)',
               display: 'flex',
               flexWrap: 'wrap',
               alignItems: 'center',
@@ -1258,7 +1258,7 @@ export default function GalleryPage() {
                   alignItems: 'center',
                   gap: '10px',
                   backgroundColor: '#FFFFFF',
-                  color: '#0A1C3F',
+                  color: '#222f80',
                   padding: '14px 28px',
                   borderRadius: '6px',
                   fontFamily: 'var(--font-heading)',

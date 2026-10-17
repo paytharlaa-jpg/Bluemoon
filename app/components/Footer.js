@@ -9,7 +9,7 @@ export default function Footer() {
     <footer
       id="contact"
       style={{
-        backgroundColor: '#0A1C3F', // Royal Navy Blue matching screenshot & main navbar
+        backgroundColor: '#222f80', // Royal Navy Blue matching screenshot & main navbar
         borderTop: '3px solid #D2143A', // Crimson red accent line at the very top of footer
         color: '#FFFFFF',
         fontFamily: 'var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',

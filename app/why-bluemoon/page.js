@@ -130,7 +130,7 @@ export default function WhyBluemoonPage() {
     <main 
       style={{ 
         backgroundColor: '#FFFFFF', 
-        color: '#0A1C3F', 
+        color: '#222f80', 
         minHeight: '100vh', 
         paddingTop: '92px',
         overflow: 'hidden'
@@ -178,7 +178,7 @@ export default function WhyBluemoonPage() {
                 padding: '6px 14px',
                 backgroundColor: '#FFFFFF',
                 borderRadius: '30px',
-                border: '1px solid rgba(10, 28, 63, 0.12)',
+                border: '1px solid rgba(34, 47, 128, 0.12)',
                 fontSize: '0.82rem',
                 color: '#475569',
                 fontFamily: 'var(--font-heading)',
@@ -188,7 +188,7 @@ export default function WhyBluemoonPage() {
             >
               <Link href="/" style={{ color: '#12A4DC', textDecoration: 'none', fontWeight: 700 }}>HOME</Link>
               <span>/</span>
-              <span style={{ color: '#0A1C3F', fontWeight: 800 }}>WHY BLUEMOON</span>
+              <span style={{ color: '#222f80', fontWeight: 800 }}>WHY BLUEMOON</span>
             </div>
 
             <div
@@ -240,7 +240,7 @@ export default function WhyBluemoonPage() {
                 fontWeight: 900,
                 letterSpacing: '1px',
                 lineHeight: 1.15,
-                color: '#0A1C3F',
+                color: '#222f80',
                 margin: '0 0 1.2rem 0',
                 textTransform: 'uppercase',
               }}
@@ -272,7 +272,7 @@ export default function WhyBluemoonPage() {
               borderRadius: '16px',
               border: '2px solid rgba(18, 164, 220, 0.25)',
               overflow: 'hidden',
-              boxShadow: '0 16px 45px rgba(10, 28, 63, 0.08)',
+              boxShadow: '0 16px 45px rgba(34, 47, 128, 0.08)',
             }}
           >
             <div
@@ -289,7 +289,7 @@ export default function WhyBluemoonPage() {
                 textTransform: 'uppercase',
               }}
             >
-              <div style={{ color: '#0A1C3F' }}>Core Parameter</div>
+              <div style={{ color: '#222f80' }}>Core Parameter</div>
               <div style={{ color: '#D2143A', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <ShieldCheck size={18} style={{ color: '#D2143A' }} />
                 <span>The Blue Moon Guarantee</span>
@@ -305,18 +305,18 @@ export default function WhyBluemoonPage() {
                     display: 'grid',
                     gridTemplateColumns: '1.2fr 2fr 1.6fr',
                     padding: '20px 24px',
-                    borderBottom: rIdx !== comparison.length - 1 ? '1px solid rgba(10, 28, 63, 0.08)' : 'none',
+                    borderBottom: rIdx !== comparison.length - 1 ? '1px solid rgba(34, 47, 128, 0.08)' : 'none',
                     backgroundColor: rIdx % 2 === 0 ? '#FFFFFF' : '#F8FAFC',
                     alignItems: 'center',
                     gap: '16px',
                   }}
                 >
-                  <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '0.94rem', color: '#0A1C3F' }}>
+                  <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '0.94rem', color: '#222f80' }}>
                     {row.feature}
                   </div>
                   <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                     <CheckCircle2 size={18} style={{ color: '#12A4DC', flexShrink: 0, marginTop: '2px' }} />
-                    <span style={{ fontSize: '0.94rem', color: '#0A1C3F', fontWeight: 600, lineHeight: 1.5 }}>
+                    <span style={{ fontSize: '0.94rem', color: '#222f80', fontWeight: 600, lineHeight: 1.5 }}>
                       {row.bluemoon}
                     </span>
                   </div>
@@ -365,7 +365,7 @@ export default function WhyBluemoonPage() {
                 fontFamily: 'var(--font-heading)',
                 fontSize: 'clamp(1.9rem, 3.5vw, 3rem)',
                 fontWeight: 800,
-                color: '#0A1C3F',
+                color: '#222f80',
                 margin: '0 0 1.2rem 0',
               }}
             >
@@ -393,8 +393,8 @@ export default function WhyBluemoonPage() {
                   onClick={() => setActivePillar(idx)}
                   style={{
                     backgroundColor: isSelected ? '#12A4DC' : '#FFFFFF',
-                    color: isSelected ? '#FFFFFF' : '#0A1C3F',
-                    border: isSelected ? '1.5px solid #12A4DC' : '1.5px solid rgba(10, 28, 63, 0.12)',
+                    color: isSelected ? '#FFFFFF' : '#222f80',
+                    border: isSelected ? '1.5px solid #12A4DC' : '1.5px solid rgba(34, 47, 128, 0.12)',
                     borderRadius: '12px',
                     padding: '18px 22px',
                     textAlign: 'left',
@@ -444,7 +444,7 @@ export default function WhyBluemoonPage() {
               overflow: 'hidden',
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              boxShadow: '0 20px 60px rgba(10, 28, 63, 0.08)',
+              boxShadow: '0 20px 60px rgba(34, 47, 128, 0.08)',
             }}
           >
             {/* Left Content */}
@@ -473,7 +473,7 @@ export default function WhyBluemoonPage() {
                   fontFamily: 'var(--font-heading)',
                   fontSize: 'clamp(1.7rem, 2.8vw, 2.5rem)',
                   fontWeight: 900,
-                  color: '#0A1C3F',
+                  color: '#222f80',
                   margin: '0 0 0.8rem 0',
                 }}
               >
@@ -502,7 +502,7 @@ export default function WhyBluemoonPage() {
                   {pillars[activePillar].deliverables.map((item, dIdx) => (
                     <div key={dIdx} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                       <CheckCircle2 size={16} style={{ color: '#12A4DC', flexShrink: 0 }} />
-                      <span style={{ fontSize: '0.92rem', color: '#0A1C3F', fontWeight: 600 }}>{item}</span>
+                      <span style={{ fontSize: '0.92rem', color: '#222f80', fontWeight: 600 }}>{item}</span>
                     </div>
                   ))}
                 </div>
@@ -552,7 +552,7 @@ export default function WhyBluemoonPage() {
                 style={{
                   position: 'absolute',
                   inset: 0,
-                  background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.2) 60%, rgba(10, 28, 63, 0.3) 100%)',
+                  background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.2) 60%, rgba(34, 47, 128, 0.3) 100%)',
                 }}
               />
             </div>
@@ -591,7 +591,7 @@ export default function WhyBluemoonPage() {
                 fontFamily: 'var(--font-heading)',
                 fontSize: 'clamp(1.9rem, 3.5vw, 3rem)',
                 fontWeight: 800,
-                color: '#0A1C3F',
+                color: '#222f80',
                 margin: '0 0 1.2rem 0',
               }}
             >
@@ -618,7 +618,7 @@ export default function WhyBluemoonPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                whileHover={{ y: -6, boxShadow: '0 16px 36px rgba(10, 28, 63, 0.08)' }}
+                whileHover={{ y: -6, boxShadow: '0 16px 36px rgba(34, 47, 128, 0.08)' }}
                 style={{
                   backgroundColor: '#F8FAFC',
                   border: '1.5px solid rgba(18, 164, 220, 0.2)',
@@ -628,7 +628,7 @@ export default function WhyBluemoonPage() {
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
-                  boxShadow: '0 4px 18px rgba(10, 28, 63, 0.04)',
+                  boxShadow: '0 4px 18px rgba(34, 47, 128, 0.04)',
                 }}
               >
                 <div>
@@ -651,8 +651,8 @@ export default function WhyBluemoonPage() {
                   </p>
                 </div>
 
-                <div style={{ borderTop: '1px solid rgba(10, 28, 63, 0.08)', paddingTop: '16px' }}>
-                  <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '1.05rem', color: '#0A1C3F' }}>
+                <div style={{ borderTop: '1px solid rgba(34, 47, 128, 0.08)', paddingTop: '16px' }}>
+                  <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '1.05rem', color: '#222f80' }}>
                     {t.name}
                   </div>
                   <div style={{ fontSize: '0.84rem', color: '#12A4DC', fontWeight: 600, marginBottom: '2px' }}>
@@ -674,7 +674,7 @@ export default function WhyBluemoonPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             style={{
-              backgroundColor: '#0A1C3F',
+              backgroundColor: '#222f80',
               borderRadius: '20px',
               border: '2px solid #D2143A',
               padding: 'clamp(2.5rem, 5vw, 4rem)',
@@ -683,7 +683,7 @@ export default function WhyBluemoonPage() {
               alignItems: 'center',
               justifyContent: 'space-between',
               gap: '30px',
-              boxShadow: '0 24px 60px rgba(10, 28, 63, 0.25)',
+              boxShadow: '0 24px 60px rgba(34, 47, 128, 0.25)',
             }}
           >
             <div style={{ maxWidth: '680px' }}>
@@ -751,7 +751,7 @@ export default function WhyBluemoonPage() {
                   alignItems: 'center',
                   gap: '8px',
                   backgroundColor: '#FFFFFF',
-                  color: '#0A1C3F',
+                  color: '#222f80',
                   padding: '14px 28px',
                   borderRadius: '6px',
                   fontFamily: 'var(--font-heading)',
