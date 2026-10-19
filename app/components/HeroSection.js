@@ -195,7 +195,7 @@ export default function HeroSection() {
             alignItems: 'center',
             justifyContent: 'flex-start',
             textAlign: 'center',
-            paddingTop: isMobile ? 'clamp(74px, 10.5vh, 88px)' : 'clamp(6.8rem, 11.5vh, 8.8rem)',
+            paddingTop: isMobile ? 'clamp(92px, 12.8vh, 108px)' : 'clamp(7.8rem, 13.5vh, 10rem)',
             paddingLeft: '1.2rem',
             paddingRight: '1.2rem',
             pointerEvents: 'none',
