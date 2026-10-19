@@ -1220,23 +1220,6 @@ function MobileHorizontalScrollCatalog({ collections, brand, smoothCatalogScroll
     >
       {/* ── Top Header & Indicators ── */}
       <div style={{ textAlign: 'center', padding: '0 16px', flexShrink: 0 }}>
-        {/* Eyebrow */}
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', marginBottom: '2px' }}>
-          <Disc3 size={12} color={brand.skyBlue} className="animate-spin-slow" />
-          <span
-            style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: '0.64rem',
-              letterSpacing: '2.5px',
-              color: brand.skyBlue,
-              fontWeight: 700,
-              textTransform: 'uppercase',
-            }}
-          >
-            ROTARY OBSERVATORY // FIVE DISTINCTIONS
-          </span>
-        </div>
-
         {/* Section Heading */}
         <h2
           style={{
@@ -2229,22 +2212,6 @@ export default function PropertyShowcase() {
               width: '100%',
             }}
           >
-            {/* Eyebrow */}
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', marginBottom: '2px' }}>
-              <Disc3 size={14} color={BRAND.skyBlue} className="animate-spin-slow" />
-              <span
-                style={{
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: '0.7rem',
-                  letterSpacing: '3px',
-                  color: BRAND.skyBlue,
-                  fontWeight: 700,
-                  textTransform: 'uppercase',
-                }}
-              >
-                ROTARY OBSERVATORY // FIVE DISTINCTIONS
-              </span>
-            </div>
 
             {/* Main Title - Compact, elegant Trajan Roman, completely visible below navbar */}
             <h2

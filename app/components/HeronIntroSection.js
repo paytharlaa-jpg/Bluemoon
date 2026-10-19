@@ -43,50 +43,47 @@ export default function HeronIntroSection() {
   };
 
   // ── Scroll Tracking for Building: Outline -> Colorful Building ──
+  // Targets the building container directly so the reveal triggers reliably on both mobile & desktop
   const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'end start'],
+    target: imageFrameRef,
+    offset: ['start 85%', 'end 25%'],
   });
 
   // Smooth scroll spring for silky fluid reveal
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 110,
+    stiffness: 120,
     damping: 24,
     restDelta: 0.001,
   });
 
-  // Map scroll progress (entering at 0.2, completing at 0.7) to 0% -> 100%
-  const scrollReveal = useTransform(smoothProgress, [0.22, 0.68], [0, 100]);
-  
-  // Interactive manual override for hover/drag
-  const [isInteractive, setIsInteractive] = useState(false);
-  const manualReveal = useMotionValue(0);
+  // Map scroll progress (entering at 85% to completing at 25%) to 0% -> 100%
+  const scrollReveal = useTransform(smoothProgress, [0, 1], [0, 100]);
 
-  // Active reveal clip-path: reveals colorful building from bottom to top or top to bottom
-  const clipBottom = useTransform(isInteractive ? manualReveal : scrollReveal, (v) => {
+  // Active reveal clip-path: reveals colorful building smoothly from top to bottom
+  const clipBottom = useTransform(scrollReveal, (v) => {
     const clamped = Math.max(0, Math.min(100, v));
     return `inset(0 0 ${100 - clamped}% 0)`;
   });
 
   // Scanner Laser position
-  const scanTop = useTransform(isInteractive ? manualReveal : scrollReveal, (v) => {
+  const scanTop = useTransform(scrollReveal, (v) => {
     const clamped = Math.max(0, Math.min(100, v));
     return `${clamped}%`;
   });
 
-  const scanOpacity = useTransform(isInteractive ? manualReveal : scrollReveal, (v) => {
-    if (v <= 2 || v >= 98) return 0;
+  const scanOpacity = useTransform(scrollReveal, (v) => {
+    if (v <= 1 || v >= 99) return 0;
     return 1;
   });
 
   // Percentage badge
   const [displayPercent, setDisplayPercent] = useState(0);
   useEffect(() => {
-    const unsubscribe = (isInteractive ? manualReveal : scrollReveal).on('change', (latest) => {
+    const unsubscribe = scrollReveal.on('change', (latest) => {
       setDisplayPercent(Math.round(Math.max(0, Math.min(100, latest))));
     });
     return () => unsubscribe();
-  }, [isInteractive]);
+  }, [scrollReveal]);
 
   return (
     <section
@@ -146,7 +143,6 @@ export default function HeronIntroSection() {
             minHeight: 'auto',
             padding: '36px 24px',
           }}
-          onMouseEnter={() => setIsInteractive(false)}
         >
           {/* Top Technical Drafting Metadata */}
           <div

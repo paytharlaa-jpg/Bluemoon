@@ -469,56 +469,6 @@ export default function ArchitecturalSkylineWaveBackground({
         </motion.svg>
       </div>
 
-      {/* ── 7. Corner Architectural Telemetry Framing (Rectilinear Badges) ── */}
-      {/* Top-Left Telemetry Bracket */}
-      <div
-        style={{
-          position: 'absolute',
-          top: '12%',
-          left: '4%',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '3px',
-          fontFamily: 'var(--font-heading)',
-          fontSize: '0.64rem',
-          letterSpacing: '1.5px',
-          color: 'rgba(38, 54, 111, 0.45)',
-          zIndex: 10,
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <span style={{ width: '6px', height: '6px', backgroundColor: '#D2143A' }} />
-          <span style={{ fontWeight: 700, color: '#26366F' }}>BLUEMOON SKYLINE MATRIX</span>
-        </div>
-        <span>SECTOR: TELANGANA CAPITAL ZONE</span>
-        <span style={{ color: '#12A4DC' }}>STATUS: LIVE // VECTOR WAVE ACTIVE</span>
-      </div>
-
-      {/* Top-Right Telemetry Bracket */}
-      <div
-        style={{
-          position: 'absolute',
-          top: '12%',
-          right: '4%',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'flex-end',
-          gap: '3px',
-          fontFamily: 'var(--font-heading)',
-          fontSize: '0.64rem',
-          letterSpacing: '1.5px',
-          color: 'rgba(38, 54, 111, 0.45)',
-          zIndex: 10,
-          textAlign: 'right',
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <span>FOCUS: [{activeRoman}] {activeCollectionName}</span>
-          <span style={{ width: '6px', height: '6px', backgroundColor: '#12A4DC' }} />
-        </div>
-        <span>ARCHITECTURAL DOSSIER CATALOG</span>
-        <span style={{ color: '#26366F', fontWeight: 700 }}>ELEVATION: 540M // SOVEREIGN HORIZON</span>
-      </div>
 
       {/* Bottom Ground Blend (Pure White Fade to merge seamlessly with page) */}
       <div
