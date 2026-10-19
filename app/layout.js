@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Preloader from './components/Preloader';
 import WhatsAppFloat from './components/WhatsAppFloat';
+import QuickEnquiryPopup from './components/QuickEnquiryPopup';
 
 export const metadata = {
   title: 'BlueMoon Properties | International Corporate Real Estate',
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
         {children}
         <Footer />
         <WhatsAppFloat />
+        <QuickEnquiryPopup />
       </body>
     </html>
   );

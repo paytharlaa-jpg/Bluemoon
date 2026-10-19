@@ -143,7 +143,7 @@ export default function NRIInvestmentSection() {
       id="nri-investors"
       style={{
         position: 'relative',
-        padding: '7rem 5%',
+        padding: 'clamp(3.5rem, 6vw, 7rem) 5%',
         backgroundColor: BRAND.white,
         color: BRAND.primaryBlue,
         overflow: 'hidden',
@@ -350,7 +350,7 @@ export default function NRIInvestmentSection() {
             backgroundColor: 'rgba(249, 251, 254, 0.78)',
             backdropFilter: 'blur(16px)',
             borderRadius: '28px',
-            padding: '3rem',
+            padding: 'clamp(1.2rem, 3.5vw, 3rem)',
             border: 'none', // Outline removed as requested
             boxShadow: '0 24px 70px rgba(38, 54, 111, 0.07)',
             marginBottom: '5rem',
@@ -466,7 +466,7 @@ export default function NRIInvestmentSection() {
                 <span
                   style={{
                     fontFamily: 'var(--font-heading)',
-                    fontSize: '2.8rem',
+                    fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)',
                     fontWeight: 900,
                     color: BRAND.primaryBlue,
                   }}

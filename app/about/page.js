@@ -42,9 +42,9 @@ export default function AboutPage() {
 
   const milestones = [
     {
-      year: '2011',
+      year: '2002',
       title: 'Foundational Genesis in Banswada',
-      desc: 'Established with a sacred commitment to ethical land transactions, clear agricultural demarcations, and trusted community stewardship across Banswada & Kamareddy.',
+      desc: 'Established in 2002 with a sacred commitment to ethical land transactions, clear agricultural demarcations, and trusted community stewardship across Banswada & Kamareddy.',
     },
     {
       year: '2016',
@@ -247,9 +247,9 @@ export default function AboutPage() {
             }}
           >
             {[
-              { num: '15+', label: 'Years of Trust & Precision', sub: 'Established 2011 in Telangana', color: '#12A4DC' },
-              { num: '500+', label: 'Acres Delivered & Banked', sub: 'High-appreciation strategic tracts', color: '#D2143A' },
-              { num: '1,200+', label: 'HNI & NRI Families Guided', sub: 'Across USA, UK, UAE & India', color: '#12A4DC' },
+              { num: '20+', label: 'Years of Trust & Precision', sub: 'Established 2002 in Telangana', color: '#12A4DC' },
+              { num: '200+', label: 'Acres Delivered & Banked', sub: 'High-appreciation strategic tracts', color: '#D2143A' },
+              { num: '300+', label: 'HNI & NRI Families Guided', sub: 'Across USA, UK, UAE & India', color: '#12A4DC' },
               { num: '100%', label: 'Clear Title Guarantee', sub: 'TS RERA Registered & Certified', color: '#222f80' },
             ].map((stat, idx) => (
               <motion.div
@@ -555,7 +555,7 @@ export default function AboutPage() {
               Milestones of Unwavering Excellence
             </h2>
             <p style={{ fontSize: '1.05rem', color: '#64748B', lineHeight: 1.7 }}>
-              A decade and a half of transforming raw land potential into protected wealth, prestigious communities, and certified title deeds across Telangana.
+              Over two decades (20+ years since 2002) of transforming raw land potential into protected wealth, prestigious communities, and certified title deeds across Telangana.
             </p>
           </div>
 

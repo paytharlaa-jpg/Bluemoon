@@ -206,7 +206,7 @@ function MethodologyRow({
             left: isBarOnRight ? '50%' : '24px',
             width: isBarOnRight ? 'calc(50% - 24px)' : 'calc(50% - 48px)',
             minHeight: '52px',
-            backgroundColor: '#1E2433', // Sleek dark charcoal pill bar matching screenshots
+            backgroundColor: '#222f80', // Royal Navy Blue matching branding
             color: BRAND.white,
             display: 'flex',
             alignItems: 'center',
@@ -328,7 +328,7 @@ function MethodologyRow({
         {/* Dark Charcoal Pill Banner: Full Width on Mobile */}
         <div
           style={{
-            backgroundColor: '#1E2433',
+            backgroundColor: '#222f80',
             color: BRAND.white,
             borderRadius: '8px',
             padding: '16px 18px',
@@ -462,6 +462,7 @@ export default function HeronMethodologySection() {
           OVERALL HEADER FOR THE 4 METHODOLOGY SECTIONS
          ══════════════════════════════════════════════════════════════════════════ */}
       <div
+        className="heron-methodology-header"
         style={{
           borderTop: '1px solid rgba(38, 54, 111, 0.15)',
           backgroundColor: BRAND.white,
@@ -682,7 +683,7 @@ export default function HeronMethodologySection() {
               <div
                 style={{
                   width: '100%',
-                  backgroundColor: '#1E2433',
+                  backgroundColor: '#222f80',
                   color: '#FFFFFF',
                   padding: '14px 16px',
                   borderRadius: '6px',
@@ -727,6 +728,83 @@ export default function HeronMethodologySection() {
                 >
                   Transparent pricing, clear ownership titles, and frictionless paperwork from offer to registration.
                 </p>
+              </div>
+            </div>
+          }
+          mobileContent={
+            <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px' }}>
+              <div style={{ position: 'relative', width: '100%', height: '210px', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 10px 25px rgba(38, 54, 111, 0.12)' }}>
+                <Image
+                  src="/4%20services/property%20buying%20and%20selling.jpg"
+                  alt="Property Buying & Selling"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 520px"
+                  style={{
+                    objectFit: 'cover',
+                  }}
+                />
+              </div>
+              <div
+                style={{
+                  width: '100%',
+                  backgroundColor: '#222f80',
+                  color: '#FFFFFF',
+                  padding: '14px 16px',
+                  borderRadius: '6px',
+                  border: `1.5px solid ${BRAND.skyBlue}`,
+                  boxSizing: 'border-box',
+                }}
+              >
+                <div
+                  style={{
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: '0.62rem',
+                    letterSpacing: '1.5px',
+                    color: 'rgba(255,255,255,0.6)',
+                    textTransform: 'uppercase',
+                    marginBottom: '3px',
+                  }}
+                >
+                  BLUEMOON // TRANSACTION DESK #01
+                </div>
+                <h4
+                  style={{
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: '0.82rem',
+                    fontWeight: 800,
+                    color: BRAND.skyBlue,
+                    letterSpacing: '0.5px',
+                    lineHeight: 1.25,
+                    margin: '0 0 6px 0',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  VERIFIED BUYING &amp; SELLING
+                </h4>
+                <p
+                  style={{
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '0.8rem',
+                    lineHeight: 1.4,
+                    color: 'rgba(255,255,255,0.88)',
+                    margin: '0 0 8px 0',
+                  }}
+                >
+                  Transparent pricing, clear ownership titles, and frictionless paperwork from offer to registration.
+                </p>
+                <div
+                  style={{
+                    borderTop: '1px dashed rgba(255,255,255,0.2)',
+                    paddingTop: '6px',
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: '0.62rem',
+                    color: BRAND.premiumRed,
+                    letterSpacing: '1px',
+                    fontWeight: 700,
+                  }}
+                >
+                  100% CLEAR TITLE GUARANTEE
+                </div>
               </div>
             </div>
           }
@@ -876,7 +954,7 @@ export default function HeronMethodologySection() {
               <div
                 style={{
                   width: '100%',
-                  backgroundColor: '#1E2433',
+                  backgroundColor: '#222f80',
                   color: '#FFFFFF',
                   padding: '14px 16px',
                   borderRadius: '6px',
@@ -1059,7 +1137,7 @@ export default function HeronMethodologySection() {
                 style={{
                   width: '100%',
                   maxWidth: '260px',
-                  backgroundColor: '#1E2433',
+                  backgroundColor: '#222f80',
                   color: '#FFFFFF',
                   padding: '12px 16px',
                   borderRadius: '6px',
@@ -1210,7 +1288,7 @@ export default function HeronMethodologySection() {
               <div
                 style={{
                   width: '100%',
-                  backgroundColor: '#1E2433',
+                  backgroundColor: '#222f80',
                   color: '#FFFFFF',
                   padding: '14px 16px',
                   borderRadius: '6px',
@@ -1548,11 +1626,51 @@ export default function HeronMethodologySection() {
                         transition={{ duration: 0.3, ease: [0.25, 1, 0.5, 1] }}
                         style={{ overflow: 'hidden' }}
                       >
-                        <div style={{ paddingBottom: '22px', paddingLeft: '32px', maxWidth: '540px' }}>
+                        <div style={{ paddingBottom: '22px', paddingLeft: 'clamp(8px, 3vw, 32px)', maxWidth: '540px' }}>
+                          {/* Mobile In-Accordion Preview Image (Shown on mobile when left CAD pane is hidden) */}
+                          <div
+                            className="mobile-use-case-img"
+                            style={{
+                              display: 'none',
+                              position: 'relative',
+                              width: '100%',
+                              height: '180px',
+                              borderRadius: '10px',
+                              overflow: 'hidden',
+                              margin: '4px 0 14px 0',
+                              border: '1px solid rgba(38, 54, 111, 0.16)',
+                              boxShadow: '0 8px 24px rgba(38, 54, 111, 0.1)',
+                            }}
+                          >
+                            <Image
+                              src={uc.image}
+                              alt={uc.role}
+                              fill
+                              sizes="(max-width: 768px) 100vw, 360px"
+                              style={{ objectFit: 'cover' }}
+                            />
+                            <div
+                              style={{
+                                position: 'absolute',
+                                bottom: '8px',
+                                right: '10px',
+                                padding: '2px 8px',
+                                backgroundColor: 'rgba(38, 54, 111, 0.85)',
+                                color: BRAND.skyBlue,
+                                borderRadius: '4px',
+                                fontFamily: 'monospace',
+                                fontSize: '0.62rem',
+                                fontWeight: 700,
+                              }}
+                            >
+                              {uc.software}
+                            </div>
+                          </div>
+
                           <p
                             style={{
                               fontFamily: 'var(--font-body)',
-                              fontSize: '1.08rem',
+                              fontSize: '1.05rem',
                               lineHeight: 1.55,
                               color: BRAND.primaryBlue,
                               fontWeight: 600,
@@ -1564,7 +1682,7 @@ export default function HeronMethodologySection() {
                           <p
                             style={{
                               fontFamily: 'var(--font-body)',
-                              fontSize: '0.96rem',
+                              fontSize: '0.94rem',
                               lineHeight: 1.5,
                               color: 'rgba(38, 54, 111, 0.75)',
                               margin: 0,

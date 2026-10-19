@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 const ASSETS = {
   sky: '/assets/sky-clouds.png',
@@ -11,8 +11,16 @@ const ASSETS = {
 
 export default function HeroSection() {
   const ref = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   
-  // Track scroll through the 300vh section container
+  // Track scroll through the section container
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start start', 'end end'],
@@ -34,22 +42,33 @@ export default function HeroSection() {
   const midCloudY = useTransform(p, [0, 0.6, 1], ['0%', '-15%', '-30%']);
   const midCloudOpacity = useTransform(p, [0, 0.65, 0.85], [0.75, 0.65, 0]);
 
-  // ── 3. Headline & Branding Copy (Lifts away and fades as house ascends) ──
-  const copyY = useTransform(p, [0, 0.35], ['0%', '-45%']);
-  const copyOpacity = useTransform(p, [0, 0.24], [1, 0]);
+  // ── 3. Headline & Branding Copy ──
+  // Desktop: Fades as house ascends
+  // Mobile: Stays visible longer (never leaves an empty void)
+  const desktopCopyY = useTransform(p, [0, 0.35], ['0%', '-45%']);
+  const mobileCopyY = useTransform(p, [0, 0.55], ['0%', '-25%']);
+  const copyY = isMobile ? mobileCopyY : desktopCopyY;
+
+  const desktopCopyOpacity = useTransform(p, [0, 0.24], [1, 0]);
+  const mobileCopyOpacity = useTransform(p, [0, 0.65], [1, 0.1]);
+  const copyOpacity = isMobile ? mobileCopyOpacity : desktopCopyOpacity;
+
   const copyScale = useTransform(p, [0, 0.35], [1, 0.95]);
 
-  // ── 4. Hero House: Stays DOWN initially, then RISES UP into the hero section ──
-  // At p = 0: Stays down at the bottom (y: '58%'), only top roofline peeking above horizon.
-  // At p = 0.52: Rises up into full, magnificent view in the center of the hero section!
-  // At p = 0.52 -> 1.0: Remains majestically centered as downside clouds rise over it.
-  const villaY = useTransform(p, [0, 0.52, 1], ['65%', '0%', '-8%']);
-  const villaScale = useTransform(p, [0, 0.52, 1], [0.86, 1.06, 1.14]);
+  // ── 4. Hero House: Visible immediately on mobile, ascends on desktop ──
+  // Desktop: at p=0 bottom (65%), rises to center at 0.52
+  // Mobile: at p=0 fully grounded and centered (0%), ascends smoothly without dead space
+  const desktopVillaY = useTransform(p, [0, 0.52, 1], ['65%', '0%', '-8%']);
+  const mobileVillaY = useTransform(p, [0, 0.45, 1], ['0%', '-3%', '-6%']);
+  const villaY = isMobile ? mobileVillaY : desktopVillaY;
+
+  const desktopVillaScale = useTransform(p, [0, 0.52, 1], [0.86, 1.06, 1.14]);
+  const mobileVillaScale = useTransform(p, [0, 0.45, 1], [0.98, 1.06, 1.1]);
+  const villaScale = isMobile ? mobileVillaScale : desktopVillaScale;
+
   const villaOpacity = useTransform(p, [0, 0.82, 0.96], [1, 1, 0.3]);
 
-  // ── 5. Downside Clouds: Rise from the bottom and COVER the entire hero section ──
-  // At p = 0 to 0.42: Stays below the fold (y: '115%').
-  // At p = 0.42 to 0.95: Surges upward, covering the house and hero section in billowing white clouds.
+  // ── 5. Downside Clouds: Rise from the bottom and COVER the hero section ──
   const backCloudY = useTransform(p, [0.38, 0.78, 1], ['115%', '10%', '-50%']);
   const backCloudOpacity = useTransform(p, [0.38, 0.55, 1], [0.25, 0.85, 1]);
 
@@ -58,7 +77,7 @@ export default function HeroSection() {
   const frontCloudOpacity = useTransform(p, [0.42, 0.58, 1], [0.4, 0.95, 1]);
 
   // Final 100% pure white seamless hand-off veil into Section 2
-  const veilOpacity = useTransform(p, [0.88, 0.98], [0, 1]);
+  const veilOpacity = useTransform(p, isMobile ? [0.92, 0.99] : [0.88, 0.98], [0, 1]);
 
   return (
     <section
@@ -68,7 +87,7 @@ export default function HeroSection() {
       style={{
         position: 'relative',
         width: '100%',
-        height: '300vh', // Extended scroll track for generous, controlled storytelling
+        height: isMobile ? '120vh' : '300vh', // Responsive scroll runway: 120vh on mobile eliminates empty scrolling
         backgroundColor: '#e6f3fa',
       }}
     >
@@ -78,7 +97,7 @@ export default function HeroSection() {
           position: 'sticky',
           top: 0,
           left: 0,
-          height: '100vh',
+          height: isMobile ? '100svh' : '100vh',
           width: '100%',
           overflow: 'hidden',
           backgroundColor: '#d8ebf7',
@@ -178,9 +197,9 @@ export default function HeroSection() {
             alignItems: 'center',
             justifyContent: 'center',
             textAlign: 'center',
-            paddingTop: 'clamp(8rem, 13.5vh, 10.5rem)',
-            paddingLeft: '1.5rem',
-            paddingRight: '1.5rem',
+            paddingTop: isMobile ? 'clamp(5.2rem, 10vh, 6.5rem)' : 'clamp(8rem, 13.5vh, 10.5rem)',
+            paddingLeft: '1.2rem',
+            paddingRight: '1.2rem',
             pointerEvents: 'none',
           }}
         >
@@ -365,7 +384,7 @@ export default function HeroSection() {
             style={{
               display: 'block',
               margin: '0 auto',
-              width: 'min(1500px, 126%)',
+              width: isMobile ? 'min(600px, 108%)' : 'min(1500px, 126%)',
               maxWidth: 'none',
               filter: 'drop-shadow(0 20px 50px rgba(0, 0, 0, 0.28))',
             }}

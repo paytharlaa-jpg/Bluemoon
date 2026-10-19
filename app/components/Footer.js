@@ -350,7 +350,7 @@ export default function Footer() {
             >
               {/* Facebook */}
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/share/1QmfXQT6yF/?mibextid=wwXIfr"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
@@ -364,7 +364,7 @@ export default function Footer() {
 
               {/* Instagram */}
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/bluemoon_properties?cplk=NWthemwzcDRoaHYy&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -378,7 +378,7 @@ export default function Footer() {
 
               {/* LinkedIn */}
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/bluemoon-properties-b18b69382?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
@@ -392,7 +392,7 @@ export default function Footer() {
 
               {/* YouTube */}
               <a
-                href="https://youtube.com"
+                href="https://youtube.com/@bluemoonpropertieshyd?si=N_5BdfCL8W4PFu8c"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"

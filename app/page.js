@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import PropertyShowcase from './components/PropertyShowcase';
-import ArchitecturalDesign from './components/ArchitecturalDesign';
+import CustomerReviews from './components/CustomerReviews';
 import ExplodedPlotView from './components/ExplodedPlotView';
 import NRIInvestmentSection from './components/NRIInvestmentSection';
 import HeronIntroSection from './components/HeronIntroSection';
@@ -28,19 +28,18 @@ export default function Home() {
         <HeronIntroSection />
       </section>
 
-      {/* 3. Architectural Design Section — Why BlueMoon */}
+      {/* 3. Customer Reviews Section — Auto Scrolling Left to Right (Replacing bluemoon // core 02) */}
       <section 
-        id="why-us"
-        ref={heritageRef}
+        id="reviews"
         style={{ 
           position: 'relative', 
           zIndex: 10, 
           marginTop: '-2px',
-          overflow: 'visible',
+          overflow: 'hidden',
           backgroundColor: '#FFFFFF',
         }}
       >
-        <ArchitecturalDesign />
+        <CustomerReviews />
       </section>
 
       {/* 4. Billion Dollar Property Showcase (Sticky Scroll Parallax) */}
@@ -57,7 +56,7 @@ export default function Home() {
       <NRIInvestmentSection />
 
       {/* 6. Brochure Download Section (Billion Dollar Design) */}
-      <section style={{ padding: '5rem 5% 10rem 5%', backgroundColor: 'var(--dark-bg)', position: 'relative' }}>
+      <section style={{ padding: 'clamp(3rem, 6vw, 5rem) 4% clamp(4rem, 8vw, 10rem) 4%', backgroundColor: 'var(--dark-bg)', position: 'relative' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto', position: 'relative', borderRadius: '30px', overflow: 'hidden', boxShadow: '0 40px 100px rgba(0, 0, 0, 0.5)' }}>
           {/* Background Image Parallax effect */}
           <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
@@ -72,13 +71,13 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1, ease: premiumEase }}
-              style={{ flex: '1 1 500px', padding: '6rem 4rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
+              style={{ flex: '1 1 min(100%, 500px)', padding: 'clamp(2.5rem, 5vw, 6rem) clamp(1.4rem, 4vw, 4rem)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
             >
-              <h2 style={{ fontSize: 'clamp(2.5rem, 4vw, 4rem)', color: '#fff', fontFamily: 'var(--font-heading)', marginBottom: '1.5rem', lineHeight: 1.1 }}>
+              <h2 style={{ fontSize: 'clamp(2rem, 4vw, 4rem)', color: '#fff', fontFamily: 'var(--font-heading)', marginBottom: '1.5rem', lineHeight: 1.1 }}>
                 Download Our Corporate Brochure
               </h2>
               <div style={{ width: '60px', height: '2px', backgroundColor: 'var(--sky-blue)', marginBottom: '2rem' }}></div>
-              <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '3rem' }}>
+              <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '2.5rem' }}>
                 Discover our legacy of trust. Explore an exclusive portfolio of premium residential and commercial opportunities, detailed floor plans, and investment insights in our comprehensive digital brochure.
               </p>
               
@@ -92,12 +91,12 @@ export default function Home() {
                   gap: '15px',
                   backgroundColor: 'var(--premium-red)',
                   color: '#fff',
-                  padding: '1.2rem 2.5rem',
+                  padding: '1.1rem 2.2rem',
                   borderRadius: '50px',
                   textTransform: 'uppercase',
                   letterSpacing: '2px',
                   fontFamily: 'var(--font-heading)',
-                  fontSize: '0.9rem',
+                  fontSize: '0.88rem',
                   fontWeight: 'bold',
                   boxShadow: '0 10px 30px rgba(210, 20, 58, 0.3)',
                   transition: 'all 0.4s ease',
@@ -112,7 +111,7 @@ export default function Home() {
               </a>
             </motion.div>
             
-            <div style={{ flex: '1 1 400px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '4rem' }}>
+            <div style={{ flex: '1 1 min(100%, 380px)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 'clamp(2rem, 4vw, 4rem)' }}>
               <motion.div 
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}

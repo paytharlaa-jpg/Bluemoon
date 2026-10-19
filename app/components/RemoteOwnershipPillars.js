@@ -133,7 +133,7 @@ function PillarCard({ pillar, index, shouldReduceMotion }) {
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
         borderRadius: '24px',
-        padding: '2.4rem 2rem',
+        padding: 'clamp(1.6rem, 3.5vw, 2.4rem) clamp(1.2rem, 3vw, 2rem)',
         border: isHovered
           ? `1px solid rgba(18, 164, 220, 0.65)`
           : `1px solid rgba(38, 54, 111, 0.12)`,
@@ -407,7 +407,7 @@ export default function RemoteOwnershipPillars({ className = '' }) {
           position: 'relative',
           backgroundColor: '#FFFFFF',
           borderRadius: '36px',
-          padding: 'clamp(3rem, 6vw, 6rem) clamp(1.5rem, 4vw, 4rem)',
+          padding: 'clamp(2rem, 5vw, 6rem) clamp(1rem, 3.5vw, 4rem)',
           overflow: 'hidden',
           boxShadow: '0 30px 80px rgba(38, 54, 111, 0.06)',
           border: '1px solid rgba(38, 54, 111, 0.12)',
@@ -417,6 +417,7 @@ export default function RemoteOwnershipPillars({ className = '' }) {
         {!shouldReduceMotion && (
           <motion.div
             aria-hidden="true"
+            className="pillars-shutter-veil"
             initial={{ scaleY: 1, opacity: 0.95 }}
             whileInView={{ scaleY: 0, opacity: 0 }}
             viewport={{ once: true, amount: 0.1 }}

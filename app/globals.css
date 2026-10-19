@@ -786,28 +786,29 @@ a {
     min-height: auto !important;
   }
   .use-cases-left-pane {
-    border-right: none !important;
-    border-bottom: 1px solid rgba(38, 54, 111, 0.15) !important;
-    min-height: 300px !important;
-    padding: 24px 16px !important;
+    display: none !important;
+  }
+  .mobile-use-case-img {
+    display: block !important;
   }
   .use-cases-right-pane {
-    padding: 36px 18px 40px 18px !important;
+    padding: 30px 16px 36px 16px !important;
   }
   .use-cases-right-pane h2 {
-    font-size: clamp(1.75rem, 6vw, 2.2rem) !important;
+    font-size: clamp(1.6rem, 5.5vw, 2.1rem) !important;
   }
 
   /* Section 2: Heron Intro mobile adjustments */
   .heron-intro-image {
-    min-height: 380px !important;
-    padding: 24px 16px !important;
+    min-height: auto !important;
+    padding: 24px 14px !important;
   }
   .heron-building-stage {
-    max-width: 280px !important;
-    height: 360px !important;
-    aspect-ratio: auto !important;
-    margin: 24px auto 20px auto !important;
+    width: 100% !important;
+    max-width: 380px !important;
+    height: auto !important;
+    aspect-ratio: 4 / 3 !important;
+    margin: 18px auto 14px auto !important;
   }
   .heron-intro-statement {
     padding: 32px 18px 24px 18px !important;
@@ -836,6 +837,11 @@ a {
     font-size: 10px !important;
     letter-spacing: 0.5px !important;
     line-height: 1.5 !important;
+  }
+
+  /* Remote Ownership Pillars mobile adjustments */
+  .pillars-shutter-veil {
+    display: none !important;
   }
 }
 
@@ -881,6 +887,10 @@ a {
   }
   .header-upside-bar {
     font-size: 0.74rem !important;
+  }
+  #quick-enquiry-widget {
+    right: 14px !important;
+    bottom: 84px !important;
   }
 }
 

@@ -172,7 +172,7 @@ export default function Navbar() {
           >
             {/* Facebook */}
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/share/1QmfXQT6yF/?mibextid=wwXIfr"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
@@ -186,7 +186,7 @@ export default function Navbar() {
 
             {/* Instagram */}
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/bluemoon_properties?cplk=NWthemwzcDRoaHYy&utm_source=qr"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -200,7 +200,7 @@ export default function Navbar() {
 
             {/* LinkedIn */}
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/bluemoon-properties-b18b69382?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -214,7 +214,7 @@ export default function Navbar() {
 
             {/* YouTube */}
             <a
-              href="https://youtube.com"
+              href="https://youtube.com/@bluemoonpropertieshyd?si=N_5BdfCL8W4PFu8c"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="YouTube"
@@ -228,8 +228,13 @@ export default function Navbar() {
           </div>
 
           {/* Solid Red ENQUIRE NOW Button (Exact match from Screenshot) */}
-          <Link
-            href="/contact"
+          <button
+            type="button"
+            onClick={() => {
+              if (typeof window !== 'undefined') {
+                window.dispatchEvent(new CustomEvent('open-quick-enquiry'));
+              }
+            }}
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -245,13 +250,15 @@ export default function Navbar() {
               padding: '0 22px',
               minHeight: '38px',
               height: '38px',
+              border: 'none',
+              cursor: 'pointer',
               transition: 'all 0.25s ease',
               whiteSpace: 'nowrap',
             }}
             className="hover:brightness-110"
           >
             ENQUIRE NOW
-          </Link>
+          </button>
         </div>
       </div>
 
@@ -549,9 +556,14 @@ export default function Navbar() {
           </Link>
 
           {/* Quick Enquire button inside drawer */}
-          <Link
-            href="/contact"
-            onClick={() => setMenuOpen(false)}
+          <button
+            type="button"
+            onClick={() => {
+              setMenuOpen(false);
+              if (typeof window !== 'undefined') {
+                window.dispatchEvent(new CustomEvent('open-quick-enquiry'));
+              }
+            }}
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -567,10 +579,12 @@ export default function Navbar() {
               padding: '12px 20px',
               borderRadius: '4px',
               marginTop: '8px',
+              border: 'none',
+              cursor: 'pointer',
             }}
           >
             ENQUIRE NOW
-          </Link>
+          </button>
         </div>
       )}
     </header>
