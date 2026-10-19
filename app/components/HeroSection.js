@@ -55,8 +55,8 @@ export default function HeroSection() {
   const copyScale = useTransform(p, [0, 0.28], [1, 0.96]);
 
   // ── 4. Hero House: Stays elevated (little upside) at start, expands to FILL THE SCREEN on scroll ──
-  const desktopVillaY = useTransform(p, [0, 0.52, 1], ['44%', '0%', '-10%']);
-  const mobileVillaY = useTransform(p, [0, 0.52, 1], ['34%', '0%', '-12%']);
+  const desktopVillaY = useTransform(p, [0, 0.52, 1], ['50%', '0%', '-10%']);
+  const mobileVillaY = useTransform(p, [0, 0.52, 1], ['42%', '0%', '-12%']);
   const villaY = isMobile ? mobileVillaY : desktopVillaY;
 
   const desktopVillaScale = useTransform(p, [0, 0.52, 1], [0.95, 1.20, 1.28]);
@@ -195,7 +195,7 @@ export default function HeroSection() {
             alignItems: 'center',
             justifyContent: 'flex-start',
             textAlign: 'center',
-            paddingTop: isMobile ? 'clamp(92px, 12.8vh, 108px)' : 'clamp(7.8rem, 13.5vh, 10rem)',
+            paddingTop: isMobile ? 'clamp(124px, 17vh, 148px)' : 'clamp(9.8rem, 17vh, 12.5rem)',
             paddingLeft: '1.2rem',
             paddingRight: '1.2rem',
             pointerEvents: 'none',
