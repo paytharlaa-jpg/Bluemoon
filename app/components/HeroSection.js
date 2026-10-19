@@ -55,7 +55,7 @@ export default function HeroSection() {
   const copyScale = useTransform(p, [0, 0.28], [1, 0.96]);
 
   // ── 4. Hero House: Stays elevated (little upside) at start, expands to FILL THE SCREEN on scroll ──
-  const desktopVillaY = useTransform(p, [0, 0.52, 1], ['66%', '0%', '-10%']);
+  const desktopVillaY = useTransform(p, [0, 0.52, 1], ['74%', '0%', '-10%']);
   const mobileVillaY = useTransform(p, [0, 0.52, 1], ['34%', '0%', '-12%']);
   const villaY = isMobile ? mobileVillaY : desktopVillaY;
 
@@ -195,7 +195,7 @@ export default function HeroSection() {
             alignItems: 'center',
             justifyContent: 'flex-start',
             textAlign: 'center',
-            paddingTop: isMobile ? 'clamp(155px, 21vh, 185px)' : 'clamp(6.8rem, 11.5vh, 8.8rem)',
+            paddingTop: isMobile ? 'clamp(155px, 21vh, 185px)' : 'clamp(8.8rem, 14.5vh, 10.8rem)',
             paddingLeft: '1.2rem',
             paddingRight: '1.2rem',
             pointerEvents: 'none',
@@ -218,7 +218,7 @@ export default function HeroSection() {
               WebkitBackdropFilter: 'blur(20px)',
               border: '1.5px solid rgba(255, 255, 255, 0.95)',
               boxShadow: '0 12px 38px rgba(38, 54, 111, 0.1), 0 2px 8px rgba(0, 0, 0, 0.04)',
-              marginBottom: isMobile ? '0.45rem' : '1rem',
+              marginBottom: isMobile ? '0.45rem' : '0.65rem',
             }}
           >
             <span
@@ -275,7 +275,7 @@ export default function HeroSection() {
               style={{
                 fontFamily: 'var(--font-heading, "Trajan Pro Bold", "Cinzel", serif)',
                 fontWeight: 800,
-                fontSize: isMobile ? 'clamp(1.75rem, 6.2vw, 2.2rem)' : 'clamp(2.3rem, 5.5vw, 4.8rem)',
+                fontSize: isMobile ? 'clamp(1.75rem, 6.2vw, 2.2rem)' : 'clamp(2.1rem, 3.8vw, 3.7rem)',
                 lineHeight: 1.06,
                 letterSpacing: isMobile ? '1px' : 'clamp(1px, 0.35vw, 3px)',
                 color: '#222f80',
@@ -293,7 +293,7 @@ export default function HeroSection() {
               style={{
                 fontFamily: 'var(--font-heading, "Trajan Pro Bold", "Cinzel", serif)',
                 fontWeight: 700,
-                fontSize: isMobile ? 'clamp(1.65rem, 5.8vw, 2.05rem)' : 'clamp(2rem, 5vw, 4.2rem)',
+                fontSize: isMobile ? 'clamp(1.65rem, 5.8vw, 2.05rem)' : 'clamp(1.85rem, 3.3vw, 3.2rem)',
                 lineHeight: 1.08,
                 letterSpacing: isMobile ? '1px' : 'clamp(1px, 0.35vw, 3px)',
                 background: 'linear-gradient(135deg, #222f80 0%, #12A4DC 100%)',
@@ -318,7 +318,7 @@ export default function HeroSection() {
               justifyContent: 'center',
               gap: '12px',
               width: '180px',
-              margin: isMobile ? '0.35rem auto' : '0.85rem auto 0.75rem',
+              margin: isMobile ? '0.35rem auto' : '0.55rem auto 0.5rem',
             }}
           >
             <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(38, 54, 111, 0.3))' }} />
@@ -335,7 +335,7 @@ export default function HeroSection() {
               display: 'inline-flex',
               alignItems: 'center',
               justifyContent: 'center',
-              padding: isMobile ? '5px 18px' : '6px 24px',
+              padding: isMobile ? '5px 18px' : '5px 22px',
               borderRadius: '9999px',
               backgroundColor: 'rgba(255, 255, 255, 0.8)',
               backdropFilter: 'blur(16px)',
@@ -367,7 +367,7 @@ export default function HeroSection() {
             transition={{ duration: 0.85, delay: 0.85 }}
             style={{
               maxWidth: isMobile ? 'min(94%, 460px)' : '780px',
-              margin: isMobile ? '0.45rem auto 0 auto' : '0.75rem auto 0 auto',
+              margin: isMobile ? '0.45rem auto 0 auto' : '0.6rem auto 0 auto',
               padding: isMobile ? '7px 14px' : '9px 24px',
               borderRadius: '12px',
               backgroundColor: 'rgba(255, 255, 255, 0.72)',
