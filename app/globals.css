@@ -581,9 +581,9 @@ a {
 }
 
 @media (max-width: 768px) {
-  /* 1. Global Body & Root Safety */
+  /* 1. Global Body & Root Safety - Using clip to ensure position: sticky is never broken */
   html, body {
-    overflow-x: hidden !important;
+    overflow-x: clip !important;
     max-width: 100vw !important;
   }
 
@@ -898,6 +898,31 @@ a {
     right: 14px !important;
     bottom: 84px !important;
   }
+}
+
+/* Complete Portfolio Catalog Sticky Pinning on Mobile & Desktop */
+.catalog-pinned-section {
+  position: relative !important;
+  height: 560vh;
+  width: 100% !important;
+}
+
+@media (max-width: 768px) {
+  .catalog-pinned-section {
+    height: 380vh !important;
+  }
+}
+
+.catalog-sticky-viewport {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0 !important;
+  left: 0 !important;
+  height: 100vh !important;
+  height: 100svh !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  z-index: 25 !important;
 }
 
 /* ══════════════════════════════════════════════════════════════════════════

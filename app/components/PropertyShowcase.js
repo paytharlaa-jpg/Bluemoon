@@ -1179,12 +1179,14 @@ function MobileHorizontalScrollCatalog({ collections, brand, smoothCatalogScroll
     }
   }, []);
 
-  // Update active card index (0 to 4) based on scroll progress
+  // Update active card index (0 to 4) based on scroll progress with dwell plateau
   useEffect(() => {
     const unsubscribe = smoothCatalogScroll.on('change', (latest) => {
       const val = typeof latest === 'number' && !isNaN(latest) ? latest : 0;
       const clamped = Math.max(0, Math.min(val, 0.9999));
-      const idx = Math.min(4, Math.floor(clamped * 5));
+      // Map 0 to 0.85 to cards 0 to 4 so Card 4 stays dwelling comfortably from 0.70 to 1.0
+      const normalized = Math.min(1, clamped / 0.85);
+      const idx = Math.min(4, Math.floor(normalized * 5));
       setActiveCardIdx(idx);
     });
     return () => unsubscribe();
@@ -1194,10 +1196,10 @@ function MobileHorizontalScrollCatalog({ collections, brand, smoothCatalogScroll
   const cardGap = 16;
   const totalShift = 4 * (cardWidth + cardGap);
 
-  // Smooth horizontal slide from right to left:
-  // At progress = 0, track is at 0px (Card 0 centered)
-  // At progress = 1, track is at -totalShift (Card 4 centered)
-  const trackX = useTransform(smoothCatalogScroll, [0, 1], [0, -totalShift]);
+  // Smooth horizontal slide from right to left with dwell plateau for Card 5:
+  // From 0 to 0.85: slides smoothly from Card 0 to Card 4
+  // From 0.85 to 1.0: stays locked on Card 4 waiting so user can comfortably read it before unpinning!
+  const trackX = useTransform(smoothCatalogScroll, [0, 0.85, 1], [0, -totalShift, -totalShift]);
 
   const activeItem = collections[activeCardIdx] || collections[0];
 
@@ -2177,20 +2179,15 @@ export default function PropertyShowcase() {
       <div
         ref={catalogSectionRef}
         id="complete-portfolio-catalog"
+        className="catalog-pinned-section"
         style={{
-          position: 'relative',
-          height: isMobile ? '380vh' : '560vh', // Mobile: 380vh runway for 5 horizontal cards; Desktop: 560vh runway
           backgroundColor: BRAND.white,
           padding: 0,
         }}
       >
         <div
+          className="catalog-sticky-viewport"
           style={{
-            position: 'sticky',
-            top: 0,
-            height: isMobile ? '100svh' : '100vh',
-            width: '100%',
-            overflow: 'hidden',
             backgroundColor: BRAND.white,
             display: 'flex',
             flexDirection: 'column',
