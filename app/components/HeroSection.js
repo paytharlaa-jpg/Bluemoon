@@ -42,28 +42,28 @@ export default function HeroSection() {
   const midCloudY = useTransform(p, [0, 0.6, 1], ['0%', '-15%', '-30%']);
   const midCloudOpacity = useTransform(p, [0, 0.65, 0.85], [0.75, 0.65, 0]);
 
-  // ── 3. Headline & Branding Copy ──
-  // Fades and slides gently upwards as the hero house ascends
-  const desktopCopyY = useTransform(p, [0, 0.35], ['0%', '-45%']);
-  const mobileCopyY = useTransform(p, [0, 0.38], ['0%', '-30%']);
+  // ── 3. Headline, Branding & Trust Dossier Copy ──
+  // Fades and slides gently upwards to reveal the expanding hero estate
+  const desktopCopyY = useTransform(p, [0, 0.28], ['0%', '-30%']);
+  const mobileCopyY = useTransform(p, [0, 0.24], ['0%', '-20%']);
   const copyY = isMobile ? mobileCopyY : desktopCopyY;
 
-  const desktopCopyOpacity = useTransform(p, [0, 0.24], [1, 0]);
-  const mobileCopyOpacity = useTransform(p, [0, 0.28], [1, 0]);
+  const desktopCopyOpacity = useTransform(p, [0, 0.20], [1, 0]);
+  const mobileCopyOpacity = useTransform(p, [0, 0.16], [1, 0]);
   const copyOpacity = isMobile ? mobileCopyOpacity : desktopCopyOpacity;
 
-  const copyScale = useTransform(p, [0, 0.35], [1, 0.95]);
+  const copyScale = useTransform(p, [0, 0.28], [1, 0.96]);
 
-  // ── 4. Hero House: Ascends gracefully into the hero section on scroll (both mobile & desktop) ──
-  const desktopVillaY = useTransform(p, [0, 0.52, 1], ['68%', '0%', '-8%']);
-  const mobileVillaY = useTransform(p, [0, 0.52, 1], ['76%', '0%', '-8%']);
+  // ── 4. Hero House: Stays elevated (little upside) at start, expands to FILL THE SCREEN on scroll ──
+  const desktopVillaY = useTransform(p, [0, 0.52, 1], ['44%', '0%', '-10%']);
+  const mobileVillaY = useTransform(p, [0, 0.52, 1], ['34%', '0%', '-12%']);
   const villaY = isMobile ? mobileVillaY : desktopVillaY;
 
-  const desktopVillaScale = useTransform(p, [0, 0.52, 1], [0.86, 1.06, 1.14]);
-  const mobileVillaScale = useTransform(p, [0, 0.52, 1], [0.90, 1.06, 1.12]);
+  const desktopVillaScale = useTransform(p, [0, 0.52, 1], [0.95, 1.20, 1.28]);
+  const mobileVillaScale = useTransform(p, [0, 0.52, 1], [1.00, 1.25, 1.35]);
   const villaScale = isMobile ? mobileVillaScale : desktopVillaScale;
 
-  const villaOpacity = useTransform(p, [0, 0.82, 0.96], [1, 1, 0.3]);
+  const villaOpacity = useTransform(p, [0, 0.88, 0.98], [1, 1, 0.2]);
 
   // ── 5. Downside Clouds: Rise from the bottom and COVER the hero section ──
   const backCloudY = useTransform(p, [0.38, 0.78, 1], ['115%', '10%', '-50%']);
@@ -181,7 +181,7 @@ export default function HeroSection() {
           </div>
         </motion.div>
 
-        {/* ── Layer 3: Hero Headline & Branding (Centered in the middle of the screen on mobile) ── */}
+        {/* ── Layer 3: Hero Headline, Branding & Trust Dossier (Moved slightly upside with full breathing room) ── */}
         <motion.div
           style={{
             position: 'absolute',
@@ -193,10 +193,9 @@ export default function HeroSection() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            justifyContent: isMobile ? 'center' : 'flex-start',
+            justifyContent: 'flex-start',
             textAlign: 'center',
-            paddingTop: isMobile ? '0' : 'clamp(9.8rem, 17.5vh, 12.8rem)',
-            paddingBottom: isMobile ? '4vh' : '0',
+            paddingTop: isMobile ? 'clamp(74px, 10.5vh, 88px)' : 'clamp(6.8rem, 11.5vh, 8.8rem)',
             paddingLeft: '1.2rem',
             paddingRight: '1.2rem',
             pointerEvents: 'none',
@@ -360,6 +359,39 @@ export default function HeroSection() {
               OUR IDENTITY IS YOUR TRUST
             </p>
           </motion.div>
+
+          {/* 5. Legal & Regulatory Compliance Dossier Pill */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, delay: 0.85 }}
+            style={{
+              maxWidth: isMobile ? 'min(94%, 460px)' : '780px',
+              margin: isMobile ? '0.45rem auto 0 auto' : '0.75rem auto 0 auto',
+              padding: isMobile ? '7px 14px' : '9px 24px',
+              borderRadius: '12px',
+              backgroundColor: 'rgba(255, 255, 255, 0.72)',
+              backdropFilter: 'blur(16px)',
+              WebkitBackdropFilter: 'blur(16px)',
+              border: '1px solid rgba(255, 255, 255, 0.9)',
+              boxShadow: '0 4px 20px rgba(38, 54, 111, 0.06)',
+            }}
+          >
+            <p
+              style={{
+                fontFamily: 'var(--font-body, "Plus Jakarta Sans", sans-serif)',
+                fontSize: isMobile ? 'clamp(0.68rem, 2.35vw, 0.76rem)' : 'clamp(0.8rem, 0.95vw, 0.92rem)',
+                fontWeight: 600,
+                lineHeight: 1.42,
+                color: '#222f80',
+                margin: 0,
+                textAlign: 'center',
+                letterSpacing: '0.2px',
+              }}
+            >
+              At BlueMoon Properties, we deal exclusively in HMDA-approved and RERA-registered projects, along with legally verified properties that are free from known litigation and legal disputes in Hyderabad. Our commitment is to transparency, legal compliance, and trustworthy real estate transactions.
+            </p>
+          </motion.div>
         </motion.div>
 
         {/* ── Layer 4: The Hero House (Stays down at start, rises into center on scroll) ── */}
@@ -383,7 +415,7 @@ export default function HeroSection() {
             style={{
               display: 'block',
               margin: '0 auto',
-              width: isMobile ? 'min(440px, 94%)' : 'min(1500px, 126%)',
+              width: isMobile ? 'min(520px, 98%)' : 'min(1550px, 128%)',
               maxWidth: 'none',
               filter: 'drop-shadow(0 20px 50px rgba(0, 0, 0, 0.28))',
             }}
