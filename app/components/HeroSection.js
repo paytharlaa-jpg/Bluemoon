@@ -55,8 +55,8 @@ export default function HeroSection() {
   const copyScale = useTransform(p, [0, 0.35], [1, 0.95]);
 
   // ── 4. Hero House: Ascends gracefully into the hero section on scroll (both mobile & desktop) ──
-  const desktopVillaY = useTransform(p, [0, 0.52, 1], ['65%', '0%', '-8%']);
-  const mobileVillaY = useTransform(p, [0, 0.52, 1], ['52%', '0%', '-8%']);
+  const desktopVillaY = useTransform(p, [0, 0.52, 1], ['68%', '0%', '-8%']);
+  const mobileVillaY = useTransform(p, [0, 0.52, 1], ['58%', '0%', '-8%']);
   const villaY = isMobile ? mobileVillaY : desktopVillaY;
 
   const desktopVillaScale = useTransform(p, [0, 0.52, 1], [0.86, 1.06, 1.14]);
@@ -85,7 +85,7 @@ export default function HeroSection() {
         position: 'relative',
         width: '100%',
         height: isMobile ? '240vh' : '300vh', // Mobile: 240vh smooth scroll runway; Desktop: 300vh cinematic runway
-        backgroundColor: '#e6f3fa',
+        backgroundColor: '#cde7f8',
       }}
     >
       {/* Pinned Viewport Container (Sticky on both mobile & desktop) */}
@@ -97,13 +97,11 @@ export default function HeroSection() {
           height: isMobile ? '100svh' : '100vh',
           width: '100%',
           overflow: 'hidden',
-          backgroundColor: '#d8ebf7',
+          background: 'linear-gradient(180deg, #cde7f8 0%, #d8ebf9 35%, #ebf5fc 70%, #ffffff 100%)',
         }}
       >
         {/* ── Layer 1: Sky & Atmospheric Gradient ── */}
         <motion.div
-          style={{ y: skyY, scale: skyScale }}
-          className="absolute inset-0"
           style={{
             position: 'absolute',
             inset: 0,
@@ -119,21 +117,22 @@ export default function HeroSection() {
               width: '100%',
               height: '100%',
               objectFit: 'cover',
-              objectPosition: 'center 30%',
+              objectPosition: isMobile ? 'center 12%' : 'center 22%',
               display: 'block',
             }}
           />
+          {/* Subtle atmospheric radiance that preserves the radiant blue sky while ensuring pristine contrast */}
           <div
             style={{
               position: 'absolute',
               inset: 0,
-              background: 'linear-gradient(to bottom, rgba(255,255,255,0.3) 0%, rgba(216, 235, 247, 0.1) 40%, rgba(255, 255, 255, 0.6) 85%, #FFFFFF 100%)',
+              background: 'linear-gradient(to bottom, rgba(255,255,255,0.06) 0%, rgba(216, 235, 247, 0.04) 40%, rgba(255, 255, 255, 0.45) 80%, #FFFFFF 100%)',
               pointerEvents: 'none',
             }}
           />
         </motion.div>
 
-        {/* ── Layer 2: Moving Clouds in the Hero Section (Horizontal Drift) ── */}
+        {/* ── Layer 2: Moving Clouds in the Hero Section (Horizontal Drift below the headlines) ── */}
         <motion.div
           style={{
             position: 'absolute',
@@ -144,37 +143,37 @@ export default function HeroSection() {
             opacity: midCloudOpacity,
           }}
         >
-          {/* Upper drifting cloud band */}
-          <div style={{ position: 'absolute', left: 0, right: 0, top: '10vh' }}>
+          {/* Upper drifting cloud band — safely positioned below the headline for crystal-clear legibility */}
+          <div style={{ position: 'absolute', left: 0, right: 0, top: isMobile ? '36vh' : '32vh' }}>
             <img
               src={ASSETS.cloudStrip}
               alt=""
               loading="lazy"
               className="animate-cloud-drift"
               style={{
-                '--drift-duration': '34s',
+                '--drift-duration': '38s',
                 width: '160%',
                 marginLeft: '-30%',
                 maxWidth: 'none',
-                opacity: 0.65,
+                opacity: 0.38,
                 filter: 'blur(0.5px)',
               }}
             />
           </div>
 
-          {/* Mid-altitude drifting cloud band (flipped horizontal for natural variance) */}
-          <div style={{ position: 'absolute', left: 0, right: 0, top: '44vh' }}>
+          {/* Mid-altitude drifting cloud band */}
+          <div style={{ position: 'absolute', left: 0, right: 0, top: isMobile ? '52vh' : '48vh' }}>
             <img
               src={ASSETS.cloudStrip}
               alt=""
               loading="lazy"
               className="animate-cloud-drift"
               style={{
-                '--drift-duration': '48s',
+                '--drift-duration': '52s',
                 width: '190%',
                 marginLeft: '-45%',
                 maxWidth: 'none',
-                opacity: 0.45,
+                opacity: 0.35,
                 transform: 'scaleX(-1)',
               }}
             />
@@ -194,7 +193,7 @@ export default function HeroSection() {
             alignItems: 'center',
             justifyContent: 'center',
             textAlign: 'center',
-            paddingTop: isMobile ? '82px' : 'clamp(8rem, 13.5vh, 10.5rem)',
+            paddingTop: isMobile ? 'clamp(115px, 16vh, 136px)' : 'clamp(9.8rem, 17.5vh, 12.8rem)',
             paddingLeft: '1.2rem',
             paddingRight: '1.2rem',
             pointerEvents: 'none',
