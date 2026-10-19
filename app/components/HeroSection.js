@@ -56,11 +56,11 @@ export default function HeroSection() {
 
   // ── 4. Hero House: Ascends gracefully into the hero section on scroll (both mobile & desktop) ──
   const desktopVillaY = useTransform(p, [0, 0.52, 1], ['68%', '0%', '-8%']);
-  const mobileVillaY = useTransform(p, [0, 0.52, 1], ['58%', '0%', '-8%']);
+  const mobileVillaY = useTransform(p, [0, 0.52, 1], ['76%', '0%', '-8%']);
   const villaY = isMobile ? mobileVillaY : desktopVillaY;
 
   const desktopVillaScale = useTransform(p, [0, 0.52, 1], [0.86, 1.06, 1.14]);
-  const mobileVillaScale = useTransform(p, [0, 0.52, 1], [0.92, 1.06, 1.12]);
+  const mobileVillaScale = useTransform(p, [0, 0.52, 1], [0.90, 1.06, 1.12]);
   const villaScale = isMobile ? mobileVillaScale : desktopVillaScale;
 
   const villaOpacity = useTransform(p, [0, 0.82, 0.96], [1, 1, 0.3]);
@@ -132,7 +132,7 @@ export default function HeroSection() {
           />
         </motion.div>
 
-        {/* ── Layer 2: Moving Clouds in the Hero Section (Horizontal Drift below the headlines) ── */}
+        {/* ── Layer 2: Moving Clouds in the Hero Section (Desktop only to prevent multi-image background glitch on mobile) ── */}
         <motion.div
           style={{
             position: 'absolute',
@@ -140,11 +140,12 @@ export default function HeroSection() {
             zIndex: 5,
             pointerEvents: 'none',
             y: midCloudY,
-            opacity: midCloudOpacity,
+            opacity: isMobile ? 0 : midCloudOpacity,
+            display: isMobile ? 'none' : 'block',
           }}
         >
-          {/* Upper drifting cloud band — safely positioned below the headline for crystal-clear legibility */}
-          <div style={{ position: 'absolute', left: 0, right: 0, top: isMobile ? '36vh' : '32vh' }}>
+          {/* Upper drifting cloud band */}
+          <div style={{ position: 'absolute', left: 0, right: 0, top: '32vh' }}>
             <img
               src={ASSETS.cloudStrip}
               alt=""
@@ -162,7 +163,7 @@ export default function HeroSection() {
           </div>
 
           {/* Mid-altitude drifting cloud band */}
-          <div style={{ position: 'absolute', left: 0, right: 0, top: isMobile ? '52vh' : '48vh' }}>
+          <div style={{ position: 'absolute', left: 0, right: 0, top: '48vh' }}>
             <img
               src={ASSETS.cloudStrip}
               alt=""
@@ -180,10 +181,11 @@ export default function HeroSection() {
           </div>
         </motion.div>
 
-        {/* ── Layer 3: Hero Headline & Branding ── */}
+        {/* ── Layer 3: Hero Headline & Branding (Centered in the middle of the screen on mobile) ── */}
         <motion.div
           style={{
-            position: 'relative',
+            position: 'absolute',
+            inset: 0,
             zIndex: 15,
             y: copyY,
             opacity: copyOpacity,
@@ -191,9 +193,10 @@ export default function HeroSection() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            justifyContent: 'center',
+            justifyContent: isMobile ? 'center' : 'flex-start',
             textAlign: 'center',
-            paddingTop: isMobile ? 'clamp(115px, 16vh, 136px)' : 'clamp(9.8rem, 17.5vh, 12.8rem)',
+            paddingTop: isMobile ? '0' : 'clamp(9.8rem, 17.5vh, 12.8rem)',
+            paddingBottom: isMobile ? '4vh' : '0',
             paddingLeft: '1.2rem',
             paddingRight: '1.2rem',
             pointerEvents: 'none',
@@ -388,7 +391,7 @@ export default function HeroSection() {
         </motion.div>
 
         {/* ── Layer 5: Downside Clouds (Cover the hero section completely as you scroll more on desktop) ── */}
-        {/* 5A: Back rising cloud mist */}
+        {/* 5A: Back rising cloud mist (desktop only to prevent multi-image background glitch on mobile) */}
         <motion.div
           style={{
             position: 'absolute',
@@ -397,7 +400,8 @@ export default function HeroSection() {
             bottom: '-12vh',
             zIndex: 25,
             y: backCloudY,
-            opacity: backCloudOpacity,
+            opacity: isMobile ? 0 : backCloudOpacity,
+            display: isMobile ? 'none' : 'block',
             pointerEvents: 'none',
             transformOrigin: 'bottom center',
           }}
