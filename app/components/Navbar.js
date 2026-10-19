@@ -577,14 +577,48 @@ export default function Navbar() {
               textTransform: 'uppercase',
               textDecoration: 'none',
               padding: '12px 20px',
-              borderRadius: '4px',
-              marginTop: '8px',
+              borderRadius: '6px',
+              marginTop: '4px',
               border: 'none',
               cursor: 'pointer',
+              boxShadow: '0 4px 14px rgba(210, 20, 58, 0.4)',
             }}
           >
             ENQUIRE NOW
           </button>
+
+          {/* Direct Phone Call Button */}
+          <a
+            href="tel:+919849442929"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px',
+              backgroundColor: '#0088CC',
+              color: '#FFFFFF',
+              fontFamily: 'var(--font-body)',
+              fontSize: '0.85rem',
+              fontWeight: 700,
+              textDecoration: 'none',
+              padding: '11px 18px',
+              borderRadius: '6px',
+            }}
+          >
+            <Phone size={15} />
+            <span>+91 9849 44 2929</span>
+          </a>
+
+          {/* Location & Secondary Phone */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '6px', fontSize: '0.78rem', color: 'rgba(255, 255, 255, 0.7)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <MapPin size={13} color="#0088CC" />
+              <span>Kompally, Hyderabad</span>
+            </div>
+            <a href="tel:+919553442929" style={{ color: 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', paddingLeft: '19px' }}>
+              Alt: +91 9553 44 2929
+            </a>
+          </div>
         </div>
       )}
     </header>

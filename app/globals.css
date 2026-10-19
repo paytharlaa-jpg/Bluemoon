@@ -881,12 +881,18 @@ a {
   }
 }
 
-@media (max-width: 600px) {
-  .header-upside-socials {
+@media (max-width: 768px) {
+  /* On mobile phones, hide the upside bar completely so the header is a sleek, crisp single 62px bar */
+  .header-upside-bar {
     display: none !important;
   }
-  .header-upside-bar {
-    font-size: 0.74rem !important;
+  #bluemoon-global-header nav {
+    height: 62px !important;
+    min-height: 62px !important;
+    padding: 0 16px !important;
+  }
+  #bluemoon-global-header nav img {
+    height: 42px !important;
   }
   #quick-enquiry-widget {
     right: 14px !important;

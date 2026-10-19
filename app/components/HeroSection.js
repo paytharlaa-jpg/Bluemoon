@@ -44,31 +44,25 @@ export default function HeroSection() {
 
   // ── 3. Headline & Branding Copy ──
   // Desktop: Fades as house ascends
-  // Mobile: Stays visible longer (never leaves an empty void)
+  // Mobile: Stays visible with crisp natural readability
   const desktopCopyY = useTransform(p, [0, 0.35], ['0%', '-45%']);
-  const mobileCopyY = useTransform(p, [0, 0.55], ['0%', '-25%']);
-  const copyY = isMobile ? mobileCopyY : desktopCopyY;
+  const copyY = isMobile ? '0%' : desktopCopyY;
 
   const desktopCopyOpacity = useTransform(p, [0, 0.24], [1, 0]);
-  const mobileCopyOpacity = useTransform(p, [0, 0.65], [1, 0.1]);
-  const copyOpacity = isMobile ? mobileCopyOpacity : desktopCopyOpacity;
+  const copyOpacity = isMobile ? 1 : desktopCopyOpacity;
 
   const copyScale = useTransform(p, [0, 0.35], [1, 0.95]);
 
-  // ── 4. Hero House: Visible immediately on mobile, ascends on desktop ──
-  // Desktop: at p=0 bottom (65%), rises to center at 0.52
-  // Mobile: at p=0 fully grounded and centered (0%), ascends smoothly without dead space
+  // ── 4. Hero House: Grounded and centered on mobile, ascends on desktop ──
   const desktopVillaY = useTransform(p, [0, 0.52, 1], ['65%', '0%', '-8%']);
-  const mobileVillaY = useTransform(p, [0, 0.45, 1], ['0%', '-3%', '-6%']);
-  const villaY = isMobile ? mobileVillaY : desktopVillaY;
+  const villaY = isMobile ? '0%' : desktopVillaY;
 
   const desktopVillaScale = useTransform(p, [0, 0.52, 1], [0.86, 1.06, 1.14]);
-  const mobileVillaScale = useTransform(p, [0, 0.45, 1], [0.98, 1.06, 1.1]);
-  const villaScale = isMobile ? mobileVillaScale : desktopVillaScale;
+  const villaScale = isMobile ? 1 : desktopVillaScale;
 
   const villaOpacity = useTransform(p, [0, 0.82, 0.96], [1, 1, 0.3]);
 
-  // ── 5. Downside Clouds: Rise from the bottom and COVER the hero section ──
+  // ── 5. Downside Clouds: Rise from the bottom and COVER the hero section on desktop ──
   const backCloudY = useTransform(p, [0.38, 0.78, 1], ['115%', '10%', '-50%']);
   const backCloudOpacity = useTransform(p, [0.38, 0.55, 1], [0.25, 0.85, 1]);
 
@@ -76,8 +70,8 @@ export default function HeroSection() {
   const frontCloudScale = useTransform(p, [0.42, 0.82, 1], [1.02, 1.25, 1.45]);
   const frontCloudOpacity = useTransform(p, [0.42, 0.58, 1], [0.4, 0.95, 1]);
 
-  // Final 100% pure white seamless hand-off veil into Section 2
-  const veilOpacity = useTransform(p, isMobile ? [0.92, 0.99] : [0.88, 0.98], [0, 1]);
+  // Final 100% pure white seamless hand-off veil into Section 2 (desktop)
+  const veilOpacity = useTransform(p, [0.88, 0.98], [0, 1]);
 
   return (
     <section
@@ -87,14 +81,14 @@ export default function HeroSection() {
       style={{
         position: 'relative',
         width: '100%',
-        height: isMobile ? '120vh' : '300vh', // Responsive scroll runway: 120vh on mobile eliminates empty scrolling
+        height: isMobile ? '100svh' : '300vh', // Mobile: 100svh natural view; Desktop: 300vh cinematic runway
         backgroundColor: '#e6f3fa',
       }}
     >
-      {/* Pinned Viewport Container (Sticks to top during the entire scroll progress) */}
+      {/* Pinned Viewport Container (Sticky on desktop, natural smooth scroll on mobile) */}
       <div
         style={{
-          position: 'sticky',
+          position: isMobile ? 'relative' : 'sticky',
           top: 0,
           left: 0,
           height: isMobile ? '100svh' : '100vh',
@@ -197,7 +191,7 @@ export default function HeroSection() {
             alignItems: 'center',
             justifyContent: 'center',
             textAlign: 'center',
-            paddingTop: isMobile ? 'clamp(5.2rem, 10vh, 6.5rem)' : 'clamp(8rem, 13.5vh, 10.5rem)',
+            paddingTop: isMobile ? '82px' : 'clamp(8rem, 13.5vh, 10.5rem)',
             paddingLeft: '1.2rem',
             paddingRight: '1.2rem',
             pointerEvents: 'none',
@@ -212,23 +206,23 @@ export default function HeroSection() {
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '14px',
-              padding: '11px 30px',
+              gap: isMobile ? '8px' : '14px',
+              padding: isMobile ? '7px 18px' : '11px 30px',
               borderRadius: '9999px',
-              backgroundColor: 'rgba(255, 255, 255, 0.86)',
+              backgroundColor: 'rgba(255, 255, 255, 0.88)',
               backdropFilter: 'blur(20px)',
               WebkitBackdropFilter: 'blur(20px)',
               border: '1.5px solid rgba(255, 255, 255, 0.95)',
               boxShadow: '0 12px 38px rgba(38, 54, 111, 0.1), 0 2px 8px rgba(0, 0, 0, 0.04)',
-              marginBottom: '1rem',
+              marginBottom: isMobile ? '0.45rem' : '1rem',
             }}
           >
             <span
               style={{
                 fontFamily: 'var(--font-heading, "Trajan Pro Bold", "Cinzel", serif)',
-                fontSize: 'clamp(0.92rem, 1.25vw, 1.14rem)',
+                fontSize: isMobile ? 'clamp(0.78rem, 2.8vw, 0.95rem)' : 'clamp(0.92rem, 1.25vw, 1.14rem)',
                 fontWeight: 800,
-                letterSpacing: '0.24em',
+                letterSpacing: isMobile ? '0.14em' : '0.24em',
                 color: '#222f80',
                 textTransform: 'uppercase',
               }}
@@ -247,9 +241,9 @@ export default function HeroSection() {
             <span
               style={{
                 fontFamily: 'var(--font-body, "Plus Jakarta Sans", sans-serif)',
-                fontSize: 'clamp(0.85rem, 1.1vw, 1.02rem)',
+                fontSize: isMobile ? 'clamp(0.74rem, 2.5vw, 0.88rem)' : 'clamp(0.85rem, 1.1vw, 1.02rem)',
                 fontWeight: 700,
-                letterSpacing: '0.22em',
+                letterSpacing: isMobile ? '0.14em' : '0.22em',
                 color: '#12A4DC',
                 textTransform: 'uppercase',
               }}
@@ -277,9 +271,9 @@ export default function HeroSection() {
               style={{
                 fontFamily: 'var(--font-heading, "Trajan Pro Bold", "Cinzel", serif)',
                 fontWeight: 800,
-                fontSize: 'clamp(2.3rem, 5.5vw, 4.8rem)',
+                fontSize: isMobile ? 'clamp(1.75rem, 6.2vw, 2.2rem)' : 'clamp(2.3rem, 5.5vw, 4.8rem)',
                 lineHeight: 1.06,
-                letterSpacing: 'clamp(1px, 0.35vw, 3px)',
+                letterSpacing: isMobile ? '1px' : 'clamp(1px, 0.35vw, 3px)',
                 color: '#222f80',
                 margin: 0,
                 textShadow: '0 4px 30px rgba(255, 255, 255, 0.92), 0 2px 10px rgba(38, 54, 111, 0.12)',
@@ -295,9 +289,9 @@ export default function HeroSection() {
               style={{
                 fontFamily: 'var(--font-heading, "Trajan Pro Bold", "Cinzel", serif)',
                 fontWeight: 700,
-                fontSize: 'clamp(2rem, 5vw, 4.2rem)',
+                fontSize: isMobile ? 'clamp(1.65rem, 5.8vw, 2.05rem)' : 'clamp(2rem, 5vw, 4.2rem)',
                 lineHeight: 1.08,
-                letterSpacing: 'clamp(1px, 0.35vw, 3px)',
+                letterSpacing: isMobile ? '1px' : 'clamp(1px, 0.35vw, 3px)',
                 background: 'linear-gradient(135deg, #222f80 0%, #12A4DC 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
@@ -320,7 +314,7 @@ export default function HeroSection() {
               justifyContent: 'center',
               gap: '12px',
               width: '180px',
-              margin: '0.85rem auto 0.75rem',
+              margin: isMobile ? '0.35rem auto' : '0.85rem auto 0.75rem',
             }}
           >
             <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(38, 54, 111, 0.3))' }} />
@@ -337,7 +331,7 @@ export default function HeroSection() {
               display: 'inline-flex',
               alignItems: 'center',
               justifyContent: 'center',
-              padding: '6px 24px',
+              padding: isMobile ? '5px 18px' : '6px 24px',
               borderRadius: '9999px',
               backgroundColor: 'rgba(255, 255, 255, 0.8)',
               backdropFilter: 'blur(16px)',
@@ -349,9 +343,9 @@ export default function HeroSection() {
             <p
               style={{
                 fontFamily: 'var(--font-heading, "Trajan Pro Bold", "Cinzel", serif)',
-                fontSize: 'clamp(0.82rem, 1.2vw, 1.12rem)',
+                fontSize: isMobile ? 'clamp(0.7rem, 2.5vw, 0.85rem)' : 'clamp(0.82rem, 1.2vw, 1.12rem)',
                 fontWeight: 800,
-                letterSpacing: 'clamp(3px, 0.6vw, 6px)',
+                letterSpacing: isMobile ? '2px' : 'clamp(3px, 0.6vw, 6px)',
                 color: '#222f80',
                 textTransform: 'uppercase',
                 margin: 0,
@@ -384,14 +378,14 @@ export default function HeroSection() {
             style={{
               display: 'block',
               margin: '0 auto',
-              width: isMobile ? 'min(600px, 108%)' : 'min(1500px, 126%)',
+              width: isMobile ? 'min(440px, 94%)' : 'min(1500px, 126%)',
               maxWidth: 'none',
               filter: 'drop-shadow(0 20px 50px rgba(0, 0, 0, 0.28))',
             }}
           />
         </motion.div>
 
-        {/* ── Layer 5: Downside Clouds (Cover the hero section completely as you scroll more) ── */}
+        {/* ── Layer 5: Downside Clouds (Cover the hero section completely as you scroll more on desktop) ── */}
         {/* 5A: Back rising cloud mist */}
         <motion.div
           style={{
@@ -401,7 +395,7 @@ export default function HeroSection() {
             bottom: '-12vh',
             zIndex: 25,
             y: backCloudY,
-            opacity: backCloudOpacity,
+            opacity: isMobile ? 0 : backCloudOpacity,
             pointerEvents: 'none',
             transformOrigin: 'bottom center',
           }}
@@ -432,7 +426,7 @@ export default function HeroSection() {
             zIndex: 30,
             y: frontCloudY,
             scale: frontCloudScale,
-            opacity: frontCloudOpacity,
+            opacity: isMobile ? 0 : frontCloudOpacity,
             pointerEvents: 'none',
             transformOrigin: 'bottom center',
           }}
@@ -465,7 +459,7 @@ export default function HeroSection() {
             inset: 0,
             zIndex: 40,
             backgroundColor: '#FFFFFF',
-            opacity: veilOpacity,
+            opacity: isMobile ? 0 : veilOpacity,
             pointerEvents: 'none',
           }}
         />

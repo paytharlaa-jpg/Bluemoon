@@ -1165,171 +1165,379 @@ function MobilePortfolioSection({ collections, brand, mobileCardIdx, setMobileCa
   );
 }
 
-// ─── Mobile Rotary Section 2 (Centered Glowing Card, Zero Blank Space) ──
-function MobileRotarySection({ collections, brand, safeRotaryItem, activeRotaryIndex, onPrev, onNext, onSelectIndex }) {
+// ─── Mobile Horizontal Scroll Section 2 (5 Cards Sliding Right to Left on Vertical Scroll) ──
+function MobileHorizontalScrollCatalog({ collections, brand, smoothCatalogScroll }) {
+  const [viewportWidth, setViewportWidth] = useState(390);
+  const [activeCardIdx, setActiveCardIdx] = useState(0);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setViewportWidth(window.innerWidth);
+      const handleResize = () => setViewportWidth(window.innerWidth);
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }
+  }, []);
+
+  // Update active card index (0 to 4) based on scroll progress
+  useEffect(() => {
+    const unsubscribe = smoothCatalogScroll.on('change', (latest) => {
+      const val = typeof latest === 'number' && !isNaN(latest) ? latest : 0;
+      const clamped = Math.max(0, Math.min(val, 0.9999));
+      const idx = Math.min(4, Math.floor(clamped * 5));
+      setActiveCardIdx(idx);
+    });
+    return () => unsubscribe();
+  }, [smoothCatalogScroll]);
+
+  const cardWidth = Math.min(310, Math.max(280, viewportWidth * 0.78));
+  const cardGap = 16;
+  const totalShift = 4 * (cardWidth + cardGap);
+
+  // Smooth horizontal slide from right to left:
+  // At progress = 0, track is at 0px (Card 0 centered)
+  // At progress = 1, track is at -totalShift (Card 4 centered)
+  const trackX = useTransform(smoothCatalogScroll, [0, 1], [0, -totalShift]);
+
+  const activeItem = collections[activeCardIdx] || collections[0];
+
   return (
-    <div style={{ width: '100%', maxWidth: '340px', margin: '1rem auto 0 auto', boxSizing: 'border-box' }}>
-      <div
-        style={{
-          position: 'relative',
-          width: '100%',
-          aspectRatio: '4 / 5.2',
-          borderRadius: '20px',
-          overflow: 'hidden',
-          backgroundColor: brand.white,
-          border: `2.5px solid ${brand.skyBlue}`,
-          boxShadow: '0 0 25px rgba(18, 164, 220, 0.6), 0 20px 45px rgba(38, 54, 111, 0.2)',
-        }}
-      >
-        <Image
-          src={safeRotaryItem.image}
-          alt={safeRotaryItem.title}
-          fill
-          sizes="360px"
-          style={{ objectFit: 'cover' }}
-          priority
-        />
-        <div
+    <div
+      style={{
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        paddingTop: '68px', // Clearance below 62px navbar
+        paddingBottom: '16px',
+        boxSizing: 'border-box',
+        position: 'relative',
+        zIndex: 10,
+      }}
+    >
+      {/* ── Top Header & Indicators ── */}
+      <div style={{ textAlign: 'center', padding: '0 16px', flexShrink: 0 }}>
+        {/* Eyebrow */}
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', marginBottom: '2px' }}>
+          <Disc3 size={12} color={brand.skyBlue} className="animate-spin-slow" />
+          <span
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: '0.64rem',
+              letterSpacing: '2.5px',
+              color: brand.skyBlue,
+              fontWeight: 700,
+              textTransform: 'uppercase',
+            }}
+          >
+            ROTARY OBSERVATORY // FIVE DISTINCTIONS
+          </span>
+        </div>
+
+        {/* Section Heading */}
+        <h2
           style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'linear-gradient(to top, rgba(38, 54, 111, 0.95) 0%, rgba(38, 54, 111, 0.2) 55%, transparent 100%)',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            padding: '18px',
-            color: brand.white,
+            fontFamily: 'var(--font-heading)',
+            fontSize: 'clamp(1.35rem, 5vw, 1.7rem)',
+            fontWeight: 900,
+            color: brand.primaryBlue,
+            letterSpacing: '-0.01em',
+            lineHeight: 1.1,
+            margin: '0 0 6px 0',
+            textTransform: 'uppercase',
           }}
         >
-          {/* Top Badges */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span
+          COMPLETE PORTFOLIO CATALOG
+        </h2>
+
+        {/* Dynamic Card Indicator Badge */}
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+          <span
+            style={{
+              padding: '2px 9px',
+              backgroundColor: brand.primaryBlue,
+              color: brand.white,
+              borderRadius: '20px',
+              fontFamily: 'monospace',
+              fontSize: '0.68rem',
+              fontWeight: 700,
+              letterSpacing: '0.5px',
+            }}
+          >
+            CARD 0{activeCardIdx + 1} / 05
+          </span>
+          <span
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: '0.78rem',
+              fontWeight: 800,
+              color: brand.primaryBlue,
+              letterSpacing: '0.5px',
+              textTransform: 'uppercase',
+            }}
+          >
+            {activeItem?.name}
+          </span>
+        </div>
+
+        {/* 5 Dots Indicator */}
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '6px' }}>
+          {collections.map((item, dIdx) => (
+            <div
+              key={item.id}
               style={{
-                padding: '4px 10px',
-                backgroundColor: brand.primaryBlue,
-                color: brand.white,
+                width: activeCardIdx === dIdx ? '22px' : '7px',
+                height: '7px',
                 borderRadius: '4px',
-                fontFamily: 'var(--font-heading)',
-                fontSize: '0.72rem',
-                fontWeight: 900,
+                backgroundColor: activeCardIdx === dIdx ? brand.skyBlue : 'rgba(38, 54, 111, 0.22)',
+                boxShadow: activeCardIdx === dIdx ? '0 0 10px #12A4DC' : 'none',
+                transition: 'all 0.3s ease',
               }}
-            >
-              [{safeRotaryItem.roman}] {safeRotaryItem.name}
-            </span>
-            <span
-              style={{
-                fontFamily: 'monospace',
-                fontSize: '0.72rem',
-                color: brand.skyBlue,
-                fontWeight: 700,
-              }}
-            >
-              {safeRotaryItem.appreciation}
-            </span>
-          </div>
-
-          {/* Bottom Card Title & Specs */}
-          <div>
-            <span
-              style={{
-                display: 'block',
-                fontFamily: 'var(--font-heading)',
-                fontSize: '0.68rem',
-                letterSpacing: '1.8px',
-                color: brand.skyBlue,
-                fontWeight: 700,
-                marginBottom: '3px',
-              }}
-            >
-              {safeRotaryItem.categoryTag}
-            </span>
-            <h4
-              style={{
-                fontFamily: 'var(--font-heading)',
-                fontSize: '1.25rem',
-                color: brand.white,
-                margin: '0 0 8px 0',
-                lineHeight: 1.2,
-              }}
-            >
-              {safeRotaryItem.title}
-            </h4>
-
-            {/* Specs row */}
-            <div style={{ display: 'flex', gap: '8px', marginBottom: '10px' }}>
-              {safeRotaryItem.specs.slice(0, 2).map((s, sIdx) => (
-                <div
-                  key={sIdx}
-                  style={{
-                    padding: '4px 8px',
-                    backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                    backdropFilter: 'blur(6px)',
-                    borderRadius: '4px',
-                    fontSize: '0.66rem',
-                    fontFamily: 'monospace',
-                  }}
-                >
-                  <span style={{ opacity: 0.8 }}>{s.label}: </span>
-                  <span style={{ fontWeight: 700, color: brand.skyBlue }}>{s.val}</span>
-                </div>
-              ))}
-            </div>
-
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <span
-                style={{
-                  fontSize: '0.85rem',
-                  fontFamily: 'var(--font-heading)',
-                  color: 'rgba(255,255,255,0.95)',
-                  fontWeight: 700,
-                }}
-              >
-                FROM ₹{safeRotaryItem.minInvestment} CR
-              </span>
-
-              <a
-                href="/contact"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '4px',
-                  padding: '6px 14px',
-                  borderRadius: '20px',
-                  backgroundColor: brand.skyBlue,
-                  color: brand.white,
-                  fontSize: '0.72rem',
-                  fontFamily: 'var(--font-heading)',
-                  fontWeight: 800,
-                  textDecoration: 'none',
-                }}
-              >
-                <span>EXPLORE</span>
-                <ArrowUpRight size={14} />
-              </a>
-            </div>
-          </div>
+            />
+          ))}
         </div>
       </div>
 
-      {/* Dots Indicator for Mobile Rotary */}
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '6px', marginTop: '16px' }}>
-        {collections.map((item, dotIdx) => (
-          <button
-            key={item.id}
-            onClick={() => onSelectIndex(dotIdx)}
+      {/* ── Horizontal Scroll Track (5 Cards sliding Right to Left) ── */}
+      <div
+        style={{
+          width: '100%',
+          overflow: 'hidden',
+          padding: '8px 0',
+          position: 'relative',
+        }}
+      >
+        <motion.div
+          style={{
+            x: trackX,
+            display: 'flex',
+            gap: `${cardGap}px`,
+            paddingLeft: `calc((100vw - ${cardWidth}px) / 2)`,
+            paddingRight: `calc((100vw - ${cardWidth}px) / 2)`,
+            width: 'max-content',
+            willChange: 'transform',
+          }}
+        >
+          {collections.map((item, idx) => {
+            const isCardActive = activeCardIdx === idx;
+            return (
+              <div
+                key={item.id}
+                style={{
+                  width: `${cardWidth}px`,
+                  height: 'clamp(380px, 52vh, 440px)',
+                  borderRadius: '18px',
+                  overflow: 'hidden',
+                  backgroundColor: brand.white,
+                  position: 'relative',
+                  flexShrink: 0,
+                  border: isCardActive
+                    ? `2.5px solid ${brand.skyBlue}`
+                    : `1.8px solid rgba(18, 164, 220, 0.45)`,
+                  boxShadow: isCardActive
+                    ? `0 0 24px rgba(18, 164, 220, 0.75), 0 18px 40px rgba(34, 47, 128, 0.3)`
+                    : `0 8px 24px rgba(0, 0, 0, 0.12)`,
+                  transform: isCardActive ? 'scale(1)' : 'scale(0.96)',
+                  transition: 'transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease',
+                }}
+              >
+                {/* Property Image */}
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  sizes="340px"
+                  style={{ objectFit: 'cover' }}
+                  priority={idx === 0}
+                />
+
+                {/* Dark & Navy Gradient Overlay */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background:
+                      'linear-gradient(to top, rgba(34, 47, 128, 0.96) 0%, rgba(34, 47, 128, 0.35) 50%, rgba(0, 0, 0, 0.25) 100%)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    padding: '16px',
+                    color: brand.white,
+                  }}
+                >
+                  {/* Top Badges */}
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span
+                      style={{
+                        padding: '3px 8px',
+                        backgroundColor: '#222f80',
+                        color: brand.white,
+                        borderRadius: '4px',
+                        fontFamily: 'var(--font-heading)',
+                        fontSize: '0.68rem',
+                        fontWeight: 900,
+                        letterSpacing: '0.5px',
+                        border: '1px solid rgba(255, 255, 255, 0.2)',
+                      }}
+                    >
+                      [{item.roman}] {item.name}
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: 'monospace',
+                        fontSize: '0.68rem',
+                        color: brand.skyBlue,
+                        fontWeight: 700,
+                        backgroundColor: 'rgba(255, 255, 255, 0.15)',
+                        padding: '2px 6px',
+                        borderRadius: '4px',
+                      }}
+                    >
+                      {item.appreciation}
+                    </span>
+                  </div>
+
+                  {/* Bottom Information */}
+                  <div>
+                    <span
+                      style={{
+                        display: 'block',
+                        fontFamily: 'var(--font-heading)',
+                        fontSize: '0.64rem',
+                        letterSpacing: '1.5px',
+                        color: brand.skyBlue,
+                        fontWeight: 700,
+                        marginBottom: '2px',
+                        textTransform: 'uppercase',
+                      }}
+                    >
+                      {item.categoryTag}
+                    </span>
+
+                    <h4
+                      style={{
+                        fontFamily: 'var(--font-heading)',
+                        fontSize: '1.18rem',
+                        color: brand.white,
+                        margin: '0 0 6px 0',
+                        lineHeight: 1.18,
+                        fontWeight: 800,
+                      }}
+                    >
+                      {item.title}
+                    </h4>
+
+                    {/* Specs Pills */}
+                    <div style={{ display: 'flex', gap: '6px', marginBottom: '8px', flexWrap: 'wrap' }}>
+                      {item.specs.slice(0, 2).map((s, sIdx) => (
+                        <div
+                          key={sIdx}
+                          style={{
+                            padding: '3px 7px',
+                            backgroundColor: 'rgba(255, 255, 255, 0.16)',
+                            backdropFilter: 'blur(6px)',
+                            borderRadius: '4px',
+                            fontSize: '0.62rem',
+                            fontFamily: 'monospace',
+                          }}
+                        >
+                          <span style={{ opacity: 0.85 }}>{s.label}: </span>
+                          <span style={{ fontWeight: 700, color: brand.skyBlue }}>{s.val}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Pricing & CTA */}
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '4px' }}>
+                      <span
+                        style={{
+                          fontSize: '0.82rem',
+                          fontFamily: 'var(--font-heading)',
+                          color: '#FFFFFF',
+                          fontWeight: 800,
+                          letterSpacing: '0.5px',
+                        }}
+                      >
+                        FROM ₹{item.minInvestment} CR
+                      </span>
+
+                      <button
+                        type="button"
+                        onClick={() => {
+                          if (typeof window !== 'undefined') {
+                            window.dispatchEvent(new CustomEvent('open-quick-enquiry'));
+                          }
+                        }}
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '4px',
+                          padding: '6px 14px',
+                          borderRadius: '20px',
+                          backgroundColor: '#D2143A',
+                          color: brand.white,
+                          fontSize: '0.7rem',
+                          fontFamily: 'var(--font-heading)',
+                          fontWeight: 800,
+                          border: 'none',
+                          cursor: 'pointer',
+                          boxShadow: '0 4px 12px rgba(210, 20, 58, 0.4)',
+                        }}
+                      >
+                        <span>ENQUIRE</span>
+                        <ArrowUpRight size={13} />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </motion.div>
+      </div>
+
+      {/* ── Bottom Scroll Directional Indicator ── */}
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexShrink: 0 }}>
+        {activeCardIdx < 4 ? (
+          <div
             style={{
-              width: activeRotaryIndex === dotIdx ? '24px' : '8px',
-              height: '8px',
-              borderRadius: '4px',
-              backgroundColor: activeRotaryIndex === dotIdx ? brand.skyBlue : 'rgba(38, 54, 111, 0.2)',
-              border: 'none',
-              padding: 0,
-              cursor: 'pointer',
-              transition: 'all 0.3s ease',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              fontFamily: 'monospace',
+              fontSize: '0.68rem',
+              color: brand.skyBlue,
+              fontWeight: 700,
+              letterSpacing: '1px',
+              backgroundColor: 'rgba(18, 164, 220, 0.08)',
+              padding: '4px 12px',
+              borderRadius: '16px',
             }}
-            aria-label={`Go to distinction ${dotIdx + 1}`}
-          />
-        ))}
+          >
+            <span>SCROLL DOWN TO SLIDE CARDS ({activeCardIdx + 1}/5)</span>
+            <ChevronRight size={13} />
+          </div>
+        ) : (
+          <div
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              fontFamily: 'monospace',
+              fontSize: '0.68rem',
+              color: '#222f80',
+              fontWeight: 800,
+              letterSpacing: '1px',
+              backgroundColor: 'rgba(34, 47, 128, 0.1)',
+              padding: '4px 12px',
+              borderRadius: '16px',
+            }}
+          >
+            <span>ALL 5 CARDS EXPLORED • SCROLL TO CONTINUE</span>
+            <ChevronDown size={13} />
+          </div>
+        )}
       </div>
     </div>
   );
@@ -1971,23 +2179,23 @@ export default function PropertyShowcase() {
         id="complete-portfolio-catalog"
         style={{
           position: 'relative',
-          height: isMobile ? 'auto' : '560vh', // Mobile: auto height; Desktop: 560vh runway
+          height: isMobile ? '380vh' : '560vh', // Mobile: 380vh runway for 5 horizontal cards; Desktop: 560vh runway
           backgroundColor: BRAND.white,
-          padding: isMobile ? '2.5rem 1rem 3rem 1rem' : 0,
+          padding: 0,
         }}
       >
         <div
           style={{
-            position: isMobile ? 'relative' : 'sticky',
+            position: 'sticky',
             top: 0,
-            height: isMobile ? 'auto' : '100vh',
+            height: isMobile ? '100svh' : '100vh',
             width: '100%',
             overflow: 'hidden',
             backgroundColor: BRAND.white,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            paddingTop: isMobile ? '10px' : '82px',
+            paddingTop: isMobile ? '0' : '82px',
             boxSizing: 'border-box',
             borderTop: isMobile ? 'none' : '1px solid rgba(38, 54, 111, 0.12)',
           }}
@@ -2003,13 +2211,21 @@ export default function PropertyShowcase() {
             activeRoman={safeRotaryItem?.roman || 'I'}
           />
 
-          {/* ── STREAMLINED SECTION HEADER & INTEGRATED CONTROLS (COMPACT & FULLY VISIBLE) ── */}
-          <div
-            style={{
-              padding: '0.2rem 4vw 0 4vw',
-              textAlign: 'center',
-              position: 'relative',
-              zIndex: 10,
+          {isMobile ? (
+            <MobileHorizontalScrollCatalog
+              collections={COLLECTIONS}
+              brand={BRAND}
+              smoothCatalogScroll={smoothCatalogScroll}
+            />
+          ) : (
+            <>
+              {/* ── STREAMLINED SECTION HEADER & INTEGRATED CONTROLS (COMPACT & FULLY VISIBLE) ── */}
+              <div
+                style={{
+                  padding: '0.2rem 4vw 0 4vw',
+                  textAlign: 'center',
+                  position: 'relative',
+                  zIndex: 10,
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
@@ -2162,21 +2378,10 @@ export default function PropertyShowcase() {
             </p>
           </div>
 
-          {/* ── THE 5-CARDS ROTARY WHEEL CONTAINER (TOUCH SWIPEABLE & MOBILE ADAPTIVE) ── */}
-          {isMobile ? (
-            <MobileRotarySection
-              collections={COLLECTIONS}
-              brand={BRAND}
-              safeRotaryItem={safeRotaryItem}
-              activeRotaryIndex={activeRotaryIndex}
-              onPrev={handlePrevRotary}
-              onNext={handleNextRotary}
-              onSelectIndex={(idx) => setDragOffsetAngle(-idx * angleStep - scrollWheelAngle)}
-            />
-          ) : (
-            <div
-              onMouseDown={handleMouseDown}
-              onTouchStart={handleTouchStart}
+          {/* ── THE 5-CARDS ROTARY WHEEL CONTAINER (DESKTOP) ── */}
+          <div
+            onMouseDown={handleMouseDown}
+            onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
               style={{
@@ -2388,7 +2593,8 @@ export default function PropertyShowcase() {
               })}
             </div>
           </div>
-          )}
+        </>
+      )}
 
           {/* Bottom Spacing Anchor */}
           <div style={{ height: '20px' }} />
